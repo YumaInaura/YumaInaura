@@ -1,0 +1,22 @@
+#!/usr/bin/env bash -eu
+
+readonly source_file="$1"
+converted=''
+
+while read line
+do
+  if [[ $(echo "$line" | perl -e 'print 1 if(<> =~ /^(?!#)[^s]+/)') ]]; then
+    results=$(eval "$line")
+    converted="${converted}$line\n"
+    if [[ ! -z "$results" ]]; then
+      for result in $results; do
+        converted="${converted}# $result\n"
+      done
+    fi
+  else
+    converted="${converted}$line\n"
+  fi
+done < "$source_file"
+
+echo -e "$converted"
+
