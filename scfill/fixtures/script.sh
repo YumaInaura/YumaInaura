@@ -4,3 +4,5 @@ echo Alice
 
 echo Bob && echo Carol
 
+echo -e "David\nEric"
+

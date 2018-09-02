@@ -14,7 +14,7 @@ cat "$fixture_script_path"
 echo "=============================="
 echo "Expected"
 echo "------------------------------"
-readonly expected=$(cat <<EOM
+readonly expected=$(cat <<'EOM'
 #!/usr/bin/env bash -eu
 
 echo Alice
@@ -23,9 +23,13 @@ echo Alice
 echo Bob && echo Carol 
 # Bob
 # Carol
+
+echo -e "David\nEric"
+# David
+# Eric
 EOM
 )
-echo -e "$expected"
+echo "$expected"
 
 echo "=============================="
 echo "Got"

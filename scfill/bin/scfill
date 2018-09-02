@@ -1,20 +1,31 @@
 #!/usr/bin/env bash -eu
 
 readonly source_file="$1"
+if [[ -z "$source_file" ]]; then
+  echo Please tell your file want to convert
+  exit
+fi
+
 converted=''
 
 while read -r line
 do
+  # When command
   if [[ $(echo "$line" | perl -e 'print 1 if(<> =~ /^(?!#)[^s]+/)') ]]; then
-    echo $line
-    results=$(eval "$line")
+
+    # FIXME: mysterious newline
     converted="${converted}$line\n"
+
+    # Add command result each lines with heading comments
+    results=$(eval "$line")
     if [[ ! -z "$results" ]]; then
-      IFS=$'\n'
+      OLDIFS="$IFS"; IFS=$'\n'
       for result in $results; do
         converted="${converted}# $result\n"
       done
+      IFS="$OLDIFS"
     fi
+  # When not command ( e.g empty newline / headling comment )
   else
     converted="${converted}$line\n"
   fi
