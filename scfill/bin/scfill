@@ -18,11 +18,7 @@ do
     # Add command result each lines with heading comments
     results=$(eval "$line")
     if [[ ! -z "$results" ]]; then
-      OLDIFS="$IFS"; IFS=$'\n'
-      for result in $results; do
-        echo '#' "$result"
-      done
-      IFS="$OLDIFS"
+      echo "$results" | sed -e 's/^/# /g'
     fi
   fi
 done < "$source_file"
