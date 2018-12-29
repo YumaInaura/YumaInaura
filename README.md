@@ -35,8 +35,13 @@ https://www.facebook.com/yumainaura
 
 # ScrapBox made in Japan super high UX UX web service
 
+
+https://scrapbox.io/
+
 https://scrapbox.io/yumainaura/
 
 # Qiita Japanese Engineering platform and sorclaized web site
+
+https://qiita.com/
 
 https://qiita.com/YumaInaura
