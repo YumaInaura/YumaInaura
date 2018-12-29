@@ -11,6 +11,6 @@ e.g images/photos texts ideas
 
 Youcan edit articles by anyway
 
-# Who is yumainaura
+# Who is @yumainaura
 
 Web Engineer in Osaka Japann loves Japanese Service "ScrapBox" and me is some of scrap lol
