@@ -2,6 +2,9 @@
 
 # 🤖 Few codes and Many issues about engineering
 
+Some articles japanese
+some articles english
+
 https://github.com/YumaInaura/YumaInaura/issues
 
 # Free copyright
@@ -15,6 +18,10 @@ Youcan edit articles by anyway
 # Who is @yumainaura
 
 Web Engineer in Osaka Japann loves Japanese Service "ScrapBox" and me is some of scrap lol
+
+and "Qiita" i love too.
+
+💔 "Gitub" ? no word to say you understand. 
 
 
 # Twitter
