@@ -7,6 +7,9 @@ some articles english
 
 https://github.com/YumaInaura/YumaInaura/issues
 
+![image](https://user-images.githubusercontent.com/13635059/50536562-fbdcd900-0b98-11e9-9917-f2556d5ff79a.png)
+
+
 # Free copyright
 
 You can use anything in my repository 
