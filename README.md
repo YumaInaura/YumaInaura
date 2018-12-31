@@ -1,6 +1,3 @@
-# Google indexing ( how articles wrote? )
-
-[site:https://github.com/YumaInaura/YumaInaura - Google Search](https://www.google.com/search?q=site%3Ahttps%3A%2F%2Fgithub.com%2FYumaInaura%2FYumaInaura&oq=site%3Ahttps%3A%2F%2Fgithub.com%2FYumaInaura%2FYumaInaura&aqs=chrome..69i57j69i58j69i59l2.2288j0j7&sourceid=chrome&ie=UTF-8)
 
 
 # 🤖 Few codes and Many issues about engineering
@@ -51,3 +48,7 @@ https://scrapbox.io/yumainaura/
 https://qiita.com/
 
 https://qiita.com/YumaInaura
+
+# Google indexing ( how articles can i find with him? )
+
+[site:https://github.com/YumaInaura/YumaInaura - Google Search](https://www.google.com/search?q=site%3Ahttps%3A%2F%2Fgithub.com%2FYumaInaura%2FYumaInaura&oq=site%3Ahttps%3A%2F%2Fgithub.com%2FYumaInaura%2FYumaInaura&aqs=chrome..69i57j69i58j69i59l2.2288j0j7&sourceid=chrome&ie=UTF-8)
