@@ -56,3 +56,19 @@ https://qiita.com/YumaInaura
 # Google indexing ( how articles can i find with him? )
 
 [site:https://github.com/YumaInaura/YumaInaura - Google Search](https://www.google.com/search?q=site%3Ahttps%3A%2F%2Fgithub.com%2FYumaInaura%2FYumaInaura&oq=site%3Ahttps%3A%2F%2Fgithub.com%2FYumaInaura%2FYumaInaura&aqs=chrome..69i57j69i58j69i59l2.2288j0j7&sourceid=chrome&ie=UTF-8)
+
+
+# Hatena
+
+
+<a href="https://twitter.com/yumainaura">Twitter</a>
+<a href="http://yumainaura.hateblo.jp/">いなうらゆうま</a>
+<a href="http://3min.hatenadiary.jp/">3分</a>
+<a href="http://mindfulness.hatenablog.jp/">マインドフルネス</a>
+<a href="https://yumainaura-engineer.hateblo.jp/"エンジニア></a>
+<a href="https://yumainaura-walking.hateblo.jp/">脊柱管狭窄</a>
+<a href="https://yumainaura-married.hatenablog.jp/">妻</a>
+<a href="https://cafe-yumainaura.hatenablog.com/">カフェ</a>
+<a href="https://device-yumainaura.hateblo.jp/">デバイス</a>
+<a href="https://lifehack-yumainaura.hatenablog.jp/">ライフハック</a>
+
