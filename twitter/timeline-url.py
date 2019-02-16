@@ -18,6 +18,7 @@ params ={
   'count' : os.environ.get('COUNT') or 200,
   'trim_user' : True,
   'exclude_replies' : True,
+  'include_rts' : False,
   'tweet_mode' : 'extended'
 }
 res = twitter.get(url, params = params)
