@@ -45,6 +45,7 @@ https://www.facebook.com/yumainaura
 https://qiita.com/
 
 https://qiita.com/YumaInaura
+https://qiita.com/Yinaura
 
 # Youtube
 
@@ -52,9 +53,11 @@ https://qiita.com/YumaInaura
 
 # Hatena Blog
 
-- <a href="http://yumainaura.hateblo.jp/">いなうらゆうま</a>
-- <a href="http://3min.hatenadiary.jp/">3分</a>
-- <a href="http://mindfulness.hatenablog.jp/">マインドフルネス</a>
+<ul>
+<li><a href="http://yumainaura.hateblo.jp/">いなうらゆうま</a></li>
+<li><a href="http://3min.hatenadiary.jp/">3分</a></li>
+<li><a href="http://mindfulness.hatenablog.jp/">マインドフルネス</a></li>
+</ul>
 
 
 # Medium
