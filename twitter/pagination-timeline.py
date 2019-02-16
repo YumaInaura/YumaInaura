@@ -20,6 +20,7 @@ def response(max_id):
     'trim_user' : True,
     'exclude_replies' : True,
     'tweet_mode' : 'extended',
+    'count' : 200,
   }
   
   if max_id:
@@ -36,25 +37,16 @@ def response(max_id):
 
   return res
 
-def results(timelines):
-  line_results = []
-
-  for line in timelines:
-      # if you need tweet text then use line['full_text'] 
-      line_results.append(line['created_at'] + " : " + str(line['id']))
-      last_id = line['id']
-
-  return last_id, line_results
-
-round = int(os.environ.get('ROUND')) or 5
+round = int(os.environ.get('ROUND')) if os.environ.get('ROUND') else 5
 
 for i in range(0, round):
   res = response(last_id)
-  timelines = json.loads(res.text)
-  
-  last_id, timeline_results = results(timelines)
-  timeline_results.pop()
 
-  for result in timeline_results:
-    print(result)
+  timelines = json.loads(res.text)
+  last_id = timelines[-1]['id']
+
+  timelines.pop()
+
+  for result in timelines:
+    print(result['id'])
 
