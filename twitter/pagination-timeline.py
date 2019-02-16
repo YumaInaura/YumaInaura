@@ -48,5 +48,5 @@ for i in range(0, round):
   timelines.pop()
 
   for result in timelines:
-    print(result)
+    print(json.dumps(result))
 
