@@ -61,7 +61,6 @@ for line in timelines:
     if line['full_text'].find('RT') >= 0:
       continue
 
-    print(line)
     results.append('https://twitter.com/YumaInaura/status/' + str(line['id']))
 
 results.reverse()
