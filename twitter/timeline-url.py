@@ -15,11 +15,10 @@ twitter = OAuth1Session(CK, CS, AT, ATS)
 url = "https://api.twitter.com/1.1/statuses/user_timeline.json"
 
 params ={
-  'count' : os.environ.get('COUNT') or 1000,
+  'count' : os.environ.get('COUNT') or 200,
   'trim_user' : True,
   'exclude_replies' : True,
   'tweet_mode' : 'extended'
-
 }
 res = twitter.get(url, params = params)
 
@@ -33,22 +32,6 @@ def convert_datetime(datetime_str):
   tweet_datetime = datetime.datetime(*tweet_time[:6])
   return(tweet_datetime)
 
-def in_jst_yesterday(tweet_datetime):
-  # Only before JST 9 am it works
-  today_beggining_of_day = \
-    datetime.datetime.utcnow() \
-    .replace(hour=15, minute=0, second=0, microsecond=0) \
-
-  if os.environ.get('OVERTIME'):
-    today_beggining_of_day -= timedelta(days=1)
-
-  yesterday_beggining_of_day = \
-    today_beggining_of_day \
-    - timedelta(days=1)
-
-  if today_beggining_of_day > tweet_datetime >= yesterday_beggining_of_day:
-    return True
-
 timelines = json.loads(res.text)
 
 results = []
@@ -56,8 +39,6 @@ results = []
 for line in timelines:
     tweet_datetime = convert_datetime(line['created_at'])
 
-    if not in_jst_yesterday(tweet_datetime):
-      continue
     if line['full_text'].find('RT') >= 0:
       continue
 
