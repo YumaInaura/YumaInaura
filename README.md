@@ -67,13 +67,12 @@ https://qiita.com/Yinaura
 
 # Hatena Blog ( Twitter history )
 
-- [https://yumainaura-engineer.hateblo.jp/](エンジニア)
-- [https://yumainaura-walking.hateblo.jp/](脊柱管狭窄)
-- [https://yumainaura-married.hatenablog.jp/](妻)
-
-- [https://cafe-yumainaura.hatenablog.com/](カフェ)
-- [https://device-yumainaura.hateblo.jp/](デバイス)
-- [https://lifehack-yumainaura.hatenablog.jp/](ライフハック)
+- [エンジニア](https://yumainaura-engineer.hateblo.jp/)
+- [脊柱管狭窄](https://yumainaura-walking.hateblo.jp/)
+- [妻](https://yumainaura-married.hatenablog.jp/)
+- [カフェ](https://cafe-yumainaura.hatenablog.com/)
+- [デバイス](https://device-yumainaura.hateblo.jp/)
+- [ライフハック](https://lifehack-yumainaura.hatenablog.jp/)
 
 - [言葉 いなうらゆうま YumaInaura 稲浦悠馬](https://word-yumainaura.hatenablog.com/)
 - [ダイエット いなうらゆうま YumaInaura 稲浦悠馬](https://yumainaura-diet.hatenablog.jp/)
