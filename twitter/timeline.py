@@ -13,71 +13,40 @@ ATS = config.ACCESS_TOKEN_SECRET
 twitter = OAuth1Session(CK, CS, AT, ATS)
 
 url = "https://api.twitter.com/1.1/statuses/user_timeline.json"
+last_id = ''
 
-params ={
-  'count' : os.environ.get('COUNT') or 1000,
-  'trim_user' : True,
-  'exclude_replies' : True,
-  'tweet_mode' : 'extended'
+def response(max_id):
+  api_params = {
+    'trim_user' : True,
+    'exclude_replies' : True,
+    'tweet_mode' : 'extended',
+    'count' : 200,
+  }
+  
+  if max_id:
+    api_params['max_id'] = max_id
 
-}
-res = twitter.get(url, params = params)
+  if os.environ.get('COUNT'):
+    api_params['count'] = os.environ.get('COUNT')
 
-if res.status_code != 200:  
-    print("Failed: %d" % res.status_code)
-    exit()
+  res = twitter.get(url, params = api_params)
+  
+  if res.status_code != 200:  
+      print("Failed: %d" % res.status_code)
+      exit()
 
-def convert_datetime(datetime_str):
-  tweet_time = time.strptime(datetime_str,'%a %b %d %H:%M:%S +0000 %Y')
+  return res
 
-  tweet_datetime = datetime.datetime(*tweet_time[:6])
-  return(tweet_datetime)
+round = int(os.environ.get('ROUND')) if os.environ.get('ROUND') else 5
 
-def in_jst_yesterday(tweet_datetime):
-  # Only before JST 9 am it works
-  today_beggining_of_day = \
-    datetime.datetime.utcnow() \
-    .replace(hour=15, minute=0, second=0, microsecond=0) \
+for i in range(0, round):
+  res = response(last_id)
 
-  if os.environ.get('OVERTIME'):
-    today_beggining_of_day -= timedelta(days=1)
+  timelines = json.loads(res.text)
+  last_id = timelines[-1]['id']
 
+  timelines.pop()
 
-  yesterday_beggining_of_day = \
-    today_beggining_of_day \
-    - timedelta(days=1)
-
-  if today_beggining_of_day > tweet_datetime >= yesterday_beggining_of_day:
-    return True
-
-timelines = json.loads(res.text)
-
-results = []
-
-for line in timelines:
-    tweet_datetime = convert_datetime(line['created_at'])
-
-    if not in_jst_yesterday(tweet_datetime):
-      continue
-    if line['full_text'].find('RT') >= 0:
-      continue
-
-    text = re.sub(r'https://t\.co/\w+', '' ,line['full_text'])
-    text = re.sub(r'#', '' , text)
-    
-    text = '# ' + text
-    text += "\n" + '<a href="https://twitter.com/YumaInaura/status/' + str(line['id']) + '">' + line['created_at'] + '</a>'
-    if 'media' in line['entities'].keys():
-      for media in line['entities']['media']:
-        text += "\n"
-        text += "![image]("+media['media_url_https']+')'
-    text += "\n"
-
-    results.append(text)
-
-results.reverse()
-
-for result in results:
-  print(result)
-
+  for result in timelines:
+    print(json.dumps(result))
 
