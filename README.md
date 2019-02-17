@@ -67,27 +67,27 @@ https://qiita.com/Yinaura
 
 # Hatena Blog ( Twitter history )
 
-- [エンジニア](https://yumainaura-engineer.hateblo.jp/)
-- [脊柱管狭窄](https://yumainaura-walking.hateblo.jp/)
-- [妻](https://yumainaura-married.hatenablog.jp/)
-- [カフェ](https://cafe-yumainaura.hatenablog.com/)
-- [デバイス](https://device-yumainaura.hateblo.jp/)
-- [ライフハック](https://lifehack-yumainaura.hatenablog.jp/)
+- <a href="https://yumainaura-engineer.hateblo.jp/">エンジニア</a>
+- <a href="https://yumainaura-walking.hateblo.jp/">脊柱管狭窄</a>
+- <a href="https://yumainaura-married.hatenablog.jp/">妻</a>- 
 
-- [言葉 いなうらゆうま YumaInaura 稲浦悠馬](https://word-yumainaura.hatenablog.com/)
-- [ダイエット いなうらゆうま YumaInaura 稲浦悠馬](https://yumainaura-diet.hatenablog.jp/)
-- [ADHD / 発達障害 いなうらゆうま YumaInaura 稲浦悠馬](https://yumainaura-adhd.hateblo.jp/)
+- <a href="https://cafe-yumainaura.hatenablog.com/">カフェ</a>
+- <a href="https://device-yumainaura.hateblo.jp/">デバイス</a>
+- <a href="https://lifehack-yumainaura.hatenablog.jp/">ライフハック</a>- 
+
+- <a href="https://word-yumainaura.hatenablog.com/">言葉</a>
+- <a href="https://yumainaura-diet.hatenablog.jp/">ダイエット</a>
+- <a href="https://yumainaura-adhd.hateblo.jp/">ADHD</a>-  
 
 yumainaurayuma
 
-- [アート論的な いなうらゆうま YumaInaura](https://yumainaura-art.hatenablog.jp/)
-- [天才的クリエイティブの研究 いなうらゆうま YumaInaura](https://yumainaura-creative.hatenablog.com/)
-- [Twitterは遊園地 いなうらゆうま YumaInaura](https://yumainaura-twitter.hatenablog.jp/)
-
+- <a href="https://yumainaura-art.hatenablog.jp/">アート論的な</a>
+- <a href="YumaInaura https://yumainaura-creative.hatenablog.com/">天才的クリエイティブの研究</a>
+- <a href="YumaInaura https://yumainaura-twitter.hatenablog.jp/">Twitterは遊園地</a>
 
 # Others
 
-- [いなうらゆうま 稲浦悠馬 @yumainaura Yuma Inaura](https://scrapbox.io/yumainaura/)
+- <a href="https://scrapbox.io/yumainaura/">Scrapbox</a>
 
 
 
