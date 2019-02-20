@@ -10,8 +10,9 @@ https://github.com/YumaInaura/YumaInaura/issues
 # Skills
 
 - Ruby / Perl / Linux / ansible / BigQuery / SQL / shell script / Apache
-- Go lang / Jenkins / HTML / CSS
+- Go lang / Jenkins / HTML / CSS / Diffencive SEO
 - python / Google Cloud Platform
+- ソーシャルサイト運営 / 簡易ブラウザゲーム作成
 
 # Me in Instagram
 
