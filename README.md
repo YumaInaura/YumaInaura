@@ -7,6 +7,12 @@ some articles english
 
 https://github.com/YumaInaura/YumaInaura/issues
 
+# Skills
+
+- Ruby / Perl / Linux / ansible / BigQuery / SQL / shell script / Apache
+- Go lang / Jenkins / HTML / CSS
+- python / Google Cloud Platform
+
 # Me in Instagram
 
 ![image](https://user-images.githubusercontent.com/13635059/51364951-4232b180-1b21-11e9-8c7c-676859ed957a.png)
