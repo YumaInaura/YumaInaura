@@ -69,34 +69,6 @@ https://qiita.com/Yinaura
 
 # Blogger
 
-# Hatena Blog ( Twitter history )
-
-<ul>
-<li><a href="https://yumainaura-engineer.hateblo.jp/">エンジニア</a></li>
-<li><a href="https://yumainaura-walking.hateblo.jp/">脊柱管狭窄</a></li>
-<li><a href="https://yumainaura-married.hatenablog.jp/">妻</a></li>
-</ul>
-
-<ul>
-<li><a href="https://cafe-yumainaura.hatenablog.com/">カフェ</a></li>
-<li><a href="https://device-yumainaura.hateblo.jp/">デバイス</a></li>
-<li><a href="https://lifehack-yumainaura.hatenablog.jp/">ライフハック</a></li>
-</ul>
-
-<ul>
-<li><a href="https://word-yumainaura.hatenablog.com/">言葉</a></li>
-<li><a href="https://yumainaura-diet.hatenablog.jp/">ダイエット</a></li>
-<li><a href="https://yumainaura-adhd.hateblo.jp/">ADHD</a></li>
-</ul>
-
-yumainaurayuma
-
-<ul>
-<li><a href="https://yumainaura-art.hatenablog.jp/">アート論的な</a></li>
-<li><a href="YumaInaura https://yumainaura-creative.hatenablog.com/">天才的クリエイティブの研究</a></li>
-<li><a href="YumaInaura https://yumainaura-twitter.hatenablog.jp/">Twitterは遊園地</a></li>
-</ul>
-
 # Others
 
 - <a href="https://scrapbox.io/yumainaura/">Scrapbox</a>
