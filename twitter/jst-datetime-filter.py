@@ -13,7 +13,9 @@ def in_jst_yesterday(tweet_datetime):
     datetime.datetime.utcnow() \
     .replace(hour=15, minute=0, second=0, microsecond=0) \
 
-  if os.environ.get('OVERTIME'):
+  if os.environ.get('BACKDAYS'):
+    today_beggining_of_day -= timedelta(days=int(os.environ.get('BACKDAYS')))
+  elif os.environ.get('OVERTIME'):
     today_beggining_of_day -= timedelta(days=1)
 
   yesterday_beggining_of_day = \
