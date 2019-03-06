@@ -17,7 +17,7 @@ last_id = ''
 
 def response(max_id):
   api_params = {
-    'trim_user' : False,
+    'trim_user' : True,
     'exclude_replies' : True,
     'tweet_mode' : 'extended',
     'count' : 200,
