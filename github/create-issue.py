@@ -1,31 +1,45 @@
-# WIP
+# https://gist.github.com/JeffPaine/3145490
 
+import os
+import json
+import requests
 
-# https://developer.github.com/v3/issues/#create-an-issue
+# Authentication for user filing issue (must have read/write access to
+# repository to add issue to)
+USERNAME = os.environ.get('USERNAME')
+PASSWORD = os.environ.get('PASSWORD')
 
-# OWNER=YumaInaura REPOSITORY=playground python %:p
+# The repository to add this issue to
+REPO_OWNER = os.environ.get('USERNAME')
+REPO_NAME = os.environ.get('REPOSITORY')
 
-import requests, os
+TITLE = os.environ.get('TITLE')
+BODY = os.environ.get('BODY')
 
-owner = os.environ.get('OWNER')
-repository = os.environ.get('REPOSITORY')
-token = os.environ.get('TOKEN')
+if os.environ.get('LABELS'):
+  LABELS = os.environ.get('LABELS').split(',')
+else:
+  LABELS = ''
 
-url = 'https://api.github.com/repos/' + owner + '/' + repository + '/issues'
+def make_github_issue(title, body=None, labels=None):
+    '''Create an issue on github.com using the given parameters.'''
+    # Our url to create issues via POST
+    url = 'https://api.github.com/repos/%s/%s/issues' % (REPO_OWNER, REPO_NAME)
+    # Create an authenticated session to create the issue
+    session = requests.Session()
+    session.auth = (USERNAME, PASSWORD)
+    # Create our issue
+    issue = {'title': title,
+             'body': body,
+             'labels': labels}
+    # Add the issue to our repository
+    r = session.post(url, json.dumps(issue))
+    if r.status_code == 201:
+        print ('Successfully created Issue {0:s}'.format(title))
+    else:
+        print ('Could not create Issue {0:s}'.format(title))
+        print ('Response:', r.content)
 
-headers = {
- 'Authorization': 'Bearer {}'.format(token),
- 'Content-Type': 'application/json',
-}
+make_github_issue(TITLE, body=BODY, labels=LABELS)
 
-print(url)
-
-params = {
-  "title": "Found a bug",
-  "body": "I'm having a problem with this."
-}
-
-res = requests.post(url, params=params)
-  
-print(res.json())
 
