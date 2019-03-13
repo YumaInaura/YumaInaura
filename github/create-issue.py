@@ -1,8 +1,6 @@
 # https://gist.github.com/JeffPaine/3145490
 
-import os
-import json
-import requests
+import os, json, re, requests
 
 # Authentication for user filing issue (must have read/write access to
 # repository to add issue to)
@@ -14,7 +12,9 @@ REPO_OWNER = os.environ.get('USERNAME')
 REPO_NAME = os.environ.get('REPOSITORY')
 
 TITLE = os.environ.get('TITLE')
-BODY = os.environ.get('BODY')
+body = os.environ.get('BODY')
+
+body = re.sub(r'\\n', "\n", body)
 
 if os.environ.get('LABELS'):
   LABELS = os.environ.get('LABELS').split(',')
@@ -40,6 +40,7 @@ def make_github_issue(title, body=None, labels=None):
         print ('Could not create Issue {0:s}'.format(title))
         print ('Response:', r.content)
 
-make_github_issue(TITLE, body=BODY, labels=LABELS)
-
+    print(r.json())
+     
+make_github_issue(TITLE, body=body, labels=LABELS)
 
