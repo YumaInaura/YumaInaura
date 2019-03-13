@@ -12,9 +12,13 @@ REPO_OWNER = os.environ.get('USERNAME')
 REPO_NAME = os.environ.get('REPOSITORY')
 
 TITLE = os.environ.get('TITLE')
-body = os.environ.get('BODY')
 
-body = re.sub(r'\\n', "\n", body)
+if os.environ.get('FILE'):
+  file = open(os.environ.get('FILE'), "r")
+  body = file.read()
+else:
+  body = os.environ.get('BODY')
+  body = re.sub(r'\\n', "\n", body)
 
 if os.environ.get('LABELS'):
   LABELS = os.environ.get('LABELS').split(',')
