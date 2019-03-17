@@ -50,5 +50,7 @@ for i in range(0, round):
   timelines.pop()
 
   for result in timelines:
+    if result["in_reply_to_user_id"] and result["in_reply_to_user_id"] != 473780756:
+      continue
     print(json.dumps(result))
 
