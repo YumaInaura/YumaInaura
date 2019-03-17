@@ -9,12 +9,17 @@ def format(text):
     text = re.sub(r'#', '' , text)
 
     text = '# ' + text
-    text += "\n" + '<a href="https://twitter.com/YumaInaura/status/' + str(line['id']) + '">' + line['created_at'] + '</a>'
     if 'media' in line['entities'].keys():
       for media in line['entities']['media']:
         text += "\n"
         text += "![image]("+media['media_url_https']+')'
     text += "\n"
+
+    if 'quoted_status' in line:
+      text += "\n>" + line['quoted_status']['full_text'] + "\n"
+
+    # text += "\n" + '<a href="https://twitter.com/YumaInaura/status/' + str(line['id']) + '">' + line['created_at'] + '</a>'
+    text += "\n" + '<a href="https://twitter.com/YumaInaura/status/' + str(line['id']) + '">' + 'Tweet'  + '</a>'
 
     return(text)
 

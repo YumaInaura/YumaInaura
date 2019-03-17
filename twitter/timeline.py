@@ -15,10 +15,12 @@ twitter = OAuth1Session(CK, CS, AT, ATS)
 url = "https://api.twitter.com/1.1/statuses/user_timeline.json"
 last_id = ''
 
+include_replies = True if os.environ.get('INCLUDE_REPLIES') else False
+
 def response(max_id):
   api_params = {
     'trim_user' : True,
-    'exclude_replies' : True,
+    'exclude_replies' : not(include_replies),
     'tweet_mode' : 'extended',
     'count' : 200,
   }
@@ -48,5 +50,7 @@ for i in range(0, round):
   timelines.pop()
 
   for result in timelines:
+    if result["in_reply_to_user_id"] and result["in_reply_to_user_id"] != 473780756:
+      continue
     print(json.dumps(result))
 
