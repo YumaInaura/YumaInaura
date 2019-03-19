@@ -43,13 +43,14 @@ def response(max_id):
 
 round = int(os.environ.get('ROUND')) if os.environ.get('ROUND') else 5
 
-for i in range(0, round):
+for i in range(0, round-1):
   res = response(last_id)
 
   timelines = json.loads(res.text)
   last_id = timelines[-1]['id']
 
-  timelines.pop()
+  if i >= 2:
+    timelines.pop()
 
   for result in timelines:
     if result["in_reply_to_user_id"] and result["in_reply_to_user_id"] != 473780756:
