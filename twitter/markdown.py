@@ -25,9 +25,6 @@ def format(text):
 for line in timelines:
     line = json.loads(line)
 
-    if line['full_text'].find('RT') >= 0:
-      continue
-
     results.append(format(line['full_text']))
 
 results.reverse()
