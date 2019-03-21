@@ -56,7 +56,7 @@ for i in range(0, round-1):
     if result["in_reply_to_user_id"] and result["in_reply_to_user_id"] != 473780756:
       continue
 
-    if result["retweeted"] and result["retweeted_status"]["user"]["id"] != 473780756:
+    if result["retweeted"] and 'retweeted_status' in result and result["retweeted_status"]["user"]["id"] != 473780756:
       continue
 
     print(json.dumps(result))
