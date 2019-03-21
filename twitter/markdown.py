@@ -16,7 +16,7 @@ def format(text):
     text += "\n"
 
     if 'quoted_status' in line:
-      text += re.sub("([^\n]+)\n?", ">\\1\n", line['quoted_status']['full_text'])
+      text += re.sub("^|\n", "\n>", line['quoted_status']['full_text'])
 
     text += "\n" + '<a href="https://twitter.com/YumaInaura/status/' + str(line['id']) + '">' + 'Tweet'  + '</a>'
 
