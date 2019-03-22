@@ -4,9 +4,11 @@ timelines = sys.stdin
 
 results = []
 
-def format(text):
+def format_tweet(text):
     text = re.sub(r'https://t\.co/\w+', '' ,line['full_text'])
     text = re.sub(r'#', '' , text)
+
+    text = re.sub(r'。', "。\n", text, 1)
 
     text = '# ' + text
     if 'media' in line['entities'].keys():
@@ -25,10 +27,7 @@ def format(text):
 for line in timelines:
     line = json.loads(line)
 
-    if line['full_text'].find('RT') >= 0:
-      continue
-
-    results.append(format(line['full_text']))
+    results.append(format_tweet(line['full_text']))
 
 results.reverse()
 
