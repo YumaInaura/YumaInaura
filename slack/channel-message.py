@@ -1,6 +1,16 @@
-import requests, os
+# https://api.slack.com/methods/channels.history/test
 
-url = os.environ.get('WEBHOOK_URL')
+import requests, os, json
+
+if os.environ.get('WEBHOOK_URL'):
+  url = os.environ.get('WEBHOOK_URL')
+elif os.environ.get('TOKEN') and os.environ.get('CHANNEL'):
+  url = "https://slack.com/api/channels.history?token={token}&channel={channel}&pretty=1&oldest={oldest}&latest={latest}".format(**{
+    "token" : os.environ.get('TOKEN'),
+    "channel" : os.environ.get('CHANNEL'),
+    "oldest" : os.environ.get('OLDEST') or '',
+    "latest" : os.environ.get('LATEST') or '',
+  })
 
 headers = {
   'Content-type': 'application/json'
@@ -8,4 +18,5 @@ headers = {
 
 res = requests.get(url, headers=headers)
 
-print(res)
+print(json.dumps(res.json()))
+
