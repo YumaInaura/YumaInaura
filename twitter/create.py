@@ -10,6 +10,7 @@ ATS = config.ACCESS_TOKEN_SECRET
 twitter = OAuth1Session(CK, CS, AT, ATS)
 
 formatted_message = re.sub(r'\\n', "\n", os.environ.get("MESSAGE"))
+formatted_message = formatted_message[:140]
 encoded_message = urllib.parse.quote_plus(formatted_message)
 
 url = "https://api.twitter.com//1.1/statuses/update.json?status={message}".format(**{ "message" : encoded_message })
