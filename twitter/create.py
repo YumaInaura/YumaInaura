@@ -16,8 +16,6 @@ for line in sys.stdin:
 
 formatted_message = re.sub(r'\\n', "\n", message)
 
-message_length = twitter_length(formatted_message)
-
 formatted_message = formatted_message[:140]
 
 encoded_message = urllib.parse.quote_plus(formatted_message)
