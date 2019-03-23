@@ -1,6 +1,6 @@
 # https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-destroy-id.html
 
-import json, config, re, sys
+import json, config, re, sys, os
 from requests_oauthlib import OAuth1Session
  
 CK = config.CONSUMER_KEY
@@ -11,7 +11,7 @@ twitter = OAuth1Session(CK, CS, AT, ATS)
 
 for line in sys.stdin:
   id = line.strip()
-  api_url = 'https://api.twitter.com/1.1/statuses/destroy/{id}'.format(**{ "id" : id})
+  api_url = 'https://api.twitter.com/1.1/statuses/destroy/{id}.json'.format(**{ "id" : id })
 
   if os.environ.get("DEBUG"):
     print(api_url)
