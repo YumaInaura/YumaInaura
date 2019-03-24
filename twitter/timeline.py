@@ -12,6 +12,8 @@ AT = config.ACCESS_TOKEN
 ATS = config.ACCESS_TOKEN_SECRET
 twitter = OAuth1Session(CK, CS, AT, ATS)
 
+OWN_USER_ID = 473780756
+
 url = "https://api.twitter.com/1.1/statuses/user_timeline.json"
 last_id = ''
 
@@ -53,10 +55,10 @@ for i in range(0, round-1):
     timelines.pop()
 
   for result in timelines:
-    if result["in_reply_to_user_id"] and result["in_reply_to_user_id"] != 473780756:
+    if result["in_reply_to_user_id"] and result["in_reply_to_user_id"] != OWN_USER_ID:
       continue
 
-    if result["retweeted"] and 'retweeted_status' in result and result["retweeted_status"]["user"]["id"] != 473780756:
+    if result["retweeted"] and 'retweeted_status' in result and result["retweeted_status"]["user"]["id"] != OWN_USER_ID:
       continue
 
     print(json.dumps(result))
