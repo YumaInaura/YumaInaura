@@ -20,6 +20,11 @@ def format_tweet(text):
     if 'quoted_status' in line:
       text += re.sub("^|\n", "\n>", line['quoted_status']['full_text'])
 
+    if line["entities"] and line["entities"]["urls"]:
+      for url in line["entities"]["urls"]:
+        text += '<{expanded_url}>'.format(**url)
+
+
     text += "\n\n" + '<a href="https://twitter.com/YumaInaura/status/' + str(line['id']) + '">' + 'Tweet'  + '</a>'
 
     return(text)
