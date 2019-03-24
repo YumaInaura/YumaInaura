@@ -18,7 +18,9 @@ url = "https://api.twitter.com/1.1/statuses/user_timeline.json"
 last_id = ''
 
 include_rts =     True if os.environ.get('INCLUDE_RTS') else False
-include_replies = True if os.environ.get('INCLUDE_REPLIES') else False
+include_replies = True if (os.environ.get('INCLUDE_REPLIES') or os.environ.get('ONLY_REPLIES')) else False
+
+round = int(os.environ.get('ROUND')) if os.environ.get('ROUND') else 3
 
 def response(max_id):
   api_params = {
@@ -43,8 +45,6 @@ def response(max_id):
 
   return res
 
-round = int(os.environ.get('ROUND')) if os.environ.get('ROUND') else 5
-
 for i in range(0, round-1):
   res = response(last_id)
 
@@ -55,11 +55,19 @@ for i in range(0, round-1):
     timelines.pop()
 
   for result in timelines:
-    if result["in_reply_to_user_id"] and result["in_reply_to_user_id"] != OWN_USER_ID:
+    own_reply = True if result["in_reply_to_user_id"] == OWN_USER_ID else False
+    own_retweet = True if ('retweeted_status' in result and result["retweeted_status"]["user"]["id"] == OWN_USER_ID) else False
+
+    if os.environ.get("ONLY_REPLIES") and not result["in_reply_to_user_id"] and not own_reply:
       continue
 
-    if result["retweeted"] and 'retweeted_status' in result and result["retweeted_status"]["user"]["id"] != OWN_USER_ID:
-      continue
+    if not os.environ.get("ALL"):
+  
+      if result["in_reply_to_user_id"] and not own_reply:
+        continue
+  
+      if result["retweeted"] and not own_retweet:
+        continue
 
     print(json.dumps(result))
 
