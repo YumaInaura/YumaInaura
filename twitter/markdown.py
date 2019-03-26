@@ -11,8 +11,8 @@ def format_tweet(text):
     text = re.sub(r'。', "。\n", text, 1)
 
     text = '# ' + text
-    if 'media' in line['entities'].keys():
-      for media in line['entities']['media']:
+    if 'extended_entities' in line and 'media' in line['extended_entities'].keys():
+      for media in line['extended_entities']['media']:
         text += "\n"
         text += "![image]("+media['media_url_https']+')'
     text += "\n"
