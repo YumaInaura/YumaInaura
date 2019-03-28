@@ -9,7 +9,6 @@ default_interval_sec=$(($(date +%s) - 60))
 interval_sec=${INTERVAL:-$default_interval_sec}
 
 echo ${basedir}
-source ${basedir}/../../secret/setting.sh
 source ${basedir}/../../setting.sh
 
 slack_messages=$(

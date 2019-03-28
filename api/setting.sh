@@ -3,3 +3,6 @@ if [ $(uname -s) = "Darwin" ]; then
 fi
 
 python() { python3 $@; }
+
+source ~/.secret/setting.sh
+
