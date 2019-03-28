@@ -45,21 +45,15 @@ I'm doing Zen engineer and vanishing my face and name is good work to "ME".
 
 https://twitter.com/YumaInaura
 
-# Facebook
-
-https://www.facebook.com/yumainaura
-
-
 # Qiita Japanese Engineering platform and sorclaized web site
-
-https://qiita.com/
 
 https://qiita.com/YumaInaura
 https://qiita.com/Yinaura
 
-# Youtube
+# Facebook
 
-[YouTube](https://www.youtube.com/channel/UCCAjS7ufSdGeYla5B_5d-Rg)
+https://www.facebook.com/yumainaura
+
 
 # Hatena Blog
 
