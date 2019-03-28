@@ -18,10 +18,6 @@ if [ "$user_slack_messages" == "[]" ] || [ -z "$user_slack_messages" ]; then
   exit
 fi
 
-echo "$user_slack_messages" | jq '.["text"]'
-exit
-
-
 date=$(TZ=Asia/Tokyo date +'%Y-%m-%d')
 
 github_title="いなうらゆうまはここにいた ${date}"
@@ -32,9 +28,12 @@ github_issues=$(
   python "$api_dir"/github/issue.py
 )
 
-echo "$github_issues"
+echo "$github_issues" | jq .
+
+exit
 
 found_issues=$(echo "$github_issues" | jq -c 'select(.["title"] | contains("'"$github_title"'"))')
+
 
 echo "FOUND ISSUES"
 echo "$found_issues"
