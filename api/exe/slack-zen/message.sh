@@ -3,13 +3,10 @@
 set -eu
 
 basedir=$(dirname "$0")
-echo $basedir
+source ${basedir}/../../setting.sh
 
 default_interval_sec=$(($(date +%s) - 60))
 interval_sec=${INTERVAL:-$default_interval_sec}
-
-echo ${basedir}
-source ${basedir}/../../setting.sh
 
 slack_messages=$(
   TOKEN="$slack_token" \
