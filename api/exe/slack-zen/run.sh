@@ -11,11 +11,16 @@ github_repository="playground"
 
 slack_message_json=$("${basedir}/channel-history.sh")
 slack_messages=$(echo "$slack_message_json" | jq '.["messages"]')
+user_slack_messages=$()
 
 if [ "$slack_messages" == "[]" ] || [ -z "$slack_messages" ]; then
   echo No slack messages found
   exit
 fi
+
+echo "$slack_messages" | jq '.[]["text"]'
+exit
+
 
 date=$(TZ=Asia/Tokyo date +'%Y-%m-%d')
 
