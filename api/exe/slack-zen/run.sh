@@ -5,17 +5,17 @@ set -eu
 basedir=$(dirname "$0")
 
 source "${basedir}/../../setting.sh"
-api_dir="${basedir}/../../lib"
 
+api_dir="${basedir}/../../lib"
 log_dir="${basedir}"/log
 
 mkdir -p "${log_dir}"
 
 github_repository="playground"
 
-slack_message_json=$("${basedir}/channel-history.sh")
+eval "${basedir}/channel-history.sh" > "$log_dir"/channel-message.json
 
-echo "$slack_message_json" | jq '.["messages"][]' > "$log_dir"/slack_message.json
+cat "$log_dir"/channel-message.json | jq '.["messages"][]' > "$log_dir"/slack_message.json
 cat "$log_dir"/slack_message.json | jq 'select(has("client_msg_id"))' > "$log_dir"/user_slack_message.json
 
 user_slack_messages=$(cat "$log_dir"/user_slack_message.json)
@@ -29,13 +29,11 @@ date=$(TZ=Asia/Tokyo date +'%Y-%m-%d')
 
 github_title="いなうらゆうまはここにいた ${date}"
 
-github_issues=$(
-  OWNER=YumaInaura \
-  REPOSITORY=playground \
-  python "$api_dir"/github/issue.py
-)
+OWNER=YumaInaura \
+REPOSITORY=playground \
+  python "$api_dir"/github/issue.py > "$log_dir"/github-issue.json
 
-echo "$github_issues" | jq .
+cat "$log_dir"/github-issue.json | jq .
 
 found_issues=$(echo "$github_issues" | jq -c 'select(.["title"] | contains("'"$github_title"'"))')
 
