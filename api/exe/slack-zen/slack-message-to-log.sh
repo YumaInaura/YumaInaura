@@ -20,23 +20,15 @@ user_message_log_file="$log_dir"/slack-user-message.json
 mkdir -p "${log_dir}"
 rm -rf "${log_dir}"/*
 
-date=$(TZ=Asia/Tokyo date +'%Y-%m-%d')
-github_title="いなうらゆうまはここにいた ${date}"
+eval "${basedir}/channel-history.sh" | tee "$channel_history_log_file" | jq .
 
-github_repository="playground"
-
-# --------------------------------------
-
-eval "${basedir}/channel-history.sh" > "$channel_history_log_file"
-
-cat "$channel_history_log_file" | jq '.["messages"][]' > "$message_log_file"
-cat "$message_log_file" | jq 'select(has("client_msg_id"))' > "$user_message_log_file"
+cat "$channel_history_log_file" | jq '.["messages"][]' | tee "$message_log_file" | jq . 
+cat "$message_log_file" | jq 'select(has("client_msg_id"))' | tee "$user_message_log_file" | jq .
 
 user_slack_messages=$(cat "$user_message_log_file")
 
 if [ "$user_slack_messages" == "[]" ] || [ -z "$user_slack_messages" ]; then
   echo No slack messages found
-  exit
+  exit 1
 fi
-
 
