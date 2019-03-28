@@ -19,11 +19,11 @@ pushd ${api_dir}/twitter
   cat log/timeline-jst-yesterday.log | python markdown.py > log/markdown.log
 popd
 
-date=$(TZ=TZ=Asia/Tokyo date --date="1 days ago" +'%Y-%m-%d')
+jst_date=$(TZ=Asia/Tokyo date --date='1 days ago' +'%Y-%m-%d')
 
 #export USERNAME=YumaInaura \
 #  REPOSITORY=YumaInaura \
 #  PASSWORD="$github_api_key" \
-#  TITLE="いなうらゆうま はここにいた ${date} on Twitter" \
+#  TITLE="いなうらゆうま はここにいた ${jst_date} on Twitter" \
 #  FILE=./twitter/log/markdown.log \
 #  LABELS=medium,hatena,japanese,twitter
