@@ -34,14 +34,14 @@ Youcan edit articles by anyway
 
 # Who is @yumainaura
 
-Web Engineer in Osaka Japann loves Japanese Service "ScrapBox" and me is some of scrap lol
-
-and "Qiita" i love too.
-
-💔 "Gitub" ? no word to say you understand. 
-
+- Web Engineer in Osaka Japan
+- I'm doing jub hunting now ( since 2019-03-26 )
+- I wanna work as Remote or in Osaka city office.
 
 # Twitter
+
+Hey please do not surprize if this account has no name and profile images.
+I'm doing Zen engineer and vanishing my face and name is good work to "ME".
 
 https://twitter.com/YumaInaura
 
@@ -69,15 +69,6 @@ https://qiita.com/Yinaura
 <li><a href="http://mindfulness.hatenablog.jp/">マインドフルネス</a></li>
 </ul>
 
-
-# Medium
-
-
-# Blogger
-
-# Others
-
-- <a href="https://scrapbox.io/yumainaura/">Scrapbox</a>
 
 
 
