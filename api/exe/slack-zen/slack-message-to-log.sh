@@ -18,7 +18,7 @@ message_log_file="$log_dir"/slack-message.json
 user_message_log_file="$log_dir"/slack-user-message.json
 
 mkdir -p "${log_dir}"
-rm -rf "${log_dir}"/*
+rm -rf "${log_dir}"/*slack*
 
 eval "${basedir}/channel-history.sh" | tee "$channel_history_log_file" | jq .
 
