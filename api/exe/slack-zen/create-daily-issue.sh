@@ -18,10 +18,11 @@ github_title="いなうらゆうまはここにいた ${date}"
 
 github_repository="playground"
 
-github_found_issue_log_file="$log_dir"github-found-issue.json
-github_found_issue=(cat "$github_found_issue_log_file")
+github_found_issue_log_file="$log_dir"/github-found-issue.json
+github_found_issue=$(cat "$github_found_issue_log_file")
+github_found_top_issue=$(cat "$github_found_issue_log_file")
 
-if [ ! -z "$found_top_issue" ]; then
+if [ ! -z "$github_found_top_issue" ]; then
   title=$(echo "$found_top_issue" | jq --raw-output '.["title"]')
   body=$(echo "$found_top_issue" | jq --raw-output '.["body"]')$slack_message
   issue_number=$(echo "$found_top_issue" | jq '.["number"]')
