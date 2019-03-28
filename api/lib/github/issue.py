@@ -9,7 +9,7 @@ for i in range(0, 3):
   api_url = 'https://api.github.com/repos/' + owner + '/' + repository + '/issues?page=' + str(i)
 
   res = requests.get(api_url)
-  json_string = res.json()
-  results.append(json_string)
+  json_result = res.json()
+  results += json_result
 
 print(json.dumps(results))
