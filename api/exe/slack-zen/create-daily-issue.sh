@@ -18,16 +18,8 @@ github_title="いなうらゆうまはここにいた ${date}"
 
 github_repository="playground"
 
-OWNER=YumaInaura \
-REPOSITORY="$github_repository" \
-  python "$api_dir"/github/issue.py \
-    > "$log_dir"/github-issue.json
-
-cat "$log_dir"/github-issue.json | \
-  jq -c 'select(.["title"] | contains("'"$github_title"'"))' \
-  > "$log_dir"/github-found-issue.json
-
-found_top_issue=$(cat "$log_dir"/github-found-issue.json | head -n 1)
+github_found_issue_log_file="$log_dir"github-found-issue.json
+github_found_issue=(cat "$github_found_issue_log_file")
 
 if [ ! -z "$found_top_issue" ]; then
   title=$(echo "$found_top_issue" | jq --raw-output '.["title"]')
@@ -52,12 +44,10 @@ else
     REPOSITORY="$github_repository" \
     TITLE="$github_title" \
     BODY="$body" \
-    DEBUG=1 python "$api_dir"/github/create-or-edit-issue.py
+    python "$api_dir"/github/create-or-edit-issue.py
   )
 fi
 
-echo "CREATE OR EDITED ISSUE"
-echo "$github_issue"
 
 #pushd "$api_dir"
   # echo "$slack_message" | python ./twitter/oneline-split.py | ./twitter/create.sh 

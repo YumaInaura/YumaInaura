@@ -25,6 +25,7 @@ REPOSITORY="$github_repository" \
     | tee "$issue_list_log_file"
 
 cat "$issue_list_log_file" | \
+  jq '.[]' | \
   jq -c 'select(.["title"] | contains("'"$github_title"'"))' \
   | tee "$found_issue_log_file"
 
