@@ -1,12 +1,15 @@
 #!/usr/bin/env bash
 
+set -eu
+
 basedir=$(dirname "$0")
-source ${basedir}../../setting.sh
-api_dir=${base_dir}../../lib
+
+source "${basedir}/../../setting.sh"
+api_dir="${basedir}/../../lib"
 
 github_repository="playground"
 
-slack_message=$(./slack-zen/message.sh)
+slack_message=$("${basedir}/message.sh")
 
 if [ "$slack_message" == "null" ]; then
   exit
