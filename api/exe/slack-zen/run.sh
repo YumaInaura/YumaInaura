@@ -2,6 +2,10 @@
 
 set -eu
 
+# --------------------------------------
+# PREPAIR
+# --------------------------------------
+
 basedir=$(dirname "$0")
 
 source "${basedir}/../../setting.sh"
@@ -11,39 +15,36 @@ log_dir="${basedir}"/log
 
 mkdir -p "${log_dir}"
 
+date=$(TZ=Asia/Tokyo date +'%Y-%m-%d')
+github_title="いなうらゆうまはここにいた ${date}"
+
+
 github_repository="playground"
+
+# --------------------------------------
 
 eval "${basedir}/channel-history.sh" > "$log_dir"/channel-message.json
 
-cat "$log_dir"/channel-message.json | jq '.["messages"][]' > "$log_dir"/slack_message.json
-cat "$log_dir"/slack_message.json | jq 'select(has("client_msg_id"))' > "$log_dir"/user_slack_message.json
+cat "$log_dir"/channel-message.json | jq '.["messages"][]' > "$log_dir"/slack-message.json
+cat "$log_dir"/slack-message.json | jq 'select(has("client_msg_id"))' > "$log_dir"/user-slack-message.json
 
-user_slack_messages=$(cat "$log_dir"/user_slack_message.json)
+user_slack_messages=$(cat "$log_dir"/user-slack-message.json)
 
 if [ "$user_slack_messages" == "[]" ] || [ -z "$user_slack_messages" ]; then
   echo No slack messages found
   exit
 fi
 
-date=$(TZ=Asia/Tokyo date +'%Y-%m-%d')
-
-github_title="いなうらゆうまはここにいた ${date}"
-
 OWNER=YumaInaura \
 REPOSITORY=playground \
-  python "$api_dir"/github/issue.py > "$log_dir"/github-issue.json
+  python "$api_dir"/github/issue.py \
+    > "$log_dir"/github-issue.json
 
-cat "$log_dir"/github-issue.json | jq .
+cat "$log_dir"/github-issue.json | \
+  jq -c 'select(.["title"] | contains("'"$github_title"'"))' \
+  > "$log_dir"/github-found-issue.json
 
-found_issues=$(echo "$github_issues" | jq -c 'select(.["title"] | contains("'"$github_title"'"))')
-
-echo "FOUND ISSUES"
-echo "$found_issues"
-
-found_top_issue=$(echo "$found_issues" | head -n 1)
-
-echo "FOUND TOP ISSUE"
-echo "$found_top_issue" | jq .
+found_top_issue=$(cat "$log_dir"/github-found-issue.json | head -n 1)
 
 if [ ! -z "$found_top_issue" ]; then
   title=$(echo "$found_top_issue" | jq --raw-output '.["title"]')
