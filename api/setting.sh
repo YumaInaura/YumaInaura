@@ -1,8 +1,10 @@
+shopt -s expand_aliases
+
 if [ $(uname -s) = "Darwin" ]; then
-  date() { gdate $@; }
+  alias date=gdate
 fi
 
-python() { python3 $@; }
+alias python=python3
 
 source ~/.secret/setting.sh
 

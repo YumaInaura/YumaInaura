@@ -6,11 +6,11 @@ export LC_CTYPE=en_US.UTF-8
 
 basedir=$(dirname "$0")
 
-source ~/.secret/setting.sh
 source "${basedir}/../../setting.sh"
-api_dir="${basedir}/../../lib"
 
-cd "$api_dir"
+jst_date=$(TZ=Asia/Tokyo date --date='1 days ago' +'%y-%m-%d')
+
+api_dir="${basedir}/../../lib"
 
 pushd ${api_dir}/twitter
   mkdir -p log
@@ -19,7 +19,6 @@ pushd ${api_dir}/twitter
   cat log/timeline-jst-yesterday.log | python markdown.py > log/markdown.log
 popd
 
-jst_date=$(TZ=Asia/Tokyo date --date='1 days ago' +'%Y-%m-%d')
 
 #export USERNAME=YumaInaura \
 #  REPOSITORY=YumaInaura \
