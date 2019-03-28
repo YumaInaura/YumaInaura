@@ -6,6 +6,7 @@ log_dir="${basedir}"/log
 slack_channel_history_log_file="$log_dir"/slack-channel-history.json
 slack_message_log_file="$log_dir"/slack-message.json
 slack_user_message_log_file="$log_dir"/slack-user-message.json
+slack_message_plain_log_file="$log_dir"/slack-message-plain.txt
 
 github_title="いなうらゆうまはここにいた ${date}"
 github_repository="playground"
