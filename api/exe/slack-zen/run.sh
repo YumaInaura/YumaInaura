@@ -1,16 +1,26 @@
 #!/usr/bin/env bash
 
+set -eu
+
 basedir=$(dirname "$0")
-source ${basedir}../../setting.sh
-api_dir=${base_dir}../../lib
+
+source "${basedir}/../../setting.sh"
+api_dir="${basedir}/../../lib"
 
 github_repository="playground"
 
-slack_message=$(./slack-zen/message.sh)
+slack_message_json=$("${basedir}/channel-history.sh")
+slack_messages=$(echo "$slack_message_json" | jq '.["messages"][]')
+user_slack_messages=$(echo "$slack_messages" | jq 'select(has("client_msg_id"))')
 
-if [ "$slack_message" == "null" ]; then
+if [ "$user_slack_messages" == "[]" ] || [ -z "$user_slack_messages" ]; then
+  echo No slack messages found
   exit
 fi
+
+echo "$user_slack_messages" | jq '.["text"]'
+exit
+
 
 date=$(TZ=Asia/Tokyo date +'%Y-%m-%d')
 

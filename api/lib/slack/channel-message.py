@@ -10,6 +10,7 @@ elif os.environ.get('TOKEN') and os.environ.get('CHANNEL'):
     "channel" : os.environ.get('CHANNEL'),
     "oldest" : os.environ.get('OLDEST') or '',
     "latest" : os.environ.get('LATEST') or '',
+    "count" : 1000
   })
 
 headers = {
