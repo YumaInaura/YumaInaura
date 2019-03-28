@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-set -u
-
-source ./setting.sh
+basedir=$(dirname "$0")
+source ${basedir}../../setting.sh
+api_dir=${base_dir}../../lib
 
 github_repository="playground"
 
@@ -64,7 +64,7 @@ fi
 echo "CREATE OR EDITED ISSUE"
 echo "$github_issue"
 
-pushd "$api_dir"
-  echo "$slack_message" | python ./twitter/oneline-split.py | ./twitter/create.sh 
-popd
+#pushd "$api_dir"
+  # echo "$slack_message" | python ./twitter/oneline-split.py | ./twitter/create.sh 
+#popd
 

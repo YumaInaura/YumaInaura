@@ -6,7 +6,7 @@ from datetime import timedelta
 # Basic
 # --------------------------------------------------------
 
-stdin_first_line = sys.stdin.readlines()[0]
+stdin_first_line = sys.stdin.readline()
 input_data = json.loads(stdin_first_line)
 
 out = {}
@@ -190,12 +190,12 @@ if match_tags:
 else:
     out['zen_tags'] = default_tags
 
+ja_diary_title = out['slack_channel_topic'] if out['slack_channel_topic'] else 'いなうらゆうま はここにいた'
 
-out['ja_diary_title'] = out['slack_channel_topic'] + ' ' + out['jst_date']
+out['ja_diary_title'] = ja_diary_title + ' ' + out['jst_date']
 out['en_diary_title'] = 'And Then There Were None ' + out['jst_date']
 
 out['ja_engineer_diary_title'] = out['slack_channel_topic'] + ' ' + out['jst_date']
-
 
 output = [out]
 
