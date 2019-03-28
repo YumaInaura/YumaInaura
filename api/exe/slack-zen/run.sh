@@ -18,7 +18,6 @@ mkdir -p "${log_dir}"
 date=$(TZ=Asia/Tokyo date +'%Y-%m-%d')
 github_title="いなうらゆうまはここにいた ${date}"
 
-
 github_repository="playground"
 
 # --------------------------------------
