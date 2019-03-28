@@ -10,15 +10,15 @@ api_dir="${basedir}/../../lib"
 github_repository="playground"
 
 slack_message_json=$("${basedir}/channel-history.sh")
-slack_messages=$(echo "$slack_message_json" | jq '.["messages"]')
-user_slack_messages=$()
+slack_messages=$(echo "$slack_message_json" | jq '.["messages"][]')
+user_slack_messages=$(echo "$slack_messages" | jq 'select(has("client_msg_id"))')
 
-if [ "$slack_messages" == "[]" ] || [ -z "$slack_messages" ]; then
+if [ "$user_slack_messages" == "[]" ] || [ -z "$user_slack_messages" ]; then
   echo No slack messages found
   exit
 fi
 
-echo "$slack_messages" | jq '.[]["text"]'
+echo "$user_slack_messages" | jq '.["text"]'
 exit
 
 
