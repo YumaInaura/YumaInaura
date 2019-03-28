@@ -7,11 +7,18 @@ basedir=$(dirname "$0")
 source "${basedir}/../../setting.sh"
 api_dir="${basedir}/../../lib"
 
+log_dir="${basedir}"/log
+
+mkdir -p "${log_dir}"
+
 github_repository="playground"
 
 slack_message_json=$("${basedir}/channel-history.sh")
-slack_messages=$(echo "$slack_message_json" | jq '.["messages"][]')
-user_slack_messages=$(echo "$slack_messages" | jq 'select(has("client_msg_id"))')
+
+echo "$slack_message_json" | jq '.["messages"][]' > "$log_dir"/slack_message.json
+cat "$log_dir"/slack_message.json | jq 'select(has("client_msg_id"))' > "$log_dir"/user_slack_message.json
+
+user_slack_messages=$(cat "$log_dir"/user_slack_message.json)
 
 if [ "$user_slack_messages" == "[]" ] || [ -z "$user_slack_messages" ]; then
   echo No slack messages found
