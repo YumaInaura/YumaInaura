@@ -7,6 +7,12 @@ some articles english
 
 https://github.com/YumaInaura/YumaInaura/issues
 
+# Abount Codes
+
+- For my beautiful life i put some dirty script written by python, shell script or others.
+- Mainly this scripts working for Web API ingegrations e.g If I send message to Slack Then create Github issue and Create Twieets to Twitter. ( I like IFTTT and Zapier but they are in some part not friendly or cost to me by expensive price )
+
+
 # ポートフォリオ的なもの作成中
 
 <https://github.com/YumaInaura/YumaInaura/issues/626>
