@@ -11,6 +11,11 @@ basedir=$(dirname "$0")
 source "${basedir}/../../setting.sh"
 source "${basedir}/prepare.sh"
 
+if [ "$user_slack_messages" == "[]" ] || [ -z "$user_slack_messages" ]; then
+  echo No slack messages found
+  exit 1
+fi
+
 github_found_top_issue=$(cat "$github_found_issue_log_file")
 
 if [ ! -z "$github_found_top_issue" ]; then
