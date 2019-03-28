@@ -30,10 +30,7 @@ github_issues=$(
 
 echo "$github_issues" | jq .
 
-exit
-
 found_issues=$(echo "$github_issues" | jq -c 'select(.["title"] | contains("'"$github_title"'"))')
-
 
 echo "FOUND ISSUES"
 echo "$found_issues"
