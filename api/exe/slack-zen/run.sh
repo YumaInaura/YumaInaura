@@ -65,6 +65,6 @@ echo "CREATE OR EDITED ISSUE"
 echo "$github_issue"
 
 pushd "$api_dir"
-  echo "$slack_message" | python ./twitter/oneline-split.py | ./twitter/create.sh 
+  # echo "$slack_message" | python ./twitter/oneline-split.py | ./twitter/create.sh 
 popd
 
