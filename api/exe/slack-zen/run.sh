@@ -9,14 +9,13 @@ api_dir="${basedir}/../../lib"
 
 github_repository="playground"
 
-slack_message=$("${basedir}/message.sh")
+slack_message_json=$("${basedir}/channel-history.sh")
+slack_messages=$(echo "$slack_message_json" | jq '.["messages"]')
 
-if [ "$slack_message" == "null" ] || [ -z "$slack_message" ]; then
+if [ "$slack_messages" == "[]" ] || [ -z "$slack_messages" ]; then
+  echo No slack messages found
   exit
 fi
-
-echo "$slack_message"
-exit
 
 date=$(TZ=Asia/Tokyo date +'%Y-%m-%d')
 
