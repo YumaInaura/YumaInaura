@@ -1,5 +1,4 @@
-# $ cat ../twitter/log/last-timeline.log | jq --raw-output .full_text > ../log/full_text.log
-# cat ../log/full_text.log | head -n 10 | python translate.py | jq .
+# echo "アバター\nドリル" | TOKEN=$(./get-token.sh) python ./translate.py | jq '.data.translations[].translatedText'
 
 import os, sys, requests, json, fileinput
 
