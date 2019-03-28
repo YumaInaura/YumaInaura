@@ -10,5 +10,5 @@ for i in range(0, 3):
   res = requests.get(url)
   
   for json in res.json():
-    print(json['url'])
+    print(json)
 
