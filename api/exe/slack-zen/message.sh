@@ -15,5 +15,5 @@ slack_messages=$(
   python "${basedir}"/../../lib/slack/channel-message.py
 )
 
-echo "$slack_messages" | jq '.["messages"][]["text"]'
+echo "$slack_messages" | jq '.["messages"]'
 

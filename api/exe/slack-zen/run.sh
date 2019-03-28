@@ -11,9 +11,12 @@ github_repository="playground"
 
 slack_message=$("${basedir}/message.sh")
 
-if [ "$slack_message" == "null" ]; then
+if [ "$slack_message" == "null" ] || [ -z "$slack_message" ]; then
   exit
 fi
+
+echo "$slack_message"
+exit
 
 date=$(TZ=Asia/Tokyo date +'%Y-%m-%d')
 
