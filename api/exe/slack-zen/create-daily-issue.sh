@@ -9,17 +9,8 @@ set -eu
 basedir=$(dirname "$0")
 
 source "${basedir}/../../setting.sh"
+source "${basedir}/prepare.sh"
 
-api_dir="${basedir}/../../lib"
-log_dir="${basedir}"/log
-
-date=$(TZ=Asia/Tokyo date +'%Y-%m-%d')
-github_title="いなうらゆうまはここにいた ${date}"
-
-github_repository="playground"
-
-github_found_issue_log_file="$log_dir"/github-found-issue.json
-github_found_issue=$(cat "$github_found_issue_log_file")
 github_found_top_issue=$(cat "$github_found_issue_log_file")
 
 if [ ! -z "$github_found_top_issue" ]; then
