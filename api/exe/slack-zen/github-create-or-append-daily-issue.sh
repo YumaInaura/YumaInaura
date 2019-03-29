@@ -11,18 +11,18 @@ basedir=$(dirname "$0")
 source "${basedir}/../../setting.sh"
 source "${basedir}/prepare.sh"
 
-github_found_top_issue=$(cat "$github_found_issue_log_file")
+slack_message=$(cat "$markdown_text_log_file")
+github_found_top_issue=$(cat "$github_found_top_issue_log_file")
 
-if [ ! -z "$github_found_top_issue" ]; then
-  title=$(echo "$found_top_issue" | jq --raw-output '.["title"]')
-  body=$(echo "$found_top_issue" | jq --raw-output '.["body"]')$slack_message
-  issue_number=$(echo "$found_top_issue" | jq '.["number"]')
- 
+if [[ ! -z "$github_found_top_issue" ]]; then
+  body=$(echo "$github_found_top_issue" | jq --raw-output '.body')$slack_message
+  issue_number=$(echo "$github_found_top_issue" | jq '.["number"]')
+
   github_issue=$(
     USERNAME=YumaInaura \
     PASSWORD="$github_api_key" \
     REPOSITORY="$github_repository" \
-    TITLE="$title" \
+    TITLE="$github_title" \
     BODY="$body" \
     ISSUE_NUMBER="$issue_number" \
     python "$api_dir"/github/create-or-edit-issue.py
@@ -40,4 +40,4 @@ else
   )
 fi
 
-
+echo "$github_issue"

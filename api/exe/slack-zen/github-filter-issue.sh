@@ -12,6 +12,6 @@ cat "$github_issue_list_log_file" | \
   | tee "$github_found_issue_log_file"
 
 cat "$github_found_issue_log_file" | \
-  jq '.[0]' | \
+  jq 'select(length > 0) | .[0]' | \
   tee "$github_found_top_issue_log_file"
 

@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import time, re, requests, json, sys
 from datetime import datetime
 from datetime import timedelta
@@ -6,33 +8,17 @@ from datetime import timedelta
 # Basic
 # --------------------------------------------------------
 
-stdin_first_line = sys.stdin.readline()
-input_data = json.loads(stdin_first_line)
+#stdin_line = sys.stdin.readline()
 
+stdin_line = ''
+for text in sys.stdin.readlines():
+  stdin_line += re.sub(r'\\n', "\n", text)
+
+input_data = { 'text': stdin_line }
 out = {}
 
 out['raw_text'] = input_data['text']
 out['text_length'] = len(input_data['text'])
-
-# --------------------------------------------------------
-# Slack
-# --------------------------------------------------------
-
-# REFACTOR: Move to another script
-
-if 'slack_api_token' in input_data and  input_data['slack_api_token']:
-  slack_channel_api_data = {
-      "token" : input_data['slack_api_token'],
-      "channel" : input_data['channel_id']
-  }
-  
-  out['slack_channel_api_url'] = 'https://slack.com/api/channels.info?token={token}&channel={channel}&pretty=1'.format(**slack_channel_api_data)
-  
-  out['slack_channel_information'] = requests.get(out['slack_channel_api_url']).json()
-  out['slack_channel_topic'] = out['slack_channel_information']['channel']['topic']['value']
-else:
-  out['slack_channel_information'] = {}
-  out['slack_channel_topic'] = ''
 
 # --------------------------------------------------------
 # Time
@@ -41,7 +27,6 @@ else:
 now = datetime.now()
 out['jst_date'] = (datetime.now() + timedelta(hours=9)).strftime('%Y-%m-%d')
 out['unixtime'] = int(time.mktime(now.timetuple()))
-
 
 # --------------------------------------------------------
 # Image URL in TEXT
@@ -190,12 +175,12 @@ if match_tags:
 else:
     out['zen_tags'] = default_tags
 
-ja_diary_title = out['slack_channel_topic'] if out['slack_channel_topic'] else 'いなうらゆうま はここにいた'
+ja_diary_title = 'いなうらゆうま はここにいた'
 
 out['ja_diary_title'] = ja_diary_title + ' ' + out['jst_date']
 out['en_diary_title'] = 'And Then There Were None ' + out['jst_date']
 
-out['ja_engineer_diary_title'] = out['slack_channel_topic'] + ' ' + out['jst_date']
+# out['ja_engineer_diary_title'] = out['slack_channel_topic'] + ' ' + out['jst_date']
 
 output = [out]
 
