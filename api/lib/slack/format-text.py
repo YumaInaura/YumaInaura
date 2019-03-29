@@ -8,7 +8,11 @@ from datetime import timedelta
 # Basic
 # --------------------------------------------------------
 
-stdin_line = sys.stdin.readline()
+#stdin_line = sys.stdin.readline()
+
+stdin_line = ''
+for text in sys.stdin:
+  stdin_line += i
 
 input_data = { 'text': stdin_line }
 out = {}
