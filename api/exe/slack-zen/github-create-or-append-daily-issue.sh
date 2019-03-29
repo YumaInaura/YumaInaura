@@ -11,11 +11,14 @@ basedir=$(dirname "$0")
 source "${basedir}/../../setting.sh"
 source "${basedir}/prepare.sh"
 
+set -x
+
+slack_message="# test\nbody"
 github_found_top_issue=$(cat "$github_found_issue_log_file")
 
-if [ ! -z "$github_found_top_issue" ]; then
-  title=$(echo "$found_top_issue" | jq --raw-output '.["title"]')
-  body=$(echo "$found_top_issue" | jq --raw-output '.["body"]')$slack_message
+if [[ ! -z '"$github_found_top_issue"' && '"$github_found_top_issue"' -ne "null" ]]; then
+  title=$(echo "$github_found_top_issue" | jq --raw-output '.title')
+  body=$(echo "$github_found_top_issue" | jq --raw-output '.body')$slack_message
   issue_number=$(echo "$found_top_issue" | jq '.["number"]')
  
   github_issue=$(
