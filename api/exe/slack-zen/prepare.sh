@@ -8,7 +8,7 @@ slack_message_log_file="$log_dir"/slack-message.json
 slack_user_message_log_file="$log_dir"/slack-user-message.json
 slack_message_plain_log_file="$log_dir"/slack-message-plain.txt
 
-formatted_message_log_file="$log_dir"/fromatted-message.json
+formatted_message_log_file="$log_dir"/fomatted-message.json
 
 github_title="いなうらゆうまはここにいた ${date}"
 github_repository="playground"
