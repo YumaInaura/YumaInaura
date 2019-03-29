@@ -14,3 +14,8 @@ for text in $(cat "$slack_message_plain_log_file"); do
   "$api_dir"/slack/format-text.py \
   >> "$formatted_message_log_file"
 done
+
+cat "$formatted_message_log_file" | \
+  jq -r '.markdown_text' | \
+  tee "$markdown_text_log_file"
+
