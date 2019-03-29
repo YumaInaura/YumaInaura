@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import time, re, requests, json, sys
 from datetime import datetime
 from datetime import timedelta
