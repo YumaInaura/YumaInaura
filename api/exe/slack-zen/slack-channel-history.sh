@@ -4,6 +4,7 @@ set -eu
 
 basedir=$(dirname "$0")
 source ${basedir}/../../setting.sh
+source ${basedir}/prepare.sh
 
 interval_sec=${INTERVAL:-60}
 oldest_unixtime=$(($(date +%s) - $interval_sec))
