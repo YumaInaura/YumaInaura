@@ -11,7 +11,7 @@ basedir=$(dirname "$0")
 source "${basedir}/../../setting.sh"
 source "${basedir}/prepare.sh"
 
-slack_message="# test\nbody"
+slack_message=$(cat "$markdown_text_log_file")
 github_found_top_issue=$(cat "$github_found_top_issue_log_file")
 
 if [[ ! -z "$github_found_top_issue" ]]; then
