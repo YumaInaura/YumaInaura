@@ -41,4 +41,4 @@ else
   )
 fi
 
-
+echo "$github_issue"
