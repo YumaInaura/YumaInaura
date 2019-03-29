@@ -14,7 +14,14 @@ source "${basedir}/prepare.sh"
 mkdir -p "${log_dir}"
 rm -rf "${log_dir}"/*slack*
 
-eval "${basedir}/slack-channel-history.sh" | tee "$slack_channel_history_log_file" | jq .
+interval_sec=${INTERVAL:-60}
+oldest_unixtime=$(($(date +%s) - $interval_sec))
+
+TOKEN="$slack_token" \
+CHANNEL="$slack_channel_id" \
+OLDEST="$oldest_unixtime" \
+  python "${basedir}"/../../lib/slack/channel-message.py \
+   | tee "$slack_channel_history_log_file"
 
 cat "$slack_channel_history_log_file" | jq '.["messages"][]' | tee "$slack_message_log_file" | jq .
 cat "$slack_message_log_file" | jq 'select(has("client_msg_id"))' | tee "$slack_user_message_log_file" | jq .
