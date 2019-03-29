@@ -6,9 +6,9 @@ from datetime import timedelta
 # Basic
 # --------------------------------------------------------
 
-stdin_first_line = sys.stdin.readline()
-input_data = json.loads(stdin_first_line)
+stdin_line = sys.stdin.readline()
 
+input_data = { 'text': stdin_line }
 out = {}
 
 out['raw_text'] = input_data['text']
