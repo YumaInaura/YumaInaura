@@ -1,6 +1,11 @@
 date=$(TZ=Asia/Tokyo date +'%Y-%m-%d')
 
-slack_channel_id="CH80A4W3D"
+# #zen
+slack_channel_id="CG1JV3ETU"
+
+# #zen-drive
+# slack_channel_id="CH80A4W3D"
+
 github_repository="playground"
 
 api_dir="${basedir}/../../lib"
