@@ -24,7 +24,6 @@ now = datetime.now()
 out['jst_date'] = (datetime.now() + timedelta(hours=9)).strftime('%Y-%m-%d')
 out['unixtime'] = int(time.mktime(now.timetuple()))
 
-
 # --------------------------------------------------------
 # Image URL in TEXT
 # --------------------------------------------------------
@@ -172,12 +171,12 @@ if match_tags:
 else:
     out['zen_tags'] = default_tags
 
-ja_diary_title = out['slack_channel_topic'] if out['slack_channel_topic'] else 'いなうらゆうま はここにいた'
+ja_diary_title = 'いなうらゆうま はここにいた'
 
 out['ja_diary_title'] = ja_diary_title + ' ' + out['jst_date']
 out['en_diary_title'] = 'And Then There Were None ' + out['jst_date']
 
-out['ja_engineer_diary_title'] = out['slack_channel_topic'] + ' ' + out['jst_date']
+# out['ja_engineer_diary_title'] = out['slack_channel_topic'] + ' ' + out['jst_date']
 
 output = [out]
 
