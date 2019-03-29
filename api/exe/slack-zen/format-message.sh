@@ -16,6 +16,6 @@ for text in $(cat "$slack_message_plain_log_file"); do
 done
 
 cat "$formatted_message_log_file" | \
-  jq -r '.markdown_text' | \
+  jq -r '.atomic_text_markdown' | \
   tee "$markdown_text_log_file"
 
