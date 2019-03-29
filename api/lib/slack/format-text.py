@@ -17,26 +17,6 @@ out['raw_text'] = input_data['text']
 out['text_length'] = len(input_data['text'])
 
 # --------------------------------------------------------
-# Slack
-# --------------------------------------------------------
-
-# REFACTOR: Move to another script
-
-if 'slack_api_token' in input_data and  input_data['slack_api_token']:
-  slack_channel_api_data = {
-      "token" : input_data['slack_api_token'],
-      "channel" : input_data['channel_id']
-  }
-  
-  out['slack_channel_api_url'] = 'https://slack.com/api/channels.info?token={token}&channel={channel}&pretty=1'.format(**slack_channel_api_data)
-  
-  out['slack_channel_information'] = requests.get(out['slack_channel_api_url']).json()
-  out['slack_channel_topic'] = out['slack_channel_information']['channel']['topic']['value']
-else:
-  out['slack_channel_information'] = {}
-  out['slack_channel_topic'] = ''
-
-# --------------------------------------------------------
 # Time
 # --------------------------------------------------------
 
