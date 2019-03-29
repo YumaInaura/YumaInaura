@@ -12,6 +12,11 @@ source "${basedir}/../../setting.sh"
 source "${basedir}/prepare.sh"
 
 slack_message=$(cat "$markdown_text_log_file")
+
+if [ -z "$slack_message" ]; then
+  echo Nothing to do
+fi
+
 github_found_top_issue=$(cat "$github_found_top_issue_log_file")
 
 if [[ ! -z "$github_found_top_issue" ]]; then
