@@ -14,13 +14,11 @@ source "${basedir}/prepare.sh"
 slack_message="# test\nbody"
 github_found_top_issue=$(cat "$github_found_top_issue_log_file")
 
-echo "$github_found_top_issue"
-
 if [[ ! -z "$github_found_top_issue" ]]; then
   title=$(echo "$github_found_top_issue" | jq --raw-output '.title')
   body=$(echo "$github_found_top_issue" | jq --raw-output '.body')$slack_message
   issue_number=$(echo "$github_found_top_issue" | jq '.["number"]')
- 
+
   github_issue=$(
     USERNAME=YumaInaura \
     PASSWORD="$github_api_key" \
