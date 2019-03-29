@@ -15,7 +15,6 @@ slack_message=$(cat "$markdown_text_log_file")
 github_found_top_issue=$(cat "$github_found_top_issue_log_file")
 
 if [[ ! -z "$github_found_top_issue" ]]; then
-  title=$(echo "$github_found_top_issue" | jq --raw-output '.title')
   body=$(echo "$github_found_top_issue" | jq --raw-output '.body')$slack_message
   issue_number=$(echo "$github_found_top_issue" | jq '.["number"]')
 
@@ -23,7 +22,7 @@ if [[ ! -z "$github_found_top_issue" ]]; then
     USERNAME=YumaInaura \
     PASSWORD="$github_api_key" \
     REPOSITORY="$github_repository" \
-    TITLE="$title" \
+    TITLE="$github_title" \
     BODY="$body" \
     ISSUE_NUMBER="$issue_number" \
     python "$api_dir"/github/create-or-edit-issue.py
