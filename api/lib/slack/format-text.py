@@ -11,8 +11,8 @@ from datetime import timedelta
 #stdin_line = sys.stdin.readline()
 
 stdin_line = ''
-for text in sys.stdin:
-  stdin_line += i
+for text in sys.stdin.readlines():
+  stdin_line += re.sub(r'\\n', "\n", text)
 
 input_data = { 'text': stdin_line }
 out = {}
