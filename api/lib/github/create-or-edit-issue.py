@@ -29,26 +29,25 @@ else:
 def single_issue(issue_number):
   api_url = 'https://api.github.com/repos/' + owner + '/' + repository + '/issues/' + issue_number
   res = requests.get(api_url)
-  return(result = res.json())
+  return(res.json())
 
 def make_github_issue(title, body=None, labels=None, issue_number=None):
   session = requests.Session()
   session.auth = (USERNAME, PASSWORD)
  
-    if issue_number:
-      url = 'https://api.github.com/repos/%s/%s/issues/%s' % (REPO_OWNER, REPO_NAME, issue_number)
-      issue_data = single_issue(issue_number)
+  if issue_number:
+    url = 'https://api.github.com/repos/%s/%s/issues/%s' % (REPO_OWNER, REPO_NAME, issue_number)
+    issue_data = single_issue(issue_number)
 
-      issue = {'title': title,
+    issue = {'title': title,
                'body': body,
                'labels': labels if labels else []}
+  else:
+    url = 'https://api.github.com/repos/%s/%s/issues' % (REPO_OWNER, REPO_NAME)
 
-    else:
-      url = 'https://api.github.com/repos/%s/%s/issues' % (REPO_OWNER, REPO_NAME)
-
-     issue = {'title': title,
-               'body': body,
-               'labels': labels if labels else []}
+    issue = {'title': title,
+             'body': body,
+             'labels': labels if labels else []}
 
     r = session.post(url, json.dumps(issue))
 
