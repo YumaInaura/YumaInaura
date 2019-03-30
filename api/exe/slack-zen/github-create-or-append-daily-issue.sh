@@ -20,10 +20,9 @@ if [[ ! -z "$github_found_top_issue" ]]; then
   issue_number=$(echo "$github_found_top_issue" | jq '.["number"]')
 
   github_issue=$(
-    USERNAME=YumaInaura \
-    PASSWORD="$github_api_key" \
+    OWNER=YumaInaura \
+    API_KEY="$github_api_key" \
     REPOSITORY="$github_repository" \
-    TITLE="$github_title" \
     BODY="$body" \
     NUMBER="$issue_number" \
     python "$api_dir"/github/create-or-edit-issue.py
@@ -32,8 +31,8 @@ else
   body=$message
 
   github_issue=$(
-    USERNAME=YumaInaura \
-    PASSWORD="$github_api_key" \
+    OWNER=YumaInaura \
+    API_KEY="$github_api_key" \
     REPOSITORY="$github_repository" \
     TITLE="$github_title" \
     BODY="$body" \
