@@ -25,7 +25,7 @@ if [[ ! -z "$github_found_top_issue" ]]; then
     REPOSITORY="$github_repository" \
     TITLE="$github_title" \
     BODY="$body" \
-    ISSUE_NUMBER="$issue_number" \
+    NUMBER="$issue_number" \
     python "$api_dir"/github/create-or-edit-issue.py
   )
 else
