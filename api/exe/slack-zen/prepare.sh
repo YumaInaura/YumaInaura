@@ -20,7 +20,9 @@ slack_message_plain_log_file="$log_dir"/slack-message-plain.txt
 formatted_message_log_file="$log_dir"/formatted-message.json
 markdown_text_log_file="$log_dir"/markdown_text.txt
 
-github_title="いなうらゆうまはここにいた ${date}"
+github_title="いなうらゆうまはここにいた Zen ${date}"
+ja_github_title="いなうらゆうまはここにいた Zen ${date}"
+en_github_title="Yuma Inaura was Here Zen ${date}"
 
 github_issue_list_log_file="$log_dir"/github-issue.json
 github_found_issue_log_file="$log_dir"/github-found-issue.json
