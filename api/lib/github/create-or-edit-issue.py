@@ -25,20 +25,30 @@ if os.environ.get('LABELS'):
 else:
   LABELS = ''
 
+def single_issue(issue_number):
+  api_url = 'https://api.github.com/repos/' + owner + '/' + repository + '/issues/' + issue_number
+  res = requests.get(api_url)
+  return(result = res.json())
+
 def make_github_issue(title, body=None, labels=None, issue_number=None):
+  session = requests.Session()
+  session.auth = (USERNAME, PASSWORD)
+ 
     if issue_number:
       url = 'https://api.github.com/repos/%s/%s/issues/%s' % (REPO_OWNER, REPO_NAME, issue_number)
+      issue_data = single_issue(issue_number)
+
+      issue = {'title': title,
+               'body': body,
+               'labels': labels if labels else []}
+
     else:
       url = 'https://api.github.com/repos/%s/%s/issues' % (REPO_OWNER, REPO_NAME)
 
-    if os.environ.get('DEBUG'):
-      print(url)
+     issue = {'title': title,
+               'body': body,
+               'labels': labels if labels else []}
 
-    session = requests.Session()
-    session.auth = (USERNAME, PASSWORD)
-    issue = {'title': title,
-             'body': body,
-             'labels': labels if labels else []}
     r = session.post(url, json.dumps(issue))
 
     print(r.json())
