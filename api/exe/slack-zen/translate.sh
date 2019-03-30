@@ -5,7 +5,7 @@ set -eu
 basedir=$(dirname "$0")
 source "${basedir}/prepare.sh"
 
-message=$(cat /dev/stdin)
+message=$(cat "$markdown_text_log_file")
 
 token=$(eval "$api_dir"/google-translate/get-token.sh)
 
