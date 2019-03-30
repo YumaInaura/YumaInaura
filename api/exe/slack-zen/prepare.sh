@@ -26,3 +26,5 @@ github_issue_list_log_file="$log_dir"/github-issue.json
 github_found_issue_log_file="$log_dir"/github-found-issue.json
 github_found_top_issue_log_file="$log_dir"/github-found-top-issue.json
 
+google_translate_en_log_file="$log_dir"/google-translate-en.txt
+
