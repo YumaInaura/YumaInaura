@@ -1,5 +1,6 @@
-# https://developer.github.com/v3/issues/#edit-an-issue
+#!/usr/bin/env python3
 
+# https://developer.github.com/v3/issues/#edit-an-issue
 # https://gist.github.com/JeffPaine/3145490
 
 import os, json, re, requests
