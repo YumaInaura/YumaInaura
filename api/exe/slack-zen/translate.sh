@@ -15,17 +15,20 @@ echo "$message" | \
   FROM=ja \
   TO=en \
   "$api_dir"/google-translate/translate.py | \
+  jq --raw-output '.data.translations[].translatedText' | \
   tee "$google_translate_en_log_file" 
 
 echo "$message" | \
   FROM=ja \
   TO=zh-CN \
   "$api_dir"/google-translate/translate.py | \
+  jq --raw-output '.data.translations[].translatedText' | \
   tee "$google_translate_tw_log_file" 
 
 echo "$message" | \
   FROM=ja \
   TO=hi \
   "$api_dir"/google-translate/translate.py | \
+  jq --raw-output '.data.translations[].translatedText' | \
   tee "$google_translate_hi_log_file" 
 
