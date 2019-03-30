@@ -5,5 +5,14 @@ set -eu
 basedir=$(dirname "$0")
 source "${basedir}/prepare.sh"
 
-eval "$api_dir"/google-translate/get-token.sh
+message=$(cat /dev/stdin)
+
+token=$(eval "$api_dir"/google-translate/get-token.sh)
+
+google_translate_en_log_file="$log_dir"/google-translate-en.txt
+
+echo "$message" | \
+  TOKEN="$token" \
+    "$api_dir"/google-translate/translate.py | \
+    tee "$google_translate_en_log_file" 
 

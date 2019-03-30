@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+
+# e.g
 # echo "アバター\nドリル" | TOKEN=$(./get-token.sh) python ./translate.py | jq '.data.translations[].translatedText'
 
 import os, sys, requests, json, fileinput
