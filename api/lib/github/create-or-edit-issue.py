@@ -6,7 +6,7 @@
 import os, json, re, requests
 
 OWNER = os.environ.get('OWNER')
-PASSWORD = os.environ.get('PASSWORD')
+API_KEY = os.environ.get('API_KEY')
 
 OWNER = os.environ.get('OWNER')
 REPOSITORY = os.environ.get('REPOSITORY')
@@ -31,17 +31,17 @@ def single_issue(issue_number):
   res = requests.get(api_url)
   return(res.json())
 
-def make_github_issue(title, body=None, labels=None, issue_number=None):
+def make_github_issue(title=None, body=None, labels=None, issue_number=None):
   session = requests.Session()
-  session.auth = (OWNER, PASSWORD)
+  session.auth = (OWNER, API_KEY)
  
   if issue_number:
     url = 'https://api.github.com/repos/%s/%s/issues/%s' % (OWNER, REPOSITORY, issue_number)
     issue_data = single_issue(issue_number)
 
-    issue = {'title': title,
-             'body': body,
-             'labels': labels if labels else []}
+    issue = {'title': title if title else input_data['title'],
+             'body': issue_data['body'] + body,
+             'labels': labels if labels else issue_data['labels']}
   else:
     url = 'https://api.github.com/repos/%s/%s/issues' % (OWNER, REPOSITORY)
 
@@ -49,9 +49,9 @@ def make_github_issue(title, body=None, labels=None, issue_number=None):
              'body': body,
              'labels': labels if labels else []}
 
-    r = session.post(url, json.dumps(issue))
+  r = session.post(url, json.dumps(issue))
 
-    print(r.json())
+  print(r.json())
      
 make_github_issue(TITLE, body=body, labels=LABELS, issue_number=ISSUE_NUMBER)
 
