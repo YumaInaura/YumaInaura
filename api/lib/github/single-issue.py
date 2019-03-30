@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import requests, os, json
 
 owner = os.environ.get('OWNER')
