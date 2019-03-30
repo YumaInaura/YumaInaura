@@ -8,8 +8,9 @@ slack_channel_id="CG1JV3ETU"
 
 github_repository="playground"
 
-api_dir="${basedir}/../../lib"
-log_dir="${basedir}"/log
+api_dir="$basedir"/../../lib"
+log_dir="$basedir"/log
+mkdir -p "$log_dir"
 
 slack_channel_history_log_file="$log_dir"/slack-channel-history.json
 slack_message_log_file="$log_dir"/slack-message.json
