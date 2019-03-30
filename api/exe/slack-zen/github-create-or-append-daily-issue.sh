@@ -42,7 +42,7 @@ else
     OWNER=YumaInaura \
     API_KEY="$github_api_key" \
     REPOSITORY="$github_repository" \
-    TITLE="$github_title" \
+    TITLE="$TITLE" \
     BODY="$body" \
     python "$api_dir"/github/create-or-edit-issue.py
   )
