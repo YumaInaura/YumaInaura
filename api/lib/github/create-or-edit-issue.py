@@ -5,12 +5,12 @@
 
 import os, json, re, requests
 
-USERNAME = os.environ.get('USERNAME')
+OWNER = os.environ.get('OWNER')
 PASSWORD = os.environ.get('PASSWORD')
 
-REPO_OWNER = os.environ.get('USERNAME')
-REPO_NAME = os.environ.get('REPOSITORY')
-ISSUE_NUMBER = os.environ.get('ISSUE_NUMBER')
+OWNER = os.environ.get('OWNER')
+REPOSITORY = os.environ.get('REPOSITORY')
+ISSUE_NUMBER = os.environ.get('NUMBER')
 
 TITLE = os.environ.get('TITLE')
 
@@ -27,23 +27,23 @@ else:
   LABELS = ''
 
 def single_issue(issue_number):
-  api_url = 'https://api.github.com/repos/' + owner + '/' + repository + '/issues/' + issue_number
+  api_url = 'https://api.github.com/repos/' + OWNER + '/' + REPOSITORY + '/issues/' + issue_number
   res = requests.get(api_url)
   return(res.json())
 
 def make_github_issue(title, body=None, labels=None, issue_number=None):
   session = requests.Session()
-  session.auth = (USERNAME, PASSWORD)
+  session.auth = (OWNER, PASSWORD)
  
   if issue_number:
-    url = 'https://api.github.com/repos/%s/%s/issues/%s' % (REPO_OWNER, REPO_NAME, issue_number)
+    url = 'https://api.github.com/repos/%s/%s/issues/%s' % (OWNER, REPOSITORY, issue_number)
     issue_data = single_issue(issue_number)
 
     issue = {'title': title,
-               'body': body,
-               'labels': labels if labels else []}
+             'body': body,
+             'labels': labels if labels else []}
   else:
-    url = 'https://api.github.com/repos/%s/%s/issues' % (REPO_OWNER, REPO_NAME)
+    url = 'https://api.github.com/repos/%s/%s/issues' % (OWNER, REPOSITORY)
 
     issue = {'title': title,
              'body': body,
