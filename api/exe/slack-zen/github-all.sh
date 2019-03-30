@@ -15,6 +15,5 @@ if [ -z "$slack_message" ]; then
 fi
 
 "$basedir"/github-issue-list.sh && \
-"$basedir"/github-filter-issue.sh && \
 "$basedir"/./github-create-or-append-daily-issue-multi-language.sh
 

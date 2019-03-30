@@ -13,6 +13,14 @@ if [ -z "$message" ]; then
   echo Nothing to do
 fi
 
+cat "$github_issue_list_log_file" | \
+  jq "map(select(.title == \"$TITLE\"))" \
+  | tee "$github_found_issue_log_file"
+
+cat "$github_found_issue_log_file" | \
+  jq 'select(length > 0) | .[0]' | \
+  tee "$github_found_top_issue_log_file"
+
 github_found_top_issue=$(cat "$github_found_top_issue_log_file")
 
 if [[ ! -z "$github_found_top_issue" ]]; then
