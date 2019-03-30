@@ -8,7 +8,7 @@ slack_channel_id="CG1JV3ETU"
 
 github_repository="playground"
 
-api_dir="$basedir"/../../lib"
+api_dir="$basedir"/../../lib
 log_dir="$basedir"/log
 mkdir -p "$log_dir"
 
