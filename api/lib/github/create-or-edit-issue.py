@@ -39,7 +39,7 @@ def make_github_issue(title=None, body=None, labels=None, issue_number=None):
     url = 'https://api.github.com/repos/%s/%s/issues/%s' % (OWNER, REPOSITORY, issue_number)
     issue_data = single_issue(issue_number)
 
-    issue = {'title': title if title else input_data['title'],
+    issue = {'title': title if title else issue_data['title'],
              'body': issue_data['body'] + body,
              'labels': labels if labels else issue_data['labels']}
   else:
