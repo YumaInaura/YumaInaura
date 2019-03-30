@@ -7,6 +7,11 @@ source "${basedir}/prepare.sh"
 
 message=$(cat "$markdown_text_log_file")
 
+if [ -z "$message" ]; then
+  echo No resouce message for tralslate so nothing to do
+  exit
+fi
+
 token=$(eval "$api_dir"/google-translate/get-token.sh)
 
 export TOKEN="$token"
