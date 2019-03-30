@@ -9,8 +9,8 @@ resource_message = ''
 for text in sys.stdin.readlines():
   resource_message += re.sub(r'\\n', "\n", text)
 
-from_language = 'ja'
-to_language = os.environ.get('TO_LANGUAGE') if os.environ.get('TO_LANGUAGE') else 'en'
+from_language = os.environ.get('FROM') if os.environ.get('FROM') else 'ja'
+to_language = os.environ.get('TO') if os.environ.get('TO') else 'en'
 
 data = {
   'q': resource_message,
