@@ -14,8 +14,9 @@ api_dir="${basedir}/../../lib"
 
 pushd ${api_dir}/twitter
   mkdir -p log
-  INCLUDE_RTS=1 INCLUDE_REPLIES=1 python timeline.py > log/timeline.log
-  cat log/timeline.log | python jst-datetime-filter.py > log/timeline-jst-yesterday.log
-  cat log/timeline-jst-yesterday.log | python markdown.py > log/markdown.log
+  ALL=1 ./timeline.py > log/timeline.log
+  cat log/timeline.log | OWN_USER_ID=473780756 ./filter-own.py > log/timeline-own-tweet.log
+  cat log/timeline-own-tweet.log | ./jst-datetime-filter.py > log/timeline-jst-yesterday.log
+  cat log/timeline-jst-yesterday.log | ./markdown.py > log/markdown.log
 popd
 

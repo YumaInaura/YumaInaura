@@ -21,8 +21,6 @@ else:
 
 twitter = OAuth1Session(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 
-OWN_USER_ID = 473780756
-
 url = "https://api.twitter.com/1.1/statuses/user_timeline.json"
 last_id = ''
 
@@ -54,6 +52,8 @@ def response(max_id):
 
   return res
 
+results = []
+
 for i in range(0, round-1):
   res = response(last_id)
 
@@ -63,20 +63,9 @@ for i in range(0, round-1):
   if i >= 2:
     timelines.pop()
 
-  for result in timelines:
-    own_reply = True if result["in_reply_to_user_id"] == OWN_USER_ID else False
-    own_retweet = True if ('retweeted_status' in result and result["retweeted_status"]["user"]["id"] == OWN_USER_ID) else False
+  results += timelines
 
-    if os.environ.get("ONLY_REPLIES") and not result["in_reply_to_user_id"] and not own_reply:
-      continue
+results.reverse()
 
-    if not os.environ.get("ALL"):
-  
-      if result["in_reply_to_user_id"] and not own_reply:
-        continue
-  
-      if result["retweeted"] and not own_retweet:
-        continue
-
-    print(json.dumps(result))
+print(json.dumps(results))
 

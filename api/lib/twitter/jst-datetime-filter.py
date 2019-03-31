@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import json, config, os, re, sys, time, datetime
 from datetime import timedelta
 
@@ -27,15 +29,14 @@ def in_jst_yesterday(tweet_datetime):
 
 results = []
 
-for line in sys.stdin:
-  tweet = json.loads(line)
+timelines = json.loads(sys.stdin.read())
+
+for tweet in timelines:
   tweet_datetime = convert_datetime(tweet['created_at'])
 
   if not in_jst_yesterday(tweet_datetime):
-      continue
+    continue
   else:
-    results.append(json.dumps(tweet))
+    results.append(tweet)
 
-for result in results:
-  print(result)
-
+print(json.dumps(results))
