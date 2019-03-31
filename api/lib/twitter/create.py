@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 #https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update.html
 
 import json, config, os, re
@@ -12,7 +14,13 @@ AT = config.ACCESS_TOKEN
 ATS = config.ACCESS_TOKEN_SECRET
 twitter = OAuth1Session(CK, CS, AT, ATS)
 
-res = twitter.get(url, params = api_params)
+status = {
+  "message" : "hello test"
+}
+
+api_url = 'https://api.twitter.com/1.1/statuses/update.json?status={message}'.format(**status)
+
+res = twitter.post(api_url)
 
 print(json.dumps(res.json()))
 
