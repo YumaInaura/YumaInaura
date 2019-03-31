@@ -35,8 +35,8 @@ for tweet in timelines:
   tweet_datetime = convert_datetime(tweet['created_at'])
 
   if not in_jst_yesterday(tweet_datetime):
-      continue
+    continue
   else:
-    results.append(json.dumps(tweet))
+    results.append(tweet)
 
 print(json.dumps(results))
