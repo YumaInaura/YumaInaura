@@ -7,5 +7,5 @@ basedir=$(dirname "$0")
 logdir="$basedir"/log
 mkdir -p "$logdir"
 
-eval "$basedir"/timeline.py | tee "$logdir"/timeline.log
+INCLUDE_RTS=1 INCLUDE_REPLIES=1 ALL=1 eval "$basedir"/timeline.py | tee "$logdir"/timeline.log
 
