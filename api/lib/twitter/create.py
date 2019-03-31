@@ -14,8 +14,11 @@ AT = config.ACCESS_TOKEN
 ATS = config.ACCESS_TOKEN_SECRET
 twitter = OAuth1Session(CK, CS, AT, ATS)
 
+message = sys.stdin.read()
+message = re.sub("\n", '\n' , message)
+
 status = {
-  "message" : "hello test"
+  "message" : message
 }
 
 api_url = 'https://api.twitter.com/1.1/statuses/update.json?status={message}'.format(**status)
