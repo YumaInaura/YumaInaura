@@ -2,7 +2,6 @@
 
 # https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-destroy-id.html
 
-
 import json, config, re, sys, os
 from requests_oauthlib import OAuth1Session
 
