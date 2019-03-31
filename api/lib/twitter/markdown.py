@@ -28,6 +28,8 @@ for tweet in timelines:
   utc_datetime = tweet_datetime.strftime('%Y-%m-%d %H:%M:%S UTC')
   # jst_datetime = timezone('Asia/Tokyo').localize(tweet_datetime).strftime('%Y-%m-%d %H:%M:%S %p JST')
 
+  text += format_tweet(tweet['full_text'])
+
   if 'extended_entities' in tweet and 'media' in tweet['extended_entities'].keys():
     for media in tweet['extended_entities']['media']:
       text += "\n"
@@ -42,9 +44,6 @@ for tweet in timelines:
       text += '<{expanded_url}>'.format(**url)
 
   text += "\n\n" + '<a href="https://twitter.com/YumaInaura/status/' + str(tweet['id']) + '">' + utc_datetime  + '</a>'
-  text += "\n\n" + str(tweet['created_at'])
-
-  text += format_tweet(tweet['full_text'])
 
   print(text)
 
