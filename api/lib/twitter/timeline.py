@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-user_timeline.html
 
 import json, config, os, re
