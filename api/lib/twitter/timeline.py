@@ -21,8 +21,6 @@ else:
 
 twitter = OAuth1Session(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 
-OWN_USER_ID = 473780756
-
 url = "https://api.twitter.com/1.1/statuses/user_timeline.json"
 last_id = ''
 
@@ -54,6 +52,8 @@ def response(max_id):
 
   return res
 
+results = []
+
 for i in range(0, round-1):
   res = response(last_id)
 
@@ -63,5 +63,7 @@ for i in range(0, round-1):
   if i >= 2:
     timelines.pop()
 
-print(json.dumps(timelines))
+  results += timelines
+
+print(json.dumps(results))
 

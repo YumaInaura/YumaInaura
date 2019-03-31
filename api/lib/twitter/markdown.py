@@ -34,8 +34,6 @@ for line in timelines:
 
     results.append(format_tweet(line['full_text']))
 
-results.reverse()
-
 for result in results:
   print(result)
 

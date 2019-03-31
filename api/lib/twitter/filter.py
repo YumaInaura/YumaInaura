@@ -4,7 +4,7 @@ import sys, json, os
 
 timelines = json.loads(sys.stdin.read())
 
-OWN_USER_ID = 473780756
+OWN_USER_ID = os.environ.get('OWN_USER_ID')
 
 results = []
 
@@ -24,5 +24,7 @@ for result in timelines:
       continue
 
   results.append(result)
+
+results.reverse()
 
 print(json.dumps(results))
