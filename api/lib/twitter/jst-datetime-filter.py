@@ -29,8 +29,9 @@ def in_jst_yesterday(tweet_datetime):
 
 results = []
 
-for line in sys.stdin:
-  tweet = json.loads(line)
+timelines = json.loads(sys.stdin.read())
+
+for tweet in timelines:
   tweet_datetime = convert_datetime(tweet['created_at'])
 
   if not in_jst_yesterday(tweet_datetime):
@@ -38,6 +39,4 @@ for line in sys.stdin:
   else:
     results.append(json.dumps(tweet))
 
-for result in results:
-  print(result)
-
+print(json.dumps(results))
