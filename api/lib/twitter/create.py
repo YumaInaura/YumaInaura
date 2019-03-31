@@ -2,7 +2,7 @@
 
 #https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update.html
 
-import json, config, os, re
+import json, config, os, re, sys
 from requests_oauthlib import OAuth1Session
 import time
 import datetime
@@ -15,7 +15,6 @@ ATS = config.ACCESS_TOKEN_SECRET
 twitter = OAuth1Session(CK, CS, AT, ATS)
 
 message = sys.stdin.read()
-message = re.sub("\n", '\n' , message)
 
 status = {
   "message" : message
