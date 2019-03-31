@@ -26,8 +26,8 @@ OWN_USER_ID = 473780756
 url = "https://api.twitter.com/1.1/statuses/user_timeline.json"
 last_id = ''
 
-include_rts =     True if os.environ.get('INCLUDE_RTS') else False
-include_replies = True if (os.environ.get('INCLUDE_REPLIES') or os.environ.get('ONLY_REPLIES')) else False
+include_rts =     True if (os.environ.get('INCLUDE_RTS') or os.environ.get('ALL') ) else False
+include_replies = True if (os.environ.get('INCLUDE_REPLIES') or os.environ.get('ONLY_REPLIES') or os.environ.get('ALL')) else False
 
 round = int(os.environ.get('ROUND')) if os.environ.get('ROUND') else 3
 
