@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
 
-import sys, json
+import sys, json, pbm
+#from IPython import embed
 
 for line in sys.stdin:
   tweet = json.loads(line)
 
-  if 'entities' in tweet and 'hashtags' in tweet['entities']:# and not 'samurai' in tweet['entities']['hashtags']:
+  if not 'hashtags' in tweet['entities']:
+    continue
+  elif not tweet['entities']['hashtags']:
+    continue
+  elif not [hashtag for hashtag in tweet['entities']['hashtags'] if hashtag['text'] == 'samurai']:
     continue
   else:
     print (json.dumps(tweet))
