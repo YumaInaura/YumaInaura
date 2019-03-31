@@ -65,5 +65,7 @@ for i in range(0, round-1):
 
   results += timelines
 
+results.reverse()
+
 print(json.dumps(results))
 
