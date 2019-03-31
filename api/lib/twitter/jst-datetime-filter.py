@@ -3,7 +3,7 @@
 import json, config, os, re, sys, time, datetime
 from datetime import timedelta
 
-def convert_datetime(datetime_str):
+def convert_to_datetime(datetime_str):
   tweet_time = time.strptime(datetime_str,'%a %b %d %H:%M:%S +0000 %Y')
 
   tweet_datetime = datetime.datetime(*tweet_time[:6])
@@ -32,7 +32,7 @@ results = []
 timelines = json.loads(sys.stdin.read())
 
 for tweet in timelines:
-  tweet_datetime = convert_datetime(tweet['created_at'])
+  tweet_datetime = convert_to_datetime(tweet['created_at'])
 
   if not in_jst_yesterday(tweet_datetime):
     continue
