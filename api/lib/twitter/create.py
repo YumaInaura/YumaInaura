@@ -7,12 +7,19 @@ from requests_oauthlib import OAuth1Session
 import time
 import datetime
 from datetime import timedelta
- 
-CK = config.CONSUMER_KEY
-CS = config.CONSUMER_SECRET
-AT = config.ACCESS_TOKEN
-ATS = config.ACCESS_TOKEN_SECRET
-twitter = OAuth1Session(CK, CS, AT, ATS)
+
+if os.environ.get('TWITTER_CONSUMER_KEY'):
+  CONSUMER_KEY = os.environ.get('TWITTER_CONSUMER_KEY')
+  CONSUMER_SECRET = os.environ.get('TWITTER_CONSUMER_SECRET')
+  ACCESS_TOKEN = os.environ.get('TWITTER_ACCESS_TOKEN')
+  ACCESS_TOKEN_SECRET = os.environ.get('TWITTER_ACCESS_TOKEN_SECRET')
+else:
+  CONSUMER_KEY = config.CONSUMER_KEY
+  CONSUMER_SECRET = config.CONSUMER_SECRET
+  ACCESS_TOKEN = config.ACCESS_TOKEN
+  ACCESS_TOKEN_SECRET = config.ACCESS_TOKEN_SECRET
+
+twitter = OAuth1Session(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 
 message = sys.stdin.read()
 

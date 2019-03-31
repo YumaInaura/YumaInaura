@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-user_timeline.html
 
 import json, config, os, re
@@ -5,20 +7,27 @@ from requests_oauthlib import OAuth1Session
 import time
 import datetime
 from datetime import timedelta
- 
-CK = config.CONSUMER_KEY
-CS = config.CONSUMER_SECRET
-AT = config.ACCESS_TOKEN
-ATS = config.ACCESS_TOKEN_SECRET
-twitter = OAuth1Session(CK, CS, AT, ATS)
+
+if os.environ.get('TWITTER_CONSUMER_KEY'):
+  CONSUMER_KEY = os.environ.get('TWITTER_CONSUMER_KEY')
+  CONSUMER_SECRET = os.environ.get('TWITTER_CONSUMER_SECRET')
+  ACCESS_TOKEN = os.environ.get('TWITTER_ACCESS_TOKEN')
+  ACCESS_TOKEN_SECRET = os.environ.get('TWITTER_ACCESS_TOKEN_SECRET')
+else:
+  CONSUMER_KEY = config.CONSUMER_KEY
+  CONSUMER_SECRET = config.CONSUMER_SECRET
+  ACCESS_TOKEN = config.ACCESS_TOKEN
+  ACCESS_TOKEN_SECRET = config.ACCESS_TOKEN_SECRET
+
+twitter = OAuth1Session(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 
 OWN_USER_ID = 473780756
 
 url = "https://api.twitter.com/1.1/statuses/user_timeline.json"
 last_id = ''
 
-include_rts =     True if os.environ.get('INCLUDE_RTS') else False
-include_replies = True if (os.environ.get('INCLUDE_REPLIES') or os.environ.get('ONLY_REPLIES')) else False
+include_rts =     True if (os.environ.get('INCLUDE_RTS') or os.environ.get('ALL') ) else False
+include_replies = True if (os.environ.get('INCLUDE_REPLIES') or os.environ.get('ONLY_REPLIES') or os.environ.get('ALL')) else False
 
 round = int(os.environ.get('ROUND')) if os.environ.get('ROUND') else 3
 
