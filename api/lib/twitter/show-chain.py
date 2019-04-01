@@ -22,11 +22,12 @@ twitter = OAuth1Session(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKE
 last_tweet = {}
 tweets = []
 
-MAX_ROUND = 20
+MAX_ROUND = 30
 
 for i in range(1, MAX_ROUND+1):
   api_parameter = {
-    "id": last_tweet['in_reply_to_status_id_str'] if last_tweet and last_tweet['in_reply_to_status_id_str'] else os.environ.get('ID')
+    "id": last_tweet['in_reply_to_status_id_str'] if last_tweet and last_tweet['in_reply_to_status_id_str'] else os.environ.get('ID'),
+    include_entities: True,
   }
   
   api_url = "https://api.twitter.com/1.1/statuses/show.json?id={id}".format(**api_parameter)
