@@ -1,4 +1,3 @@
-date=$(TZ=Asia/Tokyo date +'%Y-%m-%d')
 
 # #zen
 slack_channel_id="CG1JV3ETU"
@@ -7,10 +6,6 @@ slack_channel_id="CG1JV3ETU"
 # slack_channel_id="CH80A4W3D"
 
 github_repository="playground"
-
-api_dir="$basedir"/../../lib
-log_dir="$basedir"/log
-mkdir -p "$log_dir"
 
 slack_channel_history_log_file="$log_dir"/slack-channel-history.json
 slack_message_log_file="$log_dir"/slack-message.json
