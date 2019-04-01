@@ -19,13 +19,24 @@ else:
 
 twitter = OAuth1Session(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 
-tweet = {
-  "id": os.environ.get('ID')
-}
+last_tweet = {}
+tweets = []
 
-api_url = "https://api.twitter.com/1.1/statuses/show.json?id={id}".format(**tweet)
+MAX_ROUND = 20
 
-response = twitter.get(api_url)
-result = response.json()
+for i in range(1, MAX_ROUND+1):
+  api_parameter = {
+    "id": last_tweet['in_reply_to_status_id_str'] if last_tweet and last_tweet['in_reply_to_status_id_str'] else os.environ.get('ID')
+  }
+  
+  api_url = "https://api.twitter.com/1.1/statuses/show.json?id={id}".format(**api_parameter)
+  
+  response = twitter.get(api_url)
+  tweet = last_tweet = response.json()
 
-print(json.dumps(result))
+  if not tweet['in_reply_to_status_id_str']:
+    break
+  else:
+    tweets.append(tweet)
+
+print(json.dumps(tweets))
