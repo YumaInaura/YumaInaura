@@ -28,4 +28,4 @@ api_url = "https://api.twitter.com/1.1/statuses/show.json?id={id}".format(**twee
 response = twitter.get(api_url)
 result = response.json()
 
-print(json.dumps(results))
+print(json.dumps(result))
