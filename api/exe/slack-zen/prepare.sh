@@ -9,4 +9,4 @@ mkdir -p "$log_dir"
 default_setting_file=zen-setting.sh
 setting_file=${SETTING_FILE:-$default_setting_file}
 
-source "$base_dir/$setting_file"
+source "$basedir/$setting_file"
