@@ -6,7 +6,7 @@ api_dir="$basedir"/../../lib
 log_dir="$basedir"/log
 mkdir -p "$log_dir"
 
-default_setting_file="$basedir"/zen-setting.sh
+default_setting_file=zen-setting.sh
 setting_file=${SETTING_FILE:-$default_setting_file}
 
-source "$setting_file"
+source "$base_dir/$setting_file"
