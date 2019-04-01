@@ -15,9 +15,9 @@ slack_message_plain_log_file="$log_dir"/slack-message-plain-samurai.txt
 formatted_message_log_file="$log_dir"/formatted-message-samurai.json
 markdown_text_log_file="$log_dir"/markdown_text-samurai.txt
 
-github_title="いなうらゆうまはここにいた Zen ${date}"
-ja_github_title="いなうらゆうまはここにいた Zen ${date}"
-en_github_title="Yuma Inaura was Here Zen ${date}"
+github_title="とあるエンジニアの問題意識 ${date}"
+ja_github_title="とあるエンジニアの問題意識 ${date}"
+en_github_title="As An Engineer ${date}"
 
 github_issue_list_log_file="$log_dir"/github-issue-samurai.json
 github_found_issue_log_file="$log_dir"/github-found-issue-samurai.json
