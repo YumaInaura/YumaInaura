@@ -10,7 +10,7 @@ source "${basedir}/prepare.sh"
 mkdir -p "${log_dir}"
 rm -rf "${log_dir}"/*slack*
 
-interval_sec=${INTERVAL:-60}
+interval_sec=${INTERVAL:-$slack_message_interval}
 oldest_unixtime=$(($(date +%s) - $interval_sec))
 
 TOKEN="$slack_token" \

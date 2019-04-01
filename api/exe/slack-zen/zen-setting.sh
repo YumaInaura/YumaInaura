@@ -5,6 +5,8 @@ slack_channel_id="CG1JV3ETU"
 # #zen-drive
 # slack_channel_id="CH80A4W3D"
 
+slack_message_interval=60
+
 github_repository="playground"
 
 slack_channel_history_log_file="$log_dir"/slack-channel-history.json
