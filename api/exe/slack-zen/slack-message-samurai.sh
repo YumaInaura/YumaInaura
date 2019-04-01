@@ -5,12 +5,12 @@ set -eu
 basedir=$(dirname "$0")
 
 source "${basedir}/../../setting.sh"
-source "${basedir}/prepare.sh"
+source "${basedir}/prepare-samurai.sh"
 
 mkdir -p "${log_dir}"
 rm -rf "${log_dir}"/*slack*
 
-interval_sec=${INTERVAL:-$slack_message_interval}
+interval_sec=${INTERVAL:-$((24*60*60))}
 oldest_unixtime=$(($(date +%s) - $interval_sec))
 
 TOKEN="$slack_token" \
