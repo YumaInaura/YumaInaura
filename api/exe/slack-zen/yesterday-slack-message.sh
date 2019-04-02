@@ -10,13 +10,13 @@ source "${basedir}/prepare.sh"
 interval_sec=${INTERVAL:-$slack_message_interval}
 oldest_unixtime=$(($(date +%s) - $interval_sec))
 
-today_ts=$(DATE=$(date +'%Y-%m-%d') "$api_dir"/jst-unixtimestamp.py)
-yesterday_ts=$(DATE=$(date --date="1 days ago" +'%Y-%m-%d') "$apir_di"/jst-unixtimestaump.py)
+oldest_ts=$(DATE=$(date --date="2 days ago" +'%Y-%m-%d') "$api_dir"/slack/jst-unixtimestamp.py)
+latest_ts=$(DATE=$(date --date="1 days ago" +'%Y-%m-%d') "$api_dir"/slack/jst-unixtimestamp.py)
 
 TOKEN="$slack_token" \
 CHANNEL="$slack_channel_id" \
-OLDEST="$today_ts" \
-LATEST="$yesterday_ts" \
+OLDEST="$oldest_ts" \
+LATEST="$latest_ts" \
   python "${basedir}"/../../lib/slack/channel-message.py \
    | tee "$slack_channel_history_log_file"
 
