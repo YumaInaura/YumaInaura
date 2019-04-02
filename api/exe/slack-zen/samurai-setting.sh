@@ -1,12 +1,12 @@
 date=$(TZ=Asia/Tokyo date +'%Y-%m-%d')
 
-# #engine
+# engine
 slack_channel_id="CG8Q65EGP"
 
 slack_message_interval=$((24*60*60))
 
 github_owner="YumaInaura"
-github_repository="playground"
+github_repository="YumaInaura"
 
 slack_channel_history_log_file="$log_dir"/slack-channel-history-samurai.json
 slack_message_log_file="$log_dir"/slack-message-samurai.json
