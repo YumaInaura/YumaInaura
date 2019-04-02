@@ -29,9 +29,9 @@ for i in range(1, MAX_ROUND+1):
     "id": last_tweet['in_reply_to_status_id_str'] if last_tweet and last_tweet['in_reply_to_status_id_str'] else os.environ.get('ID'),
   }
   
-  api_url = "https://api.twitter.com/1.1/statuses/show.json?id={id}".format(**api_parameter)
-  
-  response = twitter.get(api_url)
+  api_url = "https://api.twitter.com/1.1/statuses/show.json"
+ 
+  response = twitter.get(api_url, params=api_parameter)
   tweet = last_tweet = response.json()
 
   if not tweet['in_reply_to_status_id_str']:
