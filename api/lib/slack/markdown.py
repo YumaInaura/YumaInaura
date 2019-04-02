@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import requests, os, json, datetime
+import requests, os, json, datetime, sys
 
 stdin_lines = sys.stdin.read()
 
