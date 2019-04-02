@@ -28,7 +28,7 @@ if [[ ! -z "$github_found_top_issue" ]]; then
   issue_number=$(echo "$github_found_top_issue" | jq '.["number"]')
 
   github_issue=$(
-    OWNER=YumaInaura \
+    OWNER="$github_owner" \
     API_KEY="$github_api_key" \
     REPOSITORY="$github_repository" \
     BODY="$body" \
@@ -39,7 +39,7 @@ else
   body=$message
 
   github_issue=$(
-    OWNER=YumaInaura \
+    OWNER="$github_owner" \
     API_KEY="$github_api_key" \
     REPOSITORY="$github_repository" \
     TITLE="$TITLE" \
