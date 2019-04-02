@@ -11,15 +11,15 @@ def convert_to_datetime(datetime_str):
   tweet_datetime = datetime.datetime(*tweet_time[:6])
   return(tweet_datetime)
 
-def format_tweet(text):
-  text = re.sub(r'https://t\.co/\w+', '' , text)
-  text = re.sub(r'#', '' , text)
+def format_tweet(t):
+  t = re.sub(r'https://t\.co/\w+', '' , t)
+  t = re.sub(r'#', '' , t)
 
-  text = re.sub(r'。', "。\n", text, 1)
+  t = re.sub(r'。', "。\n", t, 1)
 
-  text = '# ' + text
+  t = '# ' + t
 
-  return(text)
+  return(t)
 
 text = ''
 
@@ -44,7 +44,8 @@ for tweet in timelines:
       text += '<{expanded_url}>'.format(**url)
 
   text += "\n\n" + '<a href="https://twitter.com/YumaInaura/status/' + str(tweet['id']) + '">' + utc_datetime  + '</a>'
+  text += "\n"
 
-  print(text)
+print(text)
 
 

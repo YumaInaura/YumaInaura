@@ -19,7 +19,7 @@ OLDEST="$oldest_unixtime" \
   python "${basedir}"/../../lib/slack/channel-message.py \
    | tee "$slack_channel_history_log_file"
 
-cat "$slack_channel_history_log_file" | jq '.["messages"][]' | tee "$slack_message_log_file" | jq .
-cat "$slack_message_log_file" | jq 'select(.subtype == null)' | tee "$slack_user_message_log_file" | jq .
-cat "$slack_user_message_log_file" | jq '.text' | sed -e 's/^"//g' | sed -e 's/"$//g' | tee "$slack_message_plain_log_file"
+cat "$slack_channel_history_log_file" | jq '.["messages"]' | tee "$slack_message_log_file" | jq .
+cat "$slack_message_log_file" | jq 'map(select(.subtype == null))' | tee "$slack_user_message_log_file" | jq .
+cat "$slack_user_message_log_file" | jq '.[].text' | sed -e 's/^"//g' | sed -e 's/"$//g' | tee "$slack_message_plain_log_file"
 
