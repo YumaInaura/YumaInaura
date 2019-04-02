@@ -14,6 +14,10 @@ for message in messages:
 
   markdown_text += text + "\n\n"
 
+  if 'attachments' in message:
+    for attachment in message['attachments']:
+      markdown_text += '![image](' + attachment['image_url'] + ')' + "\n\n"
+
   date = datetime.datetime.utcfromtimestamp(float(message['ts'])).strftime('%Y-%m-%d %H:%M:%S')
   markdown_text += date + "\n\n"
 
