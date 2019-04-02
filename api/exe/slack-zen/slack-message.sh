@@ -7,9 +7,6 @@ basedir=$(dirname "$0")
 source "${basedir}/../../setting.sh"
 source "${basedir}/prepare.sh"
 
-mkdir -p "${log_dir}"
-rm -rf "${log_dir}"/*slack*
-
 interval_sec=${INTERVAL:-$slack_message_interval}
 oldest_unixtime=$(($(date +%s) - $interval_sec))
 
