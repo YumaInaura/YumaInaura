@@ -13,7 +13,7 @@ slack_user_message_log_file="$log_dir"/slack-user-message-samurai.json
 slack_message_plain_log_file="$log_dir"/slack-message-plain-samurai.txt
 
 formatted_message_log_file="$log_dir"/formatted-message-samurai.json
-markdown_text_log_file="$log_dir"/markdown_text-samurai.txt
+markdown_text_log_file="$log_dir"/markdown_text-samurai.md
 
 github_title="とあるエンジニアの問題意識 ${date}"
 ja_github_title="とあるエンジニアの問題意識 ${date}"
