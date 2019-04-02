@@ -27,7 +27,7 @@ last_id = ''
 last_tweet = {}
 tweets = []
 
-MAX_ROUND = os.environ.get('ROUND') if os.environ.get('ROUND') else 30
+MAX_ROUND = int(os.environ.get('ROUND')) if os.environ.get('ROUND') else 30
 
 for i in range(1, MAX_ROUND+1):
   status_id = last_tweet['in_reply_to_status_id_str'] if last_tweet and last_tweet['in_reply_to_status_id_str'] else os.environ.get('ID')
@@ -37,13 +37,13 @@ for i in range(1, MAX_ROUND+1):
     'exclude_replies' : True,
     'tweet_mode' : 'extended',
     'count' : 1,
-    'since_id' : status_id,
-    'max_id' : max_id,
+    'since_id' : status_id
   }
   
-  response = twitter.post(api_url, api_prams)
+  response = twitter.get(api_url, params=api_params)
   tweet = last_tweet = response.json()
 
+  print(tweet)
   if not tweet['in_reply_to_status_id_str']:
     break
   else:
