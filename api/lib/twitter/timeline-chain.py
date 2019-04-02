@@ -34,16 +34,15 @@ for i in range(1, MAX_ROUND+1):
 
   api_params = {
     'trim_user' : True,
-    'exclude_replies' : True,
+    'exclude_replies' : False,
     'tweet_mode' : 'extended',
     'count' : 1,
-    'since_id' : status_id
+    'max_id' : status_id,
   }
   
   response = twitter.get(api_url, params=api_params)
-  tweet = last_tweet = response.json()
+  tweet = last_tweet = response.json()[0]
 
-  print(tweet)
   if not tweet['in_reply_to_status_id_str']:
     break
   else:
