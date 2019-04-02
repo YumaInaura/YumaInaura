@@ -19,13 +19,13 @@ else:
 
 twitter = OAuth1Session(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 
-tweet = {
+params = {
   "id": os.environ.get('ID')
 }
 
-api_url = "https://api.twitter.com/1.1/statuses/show.json?id={id}".format(**tweet)
+api_url = "https://api.twitter.com/1.1/statuses/show.json"
 
-response = twitter.get(api_url)
+response = twitter.get(api_url, params=params)
 result = response.json()
 
 print(json.dumps(result))
