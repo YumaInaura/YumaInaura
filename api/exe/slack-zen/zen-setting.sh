@@ -7,7 +7,7 @@ slack_channel_id="CG1JV3ETU"
 
 slack_message_interval=60
 
-github_ownery="YumaInaura"
+github_owner="YumaInaura"
 github_repository="playground"
 
 slack_channel_history_log_file="$log_dir"/slack-channel-history.json
