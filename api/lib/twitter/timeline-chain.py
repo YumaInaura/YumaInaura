@@ -21,27 +21,33 @@ else:
 
 twitter = OAuth1Session(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 
-url = "https://api.twitter.com/1.1/statuses/user_timeline.json"
+api_url = "https://api.twitter.com/1.1/statuses/user_timeline.json"
 last_id = ''
 
-round = int(os.environ.get('ROUND')) if os.environ.get('ROUND') else 3
+last_tweet = {}
+tweets = []
 
-def response(max_id):
+MAX_ROUND = os.environ.get('ROUND') if os.environ.get('ROUND') else 30
+
+for i in range(1, MAX_ROUND+1):
+  status_id = last_tweet['in_reply_to_status_id_str'] if last_tweet and last_tweet['in_reply_to_status_id_str'] else os.environ.get('ID')
+
   api_params = {
     'trim_user' : True,
     'exclude_replies' : True,
     'tweet_mode' : 'extended',
     'count' : 1,
+    'since_id' : status_id,
+    'max_id' : max_id,
   }
   
- res = twitter.get(url, params = api_params)
-  
-  if res.status_code != 200:  
-      print("Failed: %d" % res.status_code)
-      exit()
+  response = twitter.post(api_url, api_prams)
+  tweet = last_tweet = response.json()
 
-  return res
+  if not tweet['in_reply_to_status_id_str']:
+    break
+  else:
+    tweets.append(tweet)
 
-results = []
-
+print(json.dumps(tweets))
 
