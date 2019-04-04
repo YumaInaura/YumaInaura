@@ -16,5 +16,6 @@ eval "$basedir"/github-issue-list.sh
 
 cat "$markdown_text_log_file" | \
   TITLE="$ja_github_title" \
+  LABELS=medium,hatena,japanese,twitter
   "${basedir}"/github-create-or-append-daily-issue.sh
 
