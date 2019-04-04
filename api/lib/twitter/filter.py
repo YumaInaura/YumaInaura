@@ -24,7 +24,7 @@ for tweet in tweets:
   full_text = tweet['full_text'].strip()
 
   formatted_full_text = tweet['full_text']
-  formatted_full_text = re.sub(r'http[^_s]+', '', formatted_full_text)
+  formatted_full_text = re.sub(r'http[^\s]+', '', formatted_full_text)
 
   print(formatted_full_text)
 
