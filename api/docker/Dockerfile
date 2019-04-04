@@ -5,6 +5,7 @@ FROM centos
 COPY . ./
 
 RUN yum install -y vim sudo && \
-  sudo yum install google-cloud-sdk
+  cp ./google-cloud-sdk.repo /etc/yum.repos.d/ && \
+  sudo yum install -y google-cloud-sdk
 
 ENTRYPOINT /bin/bash
