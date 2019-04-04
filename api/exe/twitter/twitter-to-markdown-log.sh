@@ -22,7 +22,7 @@ pushd ${api_dir}/twitter
 
   cat log/timeline-jst-yesterday.log | ./filter.py \
      --end-with=j \
-     --match='エンジニ|プログラ' \
+     --match='エンジニ|プログラ|#i|#j|Wantedly|仕事' \
      | ./markdown.py \
        > log/samurai.md
 popd
