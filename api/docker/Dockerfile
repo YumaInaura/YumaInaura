@@ -1,4 +1,4 @@
-FROM centos:centos
+FROM centos
 
 RUN yum install -y vim
 
