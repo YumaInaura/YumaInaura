@@ -1,5 +1,5 @@
 FROM centos
 
-RUN yum install -y vim
+RUN yum install -y vim sudo
 
 ENTRYPOINT /bin/bash
