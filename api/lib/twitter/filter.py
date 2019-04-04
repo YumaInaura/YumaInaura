@@ -21,7 +21,12 @@ results = []
 for tweet in tweets:
   hit = False
 
-  if end_with and tweet['full_text'].endswith(endswith):
+  full_text = tweet['full_text'].strip()
+
+  formatted_full_text = tweet['full_text']
+  formatted_full_text = re.sub(r'http[^_s]+', '', formatted_full_text)
+
+  if end_with and formatted_full_text.endswith(endswith):
     hit = True
 
   if match_on and re.match(match_on, tweet['full_text']):
