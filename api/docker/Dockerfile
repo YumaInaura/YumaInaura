@@ -2,6 +2,9 @@
 
 FROM centos
 
-RUN yum install -y vim sudo
+COPY . ./
+
+RUN yum install -y vim sudo && \
+  sudo yum install google-cloud-sdk
 
 ENTRYPOINT /bin/bash
