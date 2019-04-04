@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import sys, json, re
+import sys, json, re, pdb
 from optparse import OptionParser
 
 parser = OptionParser()
