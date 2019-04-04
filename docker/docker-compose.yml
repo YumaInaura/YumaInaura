@@ -6,3 +6,5 @@ services:
       - ./db/mysql_data:/var/lib/mysql
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      3006:3008
