@@ -17,6 +17,13 @@ pushd ${api_dir}/twitter
   ALL=1 ./timeline.py > log/timeline.log
   cat log/timeline.log | OWN_USER_ID=473780756 ./filter-own.py > log/timeline-own-tweet.log
   cat log/timeline-own-tweet.log | ./jst-datetime-filter.py > log/timeline-jst-yesterday.log
+
   cat log/timeline-jst-yesterday.log | ./markdown.py > log/markdown.log
+
+  cat log/timeline-jst-yesterday.log | ./filter.py \
+     --end-with=j \
+     --match='エンジニ|プログラ' \
+     | ./markdown.py \
+       > log/samurai.md
 popd
 
