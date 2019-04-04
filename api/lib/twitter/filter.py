@@ -26,8 +26,6 @@ for tweet in tweets:
   formatted_full_text = tweet['full_text']
   formatted_full_text = re.sub(r'http[^\s]+', '', formatted_full_text)
 
-  print(formatted_full_text)
-
   if end_with and formatted_full_text.endswith(endswith):
     hit = True
 
