@@ -1,5 +1,8 @@
 # https://cloud.google.com/sdk/docs/quickstart-redhat-centos
 
+# After run container do this
+# $ gcloud init
+
 FROM centos
 
 COPY . ./

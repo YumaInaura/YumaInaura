@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 
 import sys, json, pbm
-#from IPython import embed
 
 find_hashtags = sys.argv
 
-for line in sys.stdin:
-  tweet = json.loads(line)
+tweets = json.loads(sys.stdin.read())
+
+for tweet in tweets:
 
   if not 'hashtags' in tweet['entities']:
     continue
