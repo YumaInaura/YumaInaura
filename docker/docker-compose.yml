@@ -7,4 +7,4 @@ services:
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes
     ports:
-      - "3308:3306"
+      - "10000:3306"
