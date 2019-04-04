@@ -23,10 +23,10 @@ for tweet in tweets:
 
   full_text = tweet['full_text'].strip()
 
-  formatted_full_text = tweet['full_text']
-  formatted_full_text = re.sub(r'http[^\s]+', '', formatted_full_text)
+  judgement_text = tweet['full_text']
+  judgement_text = re.sub(r'http[^\s]+', '', judgement_text)
 
-  if end_with and formatted_full_text.endswith(endswith):
+  if end_with and judgement_text.endswith(endswith):
     hit = True
 
   if match_on and re.match(match_on, tweet['full_text']):
