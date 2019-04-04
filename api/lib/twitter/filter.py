@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
-import sys, json, re, pdb
+import sys, json, re
 from optparse import OptionParser
+import ipdb;
 
 parser = OptionParser()
 
@@ -19,6 +20,8 @@ tweets = json.loads(sys.stdin.read())
 results = []
 
 for tweet in tweets:
+  ipdb.set_trace()
+
   hit = False
 
   full_text = tweet['full_text'].strip()
