@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 
 from IPython import embed
+import sys
 
-a=1
+sys.stdin.read()
 
 embed()
+a=1
+

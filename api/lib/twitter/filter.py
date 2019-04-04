@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-from IPython import embed
 import sys, json, re
 from optparse import OptionParser
 
@@ -26,7 +25,6 @@ for tweet in tweets:
 
   formatted_full_text = tweet['full_text']
   formatted_full_text = re.sub(r'http[^_s]+', '', formatted_full_text)
-  embed()
 
   if end_with and formatted_full_text.endswith(endswith):
     hit = True
@@ -37,4 +35,4 @@ for tweet in tweets:
   if hit:
     results.append(tweet)
 
-print(json.dumps(results))
+ print(json.dumps(results))
