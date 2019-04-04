@@ -20,8 +20,6 @@ tweets = json.loads(sys.stdin.read())
 results = []
 
 for tweet in tweets:
-  ipdb.set_trace()
-
   hit = False
 
   full_text = tweet['full_text'].strip()
