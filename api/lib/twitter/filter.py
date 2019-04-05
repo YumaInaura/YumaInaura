@@ -21,10 +21,15 @@ results = []
 for tweet in tweets:
   hit = False
 
-  if end_with and tweet['full_text'].endswith(endswith):
+  full_text = tweet['full_text'].strip()
+
+  judgement_text = full_text
+  judgement_text = re.sub(r'http[^\s]+', '', judgement_text)
+
+  if end_with and judgement_text.endswith(endswith):
     hit = True
 
-  if match_on and re.match(match_on, tweet['full_text']):
+  if match_on and re.search(match_on, full_text):
     hit = True
 
   if hit:
