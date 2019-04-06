@@ -10,20 +10,25 @@ source "${basedir}/../../setting.sh"
 
 jst_date=$(TZ=Asia/Tokyo date --date='1 days ago' +'%y-%m-%d')
 
-api_dir="${basedir}/../../lib"
+mkdir -p "$log_dir"
 
-pushd ${api_dir}/twitter
-  mkdir -p log
-  ALL=1 ./timeline.py > log/timeline.log
-  cat log/timeline.log | OWN_USER_ID=473780756 ./filter-own.py > log/timeline-own-tweet.log
-  cat log/timeline-own-tweet.log | ./jst-datetime-filter.py > log/timeline-jst-yesterday.log
+cp ~/.secret/twitter-yumainaura2nd-config.py "$api_dir"/twitter/config.py
+ALL=1 "$api_dir"/twitter/timeline.py > "$log_dir"/timeline-yumainaura-2nd.json
 
-  cat log/timeline-jst-yesterday.log | ./markdown.py > log/markdown.log
+cat "$log_dir"/timeline-yumainaura-2nd.json | OWN_USER_ID=1095662627890425900 "$api_dir"/twitter/filter-own.py > "$log_dir"/timeline-own-tweet-yumainaura2nd.json
+cat "$log_dir"/timeline-own-tweet-yumainaura2nd.json | "$api_dir"/twitter/jst-datetime-filter.py > "$log_dir"/timeline-jst-yesterday-yumainaura2nd.json
+cat "$log_dir"/timeline-jst-yesterday-yumainaura2nd.json | "$api_dir"/twitter/markdown.py > "$log_dir"/yumainaura2nd.md
 
-  cat log/timeline-jst-yesterday.log | ./filter.py \
-     --end-with=j \
-     --match='エンジニ|プログラ|仕事|就職|Wanted|Qiita|python|ruby|vue|docker' \
-     | ./markdown.py \
-       > log/samurai.md
-popd
+cp ~/.secret/twitter-yumainaura-config.py "$api_dir"/twitter/config.py
+ALL=1 "$api_dir"/twitter/timeline.py > "$log_dir"/timeline.json
+
+cat "$log_dir"/timeline.json | OWN_USER_ID=473780756 "$api_dir"/twitter/filter-own.py > "$log_dir"/timeline-own-tweet.json
+cat "$log_dir"/timeline-own-tweet.json | "$api_dir"/twitter/jst-datetime-filter.py > "$log_dir"/timeline-jst-yesterday.json
+cat "$log_dir"/timeline-jst-yesterday.json | "$api_dir"/twitter/markdown.py > "$log_dir"/yumainaura.md
+
+cat "$log_dir"/timeline-jst-yesterday.json | "$api_dir"/twitter/filter.py \
+  --end-with=j \
+  --match='エンジニ|プログラ|仕事|就職|Wanted|Qiita|python|ruby|vue|docker' \
+  | "$api_dir"/twitter/markdown.py \
+    > "$log_dir"/samurai.md
 
