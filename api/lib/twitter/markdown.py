@@ -17,7 +17,8 @@ def format_tweet(text):
   text = re.sub(r'https://t\.co/\w+', '' , text)
   text = re.sub(r'#', '' , text)
 
-  text = re.sub(r''+PERIOD, PERIOD+"\n", text, 1)
+  text = text.strip()
+  text = re.sub(re.escape(PERIOD), PERIOD+"\n", text, 1)
 
   text = '# ' + text
 
