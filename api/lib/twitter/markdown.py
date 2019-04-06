@@ -5,21 +5,24 @@ from pytz import timezone
 
 timelines = json.loads(sys.stdin.read())
 
+PERIOD = os.environ.get('PERIOD') if os.environ.get('PERIOD') else '。'
+
 def convert_to_datetime(datetime_str):
   tweet_time = time.strptime(datetime_str,'%a %b %d %H:%M:%S +0000 %Y')
 
   tweet_datetime = datetime.datetime(*tweet_time[:6])
   return(tweet_datetime)
 
-def format_tweet(t):
-  t = re.sub(r'https://t\.co/\w+', '' , t)
-  t = re.sub(r'#', '' , t)
+def format_tweet(text):
+  text = re.sub(r'https://t\.co/\w+', '' , text)
+  text = re.sub(r'#', '' , text)
 
-  t = re.sub(r'。', "。\n", t, 1)
+  text = text.strip()
+  text = re.sub(re.escape(PERIOD), PERIOD+"\n", text, 1)
 
-  t = '# ' + t
+  text = '# ' + text
 
-  return(t)
+  return(text)
 
 text = ''
 
