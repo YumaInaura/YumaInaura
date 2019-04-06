@@ -10,9 +10,6 @@ source "${basedir}/../../setting.sh"
 
 jst_date=$(TZ=Asia/Tokyo date --date='1 days ago' +'%y-%m-%d')
 
-api_dir="${basedir}/../../lib"
-
-log_dir="$basedir"/log
 mkdir -p "$log_dir"
 
 cp ~/.secret/twitter-yumainaura2nd-config.py "$api_dir"/twitter/config.py
