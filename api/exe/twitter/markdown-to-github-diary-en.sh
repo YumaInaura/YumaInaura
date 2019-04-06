@@ -13,7 +13,7 @@ export OWNER=YumaInaura \
        REPOSITORY=YumaInaura \
        API_KEY="$github_api_key" \
        TITLE="Yuma Inaura was Here ${jst_date} on Twitter" \
-       FILE="${log_dir}yumainaura2nd.md" \
+       FILE="${log_dir}/yumainaura2nd.md" \
        LABELS=medium,english,twitter
 
 python "${api_dir}/github/create-or-edit-issue.py"
