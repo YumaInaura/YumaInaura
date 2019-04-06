@@ -21,8 +21,6 @@ cat "$log_dir"/timeline-own-tweet.log | "$api_dir"/twitter/jst-datetime-filter.p
 
 cat "$log_dir"/timeline-jst-yesterday.log | "$api_dir"/twitter/markdown.py > "$log_dir"/markdown.log
 
-cat "$log_dir"/markdown.log | "$api_dir"/google-translate/translate.sh  > "$log_dir"/en-translated.md
-
  cat "$log_dir"/timeline-jst-yesterday.log | "$api_dir"/twitter/filter.py \
    --end-with=j \
    --match='エンジニ|プログラ|仕事|就職|Wanted|Qiita|python|ruby|vue|docker' \
