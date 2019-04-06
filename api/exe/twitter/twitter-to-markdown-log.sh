@@ -16,7 +16,10 @@ log_dir="$basedir"/log
 mkdir -p "$log_dir"
 
 ALL=1 "$api_dir"/twitter/timeline.py > "$log_dir"/timeline.log
+
+cp ~/.secret/yumainaura-config.py "$api_dir"/twitter/config.py
 cat "$log_dir"/timeline.log | OWN_USER_ID=473780756 "$api_dir"/twitter/filter-own.py > "$log_dir"/timeline-own-tweet.log
+
 cat "$log_dir"/timeline-own-tweet.log | "$api_dir"/twitter/jst-datetime-filter.py > "$log_dir"/timeline-jst-yesterday.log
 
 cat "$log_dir"/timeline-jst-yesterday.log | "$api_dir"/twitter/markdown.py > "$log_dir"/markdown.log
