@@ -6,29 +6,25 @@ export LC_CTYPE=en_US.UTF-8
 
 basedir=$(dirname "$0")
 
-source "${basedir}/../../setting.sh"
+source "${basedir}/."$apr_dir"/twitter."$apr_dir"/twittersetting.sh"
 
 jst_date=$(TZ=Asia/Tokyo date --date='1 days ago' +'%y-%m-%d')
 
-api_dir="${basedir}/../../lib"
+api_dir="${basedir}/."$apr_dir"/twitter."$apr_dir"/twitterlib"
 
 log_dir="$basedir"/log
 mkdir -p "$log_dir"
 
-pushd ${api_dir}/twitter
-  mkdir -p log
-  ALL=1 ./timeline.py > "$log_dir"/timeline.log
-  cat "$log_dir"/timeline.log | OWN_USER_ID=473780756 ./filter-own.py > "$log_dir"/timeline-own-tweet.log
-  cat "$log_dir"/timeline-own-tweet.log | ./jst-datetime-filter.py > "$log_dir"/timeline-jst-yesterday.log
+ALL=1 "$apr_dir"/twittertimeline.py > "$log_dir"/timeline.log
+cat "$log_dir"/timeline.log | OWN_USER_ID=473780756 "$apr_dir"/twitterfilter-own.py > "$log_dir"/timeline-own-tweet.log
+cat "$log_dir"/timeline-own-tweet.log | "$apr_dir"/twitterjst-datetime-filter.py > "$log_dir"/timeline-jst-yesterday.log
 
-  cat "$log_dir"/timeline-jst-yesterday.log | ./markdown.py > "$log_dir"/markdown.log
+cat "$log_dir"/timeline-jst-yesterday.log | "$apr_dir"/twittermarkdown.py > "$log_dir"/markdown.log
 
-  cat "$log_dir"/markdown.log | "$api_dir"/google-translate/translate.sh  > "$log_dir"/en-translated.md
- 
-   cat "$log_dir"/timeline-jst-yesterday.log | ./filter.py \
-     --end-with=j \
-     --match='エンジニ|プログラ|仕事|就職|Wanted|Qiita|python|ruby|vue|docker' \
-     | ./markdown.py \
-       > "$log_dir"/samurai.md
-popd
+# cat "$log_dir"/markdown.log | "$api_dir"/google-translate/translate.sh  > "$log_dir"/en-translated.md
 
+ cat "$log_dir"/timeline-jst-yesterday.log | "$apr_dir"/twitterfilter.py \
+   --end-with=j \
+   --match='エンジニ|プログラ|仕事|就職|Wanted|Qiita|python|ruby|vue|docker' \
+   | "$apr_dir"/twittermarkdown.py \
+     > "$log_dir"/samurai.md
