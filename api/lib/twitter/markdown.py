@@ -13,15 +13,15 @@ def convert_to_datetime(datetime_str):
   tweet_datetime = datetime.datetime(*tweet_time[:6])
   return(tweet_datetime)
 
-def format_tweet(t):
-  t = re.sub(r'https://t\.co/\w+', '' , t)
-  t = re.sub(r'#', '' , t)
+def format_tweet(text):
+  text = re.sub(r'https://t\.co/\w+', '' , text)
+  text = re.sub(r'#', '' , text)
 
-  t = re.sub(r''+PERIOD, PERIOD+"\n", t, 1)
+  text = re.sub(r''+PERIOD, PERIOD+"\n", text, 1)
 
-  t = '# ' + t
+  text = '# ' + text
 
-  return(t)
+  return(text)
 
 text = ''
 
