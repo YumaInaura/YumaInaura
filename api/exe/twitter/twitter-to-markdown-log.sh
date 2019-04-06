@@ -20,7 +20,9 @@ pushd ${api_dir}/twitter
 
   cat log/timeline-jst-yesterday.log | ./markdown.py > log/markdown.log
 
-  cat log/timeline-jst-yesterday.log | ./filter.py \
+  cat log/timeline-jst-yesterday.log | "$api_dir"/google-translate/translate.sh | ./markdown.py > log/en-translated.md
+ 
+   cat log/timeline-jst-yesterday.log | ./filter.py \
      --end-with=j \
      --match='エンジニ|プログラ|仕事|就職|Wanted|Qiita|python|ruby|vue|docker' \
      | ./markdown.py \
