@@ -17,6 +17,9 @@ mkdir -p "$log_dir"
 
 ALL=1 "$api_dir"/twitter/timeline.py > "$log_dir"/timeline.log
 
+cp ~/.secret/twitter-yumainaura2nd-config.py "$api_dir"/twitter/config.py
+cat "$log_dir"/timeline.log | "$api_dir"/twitter/filter-own.py > "$log_dir"/timeline-own-tweet-yumainaura2nd.log
+
 cp ~/.secret/twitter-yumainaura-config.py "$api_dir"/twitter/config.py
 cat "$log_dir"/timeline.log | OWN_USER_ID=473780756 "$api_dir"/twitter/filter-own.py > "$log_dir"/timeline-own-tweet.log
 
