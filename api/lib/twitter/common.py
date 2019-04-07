@@ -16,9 +16,8 @@ else:
 
 twitter = OAuth1Session(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 
+api_url = sys.argv[1]
 params = json.loads(sys.argv[2])
-
-api_url = os.environ.get(sys.argv[1])
 
 if os.environ.get('POST'):
   response = twitter.post(api_url, params=params)
