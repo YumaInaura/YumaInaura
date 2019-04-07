@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import json, config, os, re
+import json, config, os, re, sys
 from requests_oauthlib import OAuth1Session
 
 if os.environ.get('TWITTER_CONSUMER_KEY'):
