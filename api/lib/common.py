@@ -18,4 +18,5 @@ if os.environ.get('POST'):
 else:
   res = requests.get(url, headers=headers, json=params)
 
-print(res)
+print(res.json())
+#print(res.messages())
