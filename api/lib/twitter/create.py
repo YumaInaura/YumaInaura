@@ -19,17 +19,17 @@ else:
   ACCESS_TOKEN = config.ACCESS_TOKEN
   ACCESS_TOKEN_SECRET = config.ACCESS_TOKEN_SECRET
 
-twitter = OAuth1Session(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
-
 message = sys.stdin.read()
 
-status = {
-  "message" : message
+twitter = OAuth1Session(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
+
+params = {
+  "status" : message
 }
 
-api_url = 'https://api.twitter.com/1.1/statuses/update.json?status={message}'.format(**status)
+api_url = 'https://api.twitter.com/1.1/statuses/update.json'
 
-res = twitter.post(api_url)
+res = twitter.post(api_url, params=params)
 
 print(json.dumps(res.json()))
 
