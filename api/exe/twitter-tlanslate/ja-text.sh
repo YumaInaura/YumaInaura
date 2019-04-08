@@ -13,5 +13,10 @@ start_unixtimestamp=$(($(date +%s)-$interval_second))
 
 cat "$log_dir"/ja-timeline-own.json | "$api_dir"/twitter/filter-timestamp.py "$start_unixtimestamp" | tee "$log_dir"/ja-timeline-recent.json
 
-cat "$log_dir"/ja-timeline-recent.json | jq '.[].full_text' | perl -pe 's/^"|"$//g' | tee "$log_dir"/ja-text.log
+# cat "$log_dir"/ja-timeline-recent.json | jq '.[].full_text' | perl -pe 's/^"|"$//g' | tee "$log_dir"/ja-text.log
+
+cat "$log_dir"/ja-timeline-recent.json | \
+  jq '.[] | .full_text + " https://twitter.com/YumaInaura/status/" +  .id_str' | \
+  #perl -pe 's/^"|"$//g' | \
+  tee "$log_dir"/ja-text.log
 
