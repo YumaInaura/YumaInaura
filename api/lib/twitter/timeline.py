@@ -55,7 +55,7 @@ def response(max_id):
 
 results = []
 
-for i in range(0, round-1):
+for i in range(0, round):
   res = response(last_id)
 
   timelines = json.loads(res.text)
