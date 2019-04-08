@@ -5,6 +5,7 @@ shopt -s expand_aliases
 if [ $(uname -s) = "Darwin" ]; then
   alias date=gdate
   alias sed=gsed
+  alias echo=gecho
 fi
 
 alias python=python3
