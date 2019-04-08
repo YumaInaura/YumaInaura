@@ -28,13 +28,14 @@ include_rts =     True if (os.environ.get('INCLUDE_RTS') or os.environ.get('ALL'
 include_replies = True if (os.environ.get('INCLUDE_REPLIES') or os.environ.get('ONLY_REPLIES') or os.environ.get('ALL')) else False
 
 round = int(os.environ.get('ROUND')) if os.environ.get('ROUND') else 3
+count = int(os.environ.get('COUNT')) if os.environ.get('COUNT') else 200
 
 def response(max_id):
   api_params = {
     'trim_user' : True,
     'exclude_replies' : not(include_replies),
     'tweet_mode' : 'extended',
-    'count' : 200,
+    'count' : count,
 		'include_rts' : include_rts,
   }
   
