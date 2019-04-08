@@ -3,8 +3,8 @@
 import json, os, sys, time, datetime
 from datetime import timedelta
 
-start_unixtimestamp = int(sys.argv[1])
-end_unixtimestamp = int(sys.argv[2]) if 2 in sys.argv else sys.argv[2]
+start_timestamp = int(sys.argv[1])
+end_timestamp = int(sys.argv[2]) if len(sys.argv) >= 3 else ''
 
 def convert_to_datetime(datetime_str):
   tweet_time = time.strptime(datetime_str,'%a %b %d %H:%M:%S +0000 %Y')
@@ -14,12 +14,18 @@ def convert_to_datetime(datetime_str):
 
 timelines = json.loads(sys.stdin.read())
 
+results = []
+
 for tweet in timelines:
   tweet_datetime = convert_to_datetime(tweet['created_at'])
+  tweet_timestamp = datetime.datetime.timestamp(tweet_datetime)
 
-  if not in_jst_yesterday(tweet_datetime):
+  if tweet_timestamp < start_timestamp:
+    continue
+  elif end_timestamp and tweet_timestamp > end_timestamp:
     continue
   else:
-    results.append(tweet)
+   results.append(tweet)
 
-print(json.dumps(results))
+  print(tweet_timestamp)
+#print(json.dumps(results))
