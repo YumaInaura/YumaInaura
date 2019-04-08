@@ -22,8 +22,9 @@ cat "$log_dir"/ja-timeline-own.json | "$api_dir"/twitter/filter-timestamp.py "$s
 
 cat "$log_dir"/ja-timeline-recent.json | jq '.[].full_text' | perl -pe 's/^"|"$//g' | tee "$log_dir"/ja-text.log
 
-rm "$log_dir"/en-text.log
+rm -f "$log_dir"/en-text.log
 for ja_text in $(cat "$log_dir"/ja-text.log); do
-  "$api_dir"/google-translate/translate.sh >> "$log_dir"/en-text.log"
+  echo "$ja_text" | "$api_dir"/google-translate/translate.sh >> "$log_dir"/en-text.log
 done
+
 
