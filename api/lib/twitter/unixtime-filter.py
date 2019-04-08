@@ -19,7 +19,7 @@ for tweet in timelines:
   tweet_datetime = convert_to_datetime(tweet['created_at'])
   tweet_timestamp = datetime.timestamp(tweet_datetime)
 
- if tweet_timestamp < start_timestamp:
+  if tweet_timestamp < start_timestamp:
     continue
   elif end_timestamp and tweet_timestamp > end_timestamp:
     continue
