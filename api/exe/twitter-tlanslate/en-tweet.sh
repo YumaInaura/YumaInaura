@@ -5,9 +5,15 @@ set -eu
 basedir=$(dirname "$0")
 source "${basedir}/../../setting.sh"
 
+cat "$log_dir"/en-translated.json | \
+  jq ' "https://twitter.com/YumaInaura/status/" +  .[].id_str + " " + .[].trunslated_text' | \
+  jq '[{ "text" : . }]' | \
+  tee "$log_dir"/en-tweet.json
+
 cp ~/.secret/twitter-yumainaura2nd-config.py "$api_dir"/twitter/config.py
 
-for en_text in "$(cat "$log_dir"/en-text-trancate.log)"; do
-  echo "\"$en_text\"" | jq --raw-output | "$api_dir"/twitter/create.py
-done
+cat "$log_dir"/en-tweet.json | \
+  JSON_KEY="text" | \
+  "$api_dir"/twitter/create.py | \
+  tee "$log_dir"/en-tweet-result.json
 
