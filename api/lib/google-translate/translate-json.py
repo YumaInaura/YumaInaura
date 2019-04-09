@@ -32,7 +32,7 @@ for line in json.loads(json_lines):
 
   trunslated_text = res.json()['data']['translations'][0]['translatedText']
 
-  line["trunslated_text"] = trunslated_text
+  line["translated_text"] = trunslated_text
 
   results.append(line) 
  
