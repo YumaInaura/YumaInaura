@@ -2,12 +2,8 @@
 
 basedir=$(dirname "$0")
 
+TOKEN=$("$basedir"/get-token.sh) \
+  python "$basedir"/translate.py | \
+  jq '.data.translations[].translatedText'
 
-if [ $(uname -s) = "Darwin" ]; then
-  TOKEN=$("$basedir"/get-token.sh) \
-    python "$basedir"/translate.py | \
-    jq '.data.translations[].translatedText'
-else
-  "$basedir"/translate-docker.sh
-fi
 
