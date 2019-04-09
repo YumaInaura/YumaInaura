@@ -5,6 +5,8 @@ from pytz import timezone
 
 timelines = json.loads(sys.stdin.read())
 
+PERIOD = os.environ.get('PERIOD') if os.environ.get('PERIOD') else '。'
+
 def convert_to_datetime(datetime_str):
   tweet_time = time.strptime(datetime_str,'%a %b %d %H:%M:%S +0000 %Y')
 
@@ -15,7 +17,8 @@ def format_tweet(text):
   text = re.sub(r'https://t\.co/\w+', '' , text)
   text = re.sub(r'#', '' , text)
 
-  text = re.sub(r'。', "。\n", text, 1)
+  text = text.strip()
+  text = re.sub(re.escape(PERIOD), PERIOD+"\n", text, 1)
 
   text = '# ' + text
 
@@ -44,7 +47,8 @@ for tweet in timelines:
       text += '<{expanded_url}>'.format(**url)
 
   text += "\n\n" + '<a href="https://twitter.com/YumaInaura/status/' + str(tweet['id']) + '">' + utc_datetime  + '</a>'
+  text += "\n"
 
-  print(text)
+print(text)
 
 

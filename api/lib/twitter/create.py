@@ -1,35 +1,25 @@
 #!/usr/bin/env python3
 
-#https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update.html
+# https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update.html
 
-import json, config, os, re, sys
-from requests_oauthlib import OAuth1Session
-import time
-import datetime
-from datetime import timedelta
+import json, os, sys, twitterauth
 
-if os.environ.get('TWITTER_CONSUMER_KEY'):
-  CONSUMER_KEY = os.environ.get('TWITTER_CONSUMER_KEY')
-  CONSUMER_SECRET = os.environ.get('TWITTER_CONSUMER_SECRET')
-  ACCESS_TOKEN = os.environ.get('TWITTER_ACCESS_TOKEN')
-  ACCESS_TOKEN_SECRET = os.environ.get('TWITTER_ACCESS_TOKEN_SECRET')
-else:
-  CONSUMER_KEY = config.CONSUMER_KEY
-  CONSUMER_SECRET = config.CONSUMER_SECRET
-  ACCESS_TOKEN = config.ACCESS_TOKEN
-  ACCESS_TOKEN_SECRET = config.ACCESS_TOKEN_SECRET
+twitter = twitterauth.twitter()
 
-twitter = OAuth1Session(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
+input_datas = json.loads(sys.stdin.read())
 
-message = sys.stdin.read()
+api_url = 'https://api.twitter.com/1.1/statuses/update.json'
 
-status = {
-  "message" : message
-}
+json_key = os.environ.get('JSON_KEY') if os.environ.get('JSON_KEY') else 'text'
+results = []
 
-api_url = 'https://api.twitter.com/1.1/statuses/update.json?status={message}'.format(**status)
+for input_data in input_datas:
+  params = {
+    "status" : input_data[json_key]
+  }
 
-res = twitter.post(api_url)
+  res = twitter.post(api_url, params=params)
+  results.append(res.json())
 
-print(json.dumps(res.json()))
+print(json.dumps(results))
 

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
 # e.g
 # echo "アバター\nドリル" | TOKEN=$(./get-token.sh) python ./translate.py | jq '.data.translations[].translatedText'

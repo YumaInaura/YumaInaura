@@ -14,9 +14,8 @@ REPOSITORY=${REPOSITORY:-YumaInaura}
 export OWNER=YumaInaura \
        REPOSITORY="$REPOSITORY" \
        API_KEY="$github_api_key" \
-       TITLE="いなうらゆうま はここにいた ${jst_date} on Twitter" \
-       FILE="${log_dir}/yumainaura.md" \
-       LABELS=medium,hatena,japanese,twitter
+       TITLE="とあるRailsエンジニアをお求めの方はこちらまで ${jst_date} on Twitter" \
+       FILE="${log_dir}/samurai.md" \
+       LABELS=medium,hatena,japanese,twitter,qiita
 
 python "${api_dir}/github/create-or-edit-issue.py"
-
