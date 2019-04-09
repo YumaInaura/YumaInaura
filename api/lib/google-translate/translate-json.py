@@ -9,7 +9,7 @@ from_language = os.environ.get('FROM') if os.environ.get('FROM') else 'ja'
 to_language = os.environ.get('TO') if os.environ.get('TO') else 'en'
 
 token = os.environ['TOKEN']
-translate_json_key = os.environ['TRANSLATE_JSON_KEY']
+translate_json_key = os.environ['TRANSLATE_JSON_KEY'] if os.environ['TRANSLATE_JSON_KEY'] else "text"
 
 headers = {
  'Authorization': 'Bearer {}'.format(token),
