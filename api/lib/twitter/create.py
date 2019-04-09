@@ -2,22 +2,24 @@
 
 # https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update.html
 
-import json, config, os, re, sys
-import time, twitterauth
-import datetime
-from datetime import timedelta
+import json, os, sys, twitterauth
 
 twitter = twitterauth.twitter()
 
-message = sys.stdin.read()
-
-params = {
-  "status" : message
-}
+input_datas = json.dumps(sys.stdin.read())
 
 api_url = 'https://api.twitter.com/1.1/statuses/update.json'
 
-res = twitter.post(api_url, params=params)
+json_key = os.environ.get('JSON_KEY') if os.environ.get('JSON_KEY') else 'text'
+results = []
 
-print(json.dumps(res.json()))
+for input_data in input_datas:
+  params = {
+    "status" : input_data[json_key]
+  }
+
+  res = twitter.post(api_url, params=params)
+  results.append(res.json())
+
+print(json.dumps(results))
 
