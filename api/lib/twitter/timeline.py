@@ -2,11 +2,10 @@
 
 # https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-user_timeline.html
 
-import json, config, os, re
-import time
-import datetime
-import twitterauth
+import json, config, os, re, time, datetime, twitterauth
 from datetime import timedelta
+
+twitter = twitterauth.twitter()
 
 url = "https://api.twitter.com/1.1/statuses/user_timeline.json"
 last_id = ''

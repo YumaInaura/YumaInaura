@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-from requests_oauthlib import OAuth1Session
 import os, config
+from requests_oauthlib import OAuth1Session
 
 if os.environ.get('TWITTER_CONSUMER_KEY'):
   CONSUMER_KEY = os.environ.get('TWITTER_CONSUMER_KEY')
@@ -14,5 +14,7 @@ else:
   ACCESS_TOKEN = config.ACCESS_TOKEN
   ACCESS_TOKEN_SECRET = config.ACCESS_TOKEN_SECRET
 
-twitter = OAuth1Session(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
+def twitter():
+  return  OAuth1Session(CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
+
 
