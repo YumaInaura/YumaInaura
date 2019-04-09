@@ -3,7 +3,6 @@
 basedir=$(dirname "$0")
 
 TOKEN=$("$basedir"/get-token.sh) \
-  python "$basedir"/translate.py | \
+  "$basedir"/translate.py | \
   jq '.data.translations[].translatedText'
-
 
