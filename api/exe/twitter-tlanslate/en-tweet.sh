@@ -7,7 +7,7 @@ source "${basedir}/../../setting.sh"
 
 cat "$log_dir"/en-translated.json | \
   jq ' "https://twitter.com/YumaInaura/status/" +  .[].id_str + " " + .[].trunslated_text' | \
-  jq '{ "text" : . }' | \
+  jq '[{ "text" : . }]' | \
   tee "$log_dir"/en-tweet.json
 
 cp ~/.secret/twitter-yumainaura2nd-config.py "$api_dir"/twitter/config.py
