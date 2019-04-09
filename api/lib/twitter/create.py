@@ -6,7 +6,7 @@ import json, os, sys, twitterauth
 
 twitter = twitterauth.twitter()
 
-input_datas = json.dumps(sys.stdin.read())
+input_datas = json.loads(sys.stdin.read())
 
 api_url = 'https://api.twitter.com/1.1/statuses/update.json'
 
