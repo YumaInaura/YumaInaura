@@ -2,10 +2,13 @@
 
 set -eu
 
-basedir=$(dirname "$0")
+base_dir=$(dirname "$0")
+log_dir="$base_dir"/log
+
+mkdir -p "$log_dir"
 
 tweet_url="$1"
-eval "$basedir"/upstream-tweet-chain-by-timeline.py \
+eval "$base_dir"/../upstream-tweet-chain-by-timeline.py \
   | "$tweet_url" \
-  > "$basedir"/log/upstream-tweet-chain-by-timeline.json"
+  > "$logi_dir"/upstream-tweet-chain-by-timeline.json"
 
