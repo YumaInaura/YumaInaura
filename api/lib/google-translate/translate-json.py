@@ -1,34 +1,40 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# e.g
-# echo "アバター\nドリル" | TOKEN=$(./get-token.sh) python ./translate.py | jq '.data.translations[].translatedText'
-
 import os, sys, requests, json, fileinput, re
 
-resource_message = ''
-for text in sys.stdin.readlines():
-  resource_message += re.sub(r'\\n', "\n", text)
+json_lines = sys.stdin.read()
 
 from_language = os.environ.get('FROM') if os.environ.get('FROM') else 'ja'
 to_language = os.environ.get('TO') if os.environ.get('TO') else 'en'
 
-data = {
-  'q': resource_message,
-  'source': from_language,
-  'target': to_language,
-  'format': 'text'
-}
-
-url = 'https://translation.googleapis.com/language/translate/v2'
 token = os.environ['TOKEN']
+translate_json_key = os.environ['TRANSLATE_JSON_KEY']
 
 headers = {
  'Authorization': 'Bearer {}'.format(token),
  'Content-Type': 'application/json',
 }
+ 
+api_url = 'https://translation.googleapis.com/language/translate/v2'
 
-res = requests.post(url, headers=headers, json=data)
+results = []
 
-print(json.dumps(res.json()))
-  
+for line in json.loads(json_lines):
+  params = {
+    'q': line[translate_json_key],
+    'source': from_language,
+    'target': to_language,
+    'format': 'text'
+  }
+ 
+  res = requests.post(api_url, headers=headers, json=params)
+
+  trunslated_text = res.json()['data']['translations'][0]['translatedText']
+
+  line["trunslated_text"] = trunslated_text
+
+  results.append(line) 
+ 
+print(json.dumps(results))
+
