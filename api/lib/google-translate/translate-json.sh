@@ -3,5 +3,5 @@
 basedir=$(dirname "$0")
 
 TOKEN=$("$basedir"/get-token.sh) \
-  python "$basedir"/translate-json.py
+  "$basedir"/translate-json.py
 
