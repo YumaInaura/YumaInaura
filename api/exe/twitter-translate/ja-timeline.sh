@@ -7,7 +7,7 @@ source "${basedir}/../../setting.sh"
 
 mkdir -p "$log_dir"
 
-cp ~/.secret/twitter-yumainaura-config.py "$api_dir"/twitter/config.py
+source ~/.secret/env/twitter-yumainaura
 
 ALL=1 ROUND=1 \
   "$api_dir"/twitter/timeline.py \
