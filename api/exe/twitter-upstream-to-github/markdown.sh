@@ -12,3 +12,8 @@ cat "$log_dir"/timeline.json \
   | "$api_dir"/twitter/markdown.py \
   > "$log_dir"/github-body.md
 
+cat "$log_dir"/timeline.json \
+  | jq --raw-output '.[0].full_text' \
+   > "$log_dir"/github-title.txt
+
+
