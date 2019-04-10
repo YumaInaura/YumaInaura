@@ -46,7 +46,7 @@ for tweet in timelines:
     for url in tweet["entities"]["urls"]:
       text += '<{expanded_url}>'.format(**url)
 
-  text += "\n\n" + '<a href="https://twitter.com/YumaInaura/status/' + str(tweet['id']) + '">' + utc_datetime  + '</a>'
+  text += "\n\n" + '<a href="https://twitter.com/YumaInaura/status/' + str(tweet['id_str']) + '">' + utc_datetime  + '</a>'
   text += "\n"
 
 print(text)
