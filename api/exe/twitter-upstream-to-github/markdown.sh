@@ -9,6 +9,7 @@ log_dir="$base_dir"/log
 
 cat "$log_dir"/timeline.json \
   | jq reverse \
+  | "$api_dir"/twitter/format-alphabet.py \
   | "$api_dir"/twitter/markdown.py \
   > "$log_dir"/github-body.md
 

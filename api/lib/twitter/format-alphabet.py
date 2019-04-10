@@ -9,7 +9,7 @@ results = []
 for tweet in tweets:
   full_text = tweet['full_text'].strip()
 
-  tweet['full_text'] = re.sub(r'[a-z]+$', '', full_test)
+  tweet['full_text'] = re.sub(r'[a-z]+$', '', full_text)
   results.append(tweet)
 
 print(json.dumps(results))
