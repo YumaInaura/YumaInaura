@@ -10,11 +10,13 @@ jst_date=$(TZ=Asia/Tokyo date --date='1 days ago' +'%y-%m-%d')
 
 mkdir -p "$log_dir"
 
-cp ~/.secret/twitter-yumainaura-config.py "$api_dir"/twitter/config.py
+source ~/.secret/env/twitter-yumainaura
+
 ALL=1 "$api_dir"/twitter/timeline.py > "$log_dir"/timeline.json
 
 USER_ID="473780756"
-ID="$USER_ID" "$api_dir"/twitter/show-user.py > "$log_dir"/user-profile-yumainaura.json
+ID="$USER_ID" "$api_dir"/twitter/show-user.py |
+  tee "$log_dir"/user-profile-yumainaura.json
 
 cat "$log_dir"/timeline.json | OWN_USER_ID="$USER_ID" "$api_dir"/twitter/filter-own.py > "$log_dir"/timeline-own-tweet.json
 cat "$log_dir"/timeline-own-tweet.json | "$api_dir"/twitter/jst-datetime-filter.py > "$log_dir"/timeline-jst-yesterday.json
