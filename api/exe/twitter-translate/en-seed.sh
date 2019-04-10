@@ -5,7 +5,7 @@ set -eu
 base_dir=$(dirname "$0")
 source "${base_dir}/../../setting.sh"
 
-cat "$log_dir"/en-translate.json | \
+cat "$log_dir"/en-translated.json | \
   "$base_dir"/format-translate.py | \
   tee "$log_dir"/en-seed.json 
 
