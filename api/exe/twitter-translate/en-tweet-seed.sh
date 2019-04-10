@@ -8,5 +8,5 @@ source "${basedir}/../../setting.sh"
 cat "$log_dir"/en-translated.json | \
   jq ' "https://twitter.com/YumaInaura/status/" +  .[].id_str + " " + .[].translated_text' | \
   jq '[{ "text" : . }]' | \
-  tee "$log_dir"/en-tweet.json
+  tee "$log_dir"/en-tweet-seed.json
 
