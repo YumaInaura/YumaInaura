@@ -11,5 +11,5 @@ mkdir -p "$log_dir"
 tweet_url="$1"
 
 eval "$api_dir"/twitter/upstream-tweet-chain-by-timeline.py "$tweet_url" \
-  > "$log_dir"/upstream-tweet-chain-by-timeline.json
+  > "$log_dir"/timeline.json
 

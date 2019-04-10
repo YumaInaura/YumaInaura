@@ -9,6 +9,8 @@ jst_date=$(TZ=Asia/Tokyo date --date='1 days ago' +'%Y-%m-%d')
 
 REPOSITORY=${REPOSITORY:-YumaInaura}
 
+title = jq --raw-output '.[0].full_text'
+
 export OWNER=YumaInaura \
        REPOSITORY="$REPOSITORY" \
        API_KEY="$github_api_key" \
