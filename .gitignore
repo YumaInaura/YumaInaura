@@ -1,6 +1,8 @@
 config.py
 __pycache__
 **/log*
+**/tmp*
 *secret*
 *.swp
 *.swo
+
