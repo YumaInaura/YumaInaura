@@ -5,15 +5,16 @@ set -eu
 base_dir=$(dirname "$0")
 source "${base_dir}/../../setting.sh"
 
-jst_date=$(TZ=Asia/Tokyo date --date='1 days ago' +'%Y-%m-%d')
+log_dir="$base_dir"/log
+
+# jst_date=$(TZ=Asia/Tokyo date --date='1 days ago' +'%Y-%m-%d')
 
 REPOSITORY=${REPOSITORY:-YumaInaura}
-
 
 export OWNER=YumaInaura \
        REPOSITORY="$REPOSITORY" \
        API_KEY="$github_api_key" \
-       TITLE=$(cat "$logi_dir"/github-title.txt) \
+       TITLE=$(cat "$log_dir"/github-title.txt) \
        FILE="${log_dir}/github-body.md" \
        LABELS=medium,hatena,japanese,twitter
 
