@@ -8,6 +8,7 @@ source "${base_dir}/../../setting.sh"
 log_dir="$base_dir"/log
 
 cat "$log_dir"/upstream-tweet-chain-by-timeline.json \
+  | jq reverse \
   | "$api_dir"/twitter/markdown.py \
   > "$log_dir"/github-body.md
 

@@ -2,8 +2,6 @@
 
 set -eu
 
-export LC_CTYPE=en_US.UTF-8
-
 base_dir=$(dirname "$0")
 source "${base_dir}/../../setting.sh"
 
@@ -14,7 +12,7 @@ REPOSITORY=${REPOSITORY:-YumaInaura}
 export OWNER=YumaInaura \
        REPOSITORY="$REPOSITORY" \
        API_KEY="$github_api_key" \
-       TITLE="いなうらゆうま はここにいた ${jst_date} on Twitter" \
+       TITLE="" \
        FILE="${log_dir}/yumainaura.md" \
        LABELS=medium,hatena,japanese,twitter
 
