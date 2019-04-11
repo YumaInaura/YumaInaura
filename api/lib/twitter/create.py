@@ -11,7 +11,7 @@ input_datas = json.loads(sys.stdin.read())
 
 api_url = 'https://api.twitter.com/1.1/statuses/update.json'
 
-max_length = int(os.environ.get('MAX_LENGTH')) if os.environ.get('MAX_LENGTH') else 140
+max_length = int(os.environ.get('MAX_LENGTH')) if os.environ.get('MAX_LENGTH') else 280
 json_key = os.environ.get('JSON_KEY') if os.environ.get('JSON_KEY') else 'text'
 results = []
 
