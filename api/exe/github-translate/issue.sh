@@ -10,5 +10,5 @@ mkdir -p "$log_dir"
 OWNER=YumaInaura \
 REPOSITORY=YumaInaura \
   eval "$api_dir"/github/issue.py \
-  | tee "$log_dir"/issue.json
+  > "$log_dir"/issue.json
 
