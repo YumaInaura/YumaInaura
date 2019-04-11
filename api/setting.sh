@@ -10,7 +10,7 @@ fi
 
 alias python=python3
 
-basedir=$(dirname "$0")
-log_dir="$basedir"/log
-api_dir="$basedir"/../../lib
+base_dir=$(dirname "$0")
+log_dir="$base_dir"/log
+api_dir="$base_dir"/../../lib
 

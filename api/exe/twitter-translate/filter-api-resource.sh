@@ -2,8 +2,8 @@
 
 set -eu
 
-basedir=$(dirname "$0")
-source "${basedir}/../../setting.sh"
+base_dir=$(dirname "$0")
+source "${base_dir}/../../setting.sh"
 
 cat "$log_dir"/ja-timeline.json \
   | jq '[.[] | select(.source | contains("yumainaura") | not) ]' \

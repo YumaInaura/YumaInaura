@@ -2,18 +2,18 @@
 
 set -eu
 
-basedir=$(dirname "$0")
-source "${basedir}/../../setting.sh"
+base_dir=$(dirname "$0")
+source "${base_dir}/../../setting.sh"
 
 mkdir -p "$log_dir"
 rm -rf "$log_dir"/*
 
-eval "$basedir"/ja-timeline.sh
-eval "$basedir"/filter-api-resource.sh
-eval "$basedir"/filter-own.sh
-eval "$basedir"/filter-recent.sh
-eval "$basedir"/en-translate.sh
-eval "$basedir"/en-seed.sh
-eval "$basedir"/en-tweet.sh
-eval "$basedir"/ja-en-seed.sh
-eval "$basedir"/ja-en-tweet.sh
+eval "$base_dir"/ja-timeline.sh
+eval "$base_dir"/filter-api-resource.sh
+eval "$base_dir"/filter-own.sh
+eval "$base_dir"/filter-recent.sh
+eval "$base_dir"/en-translate.sh
+eval "$base_dir"/en-seed.sh
+eval "$base_dir"/en-tweet.sh
+eval "$base_dir"/ja-en-seed.sh
+eval "$base_dir"/ja-en-tweet.sh

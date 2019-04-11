@@ -2,8 +2,8 @@
 
 set -eu
 
-basedir=$(dirname "$0")
-source "${basedir}/../../setting.sh"
+base_dir=$(dirname "$0")
+source "${base_dir}/../../setting.sh"
 
 if [ $(cat "$log_dir"/ja-timeline-recent.json | jq '. | length') -eq 0 ]; then
   echo "No translate resource"

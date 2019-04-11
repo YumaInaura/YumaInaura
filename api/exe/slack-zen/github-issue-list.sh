@@ -2,10 +2,10 @@
 
 set -eu
 
-basedir=$(dirname "$0")
+base_dir=$(dirname "$0")
 
-source "${basedir}/../../setting.sh"
-source "${basedir}/prepare.sh"
+source "${base_dir}/../../setting.sh"
+source "${base_dir}/prepare.sh"
 
 OWNER="$github_owner" \
 REPOSITORY="$github_repository" \

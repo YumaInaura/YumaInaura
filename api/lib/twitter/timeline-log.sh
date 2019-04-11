@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-basedir=$(dirname "$0")
-cat "$basedir"/log/timeline.log
+base_dir=$(dirname "$0")
+cat "$base_dir"/log/timeline.log
 

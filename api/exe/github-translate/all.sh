@@ -2,10 +2,10 @@
 
 set -eu
 
-basedir=$(dirname "$0")
-source "${basedir}/../../setting.sh"
+base_dir=$(dirname "$0")
+source "${base_dir}/../../setting.sh"
 
 mkdir -p "$log_dir"
 rm -rf "$log_dir"/*
 
-eval "$basedir"/issue.sh
+eval "$base_dir"/issue.sh

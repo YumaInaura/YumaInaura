@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-basedir=$(dirname "$0")
+base_dir=$(dirname "$0")
 
 cat /dev/stdin \
   | redcarpet --parse=fenced_code_blocks \
