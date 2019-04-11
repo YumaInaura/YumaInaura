@@ -8,7 +8,7 @@ repository = os.environ.get('REPOSITORY')
 
 results = []
 
-round = int(os.environ.get('round')) if os.environ.get('round') else 3
+round = int(os.environ.get('ROUND')) if os.environ.get('ROUND') else 1
 
 for i in range(0, round):
   api_url = 'https://api.github.com/repos/' + owner + '/' + repository + '/issues?page=' + str(i)
