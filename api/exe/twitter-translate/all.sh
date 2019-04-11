@@ -10,6 +10,7 @@ rm -rf "$log_dir"/*
 
 eval "$basedir"/ja-timeline.sh
 eval "$basedir"/filter-api-resource.sh
+eval "$basedir"/filter-own.sh
 eval "$basedir"/filter-recent.sh
 eval "$basedir"/en-translate.sh
 eval "$basedir"/en-seed.sh
