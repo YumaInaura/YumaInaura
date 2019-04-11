@@ -9,6 +9,3 @@ cat "$log_dir"/issue.json \
   | jq '[.[] | select(.labels[] | .name == "en-translate")]' \
   | tee "$log_dir"/need-en-translate-issue.json
 
-
-
-
