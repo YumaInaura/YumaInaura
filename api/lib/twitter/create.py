@@ -26,6 +26,9 @@ for input_data in input_datas:
   if 'in_reply_to_status_id' in input_data:
     params['in_reply_to_status_id'] = input_data['in_reply_to_status_id']
 
+  if 'attachment_url' in input_data:
+    params['attachment_url'] = input_data['attachment_url']
+
   res = twitter.post(api_url, params=params)
   results.append(res.json())
 
