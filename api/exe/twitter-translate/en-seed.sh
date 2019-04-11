@@ -11,6 +11,6 @@ if [ ! -f "$log_dir"/en-translated.json ]; then
 fi
 
 cat "$log_dir"/en-translated.json | \
-  "$base_dir"/format-translate.py | \
+  "$base_dir"/seed.py | \
   tee "$log_dir"/en-seed.json 
 
