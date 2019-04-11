@@ -1,23 +1,24 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
 
-# e.g
-# echo "アバター\nドリル" | TOKEN=$(./get-token.sh) python ./translate.py | jq '.data.translations[].translatedText'
+# -*- coding: utf-8 -*-
 
 import os, sys, requests, json, fileinput, re
 
-resource_message = ''
-for text in sys.stdin.readlines():
-  resource_message += re.sub(r'\\n', "\n", text)
+#resource_message = ''
+#for text in sys.stdin.readlines():
+#  resource_message += re.sub(r'\\n', "\n", text)
+
+resource_message = sys.stdin.read()
 
 from_language = os.environ.get('FROM') if os.environ.get('FROM') else 'ja'
 to_language = os.environ.get('TO') if os.environ.get('TO') else 'en'
+translate_format = os.environ.get('FORMAT') if os.environ.get('FORMAT') else 'text'
 
 data = {
   'q': resource_message,
   'source': from_language,
   'target': to_language,
-  'format': 'text'
+  'format': translate_format
 }
 
 url = 'https://translation.googleapis.com/language/translate/v2'
