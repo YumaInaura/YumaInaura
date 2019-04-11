@@ -13,4 +13,5 @@ eval "$basedir"/filter-recent.sh
 eval "$basedir"/en-translate.sh
 eval "$basedir"/en-seed.sh
 eval "$basedir"/en-tweet.sh
-
+eval "$basedir"/ja-en-seed.sh
+eval "$basedir"/ja-en-tweet.sh
