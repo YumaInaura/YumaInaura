@@ -8,7 +8,7 @@ results = []
 
 for tweet in tweets:
   seed = {}
-  seed['text'] = tweet['translated_text'][:240] + ' '  + tweet['url']
+  seed['text'] = tweet['translated_text'][:280]
   seed['in_reply_to_status_id'] = tweet['id_str']
   results.append(seed)
 
