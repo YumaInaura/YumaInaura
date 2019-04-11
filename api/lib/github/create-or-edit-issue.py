@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
 # https://developer.github.com/v3/issues/#edit-an-issue
 # https://gist.github.com/JeffPaine/3145490
