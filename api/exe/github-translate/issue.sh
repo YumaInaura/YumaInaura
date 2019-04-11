@@ -5,4 +5,10 @@ set -eu
 base_dir=$(dirname "$0")
 source "${base_dir}/../../setting.sh"
 
-eval "$api_dir"/issue.sh
+mkdir -p "$log_dir"
+
+OWNER=YumaInaura \
+REPOSITORY=YumaInaura \
+  eval "$api_dir"/github/issue.py \
+  | tee "$log_dir"/issue.json
+
