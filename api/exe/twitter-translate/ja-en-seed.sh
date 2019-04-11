@@ -7,7 +7,7 @@ source "${base_dir}/../../setting.sh"
 
 if [ ! -f "$log_dir"/en-translated.json ]; then
   echo "no en tralslated file"
-  exit 1
+  exit
 fi
 
 cat "$log_dir"/en-translated.json | \
