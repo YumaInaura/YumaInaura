@@ -5,6 +5,11 @@ set -eu
 base_dir=$(dirname "$0")
 source "${base_dir}/../../setting.sh"
 
+if [ ! -f "$log_dir"/en-translated.json ]; then
+  echo "no en tralslated file"
+  exit 1
+fi
+
 cat "$log_dir"/en-translated.json | \
   "$base_dir"/format-translate.py | \
   tee "$log_dir"/en-seed.json 

@@ -5,6 +5,9 @@ set -eu
 basedir=$(dirname "$0")
 source "${basedir}/../../setting.sh"
 
+mkdir -p "$log_dir"
+rm -rf "$log_dir"/*
+
 eval "$basedir"/ja-timeline.sh
 eval "$basedir"/filter-recent.sh
 eval "$basedir"/en-translate.sh

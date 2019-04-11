@@ -7,7 +7,7 @@ source "${basedir}/../../setting.sh"
 
 if [ $(cat "$log_dir"/ja-timeline-recent.json | jq '. | length') -eq 0 ]; then
   echo "No translate resource"
-  exit
+  exit 1
 fi
 
 cat "$log_dir"/ja-timeline-recent.json | \
