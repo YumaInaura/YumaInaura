@@ -5,7 +5,7 @@ set -eu
 basedir=$(dirname "$0")
 source "${basedir}/../../setting.sh"
 
-source ~/.secret/env/twitter-yumainaura2nd
+source ~/.secret/env/twitter-yumainaura
 
 cat "$log_dir"/en-seed.json | \
   JSON_KEY="text" \
