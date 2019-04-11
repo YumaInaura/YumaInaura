@@ -3,6 +3,7 @@
 # https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/post-statuses-update.html
 
 import json, os, sys, twitterauth
+from optparse import OptionParser
 
 twitter = twitterauth.twitter()
 
@@ -17,9 +18,13 @@ results = []
 for input_data in input_datas:
   message = input_data[json_key]
   message = message[0:max_length]
+
   params = {
     "status" : message
   }
+
+  if 'in_reply_to_status_id' in input_data:
+    params['in_reply_to_status_id'] = input_data['in_reply_to_status_id']
 
   res = twitter.post(api_url, params=params)
   results.append(res.json())
