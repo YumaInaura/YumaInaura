@@ -9,7 +9,6 @@ source ~/.secret/env/twitter-yumainaura
 
 cat "$log_dir"/ja-en-seed.json | \
   JSON_KEY="text" \
-  MAX_LENGTH=500 \
-    "$api_dir"/twitter/create.py | \
+  "$api_dir"/twitter/create.py | \
   tee "$log_dir"/en-tweet-result.json
 
