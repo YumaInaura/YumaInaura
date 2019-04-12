@@ -3,7 +3,7 @@
 
 import os, json, re, requests, sys
 
-OWNER = os.environ.get('USER_NAME')
+USER_NAME  = os.environ.get('USER_NAME')
 API_KEY = os.environ.get('API_KEY')
 
 edits = sys.stdin.read()
