@@ -13,9 +13,11 @@ https://github.com/YumaInaura/YumaInaura/issues
 - Mainly this scripts working for Web API ingegrations e.g If I send message to Slack Then create Github issue and Create Twieets to Twitter. ( I like IFTTT and Zapier but they are in some part not friendly or cost to me by expensive price )
 
 
-# ポートフォリオ的なもの作成中
+# ポートフォリオ的なもの
 
-<https://github.com/YumaInaura/YumaInaura/issues/626>
+- [稲浦悠馬(いなうらゆうま) Yuma Inaura のポートフォリオ / Ruby on Rails 実務約4年 ( 2019年現在 ) · Issue #626 · YumaInaura/YumaInaura](https://github.com/YumaInaura/YumaInaura/issues/626)
+- [とあるRailsエンジニア 稲浦悠馬 最近の学習や再就職活動のまとめ (2018年4月前半) #Github や Google 翻訳 #API や #python や #JSON #jq などを触っていた · Issue #1223 · YumaInaura/YumaInaura](https://github.com/YumaInaura/YumaInaura/issues/1223)
+
 
 # Me in Instagram
 
