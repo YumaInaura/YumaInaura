@@ -9,9 +9,11 @@ results = []
 for issue in issues:
   result = {}
 
-  result['html'] = subprocess.run(['redcarpet'], stdout=subprocess.PIPE, input=issue['body'], encoding='utf-8').stdout
+  result['html'] = subprocess.run(['redcarpet', '--parse=fenced_code_blocks'], \
+      stdout=subprocess.PIPE, input=issue['body'], encoding='utf-8').stdout
 
-  result['formatted_html'] = re.sub('\n', '<br>', result['html'])
+  result['formatted_html'] = re.sub('\\\\', '<br>', result['html'])
+  result['formatted_html'] = re.sub('\n', '<br>', result['formatted_html'])
   result['from'] = 'ja'
   result['to'] = 'en'
 
