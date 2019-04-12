@@ -3,14 +3,16 @@
 
 import os, sys, requests, json, fileinput, re
 
-resource_message = sys.stdin.read()
-
 token = os.environ['TOKEN']
+
+seeds = json.loads(sys.stdin.read())
 
 results = []
 
-for seed in json.dumps(sys.stdin.read()):
-  resouce_message = seed['text']
+for seed in seeds:
+  trunslated = seed
+
+  resource_message = seed['text']
   translate_format = os.environ.get('FORMAT') if os.environ.get('FORMAT') else seed['format']
   from_language = os.environ.get('FROM') if os.environ.get('FROM') else seed['from']
   to_language = os.environ.get('TO') if os.environ.get('TO') else seed['to']
@@ -30,6 +32,10 @@ for seed in json.dumps(sys.stdin.read()):
   }
  
   res = requests.post(api_url, headers=headers, json=params)
+
+  trunslated[to_language + "_trunslated"] = res.json()['data']['translations'][0]['translatedText']
+
+  results.append(trunslated)
  
 print(json.dumps(results))
-  
+
