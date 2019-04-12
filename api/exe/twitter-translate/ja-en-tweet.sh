@@ -7,7 +7,7 @@ source "${base_dir}/../../setting.sh"
 
 source ~/.secret/env/twitter-yumainaura
 
-if [ $((RANDOM)) -gt 3000 ]; then
+if [ $((RANDOM)) -gt 6000 ]; then
   echo "no conitinue ja-en tweet  by random"
   exit
 fi
