@@ -1,32 +1,10 @@
 #!/usr/bin/env python3
 
-import json, os, sys, re, time, datetime
-from pytz import timezone
+import json, os, sys, re
 
-timelines = json.loads(sys.stdin.read())
+profiles = json.loads(sys.stdin.read())
 
-PERIOD = os.environ.get('PERIOD') if os.environ.get('PERIOD') else '。'
-
-def convert_to_datetime(datetime_str):
-  tweet_time = time.strptime(datetime_str,'%a %b %d %H:%M:%S +0000 %Y')
-
-  tweet_datetime = datetime.datetime(*tweet_time[:6])
-  return(tweet_datetime)
-
-def format_tweet(text):
-  text = re.sub(r'https://t\.co/\w+', '' , text)
-  text = re.sub(r'#', '' , text)
-
-  text = text.strip()
-  text = re.sub(re.escape(PERIOD), PERIOD+"\n", text, 1)
-
-  text = '# ' + text
-
-  return(text)
-
-text = ''
-
-for tweet in timelines:
+for profile in profiles:
   text += format_tweet(tweet['full_text'])
 
   if 'extended_entities' in tweet and 'media' in tweet['extended_entities'].keys():
