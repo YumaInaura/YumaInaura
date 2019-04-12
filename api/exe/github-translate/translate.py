@@ -18,6 +18,9 @@ for issue in issues:
 
   result['translated_html'] = re.sub('<br>', '\n', result['translated_html_seed'])
 
+  result['translated_title'] = subprocess.run(['../../lib/google-translate/translate.sh'], \
+    stdout=subprocess.PIPE, input=issue['title'],  encoding='utf-8').stdout
+
   results.append(result)
 
 print(json.dumps(results))
