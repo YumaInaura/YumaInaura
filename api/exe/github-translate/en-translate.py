@@ -21,12 +21,6 @@ for issue in issues:
   result['en_translated_title'] = subprocess.run(['../../lib/google-translate/translate-raw.sh'], \
     stdout=subprocess.PIPE, input=issue['title'],  encoding='utf-8').stdout.strip()
 
-  result['title']  =      result['en_translated_title']
-  result['body']   =      result['en_translated_html']
-  result['labels'] =      ['medium', 'english', 'qiita']
-  result['owner']  =      'YumaInaura'
-  result['repository'] =  'YumaInaura'
-
   results.append(result)
 
 print(json.dumps(results))
