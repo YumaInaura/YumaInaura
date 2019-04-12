@@ -12,6 +12,8 @@ for issue in issues:
   result['html'] = subprocess.run(['redcarpet'], stdout=subprocess.PIPE, input=issue['body'], encoding='utf-8').stdout
 
   result['formatted_html'] = re.sub('\n', '<br>', result['html'])
+  result['from'] = 'ja'
+  result['to'] = 'en'
 
   results.append(result)
 
