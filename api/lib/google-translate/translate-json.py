@@ -4,6 +4,7 @@
 import os, sys, requests, json, fileinput, re
 
 token = os.environ['TOKEN']
+tranlate_json_key = os.environ['TRANSLATE_JSON_JEY'] if os.environ['TRANSLATE_JSON_JEY'] else 'text'
 
 seeds = json.loads(sys.stdin.read())
 
@@ -12,7 +13,7 @@ results = []
 for seed in seeds:
   trunslated = seed
 
-  resource_message = seed['text']
+  resource_message = seed[translate_json_key]
   translate_format = os.environ.get('FORMAT') if os.environ.get('FORMAT') else seed['format']
   from_language = os.environ.get('FROM') if os.environ.get('FROM') else seed['from']
   to_language = os.environ.get('TO') if os.environ.get('TO') else seed['to']
@@ -33,9 +34,9 @@ for seed in seeds:
  
   res = requests.post(api_url, headers=headers, json=params)
 
-  trunslated[to_language + "_trunslated"] = res.json()['data']['translations'][0]['translatedText']
+  translated[to_language + "_translated_text"] = res.json()['data']['translations'][0]['translatedText']
 
-  results.append(trunslated)
+  results.append(translated)
  
 print(json.dumps(results))
 
