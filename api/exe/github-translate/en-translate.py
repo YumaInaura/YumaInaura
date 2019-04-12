@@ -25,7 +25,7 @@ for issue in issues:
   result['body']   =      result['en_translated_html']
   result['labels'] =      ['medium','english']
   result['owner']  =      'YumaInaura'
-  result['repository'] =  'playground'
+  result['repository'] =  'YumaInaura'
 
   results.append(result)
 
