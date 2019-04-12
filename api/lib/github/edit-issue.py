@@ -25,15 +25,7 @@ for edit in edits:
   owner = edit['owner']
   repository = edit['repository']
 
-  issue = get_issue(edit)
-
   edit_api_url = 'https://api.github.com/repos/%s/%s/issues/%s' % (owner, repository, issue_number)
-
-  update = {
-    "title" : issue['title'],
-    "body" :  issue['body'],
-    "labels" :  issue['labels']
-  }
 
   if 'title' in edit:
     update['title'] = edit['title']
@@ -43,6 +35,13 @@ for edit in edits:
 
   if 'labels' in edit:
     update['labels'] = edit['labels']
+
+  if 'delete_labels' in edit:
+    issue = get_issue(edit)
+    update['labels'] = issue['labels']
+
+    for delete_label in edit['delete_labels']:
+      del update[delete_label]
 
   res = session.post(edit_api_url, json.dumps(update))
 
