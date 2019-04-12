@@ -3,13 +3,13 @@
 
 import os, json, re, requests
 
-OWNER = os.environ.get('OWNER')
+OWNER = os.environ.get('USER_NAME')
 API_KEY = os.environ.get('API_KEY')
 
 edits = sys.stdin.read()
 
 session = requests.Session()
-session.auth = (OWNER, API_KEY)
+session.auth = (USER_NAME, API_KEY)
  
 def get_issue(issue):
   issue_api_url = 'https://api.github.com/repos/' + issue['owner'] + '/' + issue['repository'] + '/issues/' + issue['number']
