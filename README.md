@@ -17,6 +17,7 @@ https://github.com/YumaInaura/YumaInaura/issues
 
 - [稲浦悠馬(いなうらゆうま) Yuma Inaura のポートフォリオ / Ruby on Rails 実務約4年 ( 2019年現在 ) · Issue #626 · YumaInaura/YumaInaura](https://github.com/YumaInaura/YumaInaura/issues/626)
 - [とあるRailsエンジニア 稲浦悠馬 最近の学習や再就職活動のまとめ (2018年4月前半) #Github や Google 翻訳 #API や #python や #JSON #jq などを触っていた · Issue #1223 · YumaInaura/YumaInaura](https://github.com/YumaInaura/YumaInaura/issues/1223)
+- [稲浦 悠馬 プロフィール - Wantedly](https://www.wantedly.com/users/93140896)
 
 
 # Me in Instagram
@@ -34,11 +35,6 @@ e.g images/photos texts ideas
 
 Youcan edit articles by anyway
 
-# Who is @yumainaura
-
-- Web Engineer in Osaka Japan
-- I'm doing jub hunting now ( since 2019-03-26 )
-- I wanna work as Remote or in Osaka city office.
 
 # Twitter
 
@@ -54,6 +50,8 @@ https://qiita.com/Yinaura
 
 # Facebook
 
+あまり使ってません‥
+
 https://www.facebook.com/yumainaura
 
 
@@ -64,8 +62,6 @@ https://www.facebook.com/yumainaura
 <li><a href="http://3min.hatenadiary.jp/">3分</a></li>
 <li><a href="http://mindfulness.hatenablog.jp/">マインドフルネス</a></li>
 </ul>
-
-
 
 
 # Google indexing ( how articles can i find with him? )
