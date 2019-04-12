@@ -3,15 +3,15 @@
 
 import os, sys, requests, json, fileinput, re
 
-token = os.environ['TOKEN']
-tranlate_json_key = os.environ['TRANSLATE_JSON_JEY'] if os.environ['TRANSLATE_JSON_JEY'] else 'text'
+token = os.environ.get('TOKEN')
+translate_json_key = os.environ.get('TRANSLATE_JSON_KEY') if os.environ.get('TRANSLATE_JSON_KEY') else 'text'
 
 seeds = json.loads(sys.stdin.read())
 
 results = []
 
 for seed in seeds:
-  trunslated = seed
+  translated = seed
 
   resource_message = seed[translate_json_key]
   translate_format = os.environ.get('FORMAT') if os.environ.get('FORMAT') else seed['format']
