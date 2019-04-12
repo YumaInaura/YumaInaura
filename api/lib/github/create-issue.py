@@ -4,16 +4,17 @@
 # https://developer.github.com/v3/issues/#edit-an-issue
 # https://gist.github.com/JeffPaine/3145490
 
-import os, json, re, requests
+import os, json, re, requests, sys
 
 API_KEY = os.environ.get('API_KEY')
+USER_NAME = os.environ.get('USER_NAME')
 
 create_issues = json.loads(sys.stdin.read())
 
 session = requests.Session()
-session.auth = (OWNER, API_KEY)
+session.auth = (USER_NAME, API_KEY)
  
-retults = []
+results = []
 
 for create_issue in create_issues:
   owner = os.environ.get('OWNER') if os.environ.get('OWNER') else create_issue['owner']
@@ -31,7 +32,7 @@ for create_issue in create_issues:
     'labels': labels
   }
 
-  res = session.post(url, json.dumps(create))
+  res = session.post(api_url, json.dumps(create))
 
   results.append(res.json())
 
