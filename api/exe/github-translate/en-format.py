@@ -7,10 +7,11 @@ issues = json.loads(sys.stdin.read())
 results = []
 
 for issue in issues:
-  result = {}
+  result = issue
 
   result['html'] = subprocess.run(['redcarpet', '--parse=fenced_code_blocks'], \
       stdout=subprocess.PIPE, input=issue['body'], encoding='utf-8').stdout
+  result['title'] = issue['title']
 
   result['formatted_html'] = re.sub('\\\\', '<br>', result['html'])
   result['formatted_html'] = re.sub('\n', '<br>', result['formatted_html'])
