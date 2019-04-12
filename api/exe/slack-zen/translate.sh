@@ -2,8 +2,8 @@
 
 set -eu
 
-basedir=$(dirname "$0")
-source "${basedir}/prepare.sh"
+base_dir=$(dirname "$0")
+source "${base_dir}/prepare.sh"
 
 message=$(cat "$markdown_text_log_file")
 

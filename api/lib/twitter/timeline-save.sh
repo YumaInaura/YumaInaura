@@ -2,10 +2,10 @@
 
 set -eu
 
-basedir=$(dirname "$0")
+base_dir=$(dirname "$0")
 
-logdir="$basedir"/log
+logdir="$base_dir"/log
 mkdir -p "$logdir"
 
-ALL=1 eval "$basedir"/timeline.py | tee "$logdir"/timeline.json
+ALL=1 eval "$base_dir"/timeline.py | tee "$logdir"/timeline.json
 

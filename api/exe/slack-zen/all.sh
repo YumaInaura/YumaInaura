@@ -4,9 +4,9 @@ set -eu
 
 export LC_CTYPE=en_US.UTF-8
 
-basedir=$(dirname "$0")
+base_dir=$(dirname "$0")
 
-"$basedir"/slack-all.sh && \
-"$basedir"/format-all.sh && \
-"$basedir"/github-all.sh
+"$base_dir"/slack-all.sh && \
+"$base_dir"/format-all.sh && \
+"$base_dir"/github-all.sh
 

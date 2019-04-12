@@ -4,8 +4,8 @@ set -eu
 
 export LC_CTYPE=en_US.UTF-8
 
-basedir=$(dirname "$0")
-source "${basedir}/../../setting.sh"
+base_dir=$(dirname "$0")
+source "${base_dir}/../../setting.sh"
 
 jst_date=$(TZ=Asia/Tokyo date --date='1 days ago' +'%Y-%m-%d')
 

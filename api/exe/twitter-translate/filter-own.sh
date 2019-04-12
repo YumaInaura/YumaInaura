@@ -2,8 +2,8 @@
 
 set -eu
 
-basedir=$(dirname "$0")
-source "${basedir}/../../setting.sh"
+base_dir=$(dirname "$0")
+source "${base_dir}/../../setting.sh"
 
 USER_ID="473780756"
 cat "$log_dir"/ja-timeline-filter-api-resource.json \

@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-basedir=$(dirname "$0")
+base_dir=$(dirname "$0")
 
-TOKEN=$("$basedir"/get-token.sh) \
-  "$basedir"/translate.py | \
+TOKEN=$("$base_dir"/get-token.sh) \
+  "$base_dir"/translate.py | \
   jq '.data.translations[].translatedText'
 
