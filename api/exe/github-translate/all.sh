@@ -9,6 +9,6 @@ mkdir -p "$log_dir"
 rm -rf "$log_dir"/*
 
 eval "$base_dir"/issue.sh
-eval "$base_dir"/en-need-translate-issue.sh
+eval "$base_dir"/need-translate-issue.sh
 eval "$base_dir"/en-translate.sh
 eval "$base_dir"/en-create-issu.sh
