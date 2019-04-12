@@ -13,8 +13,7 @@ for issue in issues:
       stdout=subprocess.PIPE, input=issue['body'], encoding='utf-8').stdout
   result['title'] = issue['title']
 
-  result['formatted_html'] = re.sub('\\\\', '<br>', result['html'])
-  result['formatted_html'] = re.sub('\n', '<br>', result['formatted_html'])
+  result['formatted_html'] = re.sub('\n', '<br>', result['html'])
   result['from'] = 'ja'
   result['to'] = 'en'
 
