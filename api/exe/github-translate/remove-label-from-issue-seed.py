@@ -16,5 +16,5 @@ for issue in issues:
 
   results.append(result)
 
-rint(json.dumps(results))
+print(json.dumps(results))
 
