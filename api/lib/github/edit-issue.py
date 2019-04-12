@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import os, json, re, requests, sys
+import os, json, re, requests, sys, funcy
 
 USER_NAME  = os.environ.get('USER_NAME')
 API_KEY = os.environ.get('API_KEY')
@@ -27,6 +27,8 @@ for edit in edits:
 
   edit_api_url = 'https://api.github.com/repos/%s/%s/issues/%s' % (owner, repository, issue_number)
 
+  update = {}
+
   if 'title' in edit:
     update['title'] = edit['title']
 
@@ -36,12 +38,11 @@ for edit in edits:
   if 'labels' in edit:
     update['labels'] = edit['labels']
 
-  if 'delete_labels' in edit:
+  if 'remove_labels' in edit:
     issue = get_issue(edit)
-    update['labels'] = issue['labels']
+    label_names = list(funcy.pluck('name', issue['labels']))
 
-    for delete_label in edit['delete_labels']:
-      del update[delete_label]
+    update['labels'] = list(set(label_names) - set(edit['remove_labels']))
 
   res = session.post(edit_api_url, json.dumps(update))
 
