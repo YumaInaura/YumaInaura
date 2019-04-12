@@ -4,27 +4,16 @@ import json, os, sys, re
 
 profiles = json.loads(sys.stdin.read())
 
+text = ''
+
 for profile in profiles:
-  text += format_tweet(tweet['full_text'])
+  text += '# ' + profile['name']
+  text += "\n\n"
 
-  if 'extended_entities' in tweet and 'media' in tweet['extended_entities'].keys():
-    for media in tweet['extended_entities']['media']:
-      text += "\n"
-      text += "![image]("+media['media_url_https']+')'
-  text += "\n"
+  text += profile['description']
+  text += "\n\n"
 
-  if 'quoted_status' in tweet:
-    text += re.sub("^|\n", "\n>", tweet['quoted_status']['full_text'])
-
-  if tweet["entities"] and tweet["entities"]["urls"]:
-    for url in tweet["entities"]["urls"]:
-      text += '<{expanded_url}>'.format(**url)
-
-  if 'created_at' in tweet:
-    tweet_datetime = convert_to_datetime(tweet['created_at'])
-    utc_datetime = tweet_datetime.strftime('%Y-%m-%d %H:%M:%S UTC')
-    # jst_datetime = timezone('Asia/Tokyo').localize(tweet_datetime).strftime('%Y-%m-%d %H:%M:%S %p JST')
-    text += "\n\n" + '<a href="https://twitter.com/YumaInaura/status/' + str(tweet['id_str']) + '">' + utc_datetime  + '</a>'
+  text += '![image](' +  re.sub(r'_normal', '_400x400', profile['profile_image_url']) + ')'
 
   text += "\n"
 
