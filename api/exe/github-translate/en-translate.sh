@@ -5,7 +5,7 @@ set -eu
 base_dir=$(dirname "$0")
 source "${base_dir}/../../setting.sh"
 
-cat "$log_dir"/en-formatted-html.json \
+cat "$log_dir"/en-format-html.json \
   | \
     FORMAT=html \
     TOKEN=$("$api_dir/google-translate/get-token.sh") \
