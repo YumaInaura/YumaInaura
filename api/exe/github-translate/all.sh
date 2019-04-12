@@ -8,9 +8,7 @@ source "${base_dir}/../../setting.sh"
 mkdir -p "$log_dir"
 rm -rf "$log_dir"/*
 
-eval "$base_dir"/issue.sh
-eval "$base_dir"/en-need-translate-issue.sh
-eval "$base_dir"/en-format.sh
-eval "$base_dir"/en-translate.sh
-eval "$base_dir"/en-seed.sh
-eval "$base_dir"/en-create-issue.sh
+eval "$base_dir"/fetch-all.sh
+eval "$base_dir"/format-all.sh
+eval "$base_dir"/create-all.sh
+
