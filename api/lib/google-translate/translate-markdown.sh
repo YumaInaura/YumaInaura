@@ -11,7 +11,7 @@ cat /dev/stdin \
   | tee "$log_dir"/seed.html
 
 cat "$log_dir"/seed.html \
-  | perl -e '@lines = (<STDIN>); $line = "@lines"; $line =~ s/\n/<newline>/sg; print $line;' \
+  | perl -pe 's/\n/<br>/g' \
   | tee "$log_dir"/seed-formatted.html
 
 cat "$log_dir"/seed-formatted.html \
@@ -19,11 +19,11 @@ cat "$log_dir"/seed-formatted.html \
   | tee "$log_dir"/translated.html
 
 cat "$log_dir"/translated.html \
-  | perl -e '@lines = (<STDIN>); $line = "@lines"; $line =~ s/<newline>/\n/sg; print $line;' \
+  | jq . --raw-output \
+  | perl -pe 's/<br>/\n/g' \
   | tee "$log_dir"/translated-reverted.html
 
 cat "$log_dir"/translated-reverted.html \
-  | jq . --raw-output \
   | reverse_markdown \
   | tee "$log_dir"/translated.md
 
