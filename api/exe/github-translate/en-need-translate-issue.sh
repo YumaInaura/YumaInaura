@@ -7,5 +7,5 @@ source "${base_dir}/../../setting.sh"
 
 cat "$log_dir"/issue.json \
   | jq '[.[] | select(.labels[] | .name == "en-translate")]' \
-  | tee "$log_dir"/need-en-translate-issue.json
+  | tee "$log_dir"/en-need-translate-issue.json
 

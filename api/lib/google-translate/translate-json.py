@@ -3,38 +3,41 @@
 
 import os, sys, requests, json, fileinput, re
 
-json_lines = sys.stdin.read()
+token = os.environ.get('TOKEN')
+translate_json_key = os.environ.get('TRANSLATE_JSON_KEY') if os.environ.get('TRANSLATE_JSON_KEY') else 'text'
 
-from_language = os.environ.get('FROM') if os.environ.get('FROM') else 'ja'
-to_language = os.environ.get('TO') if os.environ.get('TO') else 'en'
-
-token = os.environ['TOKEN']
-translate_json_key = os.environ['TRANSLATE_JSON_KEY'] if os.environ['TRANSLATE_JSON_KEY'] else "text"
-
-headers = {
- 'Authorization': 'Bearer {}'.format(token),
- 'Content-Type': 'application/json',
-}
- 
-api_url = 'https://translation.googleapis.com/language/translate/v2'
+seeds = json.loads(sys.stdin.read())
 
 results = []
 
-for line in json.loads(json_lines):
+for seed in seeds:
+  translated = seed
+
+  resource_message = seed[translate_json_key]
+  translate_format = os.environ.get('FORMAT') if os.environ.get('FORMAT') else seed['format']
+  from_language = os.environ.get('FROM') if os.environ.get('FROM') else seed['from']
+  to_language = os.environ.get('TO') if os.environ.get('TO') else seed['to']
+
   params = {
-    'q': line[translate_json_key],
+    'q': resource_message,
     'source': from_language,
     'target': to_language,
-    'format': 'text'
+    'format': translate_format
+  }
+ 
+  api_url = 'https://translation.googleapis.com/language/translate/v2'
+ 
+  headers = {
+   'Authorization': 'Bearer {}'.format(token),
+   'Content-Type': 'application/json',
   }
  
   res = requests.post(api_url, headers=headers, json=params)
 
-  trunslated_text = res.json()['data']['translations'][0]['translatedText']
+  translated_json_key = os.environ.get('TRANSLATED_JSON_KEY') if os.environ.get('TRANSLATED_JSON_KEY') else to_language + '_translated_text'
+  translated[translated_json_key] = res.json()['data']['translations'][0]['translatedText']
 
-  line["translated_text"] = trunslated_text
-
-  results.append(line) 
+  results.append(translated)
  
 print(json.dumps(results))
 
