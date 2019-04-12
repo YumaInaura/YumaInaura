@@ -29,8 +29,6 @@ for edit in edits:
 
   edit_api_url = 'https://api.github.com/repos/%s/%s/issues/%s' % (owner, repository, issue_number)
 
-  print(issue['labels'])
-
   update = {
     "title" : issue['title'],
     "body" :  issue['body'],
