@@ -18,6 +18,9 @@ USER_ID="473780756"
 ID="$USER_ID" "$api_dir"/twitter/show-user.py |
   tee "$log_dir"/user-profile-yumainaura.json
 
+"$api_dir"/twitter/user-show.sh 'YumaInaura' \
+  | tee "$log_dir"/yumainaura-user-profile.json
+
 cat "$log_dir"/timeline.json | \
   OWN_USER_ID="$USER_ID" "$api_dir"/twitter/filter-own.py \
   > "$log_dir"/timeline-own-tweet.json
