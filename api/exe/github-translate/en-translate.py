@@ -22,7 +22,7 @@ for issue in issues:
     stdout=subprocess.PIPE, input=issue['title'],  encoding='utf-8').stdout.strip()
 
   result['title']  =      result['en_translated_title']
-  result['body']   =      result['en_translated_body']
+  result['body']   =      result['en_translated_html']
   result['labels'] =      ['medium','english']
   result['owner']  =      'YumaInaura'
   result['repository'] =  'playground'
