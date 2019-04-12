@@ -2,7 +2,6 @@
 
 set -eu
 
-export LC_CTYPE=en_US.UTF-8
 base_dir=$(dirname "$0")
 
 source "${base_dir}/../../setting.sh"
