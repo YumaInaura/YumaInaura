@@ -21,10 +21,15 @@ for create_issue in create_issues:
 
   api_url = 'https://api.github.com/repos/%s/%s/issues' % (owner, repository)
 
+  title = create_issue['title']
+  body = create_issue['body']
+  labels = create_issue['labels'] if 'labels' in create_issue and create_issue['labels'] else []
+
   create = {
-           'title': title,
-           'body': body,
-           'labels': labels if labels else []}
+    'title': title,
+    'body': body,
+    'labels': labels
+  }
 
   res = session.post(url, json.dumps(create))
 
