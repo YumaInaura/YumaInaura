@@ -11,4 +11,4 @@ rm -rf "$log_dir"/*
 eval "$base_dir"/issue.sh
 eval "$base_dir"/en-need-translate-issue.sh
 eval "$base_dir"/en-translate.sh
-eval "$base_dir"/en-create-issu.sh
+eval "$base_dir"/en-create-issue.sh
