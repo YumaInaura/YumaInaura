@@ -13,14 +13,6 @@ for issue in issues:
 
   result['formatted_html'] = re.sub('\n', '<br>', result['html'])
 
-  result['en_translated_html_seed'] = subprocess.run(['../../lib/google-translate/translate-html.sh'], \
-    stdout=subprocess.PIPE, input=result['formatted_html'],  encoding='utf-8').stdout.strip()
-
-  result['en_translated_html'] = re.sub('<br>', '\n', result['en_translated_html_seed'])
-
-  result['en_translated_title'] = subprocess.run(['../../lib/google-translate/translate-raw.sh'], \
-    stdout=subprocess.PIPE, input=issue['title'],  encoding='utf-8').stdout.strip()
-
   results.append(result)
 
 print(json.dumps(results))
