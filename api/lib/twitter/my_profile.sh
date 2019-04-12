@@ -2,5 +2,7 @@
 
 base_dir=$(dirname "$0")
 
-"$base_dir"/common.py  https://api.twitter.com/1.1/users/show.json '{"screen_name": "YumaInaura"}'
+display_name=${1:-YumaInaura}
+
+"$base_dir"/common.py  https://api.twitter.com/1.1/users/show.json '{"screen_name": "'"$display_name"'"}'
 
