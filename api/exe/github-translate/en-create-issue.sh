@@ -5,7 +5,7 @@ set -eu
 base_dir=$(dirname "$0")
 source "${base_dir}/../../setting.sh"
 
-cat "$log_dir"/en-translated.json \
+cat "$log_dir"/en-seed.json \
   | \
     USER_NAME=YumaInaura \
     API_KEY=$(cat ~/.secret/github-api-key) \
