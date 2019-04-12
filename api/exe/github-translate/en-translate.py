@@ -23,7 +23,7 @@ for issue in issues:
 
   result['title']  =      result['en_translated_title']
   result['body']   =      result['en_translated_html']
-  result['labels'] =      ['medium','english']
+  result['labels'] =      ['medium', 'english', 'qiita']
   result['owner']  =      'YumaInaura'
   result['repository'] =  'YumaInaura'
 
