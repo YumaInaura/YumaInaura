@@ -7,11 +7,6 @@ source "${base_dir}/../../setting.sh"
 
 source ~/.secret/env/twitter-yumainaura
 
-if [ $((RANDOM)) -gt 6000 ]; then
-  echo "no conitinue ja-en tweet  by random"
-  exit
-fi
-
 cat "$log_dir"/ja-en-seed.json | \
   JSON_KEY="text" \
   "$api_dir"/twitter/create.py | \
