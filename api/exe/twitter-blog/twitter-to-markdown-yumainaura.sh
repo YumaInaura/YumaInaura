@@ -14,12 +14,6 @@ mkdir -p "$log_dir"
 source ~/.secret/env/twitter-yumainaura
 
 ALL=1 "$api_dir"/twitter/timeline.py > "$log_dir"/timeline.json
-#!/usr/bin/env bash
-
-"$api_dir"/twitter/user-show.sh "$TWITTER_JA_USER_NAME" \
-  | jq '[.]' \
-  | "$api_dir"/twitter/user-show-markdown.py \
-  | tee "$log_dir"/"$TWITTER_JA_USER_NAME".md
 
 "$api_dir"/twitter/user-show.sh "$TWITTER_JA_USER_NAME" \
   | tee "$log_dir"/yumainaura-user-profile.json
@@ -36,7 +30,12 @@ cat "$log_dir"/timeline-jst-yesterday.json | \
   "$api_dir"/twitter/format-customed-mark.py \
   > "$log_dir"/timeline-format.json
 
+"$api_dir"/twitter/user-show.sh "$TWITTER_JA_USER_NAME" \
+  | jq '[.]' \
+  | "$api_dir"/twitter/user-show-markdown.py \
+  > "$log_dir"/"$TWITTER_JA_USER_NAME".md
+
 cat "$log_dir"/timeline-format.json | \
-  "$api_dir"/twitter/markdown.py > \
-  "$log_dir"/"$TWITTER_JA_USER_NAME".md
+  "$api_dir"/twitter/markdown.py \
+  | >> "$log_dir"/"$TWITTER_JA_USER_NAME".md
 
