@@ -7,7 +7,7 @@ source "${base_dir}/../../setting.sh"
 
 interval_second=${INTERVAL:-60}
 
-start_unixtimestamp=$(($(date +%s) - $((61*60))))
+start_unixtimestamp=$(($(date +%s) - $((60*60)) - "$interval_second"))
 end_unixtimestamp=$(($(date +%s) - $((60*60))))
 
 cat "$log_dir"/ja-timeline-own.json | \
