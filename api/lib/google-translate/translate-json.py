@@ -14,7 +14,7 @@ for seed in seeds:
   translated = seed
 
   resource_message = seed[translate_json_key]
-  translate_format = os.environ.get('FORMAT') if os.environ.get('FORMAT') else seed['format']
+  translate_format = os.environ.get('FORMAT') if os.environ.get('FORMAT') else 'text'
   from_language = os.environ.get('FROM') if os.environ.get('FROM') else seed['from']
   to_language = os.environ.get('TO') if os.environ.get('TO') else seed['to']
 
