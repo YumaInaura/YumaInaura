@@ -1,4 +1,4 @@
 FROM ruby
 
-RUN gem install reverse_markdown && gem install redcarpet
+RUN gem install reverse_markdown redcarpet
 
