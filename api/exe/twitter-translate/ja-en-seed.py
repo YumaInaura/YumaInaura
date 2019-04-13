@@ -12,8 +12,8 @@ for tweet in tweets:
   if tweet['is_quote_status']:
     use_this_tweet = True
 
-  if not tweet['in_reply_to_status_id']:
-    use_this_tweet = True
+  #if not tweet['in_reply_to_status_id']:
+  #  use_this_tweet = True
 
   if not use_this_tweet:
     continue
