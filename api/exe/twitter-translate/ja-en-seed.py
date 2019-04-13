@@ -12,7 +12,7 @@ for tweet in tweets:
   seed['text'] = re.sub(r'https://t.co/\w+$', '' , tweet['en_translated_text'])
   seed['text'] = seed['text'][:280]
 
-  # seed['attachment_url'] = tweet['url']
+  seed['attachment_url'] = tweet['url']
   seed['in_reply_to_status_id'] = tweet['id_str']
 
   results.append(seed)
