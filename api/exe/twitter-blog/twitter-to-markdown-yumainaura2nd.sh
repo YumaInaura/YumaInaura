@@ -13,7 +13,7 @@ mkdir -p "$log_dir"
 
 source ~/.secret/env/twitter-yumainaura2nd
 
-ALL=1 "$api_dir"/twitter/timeline.py |
+ALL=1 "$api_dir"/twitter/timeline.py \
   > "$log_dir"/timeline-yumainaura-2nd.json
 
 cat "$log_dir"/timeline-yumainaura-2nd.json \
