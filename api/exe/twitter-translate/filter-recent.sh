@@ -6,9 +6,11 @@ base_dir=$(dirname "$0")
 source "${base_dir}/../../setting.sh"
 
 interval_second=${INTERVAL:-60}
-start_unixtimestamp=$(($(date +%s)-$interval_second))
+
+start_unixtimestamp=$(($(date +%s) - $((61*60))))
+end_unixtimestamp=$(($(date +%s) - $((60*60))))
 
 cat "$log_dir"/ja-timeline-own.json | \
-  "$api_dir"/twitter/filter-timestamp.py "$start_unixtimestamp" | \
+  "$api_dir"/twitter/filter-timestamp.py "$start_unixtimestamp" "$end_unixtimestamp" | \
   tee "$log_dir"/ja-timeline-recent.json
 
