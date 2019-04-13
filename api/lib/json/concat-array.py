@@ -5,6 +5,6 @@ import sys, json
 results = []
 
 for input_data in sys.argv[1:]:
-  results ++ json.loads(input_data)
+  results += json.loads(input_data)
 
 print(json.dumps(results))
