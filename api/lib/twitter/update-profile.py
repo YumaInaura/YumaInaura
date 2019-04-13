@@ -4,13 +4,15 @@ import json, config, os, re, sys, twitterauth
 
 twitter = twitterauth.twitter()
 
-api_url = sys.argv[1]
-params = json.loads(sys.argv[2])
+api_url = 'https://api.twitter.com/1.1/account/update_profile_image.json'
 
-if os.environ.get('POST'):
-  response = twitter.post(api_url, params=params)
-else:
-  response = twitter.get(api_url, params=params)
+image = ;
+
+params = {
+  "image": image
+}
+
+response = twitter.post(api_url, params=params)
 
 result = response.json()
 
