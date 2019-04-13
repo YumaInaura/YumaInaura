@@ -14,9 +14,23 @@ mkdir -p "$log_dir"
 source ~/.secret/env/twitter-yumainaura2nd
 
 ALL=1 "$api_dir"/twitter/timeline.py |
-  tee "$log_dir"/timeline-yumainaura-2nd.json
+  > "$log_dir"/timeline-yumainaura-2nd.json
 
-cat "$log_dir"/timeline-yumainaura-2nd.json | OWN_USER_ID="$TWITTER_EN_USER_NAME" "$api_dir"/twitter/filter-own.py > "$log_dir"/timeline-own-tweet-yumainaura2nd.json
-cat "$log_dir"/timeline-own-tweet-yumainaura2nd.json | "$api_dir"/twitter/jst-datetime-filter.py > "$log_dir"/timeline-jst-yesterday-yumainaura2nd.json
-cat "$log_dir"/timeline-jst-yesterday-yumainaura2nd.json | PERIOD='\\.' "$api_dir"/twitter/markdown.py > "$log_dir"/yumainaura2nd.md
+cat "$log_dir"/timeline-yumainaura-2nd.json \
+  | OWN_USER_ID="$TWITTER_EN_USER_NAME" "$api_dir"/twitter/filter-own.py \
+  > "$log_dir"/timeline-own-tweet-yumainaura2nd.json
+
+cat "$log_dir"/timeline-own-tweet-yumainaura2nd.json \
+  | "$api_dir"/twitter/jst-datetime-filter.py \
+  > "$log_dir"/timeline-jst-yesterday-yumainaura2nd.json
+
+"$api_dir"/twitter/user-show.sh "$TWITTER_EN_USER_NAME" \
+  | jq '[.]' \
+  | "$api_dir"/twitter/user-show-markdown.py \
+  > "$log_dir"/"$TWITTER_EN_USER_NAME".md
+
+
+cat "$log_dir"/timeline-jst-yesterday-yumainaura2nd.json \
+  | PERIOD='\\.' "$api_dir"/twitter/markdown.py \
+  >> "$log_dir"/"$TWITTER_EN_USER_NAME".md
 
