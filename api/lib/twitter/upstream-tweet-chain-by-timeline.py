@@ -31,10 +31,10 @@ for i in range(1, MAX_ROUND+1):
   response = twitter.get(api_url, params=api_params)
   tweet = last_tweet = response.json()[0]
 
+  tweets.append(tweet)
+
   if not tweet['in_reply_to_status_id_str']:
     break
-  else:
-    tweets.append(tweet)
 
 print(json.dumps(tweets))
 
