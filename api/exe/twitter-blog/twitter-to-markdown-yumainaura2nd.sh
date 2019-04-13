@@ -13,11 +13,11 @@ mkdir -p "$log_dir"
 
 source ~/.secret/env/twitter-yumainaura2nd
 
-ALL=1 "$api_dir"/twitter/timeline.py |
+ALL=1 "$api_dir"/twitter/timeline.py \
   > "$log_dir"/timeline-yumainaura-2nd.json
 
 cat "$log_dir"/timeline-yumainaura-2nd.json \
-  | OWN_USER_ID="$TWITTER_EN_USER_NAME" "$api_dir"/twitter/filter-own.py \
+  | OWN_USER_ID="$TWITTER_EN_USER_ID" "$api_dir"/twitter/filter-own.py \
   > "$log_dir"/timeline-own-tweet-yumainaura2nd.json
 
 cat "$log_dir"/timeline-own-tweet-yumainaura2nd.json \
