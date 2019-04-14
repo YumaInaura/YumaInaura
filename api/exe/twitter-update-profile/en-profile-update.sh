@@ -5,6 +5,7 @@ set -eu
 base_dir=$(dirname "$0")
 
 source "$base_dir"/../twitter-setting.sh
+source "$base_dir"/../../setting.sh
 source ~/.secret/env/twitter-yumainaura2nd
 
 "$api_dir"/lib/twitter/update-profile.py \
