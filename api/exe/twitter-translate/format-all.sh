@@ -9,8 +9,4 @@ eval "$base_dir"/filter-api-resource.sh
 eval "$base_dir"/filter-own.sh
 eval "$base_dir"/filter-recent.sh
 
-eval "$base_dir"/en-translate.sh
-
-eval "$base_dir"/en-seed.sh
-eval "$base_dir"/ja-en-seed.sh
 
