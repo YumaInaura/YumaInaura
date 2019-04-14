@@ -16,14 +16,16 @@ params = {
   "image": image_encoded_string
 }
 
-response = twitter.post(api_url, params=params)
+#params = {
+#  "image": 'ABC'
+#}
 
+
+response = twitter.post(api_url, params=params)
 
 print(dir(response))
 
-#result = response.reason()
-
-print(response)
+print(response.json())
 
 #print(json.dumps(result))
 
