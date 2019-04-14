@@ -8,6 +8,6 @@ source "$base_dir"/../twitter-setting.sh
 source "$base_dir"/../../setting.sh
 source ~/.secret/env/twitter-yumainaura2nd
 
-"$api_dir"/lib/twitter/update-profile.py \
+"$api_dir"/twitter/update-profile.py \
   $(ls -1 "$base_dir"/image/*.jpg | shuf -n 1)
 
