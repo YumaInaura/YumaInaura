@@ -21,5 +21,5 @@ params = {
 
 response = twitter.post(api_url, params=params)
 
-print(json.dumps(result))
+print(json.dumps(response.json()))
 
