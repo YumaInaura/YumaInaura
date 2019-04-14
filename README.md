@@ -19,6 +19,10 @@ https://github.com/YumaInaura/YumaInaura/issues
 - [とあるRailsエンジニア 稲浦悠馬 最近の学習や再就職活動のまとめ (2018年4月前半) #Github や Google 翻訳 #API や #python や #JSON #jq などを触っていた · Issue #1223 · YumaInaura/YumaInaura](https://github.com/YumaInaura/YumaInaura/issues/1223)
 - [稲浦 悠馬 プロフィール - Wantedly](https://www.wantedly.com/users/93140896)
 
+# 作ったものなど
+
+- [#Twitter で「俺の英語学習」のサービスアイディア。日本語を英語にGoogle翻訳して追撃！ · Issue #1283 · YumaInaura/YumaInaura](https://github.com/YumaInaura/YumaInaura/issues/1283)
+- [メビウスリング掲示板](http://mb2.jp/)
 
 # Me in Instagram
 
