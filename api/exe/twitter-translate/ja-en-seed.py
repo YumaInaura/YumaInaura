@@ -26,7 +26,7 @@ for tweet in tweets:
   if not quoted_url_matched:
     seed['attachment_url'] = tweet['url']
 
-  seed['text'] = seed['text'][:280]
+  seed['text'] = tweet['en_translated_text'][:280]
 
   seed['in_reply_to_status_id'] = tweet['id_str']
 
