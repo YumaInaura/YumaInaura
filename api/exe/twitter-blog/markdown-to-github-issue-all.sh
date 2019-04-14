@@ -10,5 +10,5 @@ jst_date=$(TZ=Asia/Tokyo date --date='1 days ago' +'%y-%m-%d')
 
 eval "$base_dir"/markdown-to-github-issue-en.sh
 eval "$base_dir"/markdown-to-github-issue-samurai.sh
-eval "$base_dir"/markdown-to-github-issue.sh
+eval "$base_dir"/markdown-to-github-issue-ja.sh
 
