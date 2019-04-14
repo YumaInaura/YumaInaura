@@ -1,55 +1,24 @@
-#!/usr/bin/env python3
+# https://qiita.com/agajo/items/90a29627e7c9a06ec24a
 
-import json, os, sys, re, time, datetime
-from pytz import timezone
+from PIL import Image, ImageDraw, ImageFont
+import io
+import re
+import base64
 
-timelines = json.loads(sys.stdin.read())
+# base64化された画像データを用意
+data = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg=="
+# 頭のいらない部分を取り除いた上で、バイト列にエンコード
+image_data_bytes = re.sub('^data:image/.+;base64,','',data).encode('utf-8')
+# バイト列をbase64としてデコード
+image_data = base64.b64decode(image_data_bytes)#返り値もバイト列
+# ファイルとして開き、pillowのImageインスタンスにする
+im2 = Image.open(io.BytesIO(image_data))
 
-PERIOD = os.environ.get('PERIOD') if os.environ.get('PERIOD') else '。'
 
-def convert_to_datetime(datetime_str):
-  tweet_time = time.strptime(datetime_str,'%a %b %d %H:%M:%S +0000 %Y')
-
-  tweet_datetime = datetime.datetime(*tweet_time[:6])
-  return(tweet_datetime)
-
-def format_tweet(text):
-  text = re.sub(r'https://t\.co/\w+', '' , text)
-  text = re.sub(r'#', '' , text)
-
-  text = text.strip()
-  text = re.sub(re.escape(PERIOD), PERIOD+"\n", text, 1)
-
-  text = '# ' + text
-
-  return(text)
-
-text = ''
-
-for tweet in timelines:
-  text += format_tweet(tweet['full_text'])
-
-  if 'extended_entities' in tweet and 'media' in tweet['extended_entities'].keys():
-    for media in tweet['extended_entities']['media']:
-      text += "\n"
-      text += "![image]("+media['media_url_https']+')'
-  text += "\n"
-
-  if 'quoted_status' in tweet:
-    text += re.sub("^|\n", "\n>", tweet['quoted_status']['full_text'])
-
-  if tweet["entities"] and tweet["entities"]["urls"]:
-    for url in tweet["entities"]["urls"]:
-      text += '<{expanded_url}>'.format(**url)
-
-  if 'created_at' in tweet:
-    tweet_datetime = convert_to_datetime(tweet['created_at'])
-    utc_datetime = tweet_datetime.strftime('%Y-%m-%d %H:%M:%S UTC')
-    # jst_datetime = timezone('Asia/Tokyo').localize(tweet_datetime).strftime('%Y-%m-%d %H:%M:%S %p JST')
-    text += "\n\n" + '<a href="https://twitter.com/YumaInaura/status/' + str(tweet['id_str']) + '">' + utc_datetime  + '</a>'
-
-  text += "\n"
-
-print(text)
-
+im = Image.new("RGB",(300,300),"blue")
+im.paste(im2,(30,30))#画像に画像を重ねます。二つ目の引数は位置の指定。
+draw = ImageDraw.Draw(im)
+fnt = ImageFont.truetype('./Kokoro.otf',30)
+draw.text((0,0),"日本語の\n文字だよ",font=fnt)
+im.save("./test.png")
 
