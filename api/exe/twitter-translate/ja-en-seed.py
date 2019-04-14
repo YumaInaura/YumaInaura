@@ -23,10 +23,12 @@ for tweet in tweets:
   quoted_url_regexp = re.compile('https://t.co/\w+$')
   quoted_url_matched =  re.search(quoted_url_regexp, tweet['en_translated_text'])
 
-  if not quoted_url_matched:
+  if quoted_url_matched:
+    ref_url = quoted_url_matched[0]
+    seed['text'] = tweet['en_translated_text'][:255] + "\n" + ref_url
+  else:
     seed['attachment_url'] = tweet['url']
-
-  seed['text'] = tweet['en_translated_text'][:280]
+    seed['text'] = tweet['en_translated_text'][:280]
 
   seed['in_reply_to_status_id'] = tweet['id_str']
 
