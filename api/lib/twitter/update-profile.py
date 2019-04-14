@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 
+# https://developer.twitter.com/en/docs/accounts-and-users/manage-account-settings/api-reference/post-account-update_profile_image.html
+
 import json, twitterauth, base64, sys
 
 twitter = twitterauth.twitter()
-
 
 image_path = sys.argv[1]
 
@@ -16,16 +17,7 @@ params = {
   "image": image_encoded_string
 }
 
-#params = {
-#  "image": 'ABC'
-#}
-
-
 response = twitter.post(api_url, params=params)
 
-print(dir(response))
-
-print(response.json())
-
-#print(json.dumps(result))
+print(json.dumps(result))
 
