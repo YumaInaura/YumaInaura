@@ -22,7 +22,8 @@ https://github.com/YumaInaura/YumaInaura/issues
 # 作ったものなど
 
 - [#Twitter で「俺の英語学習」のサービスアイディア。日本語を英語にGoogle翻訳して追撃！ · Issue #1283 · YumaInaura/YumaInaura](https://github.com/YumaInaura/YumaInaura/issues/1283)
-- [メビウスリング掲示板](http://mb2.jp/)
+- [#Twitter でプロフィール画像を1分毎に切り替えて美女時計みたいなことがやりたい (お試し) · Issue #1282 · YumaInaura/YumaInaura](https://github.com/YumaInaura/YumaInaura/issues/1282)
+- [メビウスリング掲示板](http://mb2.jp/) ( Since 大昔 )
 
 # Me in Instagram
 
