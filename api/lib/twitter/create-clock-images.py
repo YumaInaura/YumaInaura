@@ -1,9 +1,9 @@
-#/usr/bin/env python3
+#!/usr/bin/env python3
 
 # https://qiita.com/agajo/items/90a29627e7c9a06ec24a
 
 from PIL import Image, ImageDraw, ImageFont
-import  base64, sys, re
+import base64, sys, re
 
 image_path = sys.argv[1]
 
