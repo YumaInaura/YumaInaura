@@ -20,10 +20,17 @@ for tweet in tweets:
 
   seed = {}
  
-  seed['text'] = re.sub(r'https://t.co/\w+$', '' , tweet['en_translated_text'])
+  quoted_url_regexp = re.compule('https://t.co/\w+$')
+  quoted_url_matched =  re.search(quoted_url_regexp, tweet['en_translated_text'])
+
+  if quoted_url_matched:
+    seed['attachment_url'] = quoted_url_matched[0]
+  else:
+    seed['attachment_url'] = tweet['url']
+
+  seed['text'] = re.sub(quoted_url_regexp, '' , tweet['en_translated_text'])
   seed['text'] = seed['text'][:280]
 
-  seed['attachment_url'] = tweet['url']
   seed['in_reply_to_status_id'] = tweet['id_str']
 
   results.append(seed)
