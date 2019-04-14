@@ -19,17 +19,20 @@ for tweet in tweets:
     continue
 
   seed = {}
- 
-  quoted_url_regexp = re.compule('https://t.co/\w+$')
+
+  seed['text'] = re.sub(quoted_url_regexp, '' , tweet['en_translated_text'])
+
+  quoted_url_regexp = re.compile('https://t.co/\w+$')
   quoted_url_matched =  re.search(quoted_url_regexp, tweet['en_translated_text'])
 
   if quoted_url_matched:
-    seed['attachment_url'] = quoted_url_matched[0]
+    referel_url = quoted_url_matched[0]
+
+    seed['attachment_url'] = referel_url
+    seed['text'] = seed['text'][:255] + "\n" + tweet['url']
   else:
     seed['attachment_url'] = tweet['url']
-
-  seed['text'] = re.sub(quoted_url_regexp, '' , tweet['en_translated_text'])
-  seed['text'] = seed['text'][:280]
+    seed['text'] = seed['text'][:280]
 
   seed['in_reply_to_status_id'] = tweet['id_str']
 
