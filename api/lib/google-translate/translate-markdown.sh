@@ -7,23 +7,20 @@ log_dir="$base_dir"/log
 mkdir -p "$log_dir"
 
 cat /dev/stdin \
-  | redcarpet --parse=fenced_code_blocks \
-  | > "$log_dir"/seed.html
+  | "${base_dir}"/markdown-to-html.py \
+  > "$log_dir"/en-seed-html.json
 
-cat "$log_dir"/seed.html \
-  | perl -pe 's/\n/<br>/g' \
-  | > "$log_dir"/seed-formatted.html
+cat "$log_dir"/en-seed-html.json \
+  | \
+    TOKEN=$("$base_dir"/get-token.sh) \
+    TRANSLATE_JSON_KEY=title,body \
+    FORMAT=html \
+    FROM=ja \
+    TO=en \
+      "$base_dir"/translate-json.py \
+  > "$log_dir"/en-translated-html.json
 
-cat "$log_dir"/seed-formatted.html \
-  | FORMAT=html ./translate.sh \
-  | > "$log_dir"/translated.html
-
-cat "$log_dir"/translated.html \
-  | jq . --raw-output \
-  | perl -pe 's/<br>/\n/g' \
-  | > "$log_dir"/translated-reverted.html
-
-cat "$log_dir"/translated-reverted.html \
-  | reverse_markdown \
-  | > "$log_dir"/translated.md
+cat "$log_dir"/en-translated-html.json \
+  | "${base_dir}"/html-to-markdown.py \
+  | tee "$log_dir"/en-translated-markdown.json
 

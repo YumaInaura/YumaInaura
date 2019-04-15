@@ -10,16 +10,16 @@ results = []
 for tweet in tweets:
   use_this_tweet = False
 
-  default_dict = defaultdict(lambda: defaultdict(lambda: defaultdict(dict)))
+  default_dict = defaultdict(lambda: defaultdict(lambda: defaultdict(str)))
   tweet = collections.ChainMap(tweet, default_dict)
 
   if tweet['is_quote_status']:
     use_this_tweet = True
 
-  # if not tweet['in_reply_to_status_id']:
-  #  use_this_tweet = True
+  if not tweet['in_reply_to_status_id']:
+    use_this_tweet = True
 
-  if tweet['extended_entities']['media']['type'] == 'photo':
+  if 'extended_entities' in tweet and tweet['extended_entities']['media'][0]['type'] == 'photo':
     use_this_tweet = True
 
   if not use_this_tweet:
