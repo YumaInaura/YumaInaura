@@ -16,14 +16,14 @@ for seed in seeds:
   translate_format = os.environ.get('FORMAT') if os.environ.get('FORMAT') else 'text'
 
   if os.environ.get('FROM'):
-    from_language = os.environ.get('FROM'):
+    from_language = os.environ.get('FROM')
   elif 'from' in seed:
     from_language = seed['from']
   else:
     from_language = 'ja'
 
   if os.environ.get('TO'):
-    to_language = os.environ.get('TO'):
+    to_language = os.environ.get('TO')
   elif 'from' in seed:
     to_language = seed['to']
   else:
@@ -48,7 +48,7 @@ for seed in seeds:
    
     res = requests.post(api_url, headers=headers, json=params)
   
-    translated_json_key = os.environ.get('TRANSLATED_JSON_KEY') if os.environ.get('TRANSLATED_JSON_KEY') else to_language + '_translated_text'
+    translated_json_key = to_language + '_translated_' + translate_json_key
     translated[translated_json_key] = res.json()['data']['translations'][0]['translatedText']
 
   results.append(translated)
