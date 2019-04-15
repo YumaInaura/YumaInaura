@@ -10,9 +10,6 @@ results = []
 for tweet in tweets:
   use_this_tweet = False
 
-  default_dict = defaultdict(lambda: defaultdict(lambda: defaultdict(str)))
-  tweet = collections.ChainMap(tweet, default_dict)
-
   if tweet['is_quote_status']:
     use_this_tweet = True
 
