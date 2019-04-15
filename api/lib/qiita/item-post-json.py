@@ -5,35 +5,36 @@
 
 import os, sys, requests, json
 
-if len(sys.argv) >= 3:
-  qiita_tags = []
+posts = json.loads(sys.stdin.read())
 
-  for tag in sys.argv[3].split(','):
-    qiita_tags.append({ "name": tag, "versions": [] })
-else:
-  qiita_tags = [{ "name": "test", "versions": [] }]
-
-item = {
-    'title': sys.argv[1],
-    'body': sys.argv[2],
-    "coediting": False,
-    'tags': qiita_tags,
-    'private': False,
-    'tweet': False,
-}
-
-token = os.environ.get('QIITA_TOKEN')
+results = []
 
 headers = {
  'Authorization': 'Bearer {}'.format(token),
  'Content-Type': 'application/json',
 }
-
+ 
 api_url = 'https://qiita.com/api/v2/items'
-response = requests.post(api_url, headers=headers, json=item)
 
-if response.status_code == 200:
-  print(json.dumps(response.json()))
-else:
-  print(json.dumps(response.json()))
+token = os.environ.get('QIITA_TOKEN')
+
+for post in posts:
+  item = {
+      'title': post['title'],
+      'body': post['body'],
+      "coediting": False,
+      'tags': post['tags'] if 'tags' in post else [{ "name": "test", "versions": [] }],
+      'private': False,
+      'tweet': False,
+  }
+ 
+  response = requests.post(api_url, headers=headers, json=item)
+  
+  if response.status_code == 200:
+    print(json.dumps(response.json()))
+    exit()
+  else:
+    results.append(json.dumps(response.json())
+
+print(results)
 
