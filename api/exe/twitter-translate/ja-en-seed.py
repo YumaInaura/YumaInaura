@@ -32,7 +32,7 @@ for tweet in tweets:
     ref_url_deleted_text = re.sub(quoted_url_regexp, '', tweet['en_translated_full_text'])
     seed['text'] = ref_url_deleted_text[:255] + "\n" + ref_url
   else:
-    seed['attachment_url'] = tweet['url']
+    # seed['attachment_url'] = tweet['url']
     seed['text'] = tweet['en_translated_full_text'][:280]
 
   seed['in_reply_to_status_id'] = tweet['id_str']
