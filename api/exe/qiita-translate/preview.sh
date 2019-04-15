@@ -20,8 +20,9 @@ done
 
 cat "$log_dir"/"$QIITA_ITEMS_USER_NAME".json | jq -r '"- " + .[].title'
 
-echo -e "\n\n"
-echo "$character_length" character length
+echo -e "\n"
+
 echo "$article_num" articles
+echo "$character_length" character length
 
 
