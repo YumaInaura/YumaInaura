@@ -10,5 +10,5 @@ mkdir -p "$log_dir"
 
 cat "$log_dir"/"$QIITA_ITEMS_USER_NAME".json \
   | "$base_dir"/ignore-already-translated.py \
-  | tee > "$log_dir"/"$QIITA_ITEMS_USER_NAME"_ignore_already_translated.json
+  | tee "$log_dir"/"$QIITA_ITEMS_USER_NAME"_ignore_already_translated.json
 
