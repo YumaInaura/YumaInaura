@@ -8,7 +8,7 @@ source "${base_dir}/setting.sh"
 
 mkdir -p "$log_dir"
 
-cat "$log_dir"/"$QIITA_ITEMS_USER_NAME"_translated_test.json \
+cat "$log_dir"/"$QIITA_ITEMS_USER_NAME"-create-seed.json \
   | "$api_dir"/qiita/item-post.sh \
-  | tee "$log_dir"/"$QIITA_ITEMS_USER_NAME"_qiita_created.json
+  | tee "$log_dir"/"$QIITA_ITEMS_USER_NAME"-created.json
 
