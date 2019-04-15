@@ -1,20 +1,28 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-import requests, os, json
+import requests, json, os, sys
 
-owner = os.environ.get('OWNER')
-repository = os.environ.get('REPOSITORY')
+USER_ID = os.environ.get('QIITA_USER_NAME')
+ROUND = os.environ.get('ROUND') if os.environ.get('ROUND') else 1
+PER_PAGE = os.environ.get('QIITA_PER_PAGE') if os.environ.get('QIITA_PER_PAGE') else "100" 
+
+api_url = 'https://qiita.com/api/v2/users/' + USER_ID + '/items'
 
 results = []
 
-round = int(os.environ.get('ROUND')) if os.environ.get('ROUND') else 3
+# 投稿数を指定
+for num in range(ROUND):
+  page = str(num+1)
 
-for i in range(0, round):
-  api_url = 'https://api.github.com/repos/' + owner + '/' + repository + '/issues?page=' + str(i+1)
+  params = {
+    "page": page,
+    "per_page" : PER_PAGE
+  }
 
-  res = requests.get(api_url)
-  json_result = res.json()
-  results += json_result
+  response = requests.get(api_url, params=params)
+
+  results.append(response.json())
 
 print(json.dumps(results))
+
