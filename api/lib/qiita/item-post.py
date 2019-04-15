@@ -18,7 +18,7 @@ item = {
     'body': sys.argv[2],
     "coediting": False,
     'tags': qiita_tags,
-    'private': True,
+    'private': False,
     'tweet': False,
 }
 
