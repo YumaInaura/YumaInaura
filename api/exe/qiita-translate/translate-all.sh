@@ -10,5 +10,5 @@ mkdir -p "$log_dir"
 
 cat "$log_dir"/"$QIITA_ITEMS_USER_NAME".json \
   | "$api_dir"/google-translate/translate-markdown.sh \
-  | tee "$log_dir"/"$QIITA_ITEMS_USER_NAME"_translated_test.json
+  | tee "$log_dir"/"$QIITA_ITEMS_USER_NAME"_translated.json
 
