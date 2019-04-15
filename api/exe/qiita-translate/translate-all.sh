@@ -8,8 +8,8 @@ source "${base_dir}/setting.sh"
 
 mkdir -p "$log_dir"
 
-filter_start=0
-filter_end=5
+filter_start=${FILTER_START:-0}
+filter_end=${FILTER_END:-5}
 
 cat "$log_dir"/"$QIITA_ITEMS_USER_NAME".json \
   | jq ".[$`filter_start}:${filter_end}]" \ 
