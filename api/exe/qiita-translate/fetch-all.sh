@@ -5,9 +5,12 @@ set -eu
 base_dir=$(dirname "$0")
 source "${base_dir}/../../setting.sh"
 
-QIITA_ITEMS_USER_NAME=YumaInaura \
+mkdir -p "$log_dir"
+
+export QIITA_ITEMS_USER_NAME=YumaInaura
+
 QIITA_ITEMS_ROUND=30 \
-  ./list.py \
+  "$api_dir"/qiita/items.py \
   | tee > "$log_dir"/"$QIITA_ITEMS_USER_NAME".json
 
 
