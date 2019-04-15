@@ -5,14 +5,20 @@
 
 import os, sys, requests, json
 
-qiita_hashtags = [{ "name": "test", "versions": [] }]
+if len(sys.argv) >= 3:
+  qiita_tags = []
+
+  for tag in sys.argv[3].split(','):
+    qiita_tags.append({ "name": tag, "versions": [] })
+else:
+  qiita_tags = [{ "name": "test", "versions": [] }]
 
 item = {
     'title': sys.argv[1],
     'body': sys.argv[2],
     "coediting": False,
-    'tags': qiita_hashtags,
-    'private': False,
+    'tags': qiita_tags,
+    'private': True,
     'tweet': False,
 }
 
