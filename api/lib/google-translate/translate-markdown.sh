@@ -8,7 +8,7 @@ mkdir -p "$log_dir"
 
 cat /dev/stdin \
   | "${base_dir}"/markdown-to-html.py \
-  | > "$log_dir"/seed-markdown.json
+  > "$log_dir"/seed-markdown.json
 
 TOKEN=$("$base_dir"/get-token.sh) \
   TRANSLATE_JSON_KEY=body \
@@ -16,7 +16,7 @@ TOKEN=$("$base_dir"/get-token.sh) \
   FROM=ja \
   TO=en \
   cat  "$base_dir"/translate-json.py \
-  | > "$log_dir"/en-translated.json
+  > "$log_dir"/en-translated.json
 
 cat "$log_dir"/en-translated.json \
   | "${base_dir}"/html-to-markdown.py \
