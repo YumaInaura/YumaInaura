@@ -3,7 +3,7 @@
 import sys, json, re, os, collections
 from collections import defaultdict
 
-posts = json.loads(sys.stdin.read())
+translateds = json.loads(sys.stdin.read())
 
 results = []
 
