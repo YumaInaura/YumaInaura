@@ -6,13 +6,15 @@ issues = json.loads(sys.stdin.read())
 
 results = []
 
+json_key = os.environ.get('TRANSLATE_JSON_JEY') if os.environ.get('TRANSLATE_JSON_JEY')  else 'body'
+
 for issue in issues:
-  result = {}
+  result = issue
 
-  result['body']       =  re.sub(r'<br>', '\n', issue['en_translated_html'])
+  text = re.sub(r'<br>', '\n', issue[json_key])
 
-  result['body'] = subprocess.run(['reverse_markdown'], \
-      stdout=subprocess.PIPE, input=result['body'], encoding='utf-8').stdout
+  result[json_key] = subprocess.run(['reverse_markdown'], \
+      stdout=subprocess.PIPE, input=result[json_key], encoding='utf-8').stdout
 
   results.append(result)
 
