@@ -15,7 +15,7 @@ TOKEN=$("$base_dir"/get-token.sh) \
   FORMAT=html \
   FROM=ja \
   TO=en \
-    "$base_dir"/translate-json.py \
+  cat  "$base_dir"/translate-json.py \
   | > "$log_dir"/en-translated.json
 
 cat "$log_dir"/en-translated.json \
