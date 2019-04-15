@@ -19,21 +19,29 @@ headers = {
 api_url = 'https://qiita.com/api/v2/items'
 
 for post in posts:
+
+  if post.get('private'):
+    private = True
+  else:
+    private = False
+
+  if post.get('tweet'):
+    tweet = True
+  else:
+    tweet = False
+
   item = {
       'title': post['title'],
       'body': post['body'],
       "coediting": False,
       'tags': post['tags'] if 'tags' in post else [{ "name": "test", "versions": [] }],
-      'private': False,
-      'tweet': False,
+      'private': private,
+      'tweet': tweet,
   }
  
   response = requests.post(api_url, headers=headers, json=item)
   
-  #if response.status_code == 200:
   results.append(response.json())
-  #else:
-  #  print(json.dumps(response.json())
  
 print(json.dumps(results))
 
