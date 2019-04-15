@@ -9,7 +9,7 @@ mkdir -p "$log_dir"
 
 cat /dev/stdin \
   | \
-    TOKEN=$(~/.secret/qiita-token) \
+    TOKEN=$(cat ~/.secret/qiita-token) \
     "$base_dir"/item-post-json.py \
   | tee "$log_dir"/item-posted.json
 
