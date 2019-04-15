@@ -8,7 +8,7 @@ source "${base_dir}/setting.sh"
 
 mkdir -p "$log_dir"
 
-QIITA_ITEMS_ROUND=30 \
-  "$api_dir"/qiita/items.py \
-  | tee > "$log_dir"/"$QIITA_ITEMS_USER_NAME".json
+cat "$log_dir"/"$QIITA_ITEMS_USER_NAME".json \
+  | "$base_dir"/ignore-already-translated.py \
+  | tee > "$log_dir"/"$QIITA_ITEMS_USER_NAME"_ignore_already_translated.json
 
