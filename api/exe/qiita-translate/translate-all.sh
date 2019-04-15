@@ -14,5 +14,5 @@ filter_end=${FILTER_END:-2}
 cat "$log_dir"/"$QIITA_ITEMS_USER_NAME".json \
   | jq '.['"$filter_start"':'"$filter_end"']' \
   | "$api_dir"/google-translate/translate-markdown.sh \
-  | tee "$log_dir"/"$QIITA_ITEMS_USER_NAME"_translated.json
+  | tee "$log_dir"/"$QIITA_ITEMS_USER_NAME"-translated.json
 
