@@ -22,5 +22,8 @@ cat "$log_dir"/seed-markdown.json \
 
 cat "$log_dir"/en-translated.json \
   | "${base_dir}"/html-to-markdown.py \
-  | tee "$log_dir"/en-translated-markdown.json
+  | > "$log_dir"/en-translated-markdown.json
 
+cat "$log_dir"/en-translated-markdown.json \
+  | "${base_dir}"/markdown-to-html.py \
+  | tee "$log_dir"/en-translated-markdown.json
