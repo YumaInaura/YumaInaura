@@ -10,6 +10,6 @@ mkdir -p "$log_dir"
 cat /dev/stdin \
   | \
     QIITA_TOKEN=$(cat ~/.secret/qiita-token) \
-    "$base_dir"/item-post-json.py \
+    "$base_dir"/item-post.py \
   | tee "$log_dir"/item-posted.json
 
