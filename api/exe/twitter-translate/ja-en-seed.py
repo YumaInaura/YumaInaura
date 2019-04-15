@@ -16,8 +16,8 @@ for tweet in tweets:
   if tweet['is_quote_status']:
     use_this_tweet = True
 
-  # if not tweet['in_reply_to_status_id']:
-  #  use_this_tweet = True
+  if not tweet['in_reply_to_status_id']:
+    use_this_tweet = True
 
   if 'extended_entities' in tweet and tweet['extended_entities']['media'][0]['type'] == 'photo':
     use_this_tweet = True
