@@ -10,9 +10,9 @@ cat /dev/stdin \
   | "${base_dir}"/markdown-to-html.py \
   > "$log_dir"/seed-markdown.json
 
-TOKEN=$("$base_dir"/get-token.sh) \
-  cat "$log_dir"/seed-markdown.json \
+cat "$log_dir"/seed-markdown.json \
   | \
+    TOKEN=$("$base_dir"/get-token.sh) \
     TRANSLATE_JSON_KEY=body \
     FORMAT=html \
     FROM=ja \
