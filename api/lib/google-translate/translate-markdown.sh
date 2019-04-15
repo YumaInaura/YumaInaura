@@ -11,11 +11,11 @@ cat /dev/stdin \
   > "$log_dir"/seed-markdown.json
 
 TOKEN=$("$base_dir"/get-token.sh) \
-  TRANSLATE_JSON_KEY=body \
-  FORMAT=html \
-  FROM=ja \
-  TO=en \
   cat "$log_dir"/seed-markdown.json \
+    TRANSLATE_JSON_KEY=body \
+    FORMAT=html \
+    FROM=ja \
+    TO=en \
   | "$base_dir"/translate-json.py \
   > "$log_dir"/en-translated.json
 
