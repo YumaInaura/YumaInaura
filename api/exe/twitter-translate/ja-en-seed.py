@@ -19,7 +19,7 @@ for tweet in tweets:
   # if not tweet['in_reply_to_status_id']:
   #  use_this_tweet = True
 
-  if 'extended_entities' in tweet && tweet['extended_entities']['media'][0]['type'] == 'photo':
+  if 'extended_entities' in tweet and tweet['extended_entities']['media'][0]['type'] == 'photo':
     use_this_tweet = True
 
   if not use_this_tweet:
