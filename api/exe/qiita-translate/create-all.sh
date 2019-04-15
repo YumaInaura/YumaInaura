@@ -9,5 +9,6 @@ source "${base_dir}/setting.sh"
 mkdir -p "$log_dir"
 
 cat "$log_dir"/"$QIITA_ITEMS_USER_NAME"_translated_test.json \
-  "$api_dir"/qiita/
+  | "$api_dir"/qiita/item-post.py \
+  | tee "$log_dir"/"$QIITA_ITEMS_USER_NAME"_qiita_created.json
 
