@@ -12,7 +12,7 @@ filter_start=${FILTER_START:-0}
 filter_end=${FILTER_END:-5}
 
 cat "$log_dir"/"$QIITA_ITEMS_USER_NAME".json \
-  | jq ".[$`filter_start}:${filter_end}]" \ 
+  | jq ".[${filter_start}:${filter_end}]" \ 
   | "$api_dir"/google-translate/translate-markdown.sh \
   | tee "$log_dir"/"$QIITA_ITEMS_USER_NAME"_translated.json
 
