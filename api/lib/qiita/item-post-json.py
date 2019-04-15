@@ -9,14 +9,14 @@ posts = json.loads(sys.stdin.read())
 
 results = []
 
+token = os.environ.get('QIITA_TOKEN')
+
 headers = {
  'Authorization': 'Bearer {}'.format(token),
  'Content-Type': 'application/json',
 }
  
 api_url = 'https://qiita.com/api/v2/items'
-
-token = os.environ.get('QIITA_TOKEN')
 
 for post in posts:
   item = {
@@ -30,11 +30,10 @@ for post in posts:
  
   response = requests.post(api_url, headers=headers, json=item)
   
-  if response.status_code == 200:
-    print(json.dumps(response.json()))
-    exit()
-  else:
-    results.append(json.dumps(response.json())
-
-print(results)
+  #if response.status_code == 200:
+  results.append(response.json())
+  #else:
+  #  print(json.dumps(response.json())
+ 
+print(json.dumps(results))
 
