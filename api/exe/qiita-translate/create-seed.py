@@ -10,7 +10,7 @@ results = []
 for translated in translateds:
   seed = {}
 
-  seed['text'] = translated['en_translated_title']
+  seed['title'] = translated['en_translated_title']
   seed['body'] = translated['en_translated_body']
   seed['tags'] = translated['tags']
 
