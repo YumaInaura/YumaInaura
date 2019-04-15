@@ -12,6 +12,7 @@ for translated in translateds:
 
   seed['title'] = translated['en_translated_title']
   seed['body'] = translated['en_translated_body']
+  seed['body'] += '# Original by' + "\n" +  '[' + translated['title'] + ']' + '(' + translated['url'] + ')'
   seed['tags'] = translated['tags']
 
   results.append(seed)
