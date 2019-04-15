@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-import sys, json, re, os
+import sys, json, re, os, collections
+from collections import defaultdict
 
 tweets = json.loads(sys.stdin.read())
 
@@ -9,11 +10,17 @@ results = []
 for tweet in tweets:
   use_this_tweet = False
 
+  default_dict = defaultdict(lambda: defaultdict(lambda: defaultdict(dict)))
+  tweet = collections.ChainMap(tweet, default_dict)
+
   if tweet['is_quote_status']:
     use_this_tweet = True
 
   # if not tweet['in_reply_to_status_id']:
   #  use_this_tweet = True
+
+  if tweet['extended_entities']['media']['type'] == 'photo':
+    use_this_tweet = True
 
   if not use_this_tweet:
     continue
