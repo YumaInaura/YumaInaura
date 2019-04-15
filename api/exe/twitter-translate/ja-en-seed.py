@@ -10,9 +10,6 @@ results = []
 for tweet in tweets:
   use_this_tweet = False
 
-  default_dict = defaultdict(lambda: defaultdict(lambda: defaultdict(str)))
-  tweet = collections.ChainMap(tweet, default_dict)
-
   if tweet['is_quote_status']:
     use_this_tweet = True
 
@@ -28,15 +25,15 @@ for tweet in tweets:
   seed = {}
 
   quoted_url_regexp = re.compile('https://t.co/\w+$')
-  quoted_url_matched =  re.search(quoted_url_regexp, tweet['en_translated_text'])
+  quoted_url_matched =  re.search(quoted_url_regexp, tweet['en_translated_full_text'])
 
   if quoted_url_matched:
     ref_url = quoted_url_matched.group(0)
-    ref_url_deleted_text = re.sub(quoted_url_regexp, '', tweet['en_translated_text'])
+    ref_url_deleted_text = re.sub(quoted_url_regexp, '', tweet['en_translated_full_text'])
     seed['text'] = ref_url_deleted_text[:255] + "\n" + ref_url
   else:
     seed['attachment_url'] = tweet['url']
-    seed['text'] = tweet['en_translated_text'][:280]
+    seed['text'] = tweet['en_translated_full_text'][:280]
 
   seed['in_reply_to_status_id'] = tweet['id_str']
 
