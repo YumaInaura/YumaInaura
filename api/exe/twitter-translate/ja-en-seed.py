@@ -27,7 +27,7 @@ for tweet in tweets:
   quoted_url_regexp = re.compile('https://t.co/\w+$')
   quoted_url_matched =  re.search(quoted_url_regexp, tweet['en_translated_full_text'])
 
-  if quoted_url_matched:
+  if tweet['is_quote_status']:
     ref_url = quoted_url_matched.group(0)
     ref_url_deleted_text = re.sub(quoted_url_regexp, '', tweet['en_translated_full_text'])
     seed['text'] = ref_url_deleted_text[:255] + "\n" + ref_url
