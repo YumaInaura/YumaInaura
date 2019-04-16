@@ -10,5 +10,5 @@ mkdir -p "$log_dir"
 
 QIITA_ITEMS_ROUND=30 \
   "$api_dir"/qiita/items.py \
-  | tee > "$log_dir"/"$QIITA_ITEMS_USER_NAME".json
+  | tee "$log_dir"/"$QIITA_ITEMS_USER_NAME".json
 
