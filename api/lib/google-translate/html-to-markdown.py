@@ -6,7 +6,7 @@ issues = json.loads(sys.stdin.read())
 
 results = []
 
-json_key = os.environ.get('TRANSLATE_JSON_KEY') if os.environ.get('TRANSLATE_JSON_KEY')  else 'en_translated_body'
+json_key = os.environ.get('TRANSLATE_JSON_KEY') if os.environ.get('TRANSLATE_JSON_KEY')  else 'en_translated_text'
 
 for issue in issues:
   result = issue
