@@ -13,7 +13,7 @@ for issue in issues:
 
   text = re.sub(r'<br>', '\n', issue[json_key])
 
-  result[json_key] = subprocess.run(['reverse_markdown'], \
+  result[json_key] = subprocess.run(['docker', 'run', '-i', 'ruby-gems', 'reverse_markdown'], \
       stdout=subprocess.PIPE, input=result[json_key], encoding='utf-8').stdout
 
   results.append(result)
