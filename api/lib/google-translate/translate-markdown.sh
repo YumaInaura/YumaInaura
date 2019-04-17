@@ -19,7 +19,7 @@ cat /dev/stdin \
 cat "$log_dir"/en-seed-html.json \
   | \
     TOKEN=$("$base_dir"/get-token.sh) \
-    TRANSLATE_JSON_KEY="$transkate_json_key" \
+    TRANSLATE_JSON_KEY="$translate_json_key" \
     FORMAT=html \
     FROM=ja \
     TO=en \
@@ -28,7 +28,7 @@ cat "$log_dir"/en-seed-html.json \
 
 cat "$log_dir"/en-translated-html.json \
   | \
-    TRANSLATE_JSON_KEY="$transkate_json_key" \
+    TRANSLATE_JSON_KEY="$translate_json_key" \
      "${base_dir}"/html-to-markdown.py \
   | tee "$log_dir"/en-translated-markdown.json
 
