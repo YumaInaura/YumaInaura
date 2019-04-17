@@ -6,10 +6,7 @@ issues = json.loads(sys.stdin.read())
 
 results = []
 
-json_keys = \
-  os.environ.get('TRANSLATE_JSON_JEY').split(',') \
-    if os.environ.get('TRANSLATE_JSON_JEY')  \
-    else ['text']
+json_keys = os.environ.get('TRANSLATE_JSON_KEY').split(',') if os.environ.get('TRANSLATE_JSON_KEY') else ['text']
 
 for issue in issues:
   result = issue
