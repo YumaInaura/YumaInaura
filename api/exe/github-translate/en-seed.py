@@ -10,7 +10,7 @@ for issue in issues:
   result = {}
 
   result['title']      =  issue['en_translated_title']
-  result['body']      =  issue['en_translated_body']
+  result['body']       =  issue['en_translated_body']
 
   result['labels']     =  ['medium', 'english', 'qiita']
   result['owner']      =  'YumaInaura'
