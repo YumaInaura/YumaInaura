@@ -4,6 +4,9 @@
 
 import json, os, re, twitterauth, sys
 
+from IPython import embed
+from IPython.terminal.embed import InteractiveShellEmbed
+
 twitter = twitterauth.twitter()
 
 api_url = "https://api.twitter.com/1.1/statuses/user_timeline.json"
@@ -29,6 +32,11 @@ for i in range(1, MAX_ROUND+1):
   }
   
   response = twitter.get(api_url, params=api_params)
+
+  if i == 2:
+    ipshell = InteractiveShellEmbed()
+    ipshell()
+
   tweet = last_tweet = response.json()[0]
 
   tweets.append(tweet)
