@@ -7,8 +7,14 @@ source "${base_dir}/../../setting.sh"
 
 cat "$log_dir"/en-need-translate-issue.json \
   | \
+    FORMAT=text \
+    TRANSLATE_JSON_KEY=title \
+      "$api_dir"/google-translate/translate.sh \
+
+  | \
     FORMAT=html \
-    TRANSLATE_JSON_KEY=title,body \
+    TRANSLATE_JSON_KEY=body \
       "$api_dir"/google-translate/translate-markdown.sh \
+
   | tee "$log_dir"/en-translated.json
 
