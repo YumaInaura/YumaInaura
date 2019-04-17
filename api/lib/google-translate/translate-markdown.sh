@@ -13,7 +13,7 @@ cat /dev/stdin \
 cat "$log_dir"/en-seed-html.json \
   | \
     TOKEN=$("$base_dir"/get-token.sh) \
-    TRANSLATE_JSON_KEY=title,body \
+    TRANSLATE_JSON_KEY=text \
     FORMAT=html \
     FROM=ja \
     TO=en \
