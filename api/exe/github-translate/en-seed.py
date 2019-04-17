@@ -10,10 +10,7 @@ for issue in issues:
   result = {}
 
   result['title']      =  issue['en_translated_title']
-  result['body']       =  re.sub(r'<br>', '\n', issue['en_translated_html'])
-
-  #result['body'] = subprocess.run(['reverse_markdown'], \
-  #    stdout=subprocess.PIPE, input=result['body'], encoding='utf-8').stdout
+  result['body']       =  issue['en_translated_body']
 
   result['labels']     =  ['medium', 'english', 'qiita']
   result['owner']      =  'YumaInaura'

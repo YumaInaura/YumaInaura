@@ -22,8 +22,11 @@ for create_issue in create_issues:
 
   api_url = 'https://api.github.com/repos/%s/%s/issues' % (owner, repository)
 
-  title = create_issue['title']
-  body = create_issue['body']
+  title_json_key = os.environ.get('TITLE_JSON_KEY') if os.environ.get('TITLE_JSON_KEY') else 'title'
+  body_json_key = os.environ.get('BODY_JSON_KEY') if os.environ.get('BODY_JSON_KEY') else 'body'
+
+  title = create_issue[title_json_key]
+  body = create_issue[body_json_key]
   labels = create_issue['labels'] if 'labels' in create_issue and create_issue['labels'] else []
 
   create = {

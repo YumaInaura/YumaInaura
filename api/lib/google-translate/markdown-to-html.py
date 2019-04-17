@@ -6,14 +6,15 @@ issues = json.loads(sys.stdin.read())
 
 results = []
 
-json_key = os.environ.get('TRANSLATE_JSON_JEY') if os.environ.get('TRANSLATE_JSON_JEY')  else 'body'
+json_keys = os.environ.get('TRANSLATE_JSON_KEY').split(',') if os.environ.get('TRANSLATE_JSON_KEY') else ['text']
 
 for issue in issues:
   result = issue
 
-  text = re.sub(r'<br>', '\n', issue[json_key])
+  for json_key in json_keys:
+    text = re.sub(r'<br>', '\n', issue[json_key])
 
-  result[json_key] = subprocess.run(['redcarpet', '--parse=fenced_code_blocks'], \
+    result[json_key] = subprocess.run(['docker', 'run', '-i', 'ruby-gems', 'redcarpet', '--parse=fenced_code_blocks'], \
       stdout=subprocess.PIPE, input=result[json_key], encoding='utf-8').stdout
 
   results.append(result)
