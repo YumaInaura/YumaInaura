@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-from IPython import embed
 from IPython.terminal.embed import InteractiveShellEmbed
 
 for i in range(5):
