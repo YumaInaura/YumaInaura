@@ -16,8 +16,6 @@ cat /dev/stdin \
       "${base_dir}"/markdown-to-html.py \
   > "$log_dir"/en-seed-html.json
 
-exit
-
 cat "$log_dir"/en-seed-html.json \
   | \
     TOKEN=$("$base_dir"/get-token.sh) \
