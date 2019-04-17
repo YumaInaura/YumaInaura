@@ -8,8 +8,7 @@ source "${base_dir}/../../setting.sh"
 cat "$log_dir"/en-format.json \
   | \
     FORMAT=html \
-    TOKEN=$("$api_dir"/google-translate/get-token.sh) \
     TRANSLATE_JSON_KEY=formatted_html,title \
-      "$api_dir"/google-translate/translate-json.py \
+      "$api_dir"/google-translate/translate-markdown.sh \
   | tee "$log_dir"/en-translated.json
 
