@@ -6,6 +6,8 @@ log_dir="$base_dir"/log
  
 mkdir -p "$log_dir"
 
+translate_json_key=${TRANSLATE_JSON_KEY:-text}
+
 cat /dev/stdin \
   | "${base_dir}"/markdown-to-html.py \
   > "$log_dir"/en-seed-html.json
@@ -13,7 +15,7 @@ cat /dev/stdin \
 cat "$log_dir"/en-seed-html.json \
   | \
     TOKEN=$("$base_dir"/get-token.sh) \
-    TRANSLATE_JSON_KEY=text \
+    TRANSLATE_JSON_KEY="$transkate_json_key" \
     FORMAT=html \
     FROM=ja \
     TO=en \
