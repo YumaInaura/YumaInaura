@@ -9,7 +9,9 @@ mkdir -p "$log_dir"
 translate_json_key=${TRANSLATE_JSON_KEY:-text}
 
 cat /dev/stdin \
-  | "${base_dir}"/markdown-to-html.py \
+  \ |
+    TRANSLATE_JSON_KEY="$transkate_json_key" \
+      "${base_dir}"/markdown-to-html.py \
   > "$log_dir"/en-seed-html.json
 
 cat "$log_dir"/en-seed-html.json \
@@ -23,6 +25,8 @@ cat "$log_dir"/en-seed-html.json \
   > "$log_dir"/en-translated-html.json
 
 cat "$log_dir"/en-translated-html.json \
-  | "${base_dir}"/html-to-markdown.py \
+  | \
+    TRANSLATE_JSON_KEY="$transkate_json_key" \
+     "${base_dir}"/html-to-markdown.py \
   | tee "$log_dir"/en-translated-markdown.json
 
