@@ -16,6 +16,6 @@ mkdir -p "$log_dir"
 
 tweet_id=$(cat "$log_dir"/own-favorites.json | jq -r '.[0].id_str')
 
-"$base_dir"/upstream-timeline.sh "$tweet_id" \
+"$base_dir"/upstream-tweet-chain.sh "$tweet_id" \
   | tee "$log_dir"/tweet-upstream.json
 
