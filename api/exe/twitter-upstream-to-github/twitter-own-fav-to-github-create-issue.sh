@@ -8,5 +8,5 @@ source "${base_dir}/../../setting.sh"
 source "${base_dir}/../twitter-setting.sh"
 
 "$api_dir"/twitter/favorite-list.sh \
-  | jq '[.[] | select(.user.name == "'"$TWITTER_JA_USER_NAME"'")]'
+  | jq '[.[] | select(.user.screen_name == "'"$TWITTER_JA_USER_NAME"'")]'
 
