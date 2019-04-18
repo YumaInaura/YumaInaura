@@ -7,8 +7,6 @@ source "${base_dir}/../../setting.sh"
 
 log_dir="$base_dir"/log
 
-# jst_date=$(TZ=Asia/Tokyo date --date='1 days ago' +'%Y-%m-%d')
-
 REPOSITORY=${REPOSITORY:-YumaInaura}
 
 export OWNER=YumaInaura \
