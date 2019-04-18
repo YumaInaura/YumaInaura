@@ -20,8 +20,14 @@ tweet_id=$(cat "$log_dir"/own-favorites.json | jq -r '.[0].id_str')
   > "$log_dir"/upstream-tweets-by-like.json
 
 cat "$log_dir"/upstream-tweets-by-like.json \
+  | jq reverse \
+  | "$api_dir"/twitter/format-customed-mark.py \
   | "$api_dir"/twitter/markdown.py \
-  | tee "$log_dir"/upstream-tweets-by-like.md
+  > "$log_dir"/github-body.md
+
+cat "$log_dir"/upstream-tweets-by-like.json \
+  | jq --raw-output '.[0].full_text' \
+   > "$log_dir"/github-title.txt
 
 export OWNER=YumaInaura \
        REPOSITORY="$REPOSITORY" \
