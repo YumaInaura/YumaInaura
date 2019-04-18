@@ -30,7 +30,7 @@ cat "$log_dir"/upstream-tweets-by-like.json \
    > "$log_dir"/github-title.txt
 
 export OWNER=YumaInaura \
-       REPOSITORY="$REPOSITORY" \
+       REPOSITORY=YumaInaura \
        API_KEY=$(cat ~/.secret/github-api-key) \
        TITLE=$(cat "$log_dir"/upstream-tweets-by-like.md) \
        FILE="$log_dir"/upstream-tweets-by-like.md \
