@@ -15,5 +15,5 @@ cat "$log_dir"/upstream-tweets.json \
 
 cat "$log_dir"/upstream-tweets.json \
   | jq --raw-output '.[0].full_text' \
-   > "$log_dir"/github-title.txt
+  | tee "$log_dir"/github-title.txt
 
