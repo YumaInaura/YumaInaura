@@ -15,7 +15,7 @@ MAX_ROUND = int(os.environ.get('ROUND')) if os.environ.get('ROUND') else 30
 
 tweet_url_or_id = sys.argv[1]
 
-if re.serach(r'\d+$', tweet_url_or_id):
+if re.search(r'\d+$', tweet_url_or_id):
   tweet_id = tweet_url_or_id
 else:
   tweet_id = re.search(r'/status/(?P<id>\d+)', tweet_url_or_id)['id']
