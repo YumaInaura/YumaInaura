@@ -33,8 +33,8 @@ export OWNER=YumaInaura \
        REPOSITORY="$REPOSITORY" \
        API_KEY=$(cat ~/.secret/github-api-key) \
        TITLE=$(cat "$log_dir"/upstream-tweets-by-like.md) \
-       FILE="$log_dir"/upstream-tweets-by-like.md" \
+       FILE="$log_dir"/upstream-tweets-by-like.md \
        LABELS=medium,hatena,japanese,twitter
 
-"${api_dir}/github/create-or-edit-issue.py"
+# "${api_dir}/github/create-or-edit-issue.py"
 
