@@ -3,7 +3,7 @@
 # https://developer.twitter.com/en/docs/tweets/post-and-engage/api-reference/get-statuses-show-id
 # https://twitter.com/YumaInaura/status/1112838809991798784
 
-import json, config, os, re, twitterauth
+import json, config, os, re, twitterauth, sys
 
 twitter = twitterauth.twitter()
 
