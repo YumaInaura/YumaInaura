@@ -23,10 +23,12 @@ cat "$log_dir"/upstream-tweets-by-like.json \
   | "$api_dir"/twitter/markdown.py \
   | tee "$log_dir"/upstream-tweets-by-like.md
 
-# cat "$log_dir"/en-seed.json \
-#   | \
-#     USER_NAME=YumaInaura \
-#     API_KEY=$(cat ~/.secret/github-api-key) \
-#       "$api_dir"/github/create-issue.py \
-#   | tee "$log_dir"/en-created-issue.json
+export OWNER=YumaInaura \
+       REPOSITORY="$REPOSITORY" \
+       API_KEY=$(cat ~/.secret/github-api-key) \
+       TITLE=$(cat "$log_dir"/upstream-tweets-by-like.md) \
+       FILE="$log_dir"/upstream-tweets-by-like.md" \
+       LABELS=medium,hatena,japanese,twitter
+
+"${api_dir}/github/create-or-edit-issue.py"
 
