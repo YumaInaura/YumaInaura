@@ -35,8 +35,8 @@ for i in range(1, MAX_ROUND+1):
     ipshell = InteractiveShellEmbed()
     ipshell()
  
-  if i == 1 and not tweet['in_reply_to_status_id_str']:
-    break
+ # if i == 1 and not tweet['in_reply_to_status_id_str']:
+ #   break
 
   tweets.append(tweet)
 
