@@ -4,6 +4,7 @@
 # https://twitter.com/YumaInaura/status/1112838809991798784
 
 import json, config, os, re, twitterauth, sys
+from IPython.terminal.embed import InteractiveShellEmbed
 
 twitter = twitterauth.twitter()
 
@@ -30,10 +31,17 @@ for i in range(1, MAX_ROUND+1):
   response = twitter.get(api_url, params=api_parameter)
   tweet = last_tweet = response.json()
 
+  if os.environ.get('DEBUG'):
+    ipshell = InteractiveShellEmbed()
+    ipshell()
+ 
+  if i == 1 and not tweet['in_reply_to_status_id_str']:
+    break
+
+  tweets.append(tweet)
+
   if not tweet['in_reply_to_status_id_str']:
     break
-  else:
-    tweets.append(tweet)
 
 print(json.dumps(tweets))
 
