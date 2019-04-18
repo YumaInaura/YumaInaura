@@ -10,6 +10,6 @@ mkdir -p "$log_dir"
 
 tweet_id=$(cat "$log_dir"/own-favorite-tweet-id.log)
 
-eval "$api_dir"/twitter/upstream-tweet-chain.py "$tweet_url" \
+eval "$api_dir"/twitter/upstream-tweet-chain.py "$tweet_id" \
   > "$log_dir"/upstream-tweets.json
 
