@@ -36,10 +36,6 @@ for i in range(1, MAX_ROUND+1):
   
   response = twitter.get(api_url, params=api_params)
 
-  #if os.environ.get('DEBUG'):
-  #  ipshell = InteractiveShellEmbed()
-  #  ipshell()
-
   if not response.json():
     break
 
