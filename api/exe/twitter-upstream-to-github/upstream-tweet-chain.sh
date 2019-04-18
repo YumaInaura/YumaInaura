@@ -10,6 +10,6 @@ mkdir -p "$log_dir"
 
 tweet_url="$1"
 
-eval "$api_dir"/twitter/upstream-tweet-chain-by-show.py "$tweet_url" \
+eval "$api_dir"/twitter/upstream-tweet-chain.py "$tweet_url" \
   > "$log_dir"/timeline.json
 
