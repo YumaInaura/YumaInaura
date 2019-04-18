@@ -13,9 +13,12 @@ api_url = "https://api.twitter.com/1.1/statuses/user_timeline.json"
 
 MAX_ROUND = int(os.environ.get('ROUND')) if os.environ.get('ROUND') else 30
 
-tweet_url = sys.argv[1]
+tweet_url_or_id = sys.argv[1]
 
-tweet_id = re.search(r'/status/(?P<id>\d+)', tweet_url)['id']
+if re.serach(r'\d+$', tweet_url_or_id):
+  tweet_id = tweet_url_or_id
+else:
+  tweet_id = re.search(r'/status/(?P<id>\d+)', tweet_url_or_id)['id']
 
 last_tweet = {}
 tweets = []
