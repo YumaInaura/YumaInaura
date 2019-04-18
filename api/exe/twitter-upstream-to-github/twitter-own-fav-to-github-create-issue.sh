@@ -20,7 +20,7 @@ tweet_id=$(cat "$log_dir"/own-favorites.json | jq -r '.[0].id_str')
   > "$log_dir"/upstream-tweets-by-like.json
 
 cat "$log_dir"/upstream-tweets-by-like.json \
-  | "$api_dir"/markdown.py \
+  | "$api_dir"/twitter/markdown.py \
   | tee "$log_dir"/upstream-tweets-by-like.md
 
 # cat "$log_dir"/en-seed.json \
