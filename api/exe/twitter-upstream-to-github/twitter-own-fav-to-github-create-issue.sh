@@ -16,8 +16,17 @@ mkdir -p "$log_dir"
 
 tweet_id=$(cat "$log_dir"/own-favorites.json | jq -r '.[0].id_str')
 
-"$base_dir"/upstream-tweet-chain.sh "$tweet_id" \
-  | tee "$log_dir"/tweet-upstream.json
+"$api_dir"/twitter/upstream-tweet-chain.py "$tweet_id" \
+  > "$log_dir"/upstream-tweets-by-like.json
 
-"$log_dir"/tweet-upstream.json
+cat "$log_dir"/upstream-tweets-by-like.json \
+  | "$api_dir"/markdown.py \
+  | tee "$log_dir"/upstream-tweets-by-like.md
+
+# cat "$log_dir"/en-seed.json \
+#   | \
+#     USER_NAME=YumaInaura \
+#     API_KEY=$(cat ~/.secret/github-api-key) \
+#       "$api_dir"/github/create-issue.py \
+#   | tee "$log_dir"/en-created-issue.json
 
