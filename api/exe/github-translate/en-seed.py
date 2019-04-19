@@ -3,7 +3,6 @@
 import sys, json, re, os, subprocess
 from IPython.terminal.embed import InteractiveShellEmbed
 
-
 issues = json.loads(sys.stdin.read())
 
 results = []
@@ -11,8 +10,11 @@ results = []
 for issue in issues:
   result = {}
 
-  ipshell = InteractiveShellEmbed()
-  ipshell()
+  if not issue.get('en_translated_title'):
+    continue
+
+  if not issue.get('en_translated_body'):
+    continue
 
   result['title']      =  issue['en_translated_title']
   result['body']       =  issue['en_translated_body']
