@@ -23,6 +23,9 @@ for i in range(page_round):
 
   response = requests.get(api_url, params=params)
 
+  if not response.ok:
+    break
+
   results += response.json()
 
 print(json.dumps(results))
