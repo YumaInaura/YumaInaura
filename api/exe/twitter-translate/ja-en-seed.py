@@ -36,6 +36,9 @@ for tweet in tweets:
     seed['text'] = re.sub(quoted_url_regexp, '', tweet['en_translated_full_text'])
     seed['text'] = seed['text'][:279] + (ref_url_deleted_text[279:] and '‥')
 
+  hashtag_pattern = re.compile(r'\b(?<!#)(ruby|perl|python)\b', re.IGNORECASE)
+  seed['text'] = re.sub(pattern, "#\\1", seed['text'])
+
   seed['in_reply_to_status_id'] = tweet['id_str']
 
   results.append(seed)
