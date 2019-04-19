@@ -9,7 +9,7 @@ tweet_id="$1"
 base_dir=$(dirname "$0")
 
 POST=1 \
-  "$base_dir"/common.py \
-  'https://api.twitter.com/1.1/favorites/list.json' \
+"$base_dir"/common.py \
+  'https://api.twitter.com/1.1/favorites/destroy.json' \
   '{ "id" : "'"$tweet_id"'" }'
 
