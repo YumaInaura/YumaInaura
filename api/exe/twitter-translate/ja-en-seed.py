@@ -37,7 +37,7 @@ for tweet in tweets:
   else:
     # seed['attachment_url'] = tweet['url']
     seed['text'] = re.sub(quoted_url_regexp, '', seed['text'])
-    seed['text'] = seed['text'][:279] + (ref_url_deleted_text[279:] and '‥')
+    seed['text'] = seed['text'][:279] + (seed['text'][279:] and '‥')
 
   seed['in_reply_to_status_id'] = tweet['id_str']
 
