@@ -7,7 +7,8 @@ inputs = json.loads(sys.stdin.read())
 results = []
 
 for seed in inputs:
-
+  result = seed
   results.append(result)
 
 print(json.dumps(results))
+
