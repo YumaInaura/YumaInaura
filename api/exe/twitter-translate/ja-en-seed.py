@@ -28,7 +28,7 @@ for tweet in tweets:
   quoted_url_matched =  re.search(quoted_url_regexp, tweet['en_translated_full_text'])
 
   hashtag_pattern = re.compile(r'\b(?<!#)(ruby|perl|python|shell|engineer|programming|programmer)\b', re.IGNORECASE)
-  seed['text'] = re.sub(hashtag_pattern, "#\\1", tweet['en_translated_full_text']))
+  seed['text'] = re.sub(hashtag_pattern, "#\\1", tweet['en_translated_full_text'])
 
   if tweet['is_quote_status']:
     ref_url = quoted_url_matched.group(0)
