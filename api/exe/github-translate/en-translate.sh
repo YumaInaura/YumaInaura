@@ -14,7 +14,6 @@ cat "$log_dir"/en-need-translate-issue.json \
 
 cat "$log_dir"/en-translated-title.json \
   | \
-    FORMAT=html \
     TRANSLATE_JSON_KEY=body \
       "$api_dir"/google-translate/translate-markdown.sh \
   | tee "$log_dir"/en-translated.json
