@@ -51,9 +51,6 @@ for seed in seeds:
     if res.ok:
       translated_json_key = to_language + '_translated_' + translate_json_key
       translated[translated_json_key] = res.json()['data']['translations'][0]['translatedText']
-    else:
-      print("something wrong on translation")
-      exit()
 
   results.append(translated)
  
