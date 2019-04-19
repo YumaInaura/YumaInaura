@@ -12,6 +12,9 @@ for issue in issues:
   result = issue
 
   for json_key in json_keys:
+    if not issue.get(json_key):
+      continue
+
     text = re.sub(r'<br>', '\n', issue[json_key])
 
     result[json_key] = subprocess.run(['docker', 'run', '-i', 'ruby-gems', 'redcarpet', '--parse=fenced_code_blocks'], \
