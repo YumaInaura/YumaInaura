@@ -12,5 +12,5 @@ source ~/.secret/env/twitter-yumainaura
 ALL=1 ROUND=1 \
   "$api_dir"/twitter/timeline.py \
   | TWITTER_USER_NAME=YumaInaura "$api_dir"/twitter/timeline-add-ext.py \
-  > "$log_dir"/ja-timeline.json
+  | tee "$log_dir"/ja-timeline.json
 
