@@ -12,7 +12,7 @@ for issue in issues:
   result = issue
 
   for json_key in json_keys:
-    if not issue.get(json_key):
+    if not json_key in issue:
       continue
 
     text = re.sub(r'<br>', '\n', issue[json_key])
