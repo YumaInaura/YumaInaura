@@ -2,7 +2,6 @@
 
 import sys, json, os, re 
 from funcy import pluck
-import pdb
 
 seeds = json.loads(sys.stdin.read())
 
