@@ -4,7 +4,7 @@ import json, os, sys, re, time, datetime
 from pytz import timezone
 
 timelines = json.loads(sys.stdin.read())
-
+json_text_key = os.environ.get('JSON_TEXT_KEY') if os.environ.get('JSON_TEXT_KEY') else 'full_text'
 PERIOD = os.environ.get('PERIOD') if os.environ.get('PERIOD') else '。'
 
 def convert_to_datetime(datetime_str):
@@ -27,7 +27,7 @@ def format_tweet(text):
 text = ''
 
 for tweet in timelines:
-  text += format_tweet(tweet['full_text'])
+  text += format_tweet(tweet[json_text_key])
 
   if 'extended_entities' in tweet and 'media' in tweet['extended_entities'].keys():
     for media in tweet['extended_entities']['media']:
@@ -36,7 +36,7 @@ for tweet in timelines:
   text += "\n"
 
   if 'quoted_status' in tweet:
-    text += re.sub("^|\n", "\n>", tweet['quoted_status']['full_text'])
+    text += re.sub("^|\n", "\n>", tweet['quoted_status'][json_text_key])
 
   if tweet["entities"] and tweet["entities"]["urls"]:
     for url in tweet["entities"]["urls"]:
