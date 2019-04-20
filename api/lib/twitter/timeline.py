@@ -2,7 +2,7 @@
 
 # https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-user_timeline.html
 
-import json, config, os, re, time, datetime, twitterauth
+import json, config, os, re, time, datetime, twitterauth, sys
 from datetime import timedelta
 
 twitter = twitterauth.twitter()
