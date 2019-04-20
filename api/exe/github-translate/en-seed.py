@@ -10,10 +10,10 @@ results = []
 for issue in issues:
   result = {}
 
-  if not issue.get('en_translated_title'):
+  if not issue.get('title'):
     continue
 
-  if not issue.get('en_translated_body'):
+  if not issue.get('body'):
     continue
 
   result['title']      =  issue['title']
