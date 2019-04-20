@@ -48,9 +48,15 @@ for seed in seeds:
    
     res = requests.post(api_url, headers=headers, json=params)
 
-    if res.ok:
+    if not res.ok:
+      continue
+
+    if os.environ.get('TRANSLATED_JSON_KEY'):
+      translated_json_key = os.environ.get('TRANSLATED_JSON_KEY')
+    else:
       translated_json_key = to_language + '_translated_' + translate_json_key
-      translated[translated_json_key] = res.json()['data']['translations'][0]['translatedText']
+
+    translated[translated_json_key] = res.json()['data']['translations'][0]['translatedText']
 
   results.append(translated)
  
