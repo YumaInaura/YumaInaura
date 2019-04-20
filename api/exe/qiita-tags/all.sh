@@ -14,5 +14,5 @@ QIITA_TAGS_ROUND=30 \
 
 cat "$log_dir"/tags.json | \
   jq '.[] | select(.id | match("^[a-zA-z][a-zA-z0-9]+$"))' \
-  | "$log_dir"/english-tags.json
+  | tee "$log_dir"/english-tags.json
 
