@@ -10,5 +10,5 @@ rm -rf "$log_dir"/*
 
 QIITA_TAGS_ROUND=30 \
   "$api_dir"/qiita/tags.py \
-  > "$log_dir"/tags.json 
+  | tee "$log_dir"/tags.json 
 
