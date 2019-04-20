@@ -5,9 +5,9 @@ from funcy import pluck
 
 seeds = json.loads(sys.stdin.read())
 
-tags_file = sys.argv[1]
-read_tags_file = open(tags_file, "r").read()
-tags = json.loads(read_tags_file)
+#tags_file = sys.argv[1]
+#read_tags_file = open(tags_file, "r").read()
+tags = json.loads(sys.argv[1])
 
 dictionary_json_key = os.environ.get('DICTIONARY_JSON_KEY') if os.environ.get('DICTIONARY_JSON_KEY') else "text"
 json_key = os.environ.get('ADD_HASHTAG_JSON_KEY') if os.environ.get('ADD_HASHTAG_JSON_KEY') else "text"
