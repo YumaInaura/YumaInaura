@@ -24,7 +24,10 @@ def response(max_id):
     'count' : count,
 		'include_rts' : include_rts,
   }
-  
+ 
+  if len(sys.argv) > 1:
+    api_params['screen_name'] = sys.argv[1]
+ 
   if max_id:
     api_params['max_id'] = max_id
 
