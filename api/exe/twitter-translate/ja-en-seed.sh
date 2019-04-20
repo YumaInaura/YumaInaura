@@ -11,16 +11,13 @@ if [ ! -f "$log_dir"/en-translated.json ]; then
 fi
 
 cat "$log_dir"/en-translated.json | \
-  > "$log_dir"/ja-en-seed.json 
-
-cat "$log_dir"/en-translated.json | \
   DICTIONARY_JSON_KEY=id \
-  ADD_HASHTAG_JSON_KEY=full_text \
+  ADD_HASHTAG_JSON_KEY=en_translated_full_text \
     "$api_dir"/twitter/add-hashtag.py \
       "$base_dir"/../../exe/qiita-tags/log/english-tags.json \
-  > "$log_dir"/ja-en-seed.json 
+  > "$log_dir"/en-translated-hashtag-added.json 
 
-cat "$log_dir"/en-translated.json | \
+cat "$log_dir"/en-translated-hashtag-added.json | \
   "$base_dir"/ja-en-seed.py | \
   tee "$log_dir"/ja-en-seed.json 
 
