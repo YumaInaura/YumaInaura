@@ -36,7 +36,7 @@ for tweet in timelines:
   text += "\n"
 
   if 'quoted_status' in tweet:
-    text += re.sub("^|\n", "\n>", tweet['quoted_status'][json_text_key])
+    text += re.sub("^|\n", "\n>", tweet['quoted_status']['full_text'])
 
   if tweet["entities"] and tweet["entities"]["urls"]:
     for url in tweet["entities"]["urls"]:
