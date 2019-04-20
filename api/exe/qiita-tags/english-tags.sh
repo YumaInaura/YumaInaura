@@ -10,6 +10,6 @@ cat "$log_dir"/tags.json | \
   | tee "$log_dir"/english-tags.json
 
 cat "$log_dir"/tags.json | \
-  jq '[ .[0:1000] | .select(.id | match("^[a-zA-z][a-zA-z0-9]+$")) ]' \
+  jq '[ .[0:1000] | .[] | select(.id | match("^[a-zA-z][a-zA-z0-9]+$")) ]' \
   | tee "$log_dir"/english-top-tags.json
 
