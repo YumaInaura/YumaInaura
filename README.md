@@ -19,11 +19,15 @@ https://github.com/YumaInaura/YumaInaura/issues
 - [とあるRailsエンジニア 稲浦悠馬 最近の学習や再就職活動のまとめ (2018年4月前半) #Github や Google 翻訳 #API や #python や #JSON #jq などを触っていた · Issue #1223 · YumaInaura/YumaInaura](https://github.com/YumaInaura/YumaInaura/issues/1223)
 - [稲浦 悠馬 プロフィール - Wantedly](https://www.wantedly.com/users/93140896)
 
-# やったことなど
+# 最近やったこと
 
+- [#Twitter のプログラミングの知恵 名言集を Google翻訳の #API やらで日本語翻訳してみた ( #GCP #プログラマ #エンジニア ) · Issue #1356 · YumaInaura/YumaInaura](https://github.com/YumaInaura/YumaInaura/issues/1356)
 - [#Twitter で「俺の英語学習」のサービスアイディア。日本語を英語にGoogle翻訳して追撃！ · Issue #1283 · YumaInaura/YumaInaura](https://github.com/YumaInaura/YumaInaura/issues/1283)
 - [#Twitter でプロフィール画像を1分毎に切り替えて美女時計みたいなことがやりたい (お試し) · Issue #1282 · YumaInaura/YumaInaura](https://github.com/YumaInaura/YumaInaura/issues/1282)
 - [#Google #API を叩いて #Qiita の自分の全記事を英語翻訳して新規投稿する例 ( #python + #shell ) - Qiita](https://qiita.com/YumaInaura/items/7f6fd1e9310a6816469a)
+
+# やってきたこと
+
 - [メビウスリング掲示板](http://mb2.jp/) ( Since 大昔 )
 
 # Me in Instagram
