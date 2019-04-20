@@ -12,7 +12,3 @@ QIITA_TAGS_ROUND=30 \
   "$api_dir"/qiita/tags.py \
   > "$log_dir"/tags.json 
 
-cat "$log_dir"/tags.json | \
-  jq '.[] | select(.id | match("^[a-zA-z][a-zA-z0-9]+$"))' \
-  | tee "$log_dir"/english-tags.json
-
