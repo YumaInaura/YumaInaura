@@ -16,8 +16,8 @@ for issue in issues:
   if not issue.get('en_translated_body'):
     continue
 
-  result['title']      =  issue['en_translated_title']
-  result['body']       =  issue['en_translated_body']
+  result['title']      =  issue['title']
+  result['body']       =  issue['body']
 
   result['labels']     =  ['medium', 'english', 'qiita']
   result['owner']      =  'YumaInaura'
