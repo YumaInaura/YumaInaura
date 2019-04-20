@@ -1,3 +1,4 @@
+
 #!/usr/bin/env bash
 
 set -eu
@@ -5,7 +6,7 @@ set -eu
 base_dir=$(dirname "$0")
 source "${base_dir}/../../setting.sh"
 
-if [ $(cat "$log_dir"/ja-timeline-recent.json | jq '. | length') -eq 0 ]; then
+if [[ -z $(cat "$log_dir"/ja-timeline-recent.json) ]]; then
   echo "No translate resource"
   exit 1
 fi

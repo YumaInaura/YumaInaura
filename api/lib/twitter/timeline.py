@@ -2,7 +2,7 @@
 
 # https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-user_timeline.html
 
-import json, config, os, re, time, datetime, twitterauth
+import json, config, os, re, time, datetime, twitterauth, sys
 from datetime import timedelta
 
 twitter = twitterauth.twitter()
@@ -24,7 +24,10 @@ def response(max_id):
     'count' : count,
 		'include_rts' : include_rts,
   }
-  
+ 
+  if len(sys.argv) > 1:
+    api_params['screen_name'] = sys.argv[1]
+ 
   if max_id:
     api_params['max_id'] = max_id
 
