@@ -20,6 +20,7 @@ cat "$log_dir"/en-seed-html.json \
   | \
     TOKEN=$("$base_dir"/get-token.sh) \
     TRANSLATE_JSON_KEY="$translate_json_key" \
+    TRANSLATED_JSON_KEY="$translate_json_key" \
     FORMAT=html \
     FROM=ja \
     TO=en \

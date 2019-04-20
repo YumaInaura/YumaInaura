@@ -12,10 +12,13 @@ for issue in issues:
   result = issue
 
   for json_key in json_keys:
+    if not json_key in issue:
+      continue
+
     text = re.sub(r'<br>', '\n', issue[json_key])
 
     result[json_key] = subprocess.run(['docker', 'run', '-i', 'ruby-gems', 'redcarpet', '--parse=fenced_code_blocks'], \
-      stdout=subprocess.PIPE, input=result[json_key], encoding='utf-8').stdout
+       stdout=subprocess.PIPE, input=result[json_key], encoding='utf-8').stdout
 
   results.append(result)
 
