@@ -9,6 +9,7 @@ cat "$log_dir"/en-need-translate-issue.json \
   | \
     FORMAT=text \
     TRANSLATE_JSON_KEY=title \
+    TRANSLATED_JSON_KEY=title \
       "$api_dir"/google-translate/translate-json.sh \
   > "$log_dir"/en-translated-title.json
 
