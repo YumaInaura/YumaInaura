@@ -8,7 +8,7 @@ if [ $(uname -s) = "Darwin" ]; then
   alias echo=gecho
 fi
 
-#alias python=python3
+alias python='docker run -it python-modules'
 alias python3='docker run -it python-modules'
 
 base_dir=$(dirname "$0")
