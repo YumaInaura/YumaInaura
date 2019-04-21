@@ -14,7 +14,7 @@ json_key = os.environ.get('ADD_HASHTAG_JSON_KEY') if os.environ.get('ADD_HASHTAG
 
 regexp_or = '|'.join(list(pluck(dictionary_json_key, tags)))
 
-regex_pattern = r'\b(?<!#)(' + regexp_or + r')\b'
+regex_pattern = r'(\b(?<!#)(' + regexp_or + r')\s)'
 pattern = re.compile(regex_pattern, re.IGNORECASE)
 
 results = []
