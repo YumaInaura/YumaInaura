@@ -1,0 +1,18 @@
+TZ=JST-9
+
+PATH=/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/admin/bin
+
+# API
+
+* * * * * env > ~/cron_env
+
+* * * * * cd /api/YumaInaura && git pull
+
+* * * * * /api/YumaInaura/api/exe/twitter-translate/all.sh
+
+0,10,20,30,40,50 * * * * /api/YumaInaura/api/exe/twitter-update-profile/ja-profile-sepia.sh
+
+05 00 * * * cd /api/YumaInaura/api/exe/twitter-blog && ./all.sh
+
+* * * * * pushd /api/YumaInaura/api/exe/slack-zen/ && ./all.sh && popd
+
