@@ -14,7 +14,7 @@ ENV TERM xterm
 RUN apt-get install -y vim less
 RUN pip install --upgrade pip
 RUN pip install --upgrade setuptools
-#RUN pip install pbm ipython optparse ipdb funcy timedelta
-RUN pip install timedelta ipython optparse funcy
+
+RUN pip install timedelta ipython funcy
 
 
