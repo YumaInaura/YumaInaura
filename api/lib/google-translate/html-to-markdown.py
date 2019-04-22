@@ -19,6 +19,7 @@ for issue in issues:
 
     result[json_key] = re.sub(r'<br>', '\n', result[json_key])
 
+    print(result[json_key])
     result[json_key] = subprocess.run(['docker', 'run', '-i', 'ruby-gems', 'reverse_markdown'], \
         stdout=subprocess.PIPE, input=text, encoding='utf-8').stdout
 
