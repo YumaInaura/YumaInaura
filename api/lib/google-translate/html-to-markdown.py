@@ -17,10 +17,10 @@ for issue in issues:
   for json_key in json_keys:
     text = issue[json_key]
 
+    result[json_key] = re.sub(r'<br>', '\n', result[json_key])
+
     result[json_key] = subprocess.run(['docker', 'run', '-i', 'ruby-gems', 'reverse_markdown'], \
         stdout=subprocess.PIPE, input=text, encoding='utf-8').stdout
-
-    result[json_key] = re.sub(r'<br>', '\n', result[json_key])
 
   results.append(result)
 
