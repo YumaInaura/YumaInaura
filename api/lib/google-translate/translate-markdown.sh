@@ -30,6 +30,6 @@ cat "$log_dir"/en-seed-html.json \
 cat "$log_dir"/en-translated-html.json \
   | \
     TRANSLATE_JSON_KEY="$translate_json_key" \
-     "${base_dir}"/html-to-markdown.py \
+     "${base_dir}"/reverse-html-to-markdown.py \
   | tee "$log_dir"/en-translated-markdown.json
 
