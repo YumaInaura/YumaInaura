@@ -21,7 +21,6 @@ for issue in issues:
        stdout=subprocess.PIPE, input=text, encoding='utf-8').stdout
 
     result[json_key] = re.sub(r'\n', '<br>', issue[json_key])
-    result[json_key] = re.sub(r' ', '<space>', issue[json_key])
 
   results.append(result)
 

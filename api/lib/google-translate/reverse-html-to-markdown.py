@@ -21,8 +21,6 @@ for issue in issues:
     text = re.sub(r'</code>', '</pre></code>', text)
 
     text = re.sub(r'<br>', '\n', text)
-    text = re.sub(r' ', '', text)
-    text = re.sub(r'<space>', ' ', text)
 
     text = subprocess.run(['docker', 'run', '-i', 'ruby-gems', 'reverse_markdown'], \
         stdout=subprocess.PIPE, input=text, encoding='utf-8').stdout
