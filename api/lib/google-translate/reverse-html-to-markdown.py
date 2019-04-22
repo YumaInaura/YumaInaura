@@ -25,6 +25,8 @@ for issue in issues:
     text = subprocess.run(['docker', 'run', '-i', 'ruby-gems', 'reverse_markdown'], \
         stdout=subprocess.PIPE, input=text, encoding='utf-8').stdout
 
+    print(text)
+
     result[json_key] = text
 
   results.append(result)
