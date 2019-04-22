@@ -25,11 +25,11 @@ cat "$log_dir"/en-seed-html.json \
     FROM=ja \
     TO=en \
       "$base_dir"/translate-json.py \
-  > "$log_dir"/en-translated-html.json
+  | tee "$log_dir"/en-translated-html.json
 
-cat "$log_dir"/en-translated-html.json \
-  | \
-    TRANSLATE_JSON_KEY="$translate_json_key" \
-     "${base_dir}"/reverse-html-to-markdown.py \
-  | tee "$log_dir"/en-translated-markdown.json
+# cat "$log_dir"/en-translated-html.json \
+#   | \
+#     TRANSLATE_JSON_KEY="$translate_json_key" \
+#      "${base_dir}"/reverse-html-to-markdown.py \
+#   | tee "$log_dir"/en-translated-markdown.json
 
