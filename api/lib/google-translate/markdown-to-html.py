@@ -17,10 +17,7 @@ for issue in issues:
 
     text = issue[json_key]
 
-    result[json_key] = re.sub(r'<code>', '<pre><code>', issue[json_key])
-    result[json_key] = re.sub(r'</code>', '</pre></code>', issue[json_key])
-
-    result[json_key] = subprocess.run(['docker', 'run', '-i', 'ruby-gems', 'redcarpet', '--parse=fenced_code_blocks'], \
+   result[json_key] = subprocess.run(['docker', 'run', '-i', 'ruby-gems', 'redcarpet', '--parse=fenced_code_blocks'], \
        stdout=subprocess.PIPE, input=text, encoding='utf-8').stdout
 
     result[json_key] = re.sub(r'\n', '<br>', issue[json_key])
