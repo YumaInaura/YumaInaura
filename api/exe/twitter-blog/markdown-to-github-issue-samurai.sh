@@ -18,4 +18,4 @@ export OWNER=YumaInaura \
        FILE="${log_dir}/samurai.md" \
        LABELS=medium,hatena,japanese,twitter,qiita
 
-python "${api_dir}/github/create-or-edit-issue.py"
+"${api_dir}/github/create-or-edit-issue.py"
