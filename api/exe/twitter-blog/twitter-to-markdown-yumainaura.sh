@@ -30,12 +30,12 @@ cat "$log_dir"/timeline-jst-yesterday.json | \
   "$api_dir"/twitter/format-customed-mark.py \
   > "$log_dir"/timeline-format.json
 
-"$api_dir"/twitter/user-show.sh "$TWITTER_JA_USER_NAME" \
-  | jq '[.]' \
-  | "$api_dir"/twitter/user-show-markdown.py \
-  > "$log_dir"/"$TWITTER_JA_USER_NAME".md
+# "$api_dir"/twitter/user-show.sh "$TWITTER_JA_USER_NAME" \
+#   | jq '[.]' \
+#   | "$api_dir"/twitter/user-show-markdown.py \
+#   > "$log_dir"/"$TWITTER_JA_USER_NAME".md
 
 cat "$log_dir"/timeline-format.json \
   | "$api_dir"/twitter/markdown.py \
-  >> "$log_dir"/"$TWITTER_JA_USER_NAME".md
+  > "$log_dir"/"$TWITTER_JA_USER_NAME".md
 
