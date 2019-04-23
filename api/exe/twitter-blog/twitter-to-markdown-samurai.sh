@@ -15,5 +15,5 @@ cat "$log_dir"/timeline-jst-yesterday.json \
     --end-with=j \
     --match='エンジニ|プログラ|仕事|就職|Wanted|Qiita|python|ruby|vue|docker' \
   | "$api_dir"/twitter/markdown.py \
-    > "$log_dir"/samurai.md
+  | tee "$log_dir"/samurai.md
 
