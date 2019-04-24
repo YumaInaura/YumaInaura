@@ -36,9 +36,9 @@ cat "$log_dir"/timeline-recent.json \
 
 cat "$log_dir"/timeline-format.json \
   | jq '[.[] | select(.in_reply_to_status_id == null)]' \
-  > "$log_dir"/"$twitter_ja_user_name"-countable.json
+  > "$log_dir"/"$TWITTER_JA_USER_NAME"-countable.json
 
-if [ $(cat "$log_dir"/"$twitter_ja_user_name"-countable.json | jq length) -lt $tweet_border ]; then
+if [ $(cat "$log_dir"/"$TWITTER_JA_USER_NAME"-countable.json | jq length) -lt $tweet_border ]; then
   echo Tweets num under "$tweet_border"
   exit 1
 fi
