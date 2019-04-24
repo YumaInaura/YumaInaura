@@ -2,9 +2,7 @@
 
 set -eu
 
-tweet_border=3
 
-export LC_CTYPE=en_US.UTF-8
 base_dir=$(dirname "$0")
 
 source "${base_dir}/../../setting.sh"
@@ -15,6 +13,8 @@ mkdir -p "$log_dir"
 rm -rf "$log_dir"/*
 
 source ~/.secret/env/twitter-yumainaura
+
+tweet_border=3
 
 interval_second=${INTERVAL:-3600}
 start_unixtimestamp=$(($(date +%s) - $((60)) - $interval_second))
