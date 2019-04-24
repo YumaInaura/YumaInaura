@@ -12,12 +12,17 @@ jst_date=$(TZ=Asia/Tokyo date --date='1 days ago' +'%Y-%m-%d')
 
 REPOSITORY=${REPOSITORY:-YumaInaura}
 
-# title=$(cat "$log_dir"/user-profile-yumainaura.json| jq -r '.name')
+if [ ! -f "$log_dir"/"$TWITTER_JA_USER_NAME"-issue-title.txt ]; then
+  echo No markdown title file
+  exit 1
+fi
+
+title=$(cat "$log_dir"/"$TWITTER_JA_USER_NAME"-issue-title.txt)
 
 export OWNER=YumaInaura \
        REPOSITORY="$REPOSITORY" \
        API_KEY="$github_api_key" \
-       TITLE="いなうらゆうま はここにいた ${jst_date} on Twitter ( 稲浦悠馬 YumaInaura )" \
+       TITLE="$titl" \
        FILE="${log_dir}/"$TWITTER_JA_USER_NAME".md" \
        LABELS=medium,hatena,japanese,twitter
 
