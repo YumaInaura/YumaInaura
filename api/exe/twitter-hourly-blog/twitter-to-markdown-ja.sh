@@ -32,7 +32,7 @@ cat "$log_dir"/timeline-own-tweet.json \
 
 cat "$log_dir"/ja-timeline-recent.json | \
   "$api_dir"/twitter/format-customed-mark.py \
-  | jq '[.[] | select(.in_reply_to_status_id == null)]'
+#  | jq '[.[] | select(.in_reply_to_status_id == null)]'
   > "$log_dir"/timeline-format.json
 
 cat "$log_dir"/timeline-format.json \
@@ -41,6 +41,6 @@ cat "$log_dir"/timeline-format.json \
 
 cat "$log_dir"/timeline-format.json \
   | jq  '.[0].full_text' \
-  | perl -pe 's/^"|"$//g'
+  | perl -pe 's/^"|"$//g' \
    > "$log_dir"/"$TWITTER_JA_USER_NAME"-issue-title.txt
 
