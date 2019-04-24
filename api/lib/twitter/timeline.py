@@ -47,13 +47,13 @@ results = []
 for i in range(0, round):
   res = response(last_id)
 
-  timelines = json.loads(res.text)
-  last_id = timelines[-1]['id']
+  paginaged_timelines = json.loads(res.text)
+  last_id = paginaged_timelines[-1]['id']
 
   if i >= 2:
-    timelines.pop()
+    paginaged_timelines.pop()
 
-  results += timelines
+  results += paginaged_timelines
 
 results.reverse()
 
