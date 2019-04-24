@@ -44,7 +44,7 @@ cat "$log_dir"/timeline-format.json \
   > "$log_dir"/"$TWITTER_JA_USER_NAME".md
 
 cat "$log_dir"/timeline-format.json \
-  | jq  '.[0].full_text' \
-  | perl -pe 's/^"|"$//g' \
+  | jq -r  '.[0].full_text' \
+  | tr "\r\n" " " \
    > "$log_dir"/"$TWITTER_JA_USER_NAME"-issue-title.txt
 
