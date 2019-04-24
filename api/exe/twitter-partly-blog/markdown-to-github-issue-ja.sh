@@ -15,23 +15,23 @@ jst_date=$(TZ=Asia/Tokyo date --date='1 days ago' +'%Y-%m-%d')
 
 REPOSITORY=${REPOSITORY:-YumaInaura}
 
-if [ ! -f "$log_dir"/"$TWITTER_JA_USER_NAME"-issue-title.txt ]; then
+if [ ! -f "$log_dir"/github-issue-title-"$TWITTER_JA_USER_NAME".txt ]; then
   echo No markdown title file
   exit 1
 fi
 
-title=$(cat "$log_dir"/"$TWITTER_JA_USER_NAME"-issue-title.txt)
+title=$(cat "$log_dir"/github-issue-title-"$TWITTER_JA_USER_NAME".txt)
 
 export OWNER=YumaInaura \
        REPOSITORY="$REPOSITORY" \
        API_KEY="$github_api_key" \
        TITLE="$title" \
-       FILE="${log_dir}/"$TWITTER_JA_USER_NAME".md" \
+       FILE="${log_dir}/github-issue-body-"$TWITTER_JA_USER_NAME".md" \
        LABELS=medium,hatena,japanese,twitter
 
 "${api_dir}/github/create-or-edit-issue.py"
 
-cat "$log_dir"/"$TWITTER_JA_USER_NAME"-countable.json \
+cat "$log_dir"/countable-"$TWITTER_JA_USER_NAME".json \
   | jq -r '.[0].id_str' \
-  >> "$history_dir"/"$TWITTER_JA_USER_NAME"-created-issue-title-tweet-id.txt
+  >> "$history_dir"/-reated-issue-title-tweet-id-"$TWITTER_JA_USER_NAME".txt
 
