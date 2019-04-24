@@ -10,6 +10,7 @@ source "${base_dir}/../twitter-setting.sh"
 jst_date=$(TZ=Asia/Tokyo date --date='1 days ago' +'%y-%m-%d')
 
 mkdir -p "$log_dir"
+rm -rf "$log_dir"/*
 
 source ~/.secret/env/twitter-yumainaura
 
@@ -31,6 +32,12 @@ cat "$log_dir"/timeline-recent.json \
   | "$api_dir"/twitter/format-customed-mark.py \
   | jq '[.[] | select(.in_reply_to_status_id == null)]' \
   > "$log_dir"/timeline-format.json
+
+tweet_border=5
+if [ $(cat "$log_dir"/timeline-format.json | jq length) -lt $tweet_border ]; then
+  echo Tweets num under "$tweet_border"
+  exit 1
+fi
 
 cat "$log_dir"/timeline-format.json \
   | "$api_dir"/twitter/markdown.py \
