@@ -20,36 +20,36 @@ ALL=1 "$api_dir"/twitter/timeline.py > "$log_dir"/timeline.json
 
 cat "$log_dir"/timeline.json | \
   OWN_USER_ID="$TWITTER_JA_USER_ID" "$api_dir"/twitter/filter-own.py \
-  > "$log_dir"/"$TWITTER_JA_USER_NAME"-own.json
+  > "$log_dir"/own-"$TWITTER_JA_USER_NAME".json
 
 interval_second=${INTERVAL:-3600}
 start_unixtimestamp=$(($(date +%s) - $((60)) - $interval_second))
 end_unixtimestamp=$(($(date +%s) - $((60))))
 
-cat "$log_dir"/"$TWITTER_JA_USER_NAME"-own.json \
+cat "$log_dir"/own-"$TWITTER_JA_USER_NAME".json \
   | "$api_dir"/twitter/filter-timestamp.py "$start_unixtimestamp" "$end_unixtimestamp" \
-  | tee "$log_dir"/"$TWITTER_JA_USER_NAME"-recent.json
+  | tee "$log_dir"/recent-"$TWITTER_JA_USER_NAME".json
 
-cat "$log_dir"/"$TWITTER_JA_USER_NAME"-recent.json \
+cat "$log_dir"/recent-"$TWITTER_JA_USER_NAME".json \
   | "$api_dir"/twitter/format-customed-mark.py \
-  > "$log_dir"/"$TWITTER_JA_USER_NAME"-formatted.json
+  > "$log_dir"/formatted-"$TWITTER_JA_USER_NAME".json
 
-cat "$log_dir"/"$TWITTER_JA_USER_NAME"-formatted.json \
+cat "$log_dir"/formatted-"$TWITTER_JA_USER_NAME".json \
   | jq '[.[] | select(.in_reply_to_status_id == null)]' \
-  > "$log_dir"/"$TWITTER_JA_USER_NAME"-countable.json
+  > "$log_dir"/countable-"$TWITTER_JA_USER_NAME".json
 
-countable_tweet_num=$(cat "$log_dir"/"$TWITTER_JA_USER_NAME"-countable.json | jq length)
+countable_tweet_num=$(cat "$log_dir"/countable-"$TWITTER_JA_USER_NAME".json | jq length)
 if [ $countable_tweet_num -lt $tweet_border ]; then
   echo Tweets num under "$countable_tweet_num" / "$tweet_border" 
   exit 1
 fi
 
-cat "$log_dir"/"$TWITTER_JA_USER_NAME"-countable.json \
+cat "$log_dir"/countable-"$TWITTER_JA_USER_NAME".json \
   | jq -r '.[0].full_text_without_quoted_url' \
   | tr "\r\n" " " \
-   > "$log_dir"/"$TWITTER_JA_USER_NAME"-issue-title.txt
+   > "$log_dir"/issue-title-"$TWITTER_JA_USER_NAME".txt
 
-cat "$log_dir"/"$TWITTER_JA_USER_NAME"-formatted.json \
+cat "$log_dir"/formatted-"$TWITTER_JA_USER_NAME".json \
   | "$api_dir"/twitter/markdown.py \
   > "$log_dir"/"$TWITTER_JA_USER_NAME".md
 
