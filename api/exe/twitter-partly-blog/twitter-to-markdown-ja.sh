@@ -16,6 +16,10 @@ rm -rf "$log_dir"/*
 
 source ~/.secret/env/twitter-yumainaura
 
+interval_second=${INTERVAL:-3600}
+start_unixtimestamp=$(($(date +%s) - $((60)) - $interval_second))
+end_unixtimestamp=$(($(date +%s) - $((60))))
+
 ALL=1 \
   "$api_dir"/twitter/timeline.py \
   > "$log_dir"/timeline-"$TWITTER_JA_USER_NAME".json
@@ -26,13 +30,9 @@ cat "$log_dir"/timeline-"$TWITTER_JA_USER_NAME".json \
     "$api_dir"/twitter/filter-own.py \
   > "$log_dir"/own-"$TWITTER_JA_USER_NAME".json
 
-interval_second=${INTERVAL:-3600}
-start_unixtimestamp=$(($(date +%s) - $((60)) - $interval_second))
-end_unixtimestamp=$(($(date +%s) - $((60))))
-
 cat "$log_dir"/own-"$TWITTER_JA_USER_NAME".json \
   | "$api_dir"/twitter/filter-timestamp.py "$start_unixtimestamp" "$end_unixtimestamp" \
-  | tee "$log_dir"/recent-"$TWITTER_JA_USER_NAME".json
+  > "$log_dir"/recent-"$TWITTER_JA_USER_NAME".json
 
 cat "$log_dir"/recent-"$TWITTER_JA_USER_NAME".json \
   | "$api_dir"/twitter/format-customed-mark.py \
@@ -51,9 +51,9 @@ fi
 cat "$log_dir"/countable-"$TWITTER_JA_USER_NAME".json \
   | jq -r '.[0].full_text_without_quoted_url' \
   | tr "\r\n" " " \
-   > "$log_dir"/github-issue-title-"$TWITTER_JA_USER_NAME".txt
+  | tee "$log_dir"/github-issue-title-"$TWITTER_JA_USER_NAME".txt
 
 cat "$log_dir"/formatted-"$TWITTER_JA_USER_NAME".json \
   | "$api_dir"/twitter/markdown.py \
-  > "$log_dir"/github-issue-body-"$TWITTER_JA_USER_NAME".md
+  | tee "$log_dir"/github-issue-body-"$TWITTER_JA_USER_NAME".md
 
