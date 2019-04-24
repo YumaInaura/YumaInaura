@@ -39,10 +39,10 @@ if [ $(cat "$log_dir"/timeline-format.json | jq length) -lt $tweet_border ]; the
 fi
 
 cat "$log_dir"/timeline-format.json \
-  | jq '[.[] | select(.in_reply_to_status_id == null)]' \
   | "$api_dir"/twitter/markdown.py \
   > "$log_dir"/"$TWITTER_JA_USER_NAME".md
 
+#  | jq '[.[] | select(.in_reply_to_status_id == null)]' \
 cat "$log_dir"/timeline-format.json \
   | jq -r  '.[0].full_text' \
   | tr "\r\n" " " \
