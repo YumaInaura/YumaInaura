@@ -30,16 +30,16 @@ cat "$log_dir"/timeline-own-tweet.json \
 
 cat "$log_dir"/timeline-recent.json \
   | "$api_dir"/twitter/format-customed-mark.py \
-  | jq '[.[] | select(.in_reply_to_status_id == null)]' \
   > "$log_dir"/timeline-format.json
 
-tweet_border=5
+tweet_border=10
 if [ $(cat "$log_dir"/timeline-format.json | jq length) -lt $tweet_border ]; then
   echo Tweets num under "$tweet_border"
   exit 1
 fi
 
 cat "$log_dir"/timeline-format.json \
+  | jq '[.[] | select(.in_reply_to_status_id == null)]' \
   | "$api_dir"/twitter/markdown.py \
   > "$log_dir"/"$TWITTER_JA_USER_NAME".md
 
