@@ -47,10 +47,9 @@ fi
 cat "$log_dir"/countable-"$TWITTER_JA_USER_NAME".json \
   | jq -r '.[0].full_text_without_quoted_url' \
   | tr "\r\n" " " \
-   > "$log_dir"/issue-title-"$TWITTER_JA_USER_NAME".txt
+   > "$log_dir"/github-issue-title-"$TWITTER_JA_USER_NAME".txt
 
 cat "$log_dir"/formatted-"$TWITTER_JA_USER_NAME".json \
   | "$api_dir"/twitter/markdown.py \
-  > "$log_dir"/"$TWITTER_JA_USER_NAME".md
-
+  > "$log_dir"/github-issue-body-"$TWITTER_JA_USER_NAME".md
 
