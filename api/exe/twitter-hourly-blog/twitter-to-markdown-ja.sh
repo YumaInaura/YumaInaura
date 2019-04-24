@@ -43,13 +43,13 @@ if [ $(cat "$log_dir"/"$TWITTER_JA_USER_NAME"-countable.json | jq length) -lt $t
   exit 1
 fi
 
-cat "$log_dir"/"$twitter_ja_user_name"-countable.json \
+cat "$log_dir"/"$TWITTER_JA_USER_NAME"-countable.json \
   | jq -r '.[0].full_text_without_quoted_url' \
   | tr "\r\n" " " \
    > "$log_dir"/"$TWITTER_JA_USER_NAME"-issue-title.txt
 
 cat "$log_dir"/timeline-format.json \
   | "$api_dir"/twitter/markdown.py \
-  > "$log_dir"/"$twitter_ja_user_name".md
+  > "$log_dir"/"$TWITTER_JA_USER_NAME".md
 
 
