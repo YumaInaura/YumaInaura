@@ -20,8 +20,10 @@ ALL=1 \
   "$api_dir"/twitter/timeline.py \
   > "$log_dir"/timeline-"$TWITTER_JA_USER_NAME".json
 
-cat "$log_dir"/timeline.json | \
-  OWN_USER_ID="$TWITTER_JA_USER_ID" "$api_dir"/twitter/filter-own.py \
+cat "$log_dir"/timeline-"$TWITTER_JA_USER_NAME".json \
+  | \
+  OWN_USER_ID="$TWITTER_JA_USER_ID" \
+    "$api_dir"/twitter/filter-own.py \
   > "$log_dir"/own-"$TWITTER_JA_USER_NAME".json
 
 interval_second=${INTERVAL:-3600}
