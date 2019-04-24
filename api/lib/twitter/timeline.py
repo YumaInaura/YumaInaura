@@ -42,7 +42,7 @@ def response(max_id):
 
   return res
 
-results = []
+timelines = []
 
 for i in range(0, round):
   res = response(last_id)
@@ -53,9 +53,18 @@ for i in range(0, round):
   if i >= 2:
     paginaged_timelines.pop()
 
-  results += paginaged_timelines
+  timelines += paginaged_timelines
 
-results.reverse()
+timelines.reverse()
+
+results = []
+
+for timeline in timelines:
+
+  timeline['full_text_without_quoted_url'] = timeline['text']
+  timeline['full_text_without_quoted_url'] = re.sub(r'https://t.co/\w+$', '', timeline['full_text_without_quoted_url'])
+
+  results.append(timeline)
 
 print(json.dumps(results))
 
