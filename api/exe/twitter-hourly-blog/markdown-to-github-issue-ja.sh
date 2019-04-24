@@ -22,7 +22,7 @@ title=$(cat "$log_dir"/"$TWITTER_JA_USER_NAME"-issue-title.txt)
 export OWNER=YumaInaura \
        REPOSITORY="$REPOSITORY" \
        API_KEY="$github_api_key" \
-       TITLE="$titl" \
+       TITLE="$title" \
        FILE="${log_dir}/"$TWITTER_JA_USER_NAME".md" \
        LABELS=medium,hatena,japanese,twitter
 
