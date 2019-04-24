@@ -61,7 +61,7 @@ results = []
 
 for timeline in timelines:
 
-  timeline['full_text_without_quoted_url'] = timeline['text']
+  timeline['full_text_without_quoted_url'] = timeline['full_text']
   timeline['full_text_without_quoted_url'] = re.sub(r'https://t.co/\w+$', '', timeline['full_text_without_quoted_url'])
 
   results.append(timeline)
