@@ -43,6 +43,7 @@ cat "$log_dir"/timeline-format.json \
   > "$log_dir"/"$TWITTER_JA_USER_NAME".md
 
 #  | jq '[.[] | select(.in_reply_to_status_id == null)]' \
+
 cat "$log_dir"/timeline-format.json \
   | jq -r  '.[0].full_text' \
   | tr "\r\n" " " \
