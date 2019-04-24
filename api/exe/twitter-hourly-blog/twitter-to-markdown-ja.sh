@@ -46,7 +46,7 @@ cat "$log_dir"/timeline-format.json \
 #  | jq '[.[] | select(.in_reply_to_status_id == null)]' \
 
 cat "$log_dir"/timeline-format.json \
-  | jq -r  '.[0].full_text' \
+  | jq -r  '.[0].full_text_without_quoted_url' \
   | tr "\r\n" " " \
    > "$log_dir"/"$TWITTER_JA_USER_NAME"-issue-title.txt
 
