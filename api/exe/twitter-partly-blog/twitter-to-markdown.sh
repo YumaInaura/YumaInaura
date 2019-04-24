@@ -42,6 +42,10 @@ cat "$log_dir"/formatted-"$TWITTER_JA_USER_NAME".json \
   | jq '[.[] | select(.in_reply_to_status_id == null)]' \
   > "$log_dir"/countable-"$TWITTER_JA_USER_NAME".json
 
+cat "$log_dir"/countable-"$TWITTER_JA_USER_NAME".json \
+  | jq '.sort_by(.favorite_count)' \
+  > "$log_dir"/countable-fav-desc-"$TWITTER_JA_USER_NAME".json
+
 countable_tweet_num=$(cat "$log_dir"/countable-"$TWITTER_JA_USER_NAME".json | jq length)
 if [ $countable_tweet_num -lt $tweet_border ]; then
   echo Tweets num under "$countable_tweet_num" / "$tweet_border" 
