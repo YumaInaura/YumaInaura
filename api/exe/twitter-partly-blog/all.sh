@@ -6,6 +6,6 @@ base_dir=$(dirname "$0")
 
 source "${base_dir}/../../setting.sh"
 
-"$base_dir"/twitter-to-markdown-ja.sh
-"$base_dir"/markdown-to-github-issue-ja.sh
+"$base_dir"/twitter-to-markdown.sh
+"$base_dir"/github-issue-create.sh
 
