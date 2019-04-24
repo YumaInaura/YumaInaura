@@ -20,21 +20,21 @@ ALL=1 "$api_dir"/twitter/timeline.py > "$log_dir"/timeline.json
 
 cat "$log_dir"/timeline.json | \
   OWN_USER_ID="$TWITTER_JA_USER_ID" "$api_dir"/twitter/filter-own.py \
-  > "$log_dir"/timeline-own-tweet.json
+  > "$log_dir"/"$TWITTER_JA_USER_NAME"-own.json
 
 interval_second=${INTERVAL:-3600}
 start_unixtimestamp=$(($(date +%s) - $((60)) - $interval_second))
 end_unixtimestamp=$(($(date +%s) - $((60))))
 
-cat "$log_dir"/timeline-own-tweet.json \
+cat "$log_dir"/"$TWITTER_JA_USER_NAME"-own.json \
   | "$api_dir"/twitter/filter-timestamp.py "$start_unixtimestamp" "$end_unixtimestamp" \
-  | tee "$log_dir"/timeline-recent.json
+  | tee "$log_dir"/"$TWITTER_JA_USER_NAME"-recent.json
 
-cat "$log_dir"/timeline-recent.json \
+cat "$log_dir"/"$TWITTER_JA_USER_NAME"-recent.json \
   | "$api_dir"/twitter/format-customed-mark.py \
-  > "$log_dir"/timeline-format.json
+  > "$log_dir"/"$TWITTER_JA_USER_NAME"-formatted.json
 
-cat "$log_dir"/timeline-format.json \
+cat "$log_dir"/"$TWITTER_JA_USER_NAME"-formatted.json \
   | jq '[.[] | select(.in_reply_to_status_id == null)]' \
   > "$log_dir"/"$TWITTER_JA_USER_NAME"-countable.json
 
@@ -49,7 +49,7 @@ cat "$log_dir"/"$TWITTER_JA_USER_NAME"-countable.json \
   | tr "\r\n" " " \
    > "$log_dir"/"$TWITTER_JA_USER_NAME"-issue-title.txt
 
-cat "$log_dir"/timeline-format.json \
+cat "$log_dir"/"$TWITTER_JA_USER_NAME"-formatted.json \
   | "$api_dir"/twitter/markdown.py \
   > "$log_dir"/"$TWITTER_JA_USER_NAME".md
 
