@@ -8,6 +8,9 @@ base_dir=$(dirname "$0")
 source "${base_dir}/../../setting.sh"
 source "${base_dir}/../twitter-setting.sh"
 
+history_dir="$base_dir"/history
+mkdir -p "$history_dir"
+
 jst_date=$(TZ=Asia/Tokyo date --date='1 days ago' +'%Y-%m-%d')
 
 REPOSITORY=${REPOSITORY:-YumaInaura}
@@ -27,4 +30,8 @@ export OWNER=YumaInaura \
        LABELS=medium,hatena,japanese,twitter
 
 "${api_dir}/github/create-or-edit-issue.py"
+
+cat "$log_dir"/"$TWITTER_JA_USER_NAME"-countable.json \
+  | jq -r '.[0].id_str' \
+  >> "$history_dir"/"$TWITTER_JA_USER_NAME"-created-issue-title-tweet-id.txt
 
