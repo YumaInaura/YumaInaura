@@ -2,7 +2,7 @@
 
 set -eu
 
-tweet_border=5
+tweet_border=3
 
 export LC_CTYPE=en_US.UTF-8
 base_dir=$(dirname "$0")
