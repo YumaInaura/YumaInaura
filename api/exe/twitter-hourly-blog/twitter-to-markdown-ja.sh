@@ -28,9 +28,9 @@ end_unixtimestamp=$(($(date +%s) - $((60))))
 
 cat "$log_dir"/timeline-own-tweet.json \
   | "$api_dir"/twitter/filter-timestamp.py "$start_unixtimestamp" "$end_unixtimestamp" \
-  | tee "$log_dir"/ja-timeline-recent.json
+  | tee "$log_dir"/timeline-recent.json
 
-cat "$log_dir"/ja-timeline-recent.json \
+cat "$log_dir"/timeline-recent.json \
   | "$api_dir"/twitter/format-customed-mark.py \
   | jq '[.[] | select(.in_reply_to_status_id == null)]' \
   > "$log_dir"/timeline-format.json
