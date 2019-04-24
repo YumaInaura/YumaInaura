@@ -22,6 +22,7 @@ cat "$log_dir"/timeline.json | \
   OWN_USER_ID="$TWITTER_JA_USER_ID" "$api_dir"/twitter/filter-own.py \
   > "$log_dir"/timeline-own-tweet.json
 
+interval_second=${INTERVAL:-3600}
 start_unixtimestamp=$(($(date +%s) - $((60)) - $interval_second))
 end_unixtimestamp=$(($(date +%s) - $((60))))
 
