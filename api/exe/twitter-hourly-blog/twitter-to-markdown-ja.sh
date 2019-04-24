@@ -2,6 +2,8 @@
 
 set -eu
 
+tweet_border=10
+
 export LC_CTYPE=en_US.UTF-8
 base_dir=$(dirname "$0")
 
@@ -32,7 +34,6 @@ cat "$log_dir"/timeline-recent.json \
   | "$api_dir"/twitter/format-customed-mark.py \
   > "$log_dir"/timeline-format.json
 
-tweet_border=10
 if [ $(cat "$log_dir"/timeline-format.json | jq length) -lt $tweet_border ]; then
   echo Tweets num under "$tweet_border"
   exit 1
