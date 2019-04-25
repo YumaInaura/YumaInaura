@@ -21,7 +21,7 @@ for tweet in tweets:
   tweet_datetime = convert_to_datetime(tweet['created_at'])
   result['ts'] = datetime.timestamp(tweet_datetime)
 
-  results.append()
+  results.append(result)
 
 print(json.dumps(results))
 

@@ -4,5 +4,8 @@ set -eu
 
 base_dir=$(dirname "$0")
 
-"$base_dir"/timeline.py
+ALL=1 \
+    "$base_dir"/timeline.py \
+  | "$base_dir"/add-ext.py
+
 
