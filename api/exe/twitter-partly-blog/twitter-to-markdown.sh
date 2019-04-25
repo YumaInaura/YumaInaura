@@ -7,7 +7,7 @@ base_dir=$(dirname "$0")
 
 source "${base_dir}/../../setting.sh"
 source "${base_dir}/../twitter-setting.sh"
-jst_date=$(TZ=Asia/Tokyo date --date='1 days ago' +'%y-%m-%d')
+jst_date=$(TZ=Asia/Tokyo date --date='1 days ago' +'%Y-%m-%d')
 
 mkdir -p "$log_dir"
 rm -rf "$log_dir"/*
@@ -17,8 +17,8 @@ source ~/.secret/env/twitter-yumainaura
 tweet_border=3
 
 interval_second=${INTERVAL:-3600}
-start_unixtimestamp=$(($(date +%s) - $((60)) - $interval_second))
-end_unixtimestamp=$(($(date +%s) - $((60))))
+start_unixtimestamp=$(($(date +%s) - $((1*60*60)) - $interval_second))
+end_unixtimestamp=$(($(date +%s) - $((1*60*60))))
 
 ALL=1 \
   "$api_dir"/twitter/timeline.py \
@@ -42,16 +42,24 @@ cat "$log_dir"/formatted-"$TWITTER_JA_USER_NAME".json \
   | jq '[.[] | select(.in_reply_to_status_id == null)]' \
   > "$log_dir"/countable-"$TWITTER_JA_USER_NAME".json
 
+cat "$log_dir"/countable-"$TWITTER_JA_USER_NAME".json \
+  | jq 'sort_by(.favorite_count) | reverse' \
+  > "$log_dir"/favorite-"$TWITTER_JA_USER_NAME".json
+
 countable_tweet_num=$(cat "$log_dir"/countable-"$TWITTER_JA_USER_NAME".json | jq length)
 if [ $countable_tweet_num -lt $tweet_border ]; then
   echo Tweets num under "$countable_tweet_num" / "$tweet_border" 
   exit 1
 fi
 
-cat "$log_dir"/countable-"$TWITTER_JA_USER_NAME".json \
-  | jq -r '.[0].full_text_without_quoted_url' \
-  | tr "\r\n" " " \
-  | tee "$log_dir"/github-issue-title-"$TWITTER_JA_USER_NAME".txt && echo
+echo \
+  $(
+    cat "$log_dir"/favorite-"$TWITTER_JA_USER_NAME".json \
+      | jq -r '.[0].full_text_without_quoted_url' \
+      | head -n 1
+  ) \
+  " $jst_date on Twitter" \
+  | tee "$log_dir"/github-issue-title-"$TWITTER_JA_USER_NAME".txt
 
 cat "$log_dir"/formatted-"$TWITTER_JA_USER_NAME".json \
   | "$api_dir"/twitter/markdown.py \

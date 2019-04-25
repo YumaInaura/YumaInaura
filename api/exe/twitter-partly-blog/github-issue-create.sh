@@ -25,7 +25,7 @@ export OWNER=YumaInaura \
        API_KEY="$github_api_key" \
        TITLE="$title" \
        FILE="${log_dir}/github-issue-body-"$TWITTER_JA_USER_NAME".md" \
-       LABELS=medium,hatena,japanese,twitter,en-translate
+       LABELS=medium,hatena,japanese,twitter
 
 "${api_dir}/github/create-or-edit-issue.py"
 
