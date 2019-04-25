@@ -56,10 +56,10 @@ echo \
   $(
     cat "$log_dir"/favorite-"$TWITTER_JA_USER_NAME".json \
       | jq -r '.[0].full_text_without_quoted_url' \
-      | head -n 1 \
-      | tee "$log_dir"/github-issue-title-"$TWITTER_JA_USER_NAME".txt
+      | head -n 1
   ) \
   " $jst_date on Twitter"
+  | tee "$log_dir"/github-issue-title-"$TWITTER_JA_USER_NAME".txt
 
 cat "$log_dir"/formatted-"$TWITTER_JA_USER_NAME".json \
   | "$api_dir"/twitter/markdown.py \
