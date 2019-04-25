@@ -11,12 +11,17 @@ last_ts=$(cat "$log_dir"/timeline-"$TWITTER_JA_USER_NAME".json | jq '.[].ts' | s
 
 interval_ts=$(($(date +%s) - $((30*60))))
 
-if [ $last_ts -eq "$interval_ts" ]; then
+if [ $interval_ts -gt $last_ts ]; then
+  :
+else
+  echo Stop
   echo last ts "$last_ts" '< interval ts' "$interval_ts"
   exit 1
-else
-  echo last ts "$last_ts" '>= interval ts' "$interval_ts"
 fi
+
+cat "$log_dir"/timeline-"$TWITTER_JA_USER_NAME".json \
+  | jq '[.[] | select(.retweeted)]' \
+  | tee "$log_dir"/not-retweeted-"$TWITTER_JA_USER_NAME".json
 
 cat "$log_dir"/timeline-"$TWITTER_JA_USER_NAME".json \
   | jq '[.[] | select(.retweeted)]' \
@@ -28,3 +33,4 @@ cat "$log_dir"/retweeted-"$TWITTER_JA_USER_NAME".json \
   | head -n 1 \
   | tee "$log_dir"/retweet-id-"$TWITTER_JA_USER_NAME".txt
 
+echo last ts "$last_ts" '>= interval ts' "$interval_ts"
