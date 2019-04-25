@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+set -eu
+
 base_dir=$(dirname "$0")
-cat "$base_dir"/log/timeline.log
+
+"$base_dir"/timeline.py
 
