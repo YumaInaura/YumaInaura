@@ -11,11 +11,11 @@ source ~/.secret/env/twitter-yumainaura
 
 retweet_id=$(cat "$log_dir"/retweet-id-"$TWITTER_JA_USER_NAME".txt)
 
-"$api_dir"/twitter/common.py \
+"$api_dir"/twitter/post.py \
   'https://api.twitter.com/1.1/statuses/unretweet/'"$retweet_id"'.json'
 
 sleep 1
 
-"$api_dir"/twitter/common.py \
+"$api_dir"/twitter/post.py \
   'https://api.twitter.com/1.1/statuses/retweet/'"$retweet_id"'.json'
 
