@@ -15,9 +15,13 @@ results = []
 for tweet in tweets:
   result = tweet
 
+  result['full_text_without_quoted_url'] = tweet['full_text']
+  result['full_text_without_quoted_url'] = re.sub(r'https://t.co/\w+$', '', tweet['full_text_without_quoted_url'])
+
   tweet_datetime = convert_to_datetime(tweet['created_at'])
-  tweet_timestamp = datetime.timestamp(tweet_datetime)
+  result['ts'] = datetime.timestamp(tweet_datetime)
 
   results.append()
 
 print(json.dumps(results))
+
