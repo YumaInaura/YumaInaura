@@ -18,7 +18,7 @@ end_unixtimestamp=$(($(date +%s) - $((3*60*60))))
 
 ALL=1 \
 ROUND=1 \
-  "$api_dir"/twitter/timeline.py \
+  "$api_dir"/twitter/timeline.sh \
   > "$log_dir"/timeline-"$TWITTER_JA_USER_NAME".json
 
 
