@@ -38,5 +38,5 @@ cat "$log_dir"/timeline-jst-yesterday.json | \
 
 cat "$log_dir"/timeline-format.json \
   | "$api_dir"/twitter/markdown.py \
-  > "$log_dir"/"$TWITTER_JA_USER_NAME".md
+  | tee "$log_dir"/"$TWITTER_JA_USER_NAME".md
 
