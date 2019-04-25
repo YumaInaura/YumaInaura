@@ -26,5 +26,5 @@ cat "$log_dir"/retweeted-"$TWITTER_JA_USER_NAME".json \
   | jq -r '.[].id_str' \
   | shuf \
   | head -n 1 \
-  | tee "$log_dir"/retweet-id-"$twitter_ja_user_name".txt
+  | tee "$log_dir"/retweet-id-"$TWITTER_JA_USER_NAME".txt
 
