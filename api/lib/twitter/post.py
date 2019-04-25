@@ -12,9 +12,6 @@ else:
 
 twitter = twitterauth.twitter()
 
-if os.environ.get('POST'):
-  res = twitter.post(url, params=params)
-else:
-  res = twitter.get(url, params=params)
+res = twitter.get(url, params=params)
 
 print(res.json())
