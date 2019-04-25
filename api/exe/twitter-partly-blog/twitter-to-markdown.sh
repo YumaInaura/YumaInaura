@@ -17,8 +17,8 @@ source ~/.secret/env/twitter-yumainaura
 tweet_border=3
 
 interval_second=${INTERVAL:-3600}
-start_unixtimestamp=$(($(date +%s) - $((1*60*60)) - $interval_second))
-end_unixtimestamp=$(($(date +%s) - $((1*60*60))))
+start_unixtimestamp=$(($(date +%s) - $((3*60*60)) - $interval_second))
+end_unixtimestamp=$(($(date +%s) - $((3*60*60))))
 
 ALL=1 \
   "$api_dir"/twitter/timeline.py \
