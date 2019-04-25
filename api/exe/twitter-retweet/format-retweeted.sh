@@ -20,7 +20,7 @@ source "${base_dir}/../twitter-setting.sh"
 
 cat "$log_dir"/timeline-"$TWITTER_JA_USER_NAME".json \
   | jq '[.[] | select(.retweeted)]' \
-  | jq '[.[] | select(.user.id_str != '"$TWITTER_JA_USER_ID"')]'
+  | jq '[.[] | select(.user.id_str != '"$TWITTER_JA_USER_ID"')]' \
   | tee "$log_dir"/retweeted-"$TWITTER_JA_USER_NAME".json
 
 cat "$log_dir"/retweeted-"$TWITTER_JA_USER_NAME".json \
