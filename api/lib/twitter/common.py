@@ -1,17 +1,27 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 
-import json, config, os, re, sys, twitterauth
+import requests, os, json, sys
 
-twitter = twitterauth.twitter()
+url = sys.argv[1]
 
-api_url = sys.argv[1]
-params = json.loads(sys.argv[2])
+print(len(sys.args > 2))
+
+if len(sys.args > 2):
+  params = json.loads(sys.argv[2])
+else
+  params = {}
+
+token = os.environ.get('TOKEN')
+
+headers = {
+ 'Authorization': 'Bearer {}'.format(token),
+ 'Content-Type': 'application/json',
+}
 
 if os.environ.get('POST'):
-  response = twitter.post(api_url, params=params)
+  res = requests.post(url, headers=headers, json=params)
 else:
-  response = twitter.get(api_url, params=params)
+  res = requests.get(url, headers=headers, json=params)
 
-result = response.json()
-
-print(json.dumps(result))
+print(res.json())
