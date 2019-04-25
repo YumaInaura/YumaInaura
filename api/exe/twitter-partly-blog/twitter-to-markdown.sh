@@ -52,10 +52,14 @@ if [ $countable_tweet_num -lt $tweet_border ]; then
   exit 1
 fi
 
-cat "$log_dir"/favorite-"$TWITTER_JA_USER_NAME".json \
-  | jq -r '.[0].full_text_without_quoted_url' \
-  | tr "\r\n" " " \
-  | tee "$log_dir"/github-issue-title-"$TWITTER_JA_USER_NAME".txt && echo
+echo \
+  $(
+    cat "$log_dir"/favorite-"$TWITTER_JA_USER_NAME".json \
+      | jq -r '.[0].full_text_without_quoted_url' \
+      | tr "\r\n" " " \
+      | tee "$log_dir"/github-issue-title-"$TWITTER_JA_USER_NAME".txt
+  ) \
+  " $jst_date on Twitter"
 
 cat "$log_dir"/formatted-"$TWITTER_JA_USER_NAME".json \
   | "$api_dir"/twitter/markdown.py \
