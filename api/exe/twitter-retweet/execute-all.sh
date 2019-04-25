@@ -9,7 +9,7 @@ source "${base_dir}/../twitter-setting.sh"
 
 source ~/.secret/env/twitter-yumainaura
 
-retweet_id=$(cat "$log_dir"/retweet-id-"$twitter_ja_user_name".txt)
+retweet_id=$(cat "$log_dir"/retweet-id-"$TWITTER_JA_USER_NAME".txt)
 
 "$api_dir"/twitter/lib/common.py \
   'https://api.twitter.com/1.1/statuses/unretweet/'"$retweet_id"'.json'
