@@ -7,7 +7,7 @@ url = sys.argv[1]
 
 if len(sys.args > 2):
   params = json.loads(sys.argv[2])
-else
+else:
   params = {}
 
 twitter = twitterauth.twitter()
