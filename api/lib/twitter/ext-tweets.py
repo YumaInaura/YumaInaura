@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import json, os, sys, time 
+import json, os, sys, time, re
 from datetime import datetime
 
 tweets = json.loads(sys.stdin.read())
