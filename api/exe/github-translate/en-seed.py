@@ -19,7 +19,7 @@ for issue in issues:
   result['title']      =  issue['title']
   result['body']       =  issue['body']
 
-  result['labels']     =  ['medium', 'english', 'qiita']
+  result['labels']     =  ['medium', 'english']
   result['owner']      =  'YumaInaura'
   result['repository'] =  'YumaInaura'
 
