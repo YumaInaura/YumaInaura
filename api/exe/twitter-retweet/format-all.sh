@@ -18,9 +18,9 @@ if [ $border_ts -lt $last_ts ]; then
   exit 1
 fi
 
-cat "$log_dir"/timeline-"$TWITTER_JA_USER_NAME".json \
-  | jq '[.[] | select(.retweeted)]' \
-  | tee "$log_dir"/not-retweeted-"$TWITTER_JA_USER_NAME".json
+#cat "$log_dir"/timeline-"$TWITTER_JA_USER_NAME".json \
+#  | jq '[.[] | select(.retweeted)]' \
+#  | tee "$log_dir"/not-retweeted-"$TWITTER_JA_USER_NAME".json
 
 cat "$log_dir"/timeline-"$TWITTER_JA_USER_NAME".json \
   | jq '[.[] | select(.retweeted)]' \
