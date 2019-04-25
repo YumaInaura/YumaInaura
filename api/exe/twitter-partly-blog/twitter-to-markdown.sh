@@ -44,7 +44,7 @@ cat "$log_dir"/formatted-"$TWITTER_JA_USER_NAME".json \
 
 cat "$log_dir"/countable-"$TWITTER_JA_USER_NAME".json \
   | jq 'sort_by(.favorite_count) | reverse' \
-  > "$log_dir"/favorite-"$TWITTER_JA_USER_NAME".json
+  > "$log_dir"/forvorite-sorted"$TWITTER_JA_USER_NAME".json
 
 countable_tweet_num=$(cat "$log_dir"/countable-"$TWITTER_JA_USER_NAME".json | jq length)
 if [ $countable_tweet_num -lt $tweet_border ]; then
@@ -54,7 +54,7 @@ fi
 
 echo \
   $(
-    cat "$log_dir"/favorite-"$TWITTER_JA_USER_NAME".json \
+    cat "$log_dir"/forvorite-sorted"$TWITTER_JA_USER_NAME".json \
       | jq -r '.[0].full_text_without_quoted_url' \
       | head -n 1
   ) \
@@ -62,6 +62,7 @@ echo \
   | tee "$log_dir"/github-issue-title-"$TWITTER_JA_USER_NAME".txt
 
 cat "$log_dir"/formatted-"$TWITTER_JA_USER_NAME".json \
+  | jq 'sort_by(.favorite_count) | reverse' \
   | "$api_dir"/twitter/markdown.py \
   | tee "$log_dir"/github-issue-body-"$TWITTER_JA_USER_NAME".md
 
