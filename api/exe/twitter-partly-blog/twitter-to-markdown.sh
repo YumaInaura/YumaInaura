@@ -7,7 +7,7 @@ base_dir=$(dirname "$0")
 
 source "${base_dir}/../../setting.sh"
 source "${base_dir}/../twitter-setting.sh"
-jst_date=$(TZ=Asia/Tokyo date --date='1 days ago' +'%y-%m-%d')
+jst_date=$(TZ=Asia/Tokyo date --date='1 days ago' +'%Y-%m-%d')
 
 mkdir -p "$log_dir"
 rm -rf "$log_dir"/*
