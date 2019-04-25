@@ -2,13 +2,13 @@
 
 set -eu
 
-
 base_dir=$(dirname "$0")
 
 source "${base_dir}/../../setting.sh"
 source "${base_dir}/../twitter-setting.sh"
 
 mkdir -p "$log_dir"
+rm -f "$log_dir"/*
 
 source ~/.secret/env/twitter-yumainaura
 
@@ -28,7 +28,4 @@ else
   echo last ts "$last_ts" '>= interval ts' "$interval_ts"
 fi
 
-cat "$log_dir"/timeline-"$TWITTER_JA_USER_NAME".json \
-  | jq '[.[] | select(.retweeted)]' \
-  > "$log_dir"/retweeted-"$TWITTER_JA_USER_NAME".json
 
