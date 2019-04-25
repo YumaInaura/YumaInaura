@@ -9,14 +9,18 @@ source "${base_dir}/../twitter-setting.sh"
 
 last_ts=$(cat "$log_dir"/timeline-"$TWITTER_JA_USER_NAME".json | jq '.[].ts' | sort | tail -n 1)
 
-interval_ts=$(($(date +%s) - $((30*60))))
+border_ts=$(($(date +%s) - $((30*60))))
 
-if [ $last_ts -eq "$interval_ts" ]; then
-  echo last ts "$last_ts" '< interval ts' "$interval_ts"
+if [ $border_ts -lt $last_ts ]; then
+  echo Stop
+  echo 'border ts' "$border_ts" '< last ts' "$last_ts"
+  echo $(($last_ts - $border_ts)) second wait
   exit 1
-else
-  echo last ts "$last_ts" '>= interval ts' "$interval_ts"
 fi
+
+#cat "$log_dir"/timeline-"$TWITTER_JA_USER_NAME".json \
+#  | jq '[.[] | select(.retweeted)]' \
+#  | tee "$log_dir"/not-retweeted-"$TWITTER_JA_USER_NAME".json
 
 cat "$log_dir"/timeline-"$TWITTER_JA_USER_NAME".json \
   | jq '[.[] | select(.retweeted)]' \
