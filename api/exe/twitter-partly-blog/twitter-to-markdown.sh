@@ -21,6 +21,7 @@ start_unixtimestamp=$(($(date +%s) - $((3*60*60)) - $interval_second))
 end_unixtimestamp=$(($(date +%s) - $((3*60*60))))
 
 ALL=1 \
+ROUND=1 \
   "$api_dir"/twitter/timeline.sh \
   > "$log_dir"/timeline-"$TWITTER_JA_USER_NAME".json
 
@@ -30,7 +31,12 @@ cat "$log_dir"/timeline-"$TWITTER_JA_USER_NAME".json \
     "$api_dir"/twitter/filter-own.py \
   > "$log_dir"/own-"$TWITTER_JA_USER_NAME".json
 
+lang="ja"
 cat "$log_dir"/own-"$TWITTER_JA_USER_NAME".json \
+  | jq '[.[] | select(.lang == "'"$lang"'")]' \
+  > "$log_dir"/own-"$lang"-"$TWITTER_JA_USER_NAME".json
+
+cat "$log_dir"/own-"$lang"-"$TWITTER_JA_USER_NAME".json \
   | "$api_dir"/twitter/filter-timestamp.py "$start_unixtimestamp" "$end_unixtimestamp" \
   > "$log_dir"/recent-"$TWITTER_JA_USER_NAME".json
 
@@ -44,7 +50,7 @@ cat "$log_dir"/formatted-"$TWITTER_JA_USER_NAME".json \
 
 cat "$log_dir"/countable-"$TWITTER_JA_USER_NAME".json \
   | jq 'sort_by(.favorite_count) | reverse' \
-  > "$log_dir"/forvorite-sorted"$TWITTER_JA_USER_NAME".json
+  > "$log_dir"/forvorite-desc-"$TWITTER_JA_USER_NAME".json
 
 countable_tweet_num=$(cat "$log_dir"/countable-"$TWITTER_JA_USER_NAME".json | jq length)
 if [ $countable_tweet_num -lt $tweet_border ]; then
@@ -54,7 +60,7 @@ fi
 
 echo \
   $(
-    cat "$log_dir"/forvorite-sorted"$TWITTER_JA_USER_NAME".json \
+    cat "$log_dir"/forvorite-desc-"$TWITTER_JA_USER_NAME".json \
       | jq -r '.[0].full_text_without_quoted_url' \
       | head -n 1
   ) \
