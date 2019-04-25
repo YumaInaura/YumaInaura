@@ -56,7 +56,7 @@ echo \
   $(
     cat "$log_dir"/favorite-"$TWITTER_JA_USER_NAME".json \
       | jq -r '.[0].full_text_without_quoted_url' \
-      | tr "\r\n" " " \
+      | head -n 1 \
       | tee "$log_dir"/github-issue-title-"$TWITTER_JA_USER_NAME".txt
   ) \
   " $jst_date on Twitter"
