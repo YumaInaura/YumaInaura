@@ -12,13 +12,17 @@ mkdir -p "$log_dir"
 
 source ~/.secret/env/twitter-yumainaura
 
-interval_second=${INTERVAL:-3600}
-start_unixtimestamp=$(($(date +%s) - $((3*60*60)) - $interval_second))
-end_unixtimestamp=$(($(date +%s) - $((3*60*60))))
-
 ALL=1 \
 ROUND=1 \
   "$api_dir"/twitter/timeline.sh \
-  > "$log_dir"/timeline-"$TWITTER_JA_USER_NAME".json
+  > "$log_dir"/timeline-"$twitter_ja_user_name".json
 
+last_ts=$(cat "$log_dir"/timeline-"$TWITTER_JA_USER_NAME".json | jq '.[].ts' | sort | tail -n 1)
+
+interval_ts=$(($(gdate +%s) - $((30*60))))
+
+if [ -eq  ];
+  echo last ts "$last_ts" < interval ts "$interval_ts"
+  exit 1
+fi
 
