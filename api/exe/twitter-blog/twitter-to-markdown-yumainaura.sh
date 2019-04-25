@@ -19,8 +19,9 @@ ALL=1 "$api_dir"/twitter/timeline.py > "$log_dir"/timeline.json
   | tee "$log_dir"/yumainaura-user-profile.json
 
 cat "$log_dir"/timeline.json | \
-  OWN_USER_ID="$TWITTER_JA_USER_ID" "$api_dir"/twitter/filter-own.py \
-  jq '[.[] | select(.lang = "ja")]' \
+  OWN_USER_ID="$TWITTER_JA_USER_ID" \
+    "$api_dir"/twitter/filter-own.py \
+  | jq '[.[] | select(.lang = "ja")]' \
   > "$log_dir"/timeline-own-tweet.json
 
 cat "$log_dir"/timeline-own-tweet.json | \
