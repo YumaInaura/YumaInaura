@@ -11,7 +11,8 @@ PATH=/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/admin/bi
 
 0,10,20,30,40,50 * * * * /api/YumaInaura/api/exe/twitter-update-profile/ja-profile-sepia.sh
 
-15,45 * * * * /api/YumaInaura/api/exe/twitter-retweet/all.sh
+05,35 * * * * /api/YumaInaura/api/exe/twitter-retweet/all.sh
+20,50 * * * * /api/YumaInaura/api/exe/twitter-not-retweet/all.sh
 
 01 * * * * /api/YumaInaura/api/exe/twitter-partly-blog/all.sh
 
