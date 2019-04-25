@@ -23,7 +23,7 @@ cat "$log_dir"/timeline-"$TWITTER_JA_USER_NAME".json \
   | tee "$log_dir"/retweeted-"$TWITTER_JA_USER_NAME".json
 
 cat "$log_dir"/retweeted-"$TWITTER_JA_USER_NAME".json \
-  | jq -r '.[].id_str' \
+  | jq -r '.[].retweeted_status.id_str' \
   | shuf \
   | head -n 1 \
   | tee "$log_dir"/retweet-id-"$TWITTER_JA_USER_NAME".txt
