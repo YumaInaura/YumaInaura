@@ -17,8 +17,8 @@ source ~/.secret/env/twitter-yumainaura
 tweet_border=3
 
 interval_second=${INTERVAL:-3600}
-start_unixtimestamp=$(($(date +%s) - $((60)) - $interval_second))
-end_unixtimestamp=$(($(date +%s) - $((60))))
+start_unixtimestamp=$(($(date +%s) - $((1*60*60)) - $interval_second))
+end_unixtimestamp=$(($(date +%s) - $((1*60*60))))
 
 ALL=1 \
   "$api_dir"/twitter/timeline.py \
@@ -43,8 +43,8 @@ cat "$log_dir"/formatted-"$TWITTER_JA_USER_NAME".json \
   > "$log_dir"/countable-"$TWITTER_JA_USER_NAME".json
 
 cat "$log_dir"/countable-"$TWITTER_JA_USER_NAME".json \
-  | jq '.sort_by(.favorite_count)' \
-  > "$log_dir"/countable-fav-desc-"$TWITTER_JA_USER_NAME".json
+  | jq 'sort_by(.favorite_count) | reverse' \
+  > "$log_dir"/favorite-"$TWITTER_JA_USER_NAME".json
 
 countable_tweet_num=$(cat "$log_dir"/countable-"$TWITTER_JA_USER_NAME".json | jq length)
 if [ $countable_tweet_num -lt $tweet_border ]; then
@@ -52,7 +52,7 @@ if [ $countable_tweet_num -lt $tweet_border ]; then
   exit 1
 fi
 
-cat "$log_dir"/countable-"$TWITTER_JA_USER_NAME".json \
+cat "$log_dir"/favorite-"$TWITTER_JA_USER_NAME".json \
   | jq -r '.[0].full_text_without_quoted_url' \
   | tr "\r\n" " " \
   | tee "$log_dir"/github-issue-title-"$TWITTER_JA_USER_NAME".txt && echo
