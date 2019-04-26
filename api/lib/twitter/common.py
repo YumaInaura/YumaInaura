@@ -17,4 +17,5 @@ if os.environ.get('POST'):
 else:
   res = twitter.get(url, params=params)
 
-print(res.json())
+print(json.dumps(res.json()))
+

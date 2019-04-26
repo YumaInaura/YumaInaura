@@ -21,7 +21,7 @@ ALL=1 "$api_dir"/twitter/timeline.py > "$log_dir"/timeline.json
 cat "$log_dir"/timeline.json | \
   OWN_USER_ID="$TWITTER_JA_USER_ID" \
     "$api_dir"/twitter/filter-own.py \
-  | jq '[.[] | select(.lang == "ja")]' \
+  | jq '[.[] | select(.lang == "en")]' \
   > "$log_dir"/timeline-own-tweet.json
 
 cat "$log_dir"/timeline-own-tweet.json | \
@@ -32,12 +32,7 @@ cat "$log_dir"/timeline-jst-yesterday.json | \
   "$api_dir"/twitter/format-customed-mark.py \
   > "$log_dir"/timeline-format.json
 
-# "$api_dir"/twitter/user-show.sh "$TWITTER_JA_USER_NAME" \
-#   | jq '[.]' \
-#   | "$api_dir"/twitter/user-show-markdown.py \
-#   > "$log_dir"/"$TWITTER_JA_USER_NAME".md
-
 cat "$log_dir"/timeline-format.json \
   | "$api_dir"/twitter/markdown.py \
-  | tee "$log_dir"/"$TWITTER_JA_USER_NAME".md
+  | tee "$log_dir"/"$TWITTER_JA_USER_NAME"-en.md
 
