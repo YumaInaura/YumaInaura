@@ -33,12 +33,11 @@ for tweet in tweets:
     ref_url = quoted_url_matched.group(0)
     ref_url_deleted_text = re.sub(quoted_url_regexp, '', seed['text'])
     seed['text'] = ref_url_deleted_text[:254] + (ref_url_deleted_text[254:] and '‥')  + "\n" + ref_url
+    seed['in_reply_to_status_id'] = tweet['id_str']
   else:
-    # seed['attachment_url'] = tweet['url']
+    seed['attachment_url'] = tweet['url']
     seed['text'] = re.sub(quoted_url_regexp, '', seed['text'])
     seed['text'] = seed['text'][:279] + (seed['text'][279:] and '‥')
-
-  seed['in_reply_to_status_id'] = tweet['id_str']
 
   results.append(seed)
 
