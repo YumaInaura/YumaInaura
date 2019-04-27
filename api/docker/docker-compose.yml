@@ -3,3 +3,11 @@ services:
   ruby:
     build:
       context: ./ruby
+  python:
+    build:
+      context: ./python
+  gcp:
+    build:
+      context: ./gcp
+
+
