@@ -1,0 +1,5 @@
+version: "3"
+services:
+  ruby:
+    build:
+      context: ./ruby
