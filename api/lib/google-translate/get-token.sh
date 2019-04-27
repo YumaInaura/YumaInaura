@@ -1,2 +1,2 @@
-docker exec google-translate /bin/bash ./get-token.sh
+docker exec gcp /bin/bash ./get-token.sh
 
