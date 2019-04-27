@@ -10,6 +10,7 @@ source "${base_dir}/../twitter-setting.sh"
 cat "$log_dir"/timeline-"$TWITTER_JA_USER_NAME".json \
   | jq '[.[] | select(.retweeted | not)]' \
   | jq '[.[] | select(.favorite_count >= 3)]' \
+  | jq '[.[] | select(.in_replay_to_id_str == null)]' \
   | tee "$log_dir"/not-retweeted-"$TWITTER_JA_USER_NAME".json
 
 cat "$log_dir"/not-retweeted-"$TWITTER_JA_USER_NAME".json \
