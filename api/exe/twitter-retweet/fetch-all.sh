@@ -19,4 +19,3 @@ ROUND=1 \
   "$api_dir"/twitter/timeline.sh \
   > "$log_dir"/timeline-"$TWITTER_JA_USER_NAME".json
 
-
