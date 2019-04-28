@@ -15,6 +15,13 @@ results = []
 for tweet in tweets:
   result = tweet
 
+  quoted_url_match = re.search(r'(https://t.co/\w+)$',tweet['full_text'])
+
+  if quoted_url_match:
+    result['quoted_url'] = quoted_url_match[0]
+  else:
+    result['quoted_url'] = ''
+
   result['full_text_without_quoted_url'] = tweet['full_text']
   result['full_text_without_quoted_url'] = re.sub(r'https://t.co/\w+$', '', tweet['full_text_without_quoted_url'])
 
