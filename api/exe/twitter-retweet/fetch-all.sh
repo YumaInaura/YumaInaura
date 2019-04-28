@@ -10,6 +10,8 @@ source "${base_dir}/../twitter-setting.sh"
 mkdir -p "$log_dir"
 rm -f "$log_dir"/*
 
+mkdir -p "$base_dir"/history
+
 source ~/.secret/env/twitter-yumainaura
 
 ALL=1 \
