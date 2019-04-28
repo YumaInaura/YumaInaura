@@ -15,7 +15,7 @@ results = []
 for tweet in tweets:
   result = tweet
 
-  quoted_url_match = re.search(r'(https://t.co/\w+)$',tweet['full_text'])
+  quoted_url_match = re.findall(r'(https://t.co/\w+)$',tweet['full_text'])
 
   if quoted_url_match:
     result['quoted_url'] = quoted_url_match[0]
