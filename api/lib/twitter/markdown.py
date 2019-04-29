@@ -36,7 +36,9 @@ for tweet in timelines:
   text += "\n"
 
   if 'quoted_status' in tweet:
-    text += re.sub("^|\n", "\n>", tweet['quoted_status']['full_text'])
+    quoted_tweet_text = re.sub(r'https://[\s]+$', '', tweet['quoted_status']['full_text']
+
+    text += re.sub("^|\n", "\n>", quoted_tweet_text)
 
   if tweet["entities"] and tweet["entities"]["urls"]:
     for url in tweet["entities"]["urls"]:
