@@ -36,13 +36,11 @@ for tweet in timelines:
   text += "\n"
 
   if 'quoted_status' in tweet:
-    quoted_tweet_text = re.sub(r'https://[\s]+$', '', tweet['quoted_status']['full_text']
+    text += re.sub("^|\n", "\n>", tweet['quoted_status']['full_text'])
 
-    text += re.sub("^|\n", "\n>", quoted_tweet_text)
-
-  if tweet["entities"] and tweet["entities"]["urls"]:
-    for url in tweet["entities"]["urls"]:
-      text += '<{expanded_url}>'.format(**url)
+  #if not tweet.get('quoted_status') and tweet["entities"] and tweet["entities"]["urls"]:
+  #  for url in tweet["entities"]["urls"]:
+  #    text += '<{expanded_url}>'.format(**url)
 
   if 'created_at' in tweet:
     tweet_datetime = convert_to_datetime(tweet['created_at'])
