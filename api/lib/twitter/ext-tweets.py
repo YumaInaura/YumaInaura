@@ -34,12 +34,14 @@ for tweet in tweets:
   result['ext_entities']['ts'] = result['ts']
   result['ext_entities']['full_text_without_quoted_url'] = result['full_text_without_quoted_url']
 
-  if tweet.get('entities', {}).get('urls', [])[0]:
+  result['ext_entities']['first_resourced_url'] = tweet.get('entities', {}).get('urls', [])[0]
+
+  if tweet.get('entities', {}).get('urls', result['ext_entities']['first_resource_url']):
     result['ext_entities']['resourced'] = True
   else:
     result['ext_entities']['resourced'] = False
 
-  if result['ext_entities']['resourced'] and not re(r'^https://twitter.com/', tweet.get('entities', {}).get('urls', [])[0]):
+  if result['ext_entities']['resourced'] and not re(r'^https://twitter.com/', :
     result['ext_entities']['outside_resourced'] = True
   else:
     result['ext_entities']['outside_resourced'] = False
