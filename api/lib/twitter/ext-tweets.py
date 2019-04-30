@@ -15,6 +15,8 @@ results = []
 for tweet in tweets:
   result = tweet
 
+  result['ext_entities'] = {}
+
   quoted_url_match = re.findall(r'(https://t.co/\w+)$',tweet['full_text'])
 
   if quoted_url_match:
@@ -27,6 +29,8 @@ for tweet in tweets:
 
   tweet_datetime = convert_to_datetime(tweet['created_at'])
   result['ts'] = datetime.timestamp(tweet_datetime)
+
+  result['ext_entities']['quoted_url'] = result['quoted_url']
 
   results.append(result)
 
