@@ -45,9 +45,9 @@ for tweet in tweets:
     ext['resourced'] = False
 
   if ext['resourced'] and not re.search(r'^https://twitter.com/', ext['entities_first_expanded_url']):
-    ext['outside_entitied'] = True
+    ext['outside_resourced'] = True
   else:
-    ext['outside_entitied'] = False
+    ext['outside_resourced'] = False
 
   result['ext'] = ext
 
