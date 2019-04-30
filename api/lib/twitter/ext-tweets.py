@@ -35,19 +35,19 @@ for tweet in tweets:
   ext['full_text_without_quoted_url'] = result['full_text_without_quoted_url']
 
   if tweet.get('entities', {}).get('urls', []):
-    ext['first_resourced_url'] = tweet.get('entities', {}).get('urls', [])[0]
+    ext['entities_first_expanded_url'] = tweet.get('entities').get('urls')[0]['expanded_url']
   else:
-    ext['first_resourced_url'] = ''
+    ext['entities_first_expanded_url'] = ''
 
-  if tweet.get('entities', {}).get('urls', ext['first_resourced_url']):
+  if tweet.get('entities', {}).get('urls', ext['entities_first_expanded_url']):
     ext['resourced'] = True
   else:
     ext['resourced'] = False
 
-  if ext['resourced'] and not re.search(r'^https://twitter.com/', ext['first_resourced_url']):
-    ext['outside_resourced'] = True
+  if ext['resourced'] and not re.search(r'^https://twitter.com/', ext['entities_first_expanded_url']):
+    ext['outside_entitied'] = True
   else:
-    ext['outside_resourced'] = False
+    ext['outside_entitied'] = False
 
   result['ext'] = ext
 
