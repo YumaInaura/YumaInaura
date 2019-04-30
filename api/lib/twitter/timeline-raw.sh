@@ -5,6 +5,6 @@ set -eu
 base_dir=$(dirname "$0")
 
 ALL=1 \
-  | "$base_dir"/ext-tweets.py
+  | "$base_dir"/timeline.py
 
 
