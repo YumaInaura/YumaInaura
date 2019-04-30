@@ -19,6 +19,9 @@ for tweet in tweets:
   if 'extended_entities' in tweet and tweet['extended_entities']['media'][0]['type'] == 'photo':
     use_this_tweet = True
 
+  if tweet['ext']['outside_resourced']:
+    use_this_tweet = False
+
   if not use_this_tweet:
     continue
 
