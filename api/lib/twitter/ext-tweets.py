@@ -15,7 +15,7 @@ results = []
 for tweet in tweets:
   result = tweet
 
-  result['ext_entities'] = {}
+  ext = {}
 
   quoted_url_match = re.findall(r'(https://t.co/\w+)$',tweet['full_text'])
 
@@ -30,25 +30,27 @@ for tweet in tweets:
   tweet_datetime = convert_to_datetime(tweet['created_at'])
   result['ts'] = datetime.timestamp(tweet_datetime)
 
-  result['ext_entities']['quoted_url'] = result['quoted_url']
-  result['ext_entities']['ts'] = result['ts']
-  result['ext_entities']['full_text_without_quoted_url'] = result['full_text_without_quoted_url']
+  ext['quoted_url'] = result['quoted_url']
+  ext['ts'] = result['ts']
+  ext['full_text_without_quoted_url'] = result['full_text_without_quoted_url']
 
   if tweet.get('entities', {}).get('urls', []):
-    result['ext_entities']['first_resourced_url'] = tweet.get('entities', {}).get('urls', [])[0]
+    ext['first_resourced_url'] = tweet.get('entities', {}).get('urls', [])[0]
   else:
-    result['ext_entities']['first_resourced_url'] = ''
+    ext['first_resourced_url'] = ''
 
-  if tweet.get('entities', {}).get('urls', result['ext_entities']['first_resourced_url']):
-    result['ext_entities']['resourced'] = True
+  if tweet.get('entities', {}).get('urls', ext['first_resourced_url']):
+    ext['resourced'] = True
   else:
-    result['ext_entities']['resourced'] = False
+    ext['resourced'] = False
 
-  if result['ext_entities']['resourced'] and not re.search(r'^https://twitter.com/', result['ext_entities']['first_resourced_url']):
-    result['ext_entities']['outside_resourced'] = True
+  if ext['resourced'] and not re.search(r'^https://twitter.com/', ext['first_resourced_url']):
+    ext['outside_resourced'] = True
   else:
-    result['ext_entities']['outside_resourced'] = False
-    
+    ext['outside_resourced'] = False
+
+  result['ext'] = ext
+
   results.append(result)
 
 print(json.dumps(results))
