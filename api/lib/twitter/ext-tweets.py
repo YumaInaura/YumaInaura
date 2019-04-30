@@ -31,6 +31,8 @@ for tweet in tweets:
   result['ts'] = datetime.timestamp(tweet_datetime)
 
   result['ext_entities']['quoted_url'] = result['quoted_url']
+  result['ext_entities']['ts'] = result['ts']
+  result['ext_entities']['full_text_without_quoted_url'] = result['full_text_without_quoted_url']
 
   results.append(result)
 
