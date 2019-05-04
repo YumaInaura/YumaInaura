@@ -46,6 +46,7 @@ cat "$log_dir"/recent-"$TWITTER_JA_USER_NAME".json \
 
 cat "$log_dir"/formatted-"$TWITTER_JA_USER_NAME".json \
   | jq '[.[] | select(.in_reply_to_status_id == null)]' \
+  | jq '[.[] | select(.full_text | contains("on Twitter") | not)]' \
   > "$log_dir"/countable-"$TWITTER_JA_USER_NAME".json
 
 cat "$log_dir"/countable-"$TWITTER_JA_USER_NAME".json \
