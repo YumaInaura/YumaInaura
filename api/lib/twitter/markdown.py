@@ -46,7 +46,8 @@ for tweet in timelines:
     tweet_datetime = convert_to_datetime(tweet['created_at'])
     utc_datetime = tweet_datetime.strftime('%Y-%m-%d %H:%M:%S UTC')
     # jst_datetime = timezone('Asia/Tokyo').localize(tweet_datetime).strftime('%Y-%m-%d %H:%M:%S %p JST')
-    text += "\n\n" + '<a href="https://twitter.com/YumaInaura/status/' + str(tweet['id_str']) + '">' + utc_datetime  + '</a>'
+    # text += "\n\n" + '<a href="https://twitter.com/YumaInaura/status/' + str(tweet['id_str']) + '">' + utc_datetime  + '</a>'
+    text += "\n\n" + '<a href="https://twitter.com/YumaInaura/status/' + str(tweet['id_str']) + '">Tweet</a>'
 
   text += "\n"
 
