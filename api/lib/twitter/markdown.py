@@ -43,6 +43,7 @@ for tweet in timelines:
     for url in tweet["entities"]["urls"]:
       text += '<{expanded_url}>'.format(**url)
 
+  if tweet.get('quoted_status'):
     quote = tweet['quoted_status']
     if 'extended_entities' in quote and 'media' in quote['extended_entities'].keys():
       for media in quote['extended_entities']['media']:
