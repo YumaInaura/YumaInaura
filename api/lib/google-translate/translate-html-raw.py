@@ -21,9 +21,9 @@ def codeblock_tables(resource_message):
   
   return codeblocks_table
 
-def convert_codeblocks(resouce_message, codeblocks_table):
+def convert_codeblocks(resource_message, codeblocks_table):
   for hex_hash, code in codeblocks_table.items():
-    resource_message = re.sub(re.compile(code), '<hex>' + hex_hash + '</hex>', resource_message)
+    resource_message = re.sub(code, '<hex>' + hex_hash + '</hex>', resource_message, flags=re.DOTALL)
 
   return resource_message
 
@@ -59,6 +59,7 @@ codeblocks_table = codeblock_tables(resource_message)
 resource_message = convert_codeblocks(resource_message, codeblocks_table)
 
 print(resource_message)
+exit()
 #resource_message = revert_codeblocks(resource_message, codeblocks_table)
 
 # print(codeblocks_table); print(resource_message); exit()
