@@ -3,6 +3,7 @@
 # -*- coding: utf-8 -*-
 
 import os, sys, requests, json, fileinput, re, uuid
+import urllib.parse
 
 resource_message = sys.stdin.read()
 
@@ -10,28 +11,16 @@ from_language = os.environ.get('FROM') if os.environ.get('FROM') else 'ja'
 to_language = os.environ.get('TO') if os.environ.get('TO') else 'en'
 translate_format = 'html'
 
-def codeblock_tables(resource_message):
-  codeblocks_table = {}
+def match_and_encode(match):
+  return match.group(1) + urllib.parse.quote(match.group(2)) + match.group(3)
 
-  codeblocks = re.findall(r'<pre>(?:<code>)?(.+?)(?:</code>)?</pre>', resource_message, re.DOTALL)
-
-  for codeblock in codeblocks:
-    hex_hash = uuid.uuid4().hex
-    codeblocks_table[hex_hash] = codeblock
-  
-  return codeblocks_table
-
-def convert_codeblocks(resource_message, codeblocks_table):
-  for hex_hash, code in codeblocks_table.items():
-    resource_message = re.sub(code, '<hex>' + hex_hash + '</hex>', resource_message, flags=re.DOTALL)
+def convert_codeblocks(resource_message):
+  resource_message = re.sub(r'(<pre>(?:<code>)?)(.+?)((?:</code>)?</pre>)', match_and_encode, resource_message, flags=re.DOTALL)
 
   return resource_message
 
-def revert_codeblocks(resource_message, codeblocks_table):
-  for t in codeblocks_table:
-    code = codeblocks_table[t]
-  
-    resource_message = re.sub(r'<hex>.+?</hex>', code, resource_message)
+def revert_codeblocks(resource_message):
+  resource_message = re.sub(r'<hex>.+?</hex>', code, resource_message)
 
   return resource_message
 
@@ -55,8 +44,7 @@ def google_translate(resource_message):
 
   return(res.json()['data']['translations'][0]['translatedText'])
 
-codeblocks_table = codeblock_tables(resource_message)
-resource_message = convert_codeblocks(resource_message, codeblocks_table)
+resource_message = convert_codeblocks(resource_message)
 
 print(resource_message)
 exit()
