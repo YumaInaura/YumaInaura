@@ -43,6 +43,13 @@ for tweet in timelines:
     for url in tweet["entities"]["urls"]:
       text += '<{expanded_url}>'.format(**url)
 
+    quote = tweet['quoted_status']
+    if 'extended_entities' in quote and 'media' in quote['extended_entities'].keys():
+      for media in quote['extended_entities']['media']:
+        text += "\n"
+        text += "![image]("+media['media_url_https']+')'
+        text += "\n"
+
   if 'created_at' in tweet:
     tweet_datetime = convert_to_datetime(tweet['created_at'])
     utc_datetime = tweet_datetime.strftime('%Y-%m-%d %H:%M:%S UTC')
