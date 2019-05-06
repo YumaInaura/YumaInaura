@@ -48,16 +48,9 @@ def google_translate(resource_message):
   return(res.json()['data']['translations'][0]['translatedText'])
 
 resource_message = convert_codeblocks(resource_message)
+resource_message = google_translate(resource_message)
 resource_message = revert_codeblocks(resource_message)
 
 print(resource_message)
 exit()
-#resource_message = revert_codeblocks(resource_message, codeblocks_table)
 
-# print(codeblocks_table); print(resource_message); exit()
-
-resource_message = google_translate(resource_message)
-print(resource_message)
-resource_message = revert_codeblocks(resource_message, codeblocks_table)
-
-print(resource_message)
