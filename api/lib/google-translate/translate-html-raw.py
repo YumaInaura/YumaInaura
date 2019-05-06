@@ -19,8 +19,11 @@ def convert_codeblocks(resource_message):
 
   return resource_message
 
+def match_and_decode(match):
+  return match.group(1) + urllib.parse.unquote(match.group(2)) + match.group(3)
+
 def revert_codeblocks(resource_message):
-  resource_message = re.sub(r'<hex>.+?</hex>', code, resource_message)
+  resource_message = re.sub(r'(<pre>(?:<code>)?)(.+?)((?:</code>)?</pre>)', match_and_decode, resource_message, flags=re.DOTALL)
 
   return resource_message
 
@@ -45,6 +48,7 @@ def google_translate(resource_message):
   return(res.json()['data']['translations'][0]['translatedText'])
 
 resource_message = convert_codeblocks(resource_message)
+resource_message = revert_codeblocks(resource_message)
 
 print(resource_message)
 exit()
