@@ -10,20 +10,28 @@ from_language = os.environ.get('FROM') if os.environ.get('FROM') else 'ja'
 to_language = os.environ.get('TO') if os.environ.get('TO') else 'en'
 translate_format = 'html'
 
-codeblocks = re.findall(r'<pre>(?:<code>)?(.+?)(?:</code>)?</pre>', resource_message, re.DOTALL)
+def hash_codeblockes(resource_message):
+  table = {}
 
-table = {}
+  codeblocks = re.findall(r'<pre>(?:<code>)?(.+?)(?:</code>)?</pre>', resource_message, re.DOTALL)
 
-print(codeblocks)
-for codeblock in codeblocks:
-  hex_hash = uuid.uuid4().hex
-  table[hex_hash] = codeblock
+  for codeblock in codeblocks:
+    hex_hash = uuid.uuid4().hex
+    table[hex_hash] = codeblock
+  
+    resource_message = re.sub(re.compile(codeblock), '<hex>' + hex_hash + '</hex>', resource_message)
 
-  resource_message = re.sub(re.compile(codeblock), '<hex>' + hex_hash + '</hex>', resource_message)
+  return(table, resource_message)
 
-print(table) 
-print(resource_message) 
-exit()
+table, resource_message = hash_codeblockes(resource_message)
+
+for t in table:
+  code = table[t]
+
+  resource_message = re.sub(r'<hex>.+?</hex>', code, resource_message)
+
+print(resource_message)
+
 
 data = {
   'q': resource_message,
