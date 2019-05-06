@@ -23,12 +23,17 @@ def hash_codeblockes(resource_message):
 
   return(table, resource_message)
 
+
+def revert_codeblockes(resource_message, table)
+  for t in table:
+    code = table[t]
+  
+    resource_message = re.sub(r'<hex>.+?</hex>', code, resource_message)
+
+  return resouce_message
+
 table, resource_message = hash_codeblockes(resource_message)
-
-for t in table:
-  code = table[t]
-
-  resource_message = re.sub(r'<hex>.+?</hex>', code, resource_message)
+resource_message = revert_codeblockes(resource_message, table)
 
 print(resource_message)
 
