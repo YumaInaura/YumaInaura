@@ -13,7 +13,7 @@ translate_format = 'html'
 def hash_codeblockes(resource_message):
   codeblocks_table = {}
 
-  codeblocks = re.findall(r'<pre>(?:<code>)?(.+?)(?:</code>)?</pre>', resource_message, re.DOTALL)
+  codeblocks = re.findall(r'(<pre>(?:<code>)?(?:.+?)(?:</code>)?</pre>)', resource_message, re.DOTALL)
 
   for codeblock in codeblocks:
     hex_hash = uuid.uuid4().hex
@@ -52,6 +52,9 @@ def google_translate(resource_message):
   return(res.json()['data']['translations'][0]['translatedText'])
 
 codeblocks_table, resource_message = hash_codeblockes(resource_message)
+#print(codeblocks_table)
+#exit()
+
 resource_message = google_translate(resource_message)
 resource_message = revert_codeblockes(resource_message, codeblocks_table)
 
