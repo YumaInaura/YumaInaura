@@ -10,7 +10,7 @@ from_language = os.environ.get('FROM') if os.environ.get('FROM') else 'ja'
 to_language = os.environ.get('TO') if os.environ.get('TO') else 'en'
 translate_format = 'html'
 
-codeblocks = re.findall(r'<pre>(?:<code>)?.+?(?:</code>)?</pre>', resource_message, re.DOTALL)
+codeblocks = re.findall(r'<pre>(?:<code>)?(.+?)(?:</code>)?</pre>', resource_message, re.DOTALL)
 
 table = {}
 
