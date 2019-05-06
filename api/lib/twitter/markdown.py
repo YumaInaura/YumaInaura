@@ -28,6 +28,7 @@ text = ''
 
 for tweet in timelines:
   text += format_tweet(tweet[json_text_key])
+  text += ' <a href="https://twitter.com/YumaInaura/status/' + str(tweet['id_str']) + '">*</a>'
 
   if 'extended_entities' in tweet and 'media' in tweet['extended_entities'].keys():
     for media in tweet['extended_entities']['media']:
@@ -42,12 +43,20 @@ for tweet in timelines:
     for url in tweet["entities"]["urls"]:
       text += '<{expanded_url}>'.format(**url)
 
+  if tweet.get('quoted_status'):
+    quote = tweet['quoted_status']
+    if 'extended_entities' in quote and 'media' in quote['extended_entities'].keys():
+      for media in quote['extended_entities']['media']:
+        text += "\n"
+        text += "![image]("+media['media_url_https']+')'
+        text += "\n"
+
   if 'created_at' in tweet:
     tweet_datetime = convert_to_datetime(tweet['created_at'])
     utc_datetime = tweet_datetime.strftime('%Y-%m-%d %H:%M:%S UTC')
     # jst_datetime = timezone('Asia/Tokyo').localize(tweet_datetime).strftime('%Y-%m-%d %H:%M:%S %p JST')
     # text += "\n\n" + '<a href="https://twitter.com/YumaInaura/status/' + str(tweet['id_str']) + '">' + utc_datetime  + '</a>'
-    text += "\n\n" + '<a href="https://twitter.com/YumaInaura/status/' + str(tweet['id_str']) + '">Tweet</a>'
+    #text += "\n\n" + '<a href="https://twitter.com/YumaInaura/status/' + str(tweet['id_str']) + '">Tweet</a>'
 
   text += "\n"
 
