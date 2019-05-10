@@ -28,7 +28,7 @@ text = ''
 
 for tweet in timelines:
   text += format_tweet(tweet[json_text_key])
-  text += ' <a href="https://twitter.com/YumaInaura/status/' + str(tweet['id_str']) + '">*</a>'
+  text += '[*](https://twitter.com/YumaInaura/status/' + str(tweet['id_str']) + '")'
 
   if 'extended_entities' in tweet and 'media' in tweet['extended_entities'].keys():
     for media in tweet['extended_entities']['media']:
