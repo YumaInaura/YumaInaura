@@ -14,3 +14,7 @@ cat "$log_dir"/recent-"$TWITTER_JA_USER_NAME".json \
   | uniq \
   > "$log_dir"/quoted-user-screen-names-"$TWITTER_JA_USER_NAME".txt
 
+for display_name in $(cat "$log_dir"/quoted-user-screen-names-"$TWITTER_JA_USER_NAME".txt); do
+  "$api_dir"/user-profile.sh "$display_name" | "$apr_dir"/user-markdown.py
+done
+
