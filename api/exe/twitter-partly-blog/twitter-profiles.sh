@@ -22,3 +22,5 @@ for display_name in $(cat "$log_dir"/quoted-user-screen-names-"$TWITTER_JA_USER_
   >> "$log_dir"/all-user-profiles-"$TWITTER_JA_USER_NAME".md
 done
 
+cat "$log_dir"/all-user-profiles-"$TWITTER_JA_USER_NAME".md
+
