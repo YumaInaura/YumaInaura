@@ -6,6 +6,11 @@ base_dir=$(dirname "$0")
 
 source "${base_dir}/../../setting.sh"
 
-"$base_dir"/twitter-to-markdown.sh
+"${base_dir}"/twitter-fetch-timeline.sh
+"${base_dir}"/twitter-format.sh
+"${base_dir}"/twitter-markdown.sh
+"${base_dir}"/twitter-profiles.sh
+
 "$base_dir"/github-issue-create.sh
+
 
