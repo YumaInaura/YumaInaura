@@ -15,6 +15,7 @@ cat "$log_dir"/recent-"$TWITTER_JA_USER_NAME".json \
   > "$log_dir"/quoted-user-screen-names-"$TWITTER_JA_USER_NAME".txt
 
 for display_name in $(cat "$log_dir"/quoted-user-screen-names-"$TWITTER_JA_USER_NAME".txt); do
-  "$api_dir"/twitter/user-profile.sh "$display_name" | "$api_dir"/twitter/user-markdown.py
+  "$api_dir"/twitter/user-show.sh "$display_name" \
+  | "$api_dir"/twitter/markdown-user.py
 done
 
