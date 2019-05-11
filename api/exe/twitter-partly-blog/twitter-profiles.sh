@@ -22,10 +22,9 @@ for display_name in $(cat "$log_dir"/quoted-user-screen-names-"$TWITTER_JA_USER_
   >> "$log_dir"/all-user-profiles-"$TWITTER_JA_USER_NAME".md
 done
 
-cat "$log_dir"/all-user-profiles-"$TWITTER_JA_USER_NAME".md
-
 cat "$log_dir"/all-user-profiles-"$TWITTER_JA_USER_NAME".md \
   "${log_dir}/github-issue-body-"$TWITTER_JA_USER_NAME".md" \
   > "${log_dir}/github-issue-body-all-"$TWITTER_JA_USER_NAME".md"
 
+cat "${log_dir}/github-issue-body-all-"$TWITTER_JA_USER_NAME".md"
 
