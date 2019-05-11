@@ -73,10 +73,10 @@ cat "$log_dir"/formatted-"$TWITTER_JA_USER_NAME".json \
   | "$api_dir"/twitter/markdown.py \
   | tee "$log_dir"/github-issue-body-"$TWITTER_JA_USER_NAME".md
 
-cat "$log_dir"/countable-"$TWITTER_JA_USER_NAME".json \
+cat "$log_dir"/recent-"$TWITTER_JA_USER_NAME".json \
   | jq '[.[] | select(.quoted_status.entities.user_mentions)]' \
   | jq -r '.[].quoted_status.entities.user_mentions[].screen_name' \
   | sort \
   | uniq \
-  > "$log_dir"/quoted-user-screen-names--"$TWITTER_JA_USER_NAME".txt
+  > "$log_dir"/quoted-user-screen-names-"$TWITTER_JA_USER_NAME".txt
 
