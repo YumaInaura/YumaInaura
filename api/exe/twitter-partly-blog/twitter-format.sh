@@ -40,7 +40,7 @@ cat "$log_dir"/formatted-"$TWITTER_JA_USER_NAME".json \
 
 cat "$log_dir"/countable-"$TWITTER_JA_USER_NAME".json \
   | jq 'sort_by(.favorite_count) | reverse' \
-  > "$log_dir"/forvorite-desc-"$TWITTER_JA_USER_NAME".json
+  > "$log_dir"/farvorite-desc-"$TWITTER_JA_USER_NAME".json
 
-echo "$log_dir"/forvorite-desc-"$TWITTER_JA_USER_NAME".json
+echo "$log_dir"/farvorite-desc-"$TWITTER_JA_USER_NAME".json
 
