@@ -8,9 +8,9 @@ text = ''
 
 profile['profile_image_url_200_200_https'] = re.sub(r'_normal\.', '_200x200.', profile['profile_image_url_https'])
 
-text += f"# {profile['name']} [@{profile['screen_name']}](https://twitter.com/{profile['screen_name']}/)\n\n"
-text += f"![image]({profile['profile_image_url_200_200_https']})\n\n"
-text += f"{profile['description']}\n\n"
+text += "# {name} [@{screen_name}](https://twitter.com/{screen_name}/)\n\n".format(**profile)
+text += "![image]({profile_image_url_200_200_https})\n\n".format(**profile)
+text += "{description}\n\n".format(**profile)
 
 print(text)
 
