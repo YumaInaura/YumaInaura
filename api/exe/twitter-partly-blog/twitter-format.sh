@@ -9,9 +9,10 @@ source "${base_dir}/../twitter-setting.sh"
 
 tweet_border=3
 
+hour=${HOUR:-3}
 interval_second=${INTERVAL:-3600}
-start_unixtimestamp=$(($(date +%s) - $((3*60*60)) - $interval_second))
-end_unixtimestamp=$(($(date +%s) - $((3*60*60))))
+start_unixtimestamp=$(($(date +%s) - $((hour*60*60)) - $interval_second))
+end_unixtimestamp=$(($(date +%s) - $((hour*60*60))))
 
 cat "$log_dir"/timeline-"$TWITTER_JA_USER_NAME".json \
   | \
