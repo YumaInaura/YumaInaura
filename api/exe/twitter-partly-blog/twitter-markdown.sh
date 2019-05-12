@@ -15,13 +15,13 @@ if [ $countable_tweet_num -lt $tweet_border ]; then
   exit 1
 fi
 
-echo \
-  $(
-    cat "$log_dir"/farvorite-desc-"$TWITTER_JA_USER_NAME".json \
-      | jq -r '.[0].full_text_without_quoted_url' \
-      | head -n 1
-  ) \
-  " $jst_date on Twitter" \
+title_core=$(
+  cat "$log_dir"/farvorite-desc-"$TWITTER_JA_USER_NAME".json \
+        | jq -r '.[0].full_text_without_quoted_url' \
+        | head -n 1
+)
+
+echo "$title_core $jst_date on Twitter" \
   | tee "$log_dir"/github-issue-title-"$TWITTER_JA_USER_NAME".txt
 
 cat "$log_dir"/formatted-"$TWITTER_JA_USER_NAME".json \
