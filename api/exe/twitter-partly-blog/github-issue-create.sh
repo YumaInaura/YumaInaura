@@ -31,5 +31,5 @@ export OWNER=YumaInaura \
 
 cat "$log_dir"/countable-"$TWITTER_JA_USER_NAME".json \
   | jq -r '.[0].id_str' \
-  >> "$history_dir"/-reated-issue-title-tweet-id-"$TWITTER_JA_USER_NAME".txt
+  >> "$history_dir"/created-issue-title-tweet-id-"$TWITTER_JA_USER_NAME".txt
 

@@ -22,9 +22,14 @@ for display_name in $(cat "$log_dir"/quoted-user-screen-names-"$TWITTER_JA_USER_
   >> "$log_dir"/all-user-profiles-"$TWITTER_JA_USER_NAME".md
 done
 
-cat "${log_dir}/github-issue-body-"$TWITTER_JA_USER_NAME".md" \
-  "$log_dir"/all-user-profiles-"$TWITTER_JA_USER_NAME".md \
-  > "${log_dir}/github-issue-body-all-"$TWITTER_JA_USER_NAME".md"
+if [ -f "$log_dir"/all-user-profiles-"$TWITTER_JA_USER_NAME".md  ]; then
+  cat "${log_dir}/github-issue-body-"$TWITTER_JA_USER_NAME".md" \
+    "$log_dir"/all-user-profiles-"$TWITTER_JA_USER_NAME".md \
+    > "${log_dir}/github-issue-body-all-"$TWITTER_JA_USER_NAME".md"
+else
+  cp "${log_dir}/github-issue-body-"$TWITTER_JA_USER_NAME".md" \
+     "${log_dir}/github-issue-body-all-"$TWITTER_JA_USER_NAME".md"
+fi
 
 cat "${log_dir}/github-issue-body-all-"$TWITTER_JA_USER_NAME".md"
 
