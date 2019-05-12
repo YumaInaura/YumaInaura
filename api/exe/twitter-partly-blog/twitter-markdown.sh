@@ -17,7 +17,7 @@ fi
 
 echo \
   $(
-    cat "$log_dir"/forvorite-desc-"$TWITTER_JA_USER_NAME".json \
+    cat "$log_dir"/farvorite-desc-"$TWITTER_JA_USER_NAME".json \
       | jq -r '.[0].full_text_without_quoted_url' \
       | head -n 1
   ) \
