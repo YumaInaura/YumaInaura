@@ -26,6 +26,9 @@ if [ -f "$log_dir"/all-user-profiles-"$TWITTER_JA_USER_NAME".md  ]; then
   cat "${log_dir}/github-issue-body-"$TWITTER_JA_USER_NAME".md" \
     "$log_dir"/all-user-profiles-"$TWITTER_JA_USER_NAME".md \
     > "${log_dir}/github-issue-body-all-"$TWITTER_JA_USER_NAME".md"
+else
+  cp "${log_dir}/github-issue-body-"$TWITTER_JA_USER_NAME".md" \
+     "${log_dir}/github-issue-body-all-"$TWITTER_JA_USER_NAME".md"
 fi
 
 cat "${log_dir}/github-issue-body-all-"$TWITTER_JA_USER_NAME".md"
