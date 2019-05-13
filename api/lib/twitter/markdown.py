@@ -36,6 +36,9 @@ for tweet in timelines:
       text += "![image]("+media['media_url_https']+')'
   text += "\n"
 
+  if tweet.get('quoted_status') and tweet.get('ext').get('quoted_user_screen_name'):
+    text += tweet.get('ext').get('quoted_user_display_name') + "\n\n"
+
   if 'quoted_status' in tweet:
     text += re.sub("^|\n", "\n>", tweet['quoted_status']['full_text'])
 
