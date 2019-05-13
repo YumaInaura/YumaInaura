@@ -50,8 +50,11 @@ for tweet in tweets:
     ext['outside_resourced'] = False
 
   if tweet.get('quoted_status') and ext['entities_first_expanded_url']:
-    ext['quoted_user_screen_name'] = re.search(r'https://twitter.com/(\w+)',ext['entities_first_expanded_url']).group(1)
-    ext['quoted_user_profile_url'] = re.search(r'(https://twitter.com/\w+/)',ext['entities_first_expanded_url']).group(1)
+    match = re.search(r'https://twitter.com/(\w+)',ext['entities_first_expanded_url'])
+    ext['quoted_user_screen_name'] = match.group(1) if match else None
+      
+    match = re.search(r'(https://twitter.com/\w+/)',ext['entities_first_expanded_url'])
+    ext['quoted_user_profile_url'] = match.group(1) if match else None
   else:
     ext['quoted_user_screen_name'] = None
     ext['quoted_user_profile_url'] = None
