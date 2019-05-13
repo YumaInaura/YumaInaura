@@ -10,8 +10,8 @@ source "${base_dir}/../twitter-setting.sh"
 rm -f "$log_dir"/all-user-profiles-"$TWITTER_JA_USER_NAME".md
 
 cat "$log_dir"/profile-seed-"$TWITTER_JA_USER_NAME".json \
-  | jq '[.[] | select(.quoted_status.entities.user_mentions)]' \
-  | jq -r '.[].quoted_status.entities.user_mentions[].screen_name' \
+  | jq '[.[] | select(.ext.quoted_user_screen_name)]' \
+  | jq -r '.[].ext.quoted_user_screen_name' \
   | sort \
   | uniq \
   > "$log_dir"/quoted-user-screen-names-"$TWITTER_JA_USER_NAME".txt
