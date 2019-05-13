@@ -29,11 +29,10 @@ cat "$log_dir"/own-"$lang"-"$TWITTER_JA_USER_NAME".json \
   | "$api_dir"/twitter/filter-timestamp.py "$start_unixtimestamp" "$end_unixtimestamp" \
   > "$log_dir"/recent-"$TWITTER_JA_USER_NAME".json
 
-cat "$log_dir"/recent-"$TWITTER_JA_USER_NAME".json \
-  | "$api_dir"/twitter/format-customed-mark.py \
-  > "$log_dir"/formatted-"$TWITTER_JA_USER_NAME".json
+cp "$log_dir"/recent-"$TWITTER_JA_USER_NAME".json \
+  "$log_dir"/recent-"$TWITTER_JA_USER_NAME".json
 
-cat "$log_dir"/formatted-"$TWITTER_JA_USER_NAME".json \
+cat "$log_dir"/recent-"$TWITTER_JA_USER_NAME".json \
   | jq '[.[] | select(.in_reply_to_status_id == null)]' \
   | jq '[.[] | select(.full_text | contains("on Twitter") | not)]' \
   > "$log_dir"/countable-"$TWITTER_JA_USER_NAME".json
