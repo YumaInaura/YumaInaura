@@ -30,7 +30,7 @@ cat "$log_dir"/own-"$lang"-"$TWITTER_JA_USER_NAME".json \
   > "$log_dir"/recent-"$TWITTER_JA_USER_NAME".json
 
 cp "$log_dir"/recent-"$TWITTER_JA_USER_NAME".json \
-  "$log_dir"/recent-"$TWITTER_JA_USER_NAME".json
+  "$log_dir"/profile-seed-"$TWITTER_JA_USER_NAME".json
 
 cat "$log_dir"/recent-"$TWITTER_JA_USER_NAME".json \
   | jq '[.[] | select(.in_reply_to_status_id == null)]' \
