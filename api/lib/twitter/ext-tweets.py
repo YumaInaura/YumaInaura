@@ -51,8 +51,10 @@ for tweet in tweets:
 
   if tweet.get('quoted_status') and ext['entities_first_expanded_url']:
     ext['quoted_user_screen_name'] = re.search(r'https://twitter.com/(\w+)',ext['entities_first_expanded_url']).group(1)
+    ext['quoted_user_profile_url'] = re.search(r'(https://twitter.com/\w+/)',ext['entities_first_expanded_url']).group(1)
   else:
-    ext['quoted_user_screen_name'] = ''
+    ext['quoted_user_screen_name'] = None
+    ext['quoted_user_profile_url'] = None
 
   result['ext'] = ext
 
