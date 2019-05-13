@@ -37,7 +37,7 @@ for tweet in timelines:
   text += "\n"
 
   if tweet.get('quoted_status') and tweet.get('ext').get('quoted_user_screen_name'):
-    text += '[@' + tweet.get('ext').get('quoted_user_screen_name') + "](" + tweet.get('ext').get('quoted_user_prpfile_url') + ")\n"
+    text += '[@' + tweet.get('ext').get('quoted_user_screen_name') + "](" + tweet.get('ext').get('quoted_user_profile_url') + ")\n"
 
   if 'quoted_status' in tweet:
     text += re.sub("^|\n", "\n>", tweet['quoted_status']['full_text'])
