@@ -29,7 +29,7 @@ echo "$title_core"
 echo "$title_core $jst_date on Twitter" \
   | tee "$log_dir"/github-issue-title-"$TWITTER_JA_USER_NAME".txt
 
-cat "$log_dir"/formatted-"$TWITTER_JA_USER_NAME".json \
+cat  "$log_dir"/profile-seed-"$TWITTER_JA_USER_NAME".json \
   | jq 'sort_by(.favorite_count) | reverse' \
   | "$api_dir"/twitter/markdown.py \
   | tee "$log_dir"/github-issue-body-"$TWITTER_JA_USER_NAME".md
