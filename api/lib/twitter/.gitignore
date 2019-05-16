@@ -1,6 +1,0 @@
-config.py*
-config*.py
-__pycache__
-log/*
-*.swp
-*.swo
