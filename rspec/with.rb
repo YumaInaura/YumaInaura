@@ -1,3 +1,6 @@
+# Doc
+# https://relishapp.com/rspec/rspec-mocks/v/3-2/docs/setting-constraints/matching-arguments
+
 class SomeClass
   def self.call(x, y, z)
   end
@@ -114,8 +117,42 @@ describe 'random value case' do
   end
 end
 
+describe 'deep conplexed case' do
+  subject do
+    SomeClass.call(
+      'X',
+      {
+        y1: 'Y1',
+        y2: rand(999_999).to_s,
+        y3: rand(999_999),
+        y4: {
+          y4_1: [1,2,3],
+          y4_2: [4,5,6],
+          y4_3: [7,8,9],
+        }
+      },
+      'Z'
+    )
+  end
 
-# $ rspec /Users/yumainaura/.ghq/github.com/YumaInaura/rspec/with.rb
+  example 'complexed match' do
+    expect(SomeClass).to receive(:call).with(
+      'X',
+      hash_including(
+        y1: 'Y1',
+        y2: (be_a String),
+        y4: hash_including(
+          y4_1: array_including(1, 3),
+          y4_3: contain_exactly(9, 7, 8),
+        )
+      ),
+      any_args
+    )
+    subject
+  end
+end
+
+# $ rspec -fd /Users/yumainaura/.ghq/github.com/YumaInaura/YumaInaura/rspec/with.rb
 
 # simple case
 #   calls with exactly multiple args
@@ -130,5 +167,8 @@ end
 #   exactly match and expect anything value
 #   partly fuzzy match
 
-# Finished in 0.01604 seconds (files took 0.15593 seconds to load)
-# 7 examples, 0 failures
+# more conplexed case
+#   complexed match
+
+# Finished in 0.01357 seconds (files took 0.15283 seconds to load)
+# 8 examples, 0 failures
