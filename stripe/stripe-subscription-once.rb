@@ -233,7 +233,7 @@ put_subscription_schedule(updated_subscription_schedule, 'UPDATED')
 #   "subscription": null
 #}
 
-# If set end_date and "cancel" behaviour with single phase
+# If set end_date and "cancel" behavior with single phase
 updated_subscription_schedule = Stripe::SubscriptionSchedule.update(
   subscription_schedule.id,
   {
@@ -278,7 +278,7 @@ updated_subscription_schedule = Stripe::SubscriptionSchedule.update(
 put_subscription_schedule(updated_subscription_schedule, 'UPDATED')
 
 
-# If set end_date and "cancel" behaviour with multiple phases
+# If set end_date and "cancel" behavior with multiple phases
 updated_subscription_schedule = Stripe::SubscriptionSchedule.update(
   subscription_schedule.id,
   {
