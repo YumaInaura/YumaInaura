@@ -88,9 +88,6 @@ future_subscription_schedule = Stripe::SubscriptionSchedule.create(
 Stripe::SubscriptionSchedule.release(subscription_schedule.id)
 
 
-
-binding.pry
-
 subscription = Stripe::Subscription::create(
                  customer: customer.id,
                  default_payment_method: customer_payment_method.id,

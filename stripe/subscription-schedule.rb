@@ -1,141 +1,289 @@
 # Docs
 
-# https://stripe.com/docs/billing/subscriptions/subscription-schedules
-# https://stripe.com/docs/billing/subscriptions/subscription-schedules/use-cases
-#
 # https://stripe.com/docs/api/subscription_schedules/release
 # https://support.stripe.com/questions/create-update-and-schedule-subscriptions
+#
+# https://stripe.com/docs/billing/subscriptions/subscription-schedules
+# https://stripe.com/docs/billing/subscriptions/subscription-schedules/use-cases
 
-require 'active_support/core_ext'
+# Code
+
 require 'stripe'
 
 Stripe::api_key = ENV['STRIPE_SECRET_KEY']
 
-[1.month, 3.months].each do |end_at_from|
-  product1 = Stripe::Product.create(name: "Gold plan #{rand(9999999999)}")
-  plan1 = Stripe::Plan.create(interval: 'month', currency: 'jpy', amount: 5000, product: product1.id, usage_type: 'licensed')
+product1 = Stripe::Product.create(name: "Gold plan #{rand(9999999999)}")
+plan1 = Stripe::Plan.create(interval: 'day', currency: 'jpy', amount: 5000, product: product1.id, usage_type: 'licensed')
 
-  tax_rate = Stripe::TaxRate.create(display_name: 'Tax Rate', percentage: 10.0, inclusive: false)
-  customer = Stripe::Customer.create
-  payment_method = Stripe::PaymentMethod.create(type: 'card', card: { number: '4242424242424242', exp_year: 2030, exp_month: 01})
-  customer_payment_method = Stripe::PaymentMethod.attach(payment_method.id, customer: customer.id)
+product2 = Stripe::Product.create(name: "Silver plan #{rand(9999999999)}")
+plan2 = Stripe::Plan.create(interval: 'day', currency: 'jpy', amount: 3000, product: product2.id, usage_type: 'licensed')
 
-  def put_subscription_schedule(subscription_schedule, message)
-    puts '-' * 100
-    puts "Subscription Schedule"
-    puts message
-    puts '-' * 100
-    puts subscription_schedule
-    puts '-' * 100
-    puts "https://dashboard.stripe.com/test/subscription_schedules/#{subscription_schedule.id}"
-  end
+product3 = Stripe::Product.create(name: "Bronse plan #{rand(9999999999)}")
+plan3 = Stripe::Plan.create(interval: 'day', currency: 'jpy', amount: 1000, product: product3.id, usage_type: 'licensed')
 
-  # https://stripe.com/docs/api/subscription_schedules/create
-  soon_start_subscription_schedule = Stripe::SubscriptionSchedule.create(
-    {
-      customer: customer.id,
-      start_date: Time.now.to_i + 5,
-      default_settings: {
-        default_payment_method: customer_payment_method.id,
-      },
-      phases: [
-        {
-          plans:
-            [
-              { plan: plan1.id, quantity: 1 },
-            ],
-          prorate: false,
-          default_tax_rates: [tax_rate],
-        },
-      ],
-    }
-  )
+tax_rate = Stripe::TaxRate.create(display_name: 'Tax Rate', percentage: 10.0, inclusive: false)
+customer = Stripe::Customer.create
+payment_method = Stripe::PaymentMethod.create(type: 'card', card: { number: '4242424242424242', exp_year: 2030, exp_month: 01})
+customer_payment_method = Stripe::PaymentMethod.attach(payment_method.id, customer: customer.id)
 
+def put_subscription_schedule(subscription_schedule, message)
   puts '-' * 100
-  puts "Wait until subscription schedule starts"
+  puts "Subscription Schedule"
+  puts message
   puts '-' * 100
-  until soon_start_subscription_schedule.status == 'active' do
-    soon_start_subscription_schedule = Stripe::SubscriptionSchedule.retrieve(soon_start_subscription_schedule.id)
-    puts soon_start_subscription_schedule.status
-    sleep 2
-  end
-
-  started_subscription_schedule = Stripe::SubscriptionSchedule.retrieve(id: soon_start_subscription_schedule.id, expand: ['subscription'])
-
-  future_subscription_schedule = Stripe::SubscriptionSchedule.create(
-    {
-      customer: customer.id,
-      start_date: Time.now.to_i + 100*24*60*60,
-      default_settings: {
-        default_payment_method: customer_payment_method.id,
-      },
-      phases: [
-        {
-          plans:
-            [
-              { plan: plan1.id, quantity: 1 },
-            ],
-          prorate: false,
-          default_tax_rates: [tax_rate],
-        },
-      ],
-    }
-  )
-
-  # current_phase.start_date is not subscription cycle start_date
-  def update_subscription_schedule(base_subscription_schedule)
-    if base_subscription_schedule.status == 'active'
-      start_date = base_subscription_schedule.current_phase.start_date
-    elsif base_subscription_schedule.status == 'not_started'
-      start_date = base_subscription_schedule.phases[0].start_date
-    else
-      raise
-    end
-
-    end_date = Time.at(start_date).since(3.months).to_i
-
-    Stripe::SubscriptionSchedule.update(
-      base_subscription_schedule.id,
-      {
-        # Set "cancel" not "releasse"
-        end_behavior: 'cancel',
-        phases: [
-          {
-            plans:
-              [
-                {
-                  plan:     base_subscription_schedule.phases[0].plans[0].plan,
-                  quantity: base_subscription_schedule.phases[0].plans[0].quantity
-                },
-              ],
-            # prorate does not effect to Subscription or SubscriptionSchedule Canceling
-            # prorate: true / false,
-            default_tax_rates: base_subscription_schedule.phases[0].default_tax_rates.map(&:id),
-            # For Update You must set start_date in first phase not in subscription schedule directly
-            start_date: start_date,
-            # If you do not want to get upcoming invoice on Subscription
-            # Then you must specify end_date with Subscription natural cycle interval
-            end_date: end_date
-          },
-        ]
-      }
-    )
-  end
-
-  updated_started_subscription_schedule = update_subscription_schedule(started_subscription_schedule)
-  updated_future_subscription_schedule = update_subscription_schedule(future_subscription_schedule)
-
-  put_subscription_schedule(updated_started_subscription_schedule, 'UPDATED')
-  put_subscription_schedule(updated_future_subscription_schedule, 'UPDATED')
+  puts subscription_schedule
+  puts '-' * 100
+  puts "https://dashboard.stripe.com/test/subscription_schedules/#{subscription_schedule.id}"
 end
 
-# NOTE
-# SubscriptionSchedule current_phase is not same as Subscription cycle
-# it is "phase" start_date and end_date
+# https://stripe.com/docs/api/subscription_schedules/create
+subscription_schedule = Stripe::SubscriptionSchedule.create(
+  {
+    customer: customer.id,
+    start_date: Time.now.to_i + 5,
+    default_settings: {
+      default_payment_method: customer_payment_method.id,
+    },
+    phases: [
+      {
+        plans:
+          [
+            { plan: plan1.id, quantity: 1 },
+            { plan: plan2.id, quantity: 4 },
+          ],
+          default_tax_rates: [tax_rate],
+          iterations: 3,
+      },
+      {
+        plans:
+          [
+            { plan: plan2.id, quantity: 1 },
+            { plan: plan3.id, quantity: 1 },
+          ],
+          default_tax_rates: [tax_rate],
+          iterations: 5,
+      },
+      {
+        plans:
+          [
+            { plan: plan3.id, quantity: 3 },
+            { plan: plan1.id, quantity: 2 },
+          ],
+          default_tax_rates: [tax_rate],
+          iterations: 7,
+      }
+    ],
+  }
+)
+put_subscription_schedule(subscription_schedule, 'CREATED')
+
+puts '-' * 100
+puts "Wait until subscription schedule starts"
+puts '-' * 100
+until subscription_schedule.status == 'active' do
+  subscription_schedule = Stripe::SubscriptionSchedule.retrieve(subscription_schedule.id)
+  puts subscription_schedule.status
+  sleep 2
+end
+
+started_subscription_schedule = Stripe::SubscriptionSchedule.retrieve(id: subscription_schedule.id, expand: ['subscription'])
+put_subscription_schedule(started_subscription_schedule, 'STARTED')
+
+created_subscription = started_subscription_schedule.subscription
+
+canceled_subscription_schedule = Stripe::SubscriptionSchedule.cancel(started_subscription_schedule.id)
+canceled_subscription = Stripe::Subscription.retrieve(canceled_subscription_schedule.subscription)
+
+# Time.now
+# => 2020-01-01 17:46:53 +0900
+
+# Time.at(canceled_subscription.current_period_start)
+# => 2020-01-01 17:39:14 +0900
+
+# Time.at(canceled_subscription.current_period_end)
+# => 2020-01-02 17:39:14 +0900
+
+# Time.at(canceled_subscription.cancel_at)
+# => 2020-01-04 17:39:14 +0900
+
+# Time.at(canceled_subscription.canceled_at)
+# => 2020-01-01 17:39:14 +0900
+
+binding.pry
+
+
+# require 'hashdiff'
+# Hashdiff.diff(created_subscription.to_h, canceled_subscription.to_h)
+
+# Hashdiff.diff(created_subscription.to_h, canceled_subscription.to_h)
+# => [["~", "ended_at", nil, 1577868005],
+#  ["~", "latest_invoice", "in_1Fw2kICmti5jpytUobVkbVrD", "in_1Fw2kLCmti5jpytUzguDVLbr"],
+#  ["~", "status", "active", "canceled"]]
+
+subscription_changes = created_subscription.to_h.to_a - canceled_subscription.to_h.to_a
+
+# If you need release not cancel
+# Stripe::SubscriptionSchedule.release(started_subscription_schedule.id)
+
+
+# e.g
+# => [[:ended_at, nil], [:latest_invoice, "in_1Fw2kICmti5jpytUobVkbVrD"], [:status, "active"]]
+
+# released_subscription_schedule = Stripe::SubscriptionSchedule.retrieve(id: subscription_schedule.id, expand: ['subscription'])
+# released_subscription = Stripe::Subscription.retrieve(subscription.id)
+#removed_from_subscription_by_released_schedule =  subscription.to_a - released_subscription.to_a
+# Subscription "cancel_at" removed by Subscription release
+# e.g
+# => [[:cancel_at, 1585720051], [:canceled_at, 1577857651], [:schedule, "sub_sched_1Fw03HCmti5jpytUpJMypWcA"]]
+
+
+
+# Build update phases structure from first created subscription schedule
 #
-# If phase end_date is 3.months after then ...
+# SubscriptionSchedule has no "iterations" property in it self
+# Because it handles iterations by start_date / end_date and cycle of plans
+update_subscription_schedule_phases = subscription_schedule.phases.map do |phase|
+  plans = phase.plans.map do |plan|
+    { plan: plan.plan, quantity: plan.quantity }
+  end;
+
+  {
+    plans: plans,
+    default_payment_method: phase.default_payment_method,
+    start_date: phase.start_date,
+    end_date: phase.end_date,
+  }
+end
+
+# Example
+# Keep current phase but remove next come phases
+updated_subscription_schedule = Stripe::SubscriptionSchedule.update(
+  subscription_schedule.id,
+  {
+    phases: [
+      update_subscription_schedule_phases[0]
+    ]
+  }
+)
+put_subscription_schedule(updated_subscription_schedule, 'UPDATED')
+
+# Example
+# Update and reset to same phases on subscription shcedule created
+updated_subscription_schedule = Stripe::SubscriptionSchedule.update(
+  subscription_schedule.id,
+  {
+    phases: update_subscription_schedule_phases
+  }
+)
+put_subscription_schedule(updated_subscription_schedule, 'UPDATED')
+
+
+
+# Stripe::InvalidRequestError: You can only adjust the end date to a future date for the current phase.
 #
-# Time.at(updated_started_subscription_schedule.current_phase.start_date)
-# => 2020-01-02 17:44:23 +0900
-# Time.at(updated_started_subscription_schedule.current_phase.end_date)
-# => 2020-04-02 17:44:23 +0900
+# updated_subscription_schedule = Stripe::SubscriptionSchedule.update(
+#   subscription_schedule.id,
+#   {
+#     phases: [update_subscription_schedule_phases[1]]
+#   }
+# )
+
+# https://stripe.com/docs/api/subscription_schedules/update
+#
+# no customer id because already knows customer
+# no start_date because already set start_date when created
+#
+# If
+#   no phases has start_date
+# Then
+#   Stripe::InvalidRequestError: The subscription schedule update is missing at least one phase with a `start_date` to anchor end dates to.
+#
+# If
+#   not equal subscription_schedule.current_phase.start_date
+#     e.g
+#     update_start_date_set_on_first_phase = subscription_schedule.current_phase.start_date + 1
+#     update_start_date_set_on_first_phase = subscription_schedule.current_phase.start_date - 1
+# Then
+#   Stripe::InvalidRequestError: You can only adjust the end date to a future date for the current phase.
+# This message seems strange for me
+update_start_date_set_on_first_phase = subscription_schedule.current_phase.start_date
+
+# Example
+# Update and shuffle phases and subscriptions
+updated_subscription_schedule = Stripe::SubscriptionSchedule.update(
+  subscription_schedule.id,
+  {
+    phases: [
+      {
+        plans:
+          [
+            { plan: plan1.id, quantity: [*1..10].sample },
+            { plan: plan2.id, quantity: [*1..10].sample },
+          ],
+          default_payment_method: customer_payment_method.id,
+          default_tax_rates: [tax_rate],
+          iterations: [*1..10].sample,
+          start_date: update_start_date_set_on_first_phase,
+      },
+      {
+        plans:
+          [
+            { plan: plan2.id, quantity: [*1..10].sample },
+            { plan: plan3.id, quantity: [*1..10].sample },
+          ],
+          default_payment_method: customer_payment_method.id,
+          default_tax_rates: [tax_rate],
+          iterations: [*1..10].sample,
+      }
+    ]
+  }
+)
+put_subscription_schedule(updated_subscription_schedule, 'UPDATED')
+
+
+
+# subscription = Stripe::Subscription.retrieve(id: subscription_schedule.subscription, expand: ['schedule', 'latest_invoice'])
+# puts subscription
+# puts '-' * 100
+# puts "Subscription created"
+# puts "https://dashboard.stripe.com/test/subscriptions/#{subscription.id}"
+# puts '-' * 100
+
+# binding.pry
+
+# Stripe::SubscriptionSchedule.release(subscription_schedule.id)
+# Stripe::SubscriptionSchedule.retrieve(subscription_schedule.id)
+
+# exit
+
+# latest_invoice = subscription.latest_invoice
+# puts latest_invoice
+# puts '-' * 100
+# puts "Invoice created"
+# puts '-' * 100
+
+# paid_invoice = Stripe::Invoice.pay(latest_invoice.id)
+# puts paid_invoice
+# puts '-' * 100
+# puts "Invoice payment probably succeeded"
+# puts "https://dashboard.stripe.com/test/invoices/#{latest_invoice.id}"
+# puts '-' * 100
+# puts 'YAY!'
+
+# retrieve_invoice = Stripe::Invoice.retrieve(id: latest_invoice.id, expand: ['subscription','subscription.schedule'])
+# puts '-' * 100
+# puts "Retrieve subscription from invoice"
+# puts '-' * 100
+# puts retrieve_invoice.subscription
+# puts '-' * 100
+# puts "Retrieve subscription schedule from invoice"
+# puts '-' * 100
+# puts retrieve_invoice.subscription.schedule
+
+# puts '-' * 100
+# puts "You can See in Dash boards"
+# puts '-' * 100
+# puts "https://dashboard.stripe.com/test/subscription_schedules/#{subscription_schedule.id}"
+# puts "https://dashboard.stripe.com/test/subscriptions/#{subscription.id}"
+# puts "https://dashboard.stripe.com/test/invoices/#{latest_invoice.id}"
+
