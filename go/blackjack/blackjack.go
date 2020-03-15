@@ -1,37 +1,67 @@
 package main
 
+// TODO : deal card A as point 1
+// TODO : append card by dealer
+
 import (
 	"bufio"
 	"fmt"
 	"math/rand"
 	"os"
+	"strconv"
 	"time"
 )
 
+// Card : Playing card
 type Card struct {
-	Strong int
-	Name   string
+	Point int
+	Name  string
 }
 
 func main() {
-	var playerCards []Card
+	var playerCards, dealerCards []Card
 
-	cards := generateCards()
+	stockCards := generateCards()
 
-	shuffleCards(cards)
+	shuffleCards(stockCards)
 
-	playerCards, cards = dealFirstTwoCards(cards)
+	playerCards, stockCards = dealFirstTwoCards(stockCards)
+	dealerCards, stockCards = dealFirstTwoCards(stockCards)
 
-	for range cards {
-		playerCommand := waitPlayerCommand(cards, playerCards)
+	for range stockCards {
+		fmt.Println("Dealer cards are ... ")
+		showCards(dealerCards)
+
+		fmt.Println("Your cards are ... ")
+		showCards(playerCards)
+
+		playerPoint := cardsPoint(playerCards)
+		dealerPoint := cardsPoint(dealerCards)
+		fmt.Println("Your point is ... " + strconv.Itoa(playerPoint))
+
+		if playerPoint > 21 {
+			fmt.Println("BUST! ")
+			break
+		}
+
+		playerCommand := waitPlayerCommand()
 
 		if playerCommand == "1" {
-			playerCards, cards = appendCard(playerCards, cards)
+			playerCards, stockCards = appendCard(playerCards, stockCards)
 		} else {
+			if playerPoint >= dealerPoint {
+				fmt.Println("YOU WIN!")
+				break
+			} else {
+				fmt.Println("YOU LOSE ...")
+				break
+			}
 		}
 
 		fmt.Println()
 	}
+
+	fmt.Println("FINISH GAME")
 }
 
 func generateCards() []Card {
@@ -55,10 +85,10 @@ func cardSeeds() []Card {
 		Card{8, "8"},
 		Card{9, "9"},
 		Card{10, "10"},
-		Card{11, "J"},
-		Card{12, "Q"},
-		Card{13, "K"},
-		Card{14, "A"},
+		Card{10, "J"},
+		Card{10, "Q"},
+		Card{10, "K"},
+		Card{11, "A"},
 	}
 }
 
@@ -67,21 +97,22 @@ func shuffleCards(cards []Card) {
 	rand.Shuffle(len(cards), func(i, j int) { cards[i], cards[j] = cards[j], cards[i] })
 }
 
-func dealFirstTwoCards(cards []Card) ([]Card, []Card) {
+func dealFirstTwoCards(stockCards []Card) ([]Card, []Card) {
 	var haveCards []Card
-	haveCards, cards = appendCard(haveCards, cards)
-	haveCards, cards = appendCard(haveCards, cards)
-	return haveCards, cards
+	haveCards, stockCards = appendCard(haveCards, stockCards)
+	haveCards, stockCards = appendCard(haveCards, stockCards)
+	return haveCards, stockCards
 }
 
-func waitPlayerCommand(cards []Card, playerCards []Card) string {
-	fmt.Println("Your cards are ... ")
-	for _, card := range playerCards {
-		fmt.Println(card.Name)
+func showCards(playerCards []Card) {
+	for _, playerCard := range playerCards {
+		fmt.Println(playerCard.Name)
 	}
+}
 
-	fmt.Println("[0] No Change")
+func waitPlayerCommand() string {
 	fmt.Println("[1] Append Card")
+	fmt.Println("[0] No Change")
 
 	input := bufio.NewScanner(os.Stdin)
 	input.Scan()
@@ -89,6 +120,14 @@ func waitPlayerCommand(cards []Card, playerCards []Card) string {
 	command := input.Text()
 
 	return command
+}
+
+func cardsPoint(cards []Card) int {
+	var point = 0
+	for _, Card := range cards {
+		point = point + Card.Point
+	}
+	return point
 }
 
 func appendCard(haveCards []Card, stockCards []Card) ([]Card, []Card) {
