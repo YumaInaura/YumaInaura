@@ -4,11 +4,11 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 
 function App() {
   return (
-    <div>
+    <React.Fragment>
       <CircularProgress />
       <CircularProgress />
       <CircularProgress />
-    </div>
+  </React.Fragment>
   );
 }
 
