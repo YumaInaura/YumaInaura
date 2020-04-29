@@ -1,0 +1,33 @@
+<!-- https://vuejs.org/v2/guide/components-registration.html -->
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.js"></script>
+<body>
+  <div id="example">
+    <ul>
+      <list-item-foo></list-item-foo>
+      <list-item-foo></list-item-foo>
+      <list-item-foo></list-item-foo>
+      <list-item-bar></list-item-bar>
+      <list-item-bar></list-item-bar>
+    </ul>
+  </div>
+
+  <script>
+    import ComponentFoo from './ComponentA'
+
+    var ComponentFoo = Vue.component('list-item-foo', {
+      template: '<li>foo</li>'
+    })
+    var ComponentBar = Vue.component('list-item-bar', {
+      template: '<li>bar</li>'
+    })
+
+    new Vue({
+      el: '#example',
+      components: {
+        'list-item-foo': ComponentFoo,
+        'list-item-bar': ComponentBar
+      }
+    })
+</script>
+</body>
