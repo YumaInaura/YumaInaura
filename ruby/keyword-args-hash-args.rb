@@ -23,6 +23,7 @@ foo(**hash)
 foo({x: "x", y: "y"})
 
 
+
 # Receive hash method
 def bar(h = {})
   p h[:x]
@@ -30,7 +31,9 @@ def bar(h = {})
 end
 
 # OK
-bar(x: "x", y: "y")
+bar({ x: "x", y: "y" })
 
 # OK
-bar({ x: "x", y: "y" })
+# Call with keyword argus but NO ERROR!
+bar(x: "x", y: "y")
+
