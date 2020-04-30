@@ -1,3 +1,5 @@
+// https://www.sitepoint.com/vue-components-intro/
+
 <template>
   <div>
     <h1>{{ msg }}</h1>

@@ -1,10 +1,11 @@
+// https://reffect.co.jp/vue/v-bind-key-understand-by-developer-tool#v-bindkey
+
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <h1>{{ posts[0].id }} {{ posts[0].title }}</h1>
     <ul>
-      <li v-for="post in posts" :key="post.id">
-        {{ post.title }}
+      <li v-for="post in posts" >
+        {{ post.id }} {{ post.title }}
       </li>
     </ul>
   </div>
@@ -14,12 +15,6 @@
 
 export default {
   name: 'App',
-  props: {
-    msg: {
-      type: String,
-      default: 'Ya!',
-    }
-  },
   data () {
     return {
       posts: [

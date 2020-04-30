@@ -1,12 +1,10 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <h1>{{ posts[0].id }} {{ posts[0].title }}</h1>
-    <ul>
-      <li v-for="post in posts" :key="post.id">
-        {{ post.title }}
-      </li>
-    </ul>
+    <div>
+      <input type="text" v-model="msg">
+    </div>
+    <h1>{{ msg }}</h1>
   </div>
 </template>
 
@@ -19,18 +17,18 @@ export default {
       type: String,
       default: 'Ya!',
     }
-  },
-  data () {
-    return {
-      posts: [
-        { id: 1, title: 'My journey with Vue' },
-        { id: 2, title: 'Blogging with Vue' },
-        { id: 3, title: 'Why Vue is so fun' }
-      ]
-    }
   }
+
+  // data に書いても動く
+  //
+  // data () {
+  //   return {
+  //     msg: 'Ya!'
+  //   }
+  // }
 }
 </script>
+
 
 <style>
 #app {
