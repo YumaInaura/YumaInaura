@@ -39,6 +39,7 @@ export default {
   */
   modules: [
     '@nuxtjs/axios',
+    '@/plugins/mock'
   ],
   /*
   ** Build configuration

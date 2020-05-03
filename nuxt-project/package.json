@@ -14,5 +14,7 @@
     "@nuxtjs/axios": "^5.10.3",
     "nuxt": "^2.0.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "axios-mock-server": "^0.16.3"
+  }
 }

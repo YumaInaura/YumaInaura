@@ -1566,6 +1566,15 @@ available-typed-arrays@^1.0.0, available-typed-arrays@^1.0.2:
   dependencies:
     array-filter "^1.0.0"
 
+axios-mock-server@^0.16.3:
+  version "0.16.3"
+  resolved "https://registry.yarnpkg.com/axios-mock-server/-/axios-mock-server-0.16.3.tgz#e17668ccce336ba602abe12d8022a89c33196ac0"
+  integrity sha512-gYD7uokwl6f26zleVNw710X5i7XJo5U2hncq9vXl26/9OIyXtuFEfle21Zbdvrk4duZilWmRkSbUc+uSUVqZpw==
+  dependencies:
+    chokidar "^3.3.0"
+    minimist "^1.2.0"
+    url-search-params-polyfill "^7.0.0"
+
 axios-retry@^3.1.8:
   version "3.1.8"
   resolved "https://registry.yarnpkg.com/axios-retry/-/axios-retry-3.1.8.tgz#ffcfed757e1fab8cbf832f8505bb0e0af47c520c"
@@ -2018,7 +2027,7 @@ chokidar@^2.1.8:
   optionalDependencies:
     fsevents "^1.2.7"
 
-chokidar@^3.3.1:
+chokidar@^3.3.0, chokidar@^3.3.1:
   version "3.4.0"
   resolved "https://registry.yarnpkg.com/chokidar/-/chokidar-3.4.0.tgz#b30611423ce376357c765b9b8f904b9fba3c0be8"
   integrity sha512-aXAaho2VJtisB/1fg1+3nlLJqGOuewTzQpd/Tz0yTg2R0e4IGtshYvtjowyEumcBv2z+y4+kc75Mz7j5xJskcQ==
@@ -6897,6 +6906,11 @@ url-loader@^2.3.0:
     loader-utils "^1.2.3"
     mime "^2.4.4"
     schema-utils "^2.5.0"
+
+url-search-params-polyfill@^7.0.0:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/url-search-params-polyfill/-/url-search-params-polyfill-7.0.1.tgz#b900cd9a0d9d2ff757d500135256f2344879cbff"
+  integrity sha512-bAw7L2E+jn9XHG5P9zrPnHdO0yJub4U+yXJOdpcpkr7OBd9T8oll4lUos0iSGRcDvfZoLUKfx9a6aNmIhJ4+mQ==
 
 url@^0.11.0:
   version "0.11.0"
