@@ -28,6 +28,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/mock.js'
   ],
   /*
   ** Nuxt.js dev-modules

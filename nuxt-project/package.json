@@ -8,7 +8,9 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "mock:build": "axios-mock-server --build",
+    "mock:watch": "axios-mock-server --watch"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.10.3",
@@ -18,3 +20,5 @@
     "axios-mock-server": "^0.16.3"
   }
 }
+
+

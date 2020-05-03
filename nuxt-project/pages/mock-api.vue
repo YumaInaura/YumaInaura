@@ -10,8 +10,10 @@
 </template>
 
 <script>
+import axios from 'axios'
 
 export default {
+
   async asyncData ({ $axios, params }) {
     // const id = params.id
     const data = await $axios.$get(`/users/0`)

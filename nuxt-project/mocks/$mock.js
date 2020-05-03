@@ -1,7 +1,5 @@
 /* eslint-disable */
-module.exports = (client) => require('axios-mock-server')([
-  {
-    path: '/users/_userId',
-    methods: require('./users/_userId')
-  }
-], client)
+import mockServer from 'axios-mock-server'
+
+export default (client) => mockServer([
+], client, '')

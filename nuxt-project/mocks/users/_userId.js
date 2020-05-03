@@ -1,7 +1,6 @@
-// file: 'mocks/users/_userId.js'
-const users = [{ id: 0, name: 'foo' }, { id: 1, name: 'bar' }]
+const users = [{ id: 0, name: 'foo' }]
 
-module.exports = {
+export default {
   get({ values }) {
     return [200, users.find(user => user.id === values.userId)]
   }
