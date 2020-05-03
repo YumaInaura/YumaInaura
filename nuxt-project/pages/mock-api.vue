@@ -6,6 +6,7 @@
         mock API
       </h1>
     </div>
+    <h2>API Response<h2>
     <div>
        {{ data }}
     </div>
