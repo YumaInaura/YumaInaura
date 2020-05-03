@@ -3,8 +3,11 @@
     <div>
       <logo />
       <h1 class="title">
-        nuxt-project
+        mock API
       </h1>
+    </div>
+    <div>
+       {{ data }}
     </div>
   </div>
 </template>
@@ -17,6 +20,7 @@ export default {
   async asyncData ({ $axios, params }) {
     // const id = params.id
     const data = await $axios.$get(`/users/0`)
+    // const data = await $axios.$get(`https://example.com`)
     return { data }
   }
 }
