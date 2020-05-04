@@ -5,7 +5,6 @@ export default {
   ** Headers of the page
   */
   head: {
-    fallback: { dist: {}, static: { skipUnknown: false } },
     title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
