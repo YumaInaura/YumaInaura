@@ -4,7 +4,7 @@ const users = [
 ]
 
 export default {
-  get({ values }) {
-    return [200, users.find(user => user.id === values.userId)]
+  get() {
+    return [200, users]
   }
 }

@@ -1,13 +1,13 @@
 <template>
-  <div class="container">
+  <div  >
     <div>
-      <logo />
-      <h1 class="title">
+      <h1>
         mock API
       </h1>
     </div>
+    <h2>API Response</h2>
     <div>
-       {{ data }}
+      {{ data }}
     </div>
   </div>
 </template>
@@ -16,11 +16,8 @@
 import axios from 'axios'
 
 export default {
-
-  async asyncData ({ $axios, params }) {
-    // const id = params.id
-    const data = await $axios.$get(`/users/0`)
-    // const data = await $axios.$get(`https://example.com`)
+  async asyncData ({ $axios }) {
+    const data = await $axios.$get(`/users/1`)
     return { data }
   }
 }

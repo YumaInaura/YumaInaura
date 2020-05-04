@@ -1,10 +1,15 @@
 /* eslint-disable */
 import mockServer from 'axios-mock-server'
-import mock0 from './users/_userId'
+import mockUsers from './users/_users'
+import mockUser from './users/_userId'
 
 export default (client) => mockServer([
   {
+    path: '/users/',
+    methods: mockUsers
+  },
+  {
     path: '/users/_userId',
-    methods: mock0
+    methods: mockUser
   }
 ], client, '')
