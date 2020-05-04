@@ -1,23 +1,26 @@
+// https://log.pocka.io/posts/nuxt-asyncdata-static-file-code-splitting/
+
 <template>
   <div>
     <h1>
       assset API
     </h1>
-    <a href="~/assets/example.json">A</a>
     <h2>Users</h2>
-    <div>
-      {{ users }}
-    </div>
+    <ul>
+      <li v-for="user in users" :key="user.id">
+        {{ user.id }} - {{ user.name }}
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
-
 export default {
-  // async asyncData ({ $axios }) {
-  //   const users = await $axios.$get(`/_nuxt/assets/example.json`)
-  //   return { user, users }
-  // }
+  asyncData({ params }) {
+    const users = require(`~/assets/users.json`)
+    return {
+      users
+    }
+  }
 }
 </script>
