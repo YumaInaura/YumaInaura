@@ -1,10 +1,6 @@
 
 export default {
   mode: 'universal',
-  // Not work
-  router: {
-    middleware: 'serve-placeholder'
-  },
   /*
   ** Headers of the page
   */
