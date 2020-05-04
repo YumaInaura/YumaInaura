@@ -1,4 +1,4 @@
-// https://log.pocka.io/posts/nuxt-asyncdata-static-file-code-splitting/
+// https://teratail.com/questions/243271
 
 <template>
   <div>
@@ -15,9 +15,12 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   asyncData() {
-    const users = require(`~/assets/users.json`)
+    // Not work
+    const users = axios.get('/assets/users.json')
     return {
       users
     }
