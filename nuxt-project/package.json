@@ -5,7 +5,8 @@
   "author": "YumaInaura",
   "private": true,
   "scripts": {
-    "dev": "yarn mock:build && nuxt",
+    "dev": "nuxt",
+    "dev:mock": "yarn mock:build && nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",

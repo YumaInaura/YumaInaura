@@ -18,8 +18,8 @@
 import axios from 'axios'
 
 export default {
-  async asyncData ({ $axios }) {
-    const user = await $axios.$get(`/users/1`)
+  async asyncData ({ $axios, id }) {
+    const user = await $axios.$get(`/users/${id}`)
     const users = await $axios.$get(`/users`)
     return { user, users }
   }
