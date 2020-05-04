@@ -1,5 +1,3 @@
-// https://teratail.com/questions/243271
-
 <template>
   <div>
     <h1>
@@ -18,12 +16,11 @@
 import axios from 'axios'
 
 export default {
-  asyncData() {
-    // Not work
-    const users = axios.get('/assets/users.json')
-    return {
-      users
-    }
+  async asyncData({ $axios }) {
+    const users = await $axios.$get('/users.json')
+    // OR
+    // const users = await $axios.$get('http://localhost:3000/axios-assets-json')
+    return { users }
   }
 }
 </script>
