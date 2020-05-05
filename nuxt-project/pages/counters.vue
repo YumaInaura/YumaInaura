@@ -5,11 +5,7 @@
     </h2>
     <input type="button" @click="incrementParentCounter" value="Increment Parent">
     <input type="button" @click="reset" value="reset Parent">
-<!--
-    <Counter :count="parentCount"/>
-    <Counter :count="parentCount"/>
- -->
-    <LocalCounter :count="parentCount"/>
+    <EmitCounter :count="parentCount" @reset-parent-counter="reset"/>
     <LocalCounter :count="parentCount"/>
   </div>
 </template>
@@ -17,6 +13,7 @@
 <script>
 import Counter from '~/components/Counter.vue'
 import LocalCounter from '~/components/LocalCounter.vue'
+import EmitCounter from '~/components/EmitCounter.vue'
 
 export default {
   data () {
@@ -26,7 +23,8 @@ export default {
   },
   components: {
     Counter,
-    LocalCounter
+    LocalCounter,
+    EmitCounter
   },
   methods: {
     incrementParentCounter (e) {
