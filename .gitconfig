@@ -1,0 +1,48 @@
+[user]
+  username = YumaInaura
+  name = YumaInaura
+  email = yuma.inaura@gmail.com
+
+[alias]
+  current-branch-name = ! git branch | grep -e '^\\* ' | sed -e 's/^\\* //g'
+  commit-by-current-branch-name = ! git commit --allow-empty -m "$(git current-branch-name)"
+  checkout-new-branch-and-commit-empty = "!f() { git checkout -b \"$1\" && git commit-by-current-branch-name; }; f"
+
+  current-branch = !git branch --contains=HEAD
+  branch-root = merge-base master HEAD
+
+  current = !git rev HEAD~0
+
+  ck = checkout
+  st = status -s
+
+  break = reset HEAD^
+
+  forget = !git add . && git commit --amend
+  fg = !git forget
+
+  cm = commit
+  cma = commit --amend
+  amend = commit --amend
+
+  create = !git add . && git commit
+  cr = !git create
+
+  br = branch
+
+  changes = !git diff --name-status $(git merge-base master HEAD)
+
+  abort = rebase --abort
+
+  continue = !git rbc
+
+  change = !git add . && git rebase --continue
+  vanish = !git reset . && git checkout . && git clean -fd
+
+[credential]
+  helper = osxkeychain
+[core]
+  excludesfile = /Users/yuma/.gitignore
+[push]
+  default = current
+
