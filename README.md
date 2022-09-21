@@ -26,17 +26,6 @@ https://github.com/YumaInaura/YumaInaura/issues
 - [#Twitter でプロフィール画像を1分毎に切り替えて美女時計みたいなことがやりたい (お試し) · Issue #1282 · YumaInaura/YumaInaura](https://github.com/YumaInaura/YumaInaura/issues/1282)
 - [#Google #API を叩いて #Qiita の自分の全記事を英語翻訳して新規投稿する例 ( #python + #shell ) - Qiita](https://qiita.com/YumaInaura/items/7f6fd1e9310a6816469a)
 
-# やってきたこと
-
-- [メビウスリング掲示板](http://mb2.jp/) ( Since 大昔 )
-
-# Me in Instagram
-
-![image](https://user-images.githubusercontent.com/13635059/56287800-4722f380-6158-11e9-8abc-6e7d6003f943.png)
-
-[いなうらゆうま YumaInaura 稲浦悠馬さん(@yumainaura) • Instagram写真と動画](https://www.instagram.com/yumainaura/)
-
-
 
 # Twitter
 
