@@ -37,14 +37,6 @@ https://github.com/YumaInaura/YumaInaura/issues
 [いなうらゆうま YumaInaura 稲浦悠馬さん(@yumainaura) • Instagram写真と動画](https://www.instagram.com/yumainaura/)
 
 
-# Free copyright
-
-You can use anything in my repository 
-
-e.g images/photos texts ideas
-
-Youcan edit articles by anyway
-
 
 # Twitter
 
@@ -56,13 +48,6 @@ https://twitter.com/YumaInaura
 # Qiita Japanese Engineering platform and sorclaized web site
 
 https://qiita.com/YumaInaura
-https://qiita.com/Yinaura
-
-# Facebook
-
-あまり使ってません‥
-
-https://www.facebook.com/yumainaura
 
 
 # Hatena Blog
@@ -72,8 +57,3 @@ https://www.facebook.com/yumainaura
 <li><a href="http://3min.hatenadiary.jp/">3分</a></li>
 <li><a href="http://mindfulness.hatenablog.jp/">マインドフルネス</a></li>
 </ul>
-
-
-# Google indexing ( how articles can i find with him? )
-
-[site:https://github.com/YumaInaura/YumaInaura - Google Search](https://www.google.com/search?q=site%3Ahttps%3A%2F%2Fgithub.com%2FYumaInaura%2FYumaInaura&oq=site%3Ahttps%3A%2F%2Fgithub.com%2FYumaInaura%2FYumaInaura&aqs=chrome..69i57j69i58j69i59l2.2288j0j7&sourceid=chrome&ie=UTF-8)
