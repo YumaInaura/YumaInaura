@@ -14,7 +14,7 @@
 ## 多少分かるもの、利用したことがあるもの
 
 Go lang / C# / 簡単なCSS / PHP / Cake PHP / python / Google Cloud Platform / AWS
-Twitter API / Github API / Slack API 
+Twitter API / Github API / Slack API / Vue / nuxt / React
 
 ## 自営業
 
