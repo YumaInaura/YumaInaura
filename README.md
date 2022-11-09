@@ -4,12 +4,12 @@
 
 ## メイン
 
-Ruby / Ruby on Rails / Perl / Shell Script
-SQL / BigQuery
-Linux
-DB設計 / アプリケーション設計 / アジャイル開発
-1on1ミーティング
-ansible / Apache / HTML
+- Ruby / Ruby on Rails / Perl / Shell Script
+- SQL / BigQuery
+- Linux
+- DB設計 / アプリケーション設計 / アジャイル開発
+- 1on1ミーティング
+- ansible / Apache / HTML
 
 ## 多少分かるもの、利用したことがあるもの
 
