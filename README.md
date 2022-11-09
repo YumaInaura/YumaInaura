@@ -1,41 +1,55 @@
 
 
-# 🤖 Few codes and Many issues about engineering
+# プロフィール
 
-Some articles japanese
-some articles english
+## メイン
 
-https://github.com/YumaInaura/YumaInaura/issues
+Ruby / Ruby on Rails / Perl / Linux /  SQL /BigQuery
+ansible / shell script / Apache / HTML
 
-# Abount Codes
+## 多少分かるもの、利用したことがあるもの
 
-- For my beautiful life i put some dirty script written by python, shell script or others.
-- Mainly this scripts working for Web API ingegrations e.g If I send message to Slack Then create Github issue and Create Twieets to Twitter. ( I like IFTTT and Zapier but they are in some part not friendly or cost to me by expensive price )
+Go lang / C# / 簡単なCSS / PHP / Cake PHP / python / Google Cloud Platform / AWS
+Twitter API / Github API / Slack API / 
 
+## 自営業
 
-# ポートフォリオ的なもの
+- 高校卒業からPerlプログラムによるWebサイトを立ち上げて、10年ほど開発運営して生計を立てていました。
+- 10年間程度、個人事業主として小さな掲示板・ソーシャルサイト運営、簡易ブラウザゲーム作成などをおこなってきました。収入源はAdsense広告でした。( 「メビウスリング掲示板」 現在は閉鎖済み )
+- 最初はレンタルサーバーでの運営をしていましたが、途中からroot権限のある専用サーバーを契約して Linux / Apache /ドメイン設定 など各種のことを覚えてインフラの知識を身に着けました。
 
-- [稲浦悠馬(いなうらゆうま) Yuma Inaura のポートフォリオ / Ruby on Rails 実務約4年 ( 2019年現在 ) · Issue #626 · YumaInaura/YumaInaura](https://github.com/YumaInaura/YumaInaura/issues/626)
-- [とあるRailsエンジニア 稲浦悠馬 最近の学習や再就職活動のまとめ (2018年4月前半) #Github や Google 翻訳 #API や #python や #JSON #jq などを触っていた · Issue #1223 · YumaInaura/YumaInaura](https://github.com/YumaInaura/YumaInaura/issues/1223)
-- [稲浦 悠馬 プロフィール - Wantedly](https://www.wantedly.com/users/93140896)
+##  業務委託など
+
+- 人づてに依頼をうけて PHP でのWebサイト作成、改修をおこなっていました。
+- 短期間ですが 業務委託契約で PHP / Cake PHP / Java を触った時期があります。
+
+## 株式会社Aiming 大阪スタジオ
+
+- 開発会社の大阪スタジオで 社内向けWebアプリケーションの開発、保守をしていました。 ( 株式会社 Aiming 大阪スタジオ )
+- Ruby on Rails を中心に BigQuery ansible Golang なども扱っていました。
+- 在籍期間 : 2015年7月 - 2019年4月
+- 少人数チームのアジャイル開発でリーダー役をした経験があります。
+- Ruby / Ruby on Rails での開発をメインに、社内向けのゲーム運用ツールの開発に携わっていました。
+- アジャイル開発で要件定義、機能設計、実装まで含めて担当していました。
+
+## 株式会社 Tandems
+
+- Ruby on Rails でのバックエンドAPI開発 ( RECRUIT、Hamme株式会社の案件など )
+- APIの設計開発、DBのボトルネック負荷調査、要件に対する見積もり、複雑なロジックの速度チューニング、社内新人のヘルプなど
+
+## 開発に参加したことのあるプロジェクト
+
+- RECRUIT
+- Hamee
+- LIXIL
 
 
 # Twitter
 
-Hey please do not surprize if this account has no name and profile images.
-I'm doing Zen engineer and vanishing my face and name is good work to "ME".
 
 https://twitter.com/YumaInaura
 
-# Qiita Japanese Engineering platform and sorclaized web site
+# Qiita
 
 https://qiita.com/YumaInaura
 
-
-# Hatena Blog
-
-<ul>
-<li><a href="http://yumainaura.hateblo.jp/">いなうらゆうま</a></li>
-<li><a href="http://3min.hatenadiary.jp/">3分</a></li>
-<li><a href="http://mindfulness.hatenablog.jp/">マインドフルネス</a></li>
-</ul>
