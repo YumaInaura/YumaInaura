@@ -2,7 +2,7 @@
 
 # プロフィール
 
-## メイン
+## メインのスキル、経験
 
 - Ruby / Ruby on Rails / Perl / Shell Script
 - SQL / BigQuery
@@ -11,10 +11,13 @@
 - 1on1ミーティング
 - ansible / Apache / HTML
 
-## 多少分かるもの、利用したことがあるもの
+## 利用したことがあるもの
 
-Go lang / C# / 簡単なCSS / PHP / Cake PHP / python / Google Cloud Platform / AWS
-Twitter API / Github API / Slack API / Vue / nuxt / React
+Go lang / C# / PHP / Cake PHP / python
+GCP / AWS
+簡単なCSS 
+Twitter API / Github API / Slack API
+Vue / nuxt / React
 
 ## 自営業
 
@@ -29,6 +32,8 @@ Twitter API / Github API / Slack API / Vue / nuxt / React
 
 ## 株式会社Aiming 大阪スタジオ
 
+2015年7月 - 2019年4月
+
 - 開発会社の大阪スタジオで 社内向けWebアプリケーションの開発、保守をしていました。 ( 株式会社 Aiming 大阪スタジオ )
 - Ruby on Rails を中心に BigQuery ansible Golang なども扱っていました。
 - 在籍期間 : 2015年7月 - 2019年4月
@@ -36,10 +41,16 @@ Twitter API / Github API / Slack API / Vue / nuxt / React
 - Ruby / Ruby on Rails での開発をメインに、社内向けのゲーム運用ツールの開発に携わっていました。
 - アジャイル開発で要件定義、機能設計、実装まで含めて担当していました。
 
-## 株式会社 Tandems
+##  株式会社 Tandems
+
+2019年6月 - 2021年9月
 
 - Ruby on Rails でのバックエンドAPI開発 ( RECRUIT、Hamme株式会社の案件など )
-- APIの設計開発、DBのボトルネック負荷調査、要件に対する見積もり、複雑なロジックの速度チューニング、社内新人のヘルプなど
+- APIの設計開発、DBのボトルネック負荷調査、要件に対する見積もり、複雑なロジックの速度チューニングのヘルプなど
+
+## フリーランス
+
+2022年8月 -
 
 ## 開発に参加したことのあるプロジェクト
 
