@@ -52,9 +52,9 @@
 
 ## 開発に参加したことのあるプロジェクト
 
-- RECRUIT
-- Hamee
-- LIXIL
+- RECRUIT様
+- Hamee様
+- LIXIL様
 
 # Twitter
 
