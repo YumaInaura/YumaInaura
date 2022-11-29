@@ -29,7 +29,7 @@
 ##  業務委託など
 
 - PHP でのWebサイト作成、改修
-- 業務委託で PHP / Cake PHP / Java をに触れる
+- 業務委託で PHP / Cake PHP / Java を扱う
 
 ## 株式会社Aiming 大阪スタジオ
 
@@ -57,7 +57,6 @@
 - LIXIL
 
 # Twitter
-
 
 https://twitter.com/YumaInaura
 
