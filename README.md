@@ -38,7 +38,7 @@
 2015年7月 - 2019年4月
 
 - 社内向け、ゲーム運営用のWebアプリケーションの開発、保守を担当する
-- Ruby on Rails を中心に BigQuery ansible Golang なども扱う
+- Ruby on Rails を中心に集計用SQLの作成、BigQuery ansible Golang なども扱う
 - アジャイル開発で要件定義、機能設計、実装まで含めて担当
 
 ##  株式会社 Tandems
