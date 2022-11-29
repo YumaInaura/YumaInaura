@@ -13,40 +13,38 @@
 
 ## 利用したことがあるもの
 
-Go lang / C# / PHP / Cake PHP / python
-GCP / AWS
-簡単なCSS 
-Twitter API / Github API / Slack API
-Vue / nuxt / React
+- Go lang / C# / PHP / Cake PHP / python
+- GCP / AWS
+- 簡単なCSS 
+- Twitter API / Github API / Slack API
+- Vue / nuxt / React
 
 ## 自営業
 
-- 高校卒業からPerlプログラムによるWebサイトを立ち上げて、10年ほど開発運営して生計を立てていました。
-- 10年間程度、個人事業主として小さな掲示板・ソーシャルサイト運営、簡易ブラウザゲーム作成などをおこなってきました。収入源はAdsense広告でした。( 「メビウスリング掲示板」 現在は閉鎖済み )
-- 最初はレンタルサーバーでの運営をしていましたが、途中からroot権限のある専用サーバーを契約して Linux / Apache /ドメイン設定 など各種のことを覚えてインフラの知識を身に着けました。
+- PerlプログラムによるWebサイトを立ち上げて、10年ほど開発運営
+- 収入源はAdsense広告
+- 「メビウスリング掲示板」 現在は閉鎖済み
+- 専用サーバーを契約して Linux / Apache / ドメイン設定 など各種インフラも経験
 
 ##  業務委託など
 
-- 人づてに依頼をうけて PHP でのWebサイト作成、改修をおこなっていました。
-- 短期間ですが 業務委託契約で PHP / Cake PHP / Java を触った時期があります。
+- PHP でのWebサイト作成、改修
+- 業務委託で PHP / Cake PHP / Java をに触れる
 
 ## 株式会社Aiming 大阪スタジオ
 
 2015年7月 - 2019年4月
 
-- 開発会社の大阪スタジオで 社内向けWebアプリケーションの開発、保守をしていました。 ( 株式会社 Aiming 大阪スタジオ )
-- Ruby on Rails を中心に BigQuery ansible Golang なども扱っていました。
-- 在籍期間 : 2015年7月 - 2019年4月
-- 少人数チームのアジャイル開発でリーダー役をした経験があります。
-- Ruby / Ruby on Rails での開発をメインに、社内向けのゲーム運用ツールの開発に携わっていました。
-- アジャイル開発で要件定義、機能設計、実装まで含めて担当していました。
+- 社内向け、ゲーム運営用のWebアプリケーションの開発、保守を担当する
+- Ruby on Rails を中心に BigQuery ansible Golang なども扱う
+- アジャイル開発で要件定義、機能設計、実装まで含めて担当
 
 ##  株式会社 Tandems
 
 2019年6月 - 2021年9月
 
-- Ruby on Rails でのバックエンドAPI開発 ( RECRUIT、Hamme株式会社の案件など )
-- APIの設計開発、DBのボトルネック負荷調査、要件に対する見積もり、複雑なロジックの速度チューニングのヘルプなど
+- Ruby on Rails でのバックエンドAPI開発
+- APIの設計開発、DBのボトルネック負荷調査、複雑なロジックの速度チューニングなど
 
 ## フリーランス
 
@@ -57,7 +55,6 @@ Vue / nuxt / React
 - RECRUIT
 - Hamee
 - LIXIL
-
 
 # Twitter
 
