@@ -2,6 +2,11 @@
 
 # プロフィール
 
+## 経歴要約
+
+Ruby on Rails でのWebアプリケーション・API開発を中心におこなう。
+10年程度の自営業でのWebサイトの運営を経てプログラマになる。
+
 ## メインのスキル、経験
 
 - Ruby / Ruby on Rails / Perl / Shell Script
