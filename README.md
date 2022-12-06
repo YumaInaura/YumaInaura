@@ -4,8 +4,8 @@
 
 ## 経歴要約
 
-- 現在 Ruby on Rails でのWebアプリケーション・API開発を中心におこなう。
 - 10年程度、自営業でWebサイトの開発運営を経てプログラマになる。
+- 現在 Ruby on Rails でのWebアプリケーション・API開発を中心におこなう。
 
 ## メインのスキル、経験
 
@@ -16,13 +16,13 @@
 - 1on1ミーティング
 - ansible / Apache / HTML
 
-## 利用したことがあるもの
+## 業務で利用したことがあるもの
 
-- Go lang / C# / PHP / Cake PHP / python / django
-- GCP / AWS
+- Go lang / C# / PHP / Cake PHP / python (django)
+- GCP / AWS (SQSなど)
 - 簡単なCSS 
-- Twitter API / Github API / Slack API
 - Vue / nuxt / React
+- Stripe (決済サービス)
 
 ## 自営業
 
