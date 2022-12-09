@@ -3,7 +3,7 @@ from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views import generic
 
-from .models import Choice, Question, Article
+from .models import Choice, Question, Article, Comment
 
 class IndexView(generic.ListView):
     template_name = 'articles/index.html'
@@ -18,7 +18,7 @@ class DetailView(generic.DetailView):
 
 
 class ResultsView(generic.DetailView):
-    model = Question
+    model = Article
     template_name = 'articles/results.html'
 
 
@@ -26,15 +26,16 @@ def comment(request, article_id):
     article = get_object_or_404(Article, pk=article_id)
 
     try:
-        new_comment = article.comment_set.get(pk=request.POST['article'])
+        Comment.objects.create(article=article, comment_text=request.POST['comment'])
+        # new_comment = article.comment_set.get(pk=request.POST['article'])
     except (KeyError, Choice.DoesNotExist):
         return render(request, 'articles/detail.html', {
             'article': article,
             'error_message': "Something wrong.",
         })
     else:
-        new_comment.comment_text = request.POST['comment']
-        new_comment.save()
+        # new_comment.comment_text = request.POST['comment']
+        # new_comment.save()
         return HttpResponseRedirect(reverse('polls:results', args=(article.id,)))
 
 
