@@ -2,11 +2,12 @@ from django.contrib import admin
 from django.db import models
 from django.utils import timezone
 import datetime
-
 class Article(models.Model):
     article_title = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
 
+    def comments(self):
+        return Comment.objects.filter(article_id=self.id)
 class Comment(models.Model):
     article = models.ForeignKey(Article, on_delete=models.CASCADE)
     comment_text = models.TextField(max_length=200)
