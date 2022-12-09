@@ -1,11 +1,16 @@
 from django.contrib import admin
 
-from .models import Choice, Question, Article
+from .models import Choice, Question, Article, Comment
 
 class ArticleAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,               {'fields': ['article_title']}),
         ('Date information', {'fields': ['pub_date'], 'classes': ['collapse']}),
+    ]
+
+class CommentAdmin(admin.ModelAdmin):
+    fieldsets = [
+        (None,               {'fields': ['comment_text']}),
     ]
 
 class ChoiceInline(admin.StackedInline):
@@ -24,4 +29,5 @@ class QuestionAdmin(admin.ModelAdmin):
     search_fields = ['question_text']
 
 admin.site.register(Article, ArticleAdmin)
+admin.site.register(Comment, CommentAdmin)
 admin.site.register(Question, QuestionAdmin)
