@@ -12,10 +12,9 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         return Article.objects.order_by('-pub_date')[:5]
 
-
 class DetailView(generic.DetailView):
-    model = Question
-    template_name = 'polls/detail.html'
+    model = Article
+    template_name = 'articles/detail.html'
 
 
 class ResultsView(generic.DetailView):
