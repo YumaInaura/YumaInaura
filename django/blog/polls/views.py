@@ -18,7 +18,7 @@ class DetailView(generic.DetailView):
 
 
 class ResultsView(generic.DetailView):
-    model = Question
+    model = Article
     template_name = 'articles/results.html'
 
 
