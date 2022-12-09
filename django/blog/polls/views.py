@@ -14,7 +14,8 @@ class IndexView(generic.ListView):
 
 def detail(request, article_id):
     article = get_object_or_404(Article, pk=article_id)
-    return render(request, 'articles/detail.html', {'article': article})
+    comments = Comment.objects.filter(article_id=article.id)
+    return render(request, 'articles/detail.html', {'article': article, 'comments': comments})
 
 # class DetailView(generic.DetailView):
 #     model = Article

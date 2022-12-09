@@ -6,6 +6,14 @@
         <textarea name="comment">
 
         </textarea>
+        {% if comments %}
+            <ul>
+            {% for comment in comments %}
+                <li>{{ comment.comment_text }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+
         <!-- {% for choice in article.choice_set.all %}
             <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
             <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
