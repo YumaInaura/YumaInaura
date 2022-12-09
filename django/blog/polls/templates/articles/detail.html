@@ -1,4 +1,4 @@
-<form action="{% url 'polls:comment' article.id %}" method="post">
+<form action="{% url 'articles:comment' article.id %}" method="post">
     {% csrf_token %}
     <fieldset>
         <legend><h1>{{ article.article_title }}</h1></legend>
@@ -6,6 +6,14 @@
         <textarea name="comment">
 
         </textarea>
+        {% if comments %}
+            <ul>
+            {% for comment in comments %}
+                <li>{{ comment.comment_text }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+
         <!-- {% for choice in article.choice_set.all %}
             <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
             <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
