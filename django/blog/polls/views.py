@@ -5,8 +5,9 @@ from django.views import generic
 
 from .models import Choice, Question
 
+
 class IndexView(generic.ListView):
-    template_name = 'articles/index.html'
+    template_name = 'polls/index.html'
     context_object_name = 'latest_question_list'
 
     def get_queryset(self):
@@ -16,12 +17,12 @@ class IndexView(generic.ListView):
 
 class DetailView(generic.DetailView):
     model = Question
-    template_name = 'articles/detail.html'
+    template_name = 'polls/detail.html'
 
 
 class ResultsView(generic.DetailView):
     model = Question
-    template_name = 'articles/results.html'
+    template_name = 'polls/results.html'
 
 
 def vote(request, question_id):
@@ -30,7 +31,7 @@ def vote(request, question_id):
         selected_choice = question.choice_set.get(pk=request.POST['choice'])
     except (KeyError, Choice.DoesNotExist):
         # Redisplay the question voting form.
-        return render(request, 'articles/detail.html', {
+        return render(request, 'polls/detail.html', {
             'question': question,
             'error_message': "You didn't select a choice.",
         })
@@ -40,5 +41,5 @@ def vote(request, question_id):
         # Always return an HttpResponseRedirect after successfully dealing
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
-        return HttpResponseRedirect(reverse('articles:results', args=(question.id,)))
+        return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
 
