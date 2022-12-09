@@ -5,7 +5,6 @@ from django.views import generic
 
 from .models import Choice, Question, Article
 
-
 class IndexView(generic.ListView):
     template_name = 'articles/index.html'
     context_object_name = 'latest_articles_list'
