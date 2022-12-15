@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/greeting', function () {
+    return 'Hello World';
+});
+
 class RouteServiceProvider extends ServiceProvider
 {
     /**
