@@ -12,6 +12,10 @@ Route::get('/greeting', function () {
     return 'Hello World';
 });
 
+Route::get('/authcheck', function () {
+    return 'You have permission';
+})->middleware(['auth:sanctum']);
+
 Route::post('/tokens/create', function (Request $request) {
     $token = \App\Models\User::find(1)->createToken("XXX");
  //   $token = $request->user()->createToken($request->token_name);
