@@ -8,21 +8,23 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\LoginController;
+
+
 Route::get('/greeting', function () {
     return 'Hello World';
 });
 
 Route::get('/authcheck', function () {
     return 'You have permission';
-})->middleware(['auth:sanctum']);
+})->middleware(['auth:sanctum'],'all');
 
-Route::post('/tokens/create', function (Request $request) {
-    $token = \App\Models\User::find(1)->createToken("XXX");
- //   $token = $request->user()->createToken($request->token_name);
+// Route::post('/tokens/create', function (Request $request) {
+//     $token = $request->user()->createToken($request->token_name);
+//     return ['token' => $token->plainTextToken];
+// });
 
-    return ['token' => $token->plainTextToken];
-});
-
+Route::post('/tokens/create', [LoginController::class, 'login']);
 
 class RouteServiceProvider extends ServiceProvider
 {
