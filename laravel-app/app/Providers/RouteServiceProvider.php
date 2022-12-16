@@ -13,7 +13,8 @@ Route::get('/greeting', function () {
 });
 
 Route::post('/tokens/create', function (Request $request) {
-    $token = $request->user()->createToken($request->token_name);
+    $token = \App\Models\User::find(1)->createToken("XXX");
+ //   $token = $request->user()->createToken($request->token_name);
 
     return ['token' => $token->plainTextToken];
 });
