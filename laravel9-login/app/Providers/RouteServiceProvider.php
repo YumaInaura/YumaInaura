@@ -13,7 +13,7 @@ Route::get('/greeting', function () {
     return 'Hello World';
 });
 
-Route::get('/authcheck', function () {
+Route::get('/authcheck_api', function () {
     return 'You have permission';
 })->middleware(['auth:sanctum'],'all');
 
