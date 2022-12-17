@@ -19,6 +19,10 @@ Route::get('/authcheck', function () {
     return 'You have permission';
 })->middleware(['auth:sanctum'],'all');
 
+Route::middleware('auth:sanctum')->get('authcheck_browser', function () {
+    return "You have permission";
+});
+
 // Route::post('/tokens/create', function (Request $request) {
 //     $token = $request->user()->createToken($request->token_name);
 //     return ['token' => $token->plainTextToken];
