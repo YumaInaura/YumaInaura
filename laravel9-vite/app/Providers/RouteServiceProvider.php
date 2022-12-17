@@ -7,6 +7,21 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+
+Route::get('/greeting', function () {
+    return 'Hello World';
+});
+
+Route::get('/authcheck', function () {
+    return 'You have permission';
+})->middleware(['auth:sanctum'],'all');
+
+Route::middleware('auth:sanctum')->get('authcheck_browser', function () {
+    return "You have permission";
+});
+
+Route::post('/tokens/create', [LoginController::class, 'login']);
 
 class RouteServiceProvider extends ServiceProvider
 {
