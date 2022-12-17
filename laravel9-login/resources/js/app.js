@@ -11,12 +11,21 @@ window.axios = axios;
 
 window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 
-import { createApp } from "vue";
+// import { createApp } from "vue";
+// import './bootstrap';
+// import '../css/app.css';
+// import {createApp} from 'vue'
+// import App from './App.vue'
+// createApp(App).mount("#app")
+// const app = createApp();
 
-const app = createApp();
+// console.log(app.version);
 
-console.log(app.version);
-
-app.mount("#app");
+// app.mount("#app");
 
 
+import './bootstrap';
+import '../css/app.css';
+import {createApp} from 'vue'
+import App from './App.vue'
+createApp(App).mount("#app")
