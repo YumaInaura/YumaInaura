@@ -5,6 +5,7 @@ from django.views import generic
 
 from .models import Choice, Question
 
+from django.views.generic.edit import UpdateView
 
 class IndexView(generic.ListView):
     template_name = 'polls/index.html'
@@ -14,11 +15,15 @@ class IndexView(generic.ListView):
         """Return the last five published questions."""
         return Question.objects.order_by('-pub_date')[:5]
 
-
 class DetailView(generic.DetailView):
     model = Question
     template_name = 'polls/detail.html'
 
+class SomeUpdateView(UpdateView):
+    model = Question
+    fields = '__all__'
+
+    template_name = 'polls/update.html'
 
 class ResultsView(generic.DetailView):
     model = Question
