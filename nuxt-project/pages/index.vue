@@ -1,22 +1,34 @@
 <template>
-  <Tutorial/>
+	<Tutorial />
 </template>
 
-<script lang="ts">
-		import Vue from 'vue'
+<script>
+import Vue from 'vue'
 
-		export default Vue.extend({
-	    created() {
-    },
-    async asyncData({ $axios }) {
-			const url = "https://example.com/";
+export default Vue.extend({
+  mounted () {
+    this.$nextTick(() => {
+      this.$nuxt.$loading.start()
 
-			const response = await $axios.$get(url);
-      console.log(response);
-			return {
-				posts: response
-			};
-		}
-	})
+      setTimeout(() => this.$nuxt.$loading.finish(), 2000)
+    })
+  },
+	created() {
+
+	},
+	data: () => ({
+		loading: false
+	}),
+
+	async asyncData({ $axios }) {
+		const url = "https://example.com/";
+
+		const response = await $axios.$get(url);
+		console.log(response);
+		return {
+			posts: response
+		};
+	}
+})
 </script>
 
