@@ -1,3 +1,5 @@
+<!-- https://develop365.gitlab.io/nuxtjs-2.8.X-doc/ja/api/configuration-loading/ -->
+
 <template>
 	<Tutorial />
 </template>
@@ -16,10 +18,7 @@ export default Vue.extend({
 	created() {
 
 	},
-	data: () => ({
-		loading: false
-	}),
-
+	methods(){},
 	async asyncData({ $axios }) {
 		const url = "https://example.com/";
 
