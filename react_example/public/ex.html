@@ -1,8 +1,7 @@
-import logo from './logo.svg';
-import './App.css';
+import "./styles.css";
 import { useState } from "react";
 
-function App() {
+export default function App() {
   const [className, setClassName] = useState("");
   const [className01, setClassName01] = useState("");
 
@@ -21,10 +20,7 @@ function App() {
       <button onClick={handleClick}>color</button>
       <button onClick={handleClick02}>font-weight</button>
 
-
-      <p className={`${className} ${className01}`}>This is a paragraph</p>
+      <p className={(className, className01)}>This is a paragraph</p>//className01関数しか効かない
     </div>
   );
 }
-
-export default App;
