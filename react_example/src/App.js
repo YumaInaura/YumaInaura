@@ -1,24 +1,17 @@
-import './App.css';
-import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
-
-import React, { Component } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Home from './Home';
+// import About from './routes/about';
+// import Contact from './routes/contact';
 
 function App() {
   return (
-    <BrowserRouter>
-      <h1>Hello React Router</h1>
-      <Route path="/sasa">
-        <Home />
-      </Route>
-    </BrowserRouter>
-    );
+    <div className="App">
+      <h1>Hello React Router v6</h1>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </div>
+  );
 }
-
-class Home extends Component {
-  render() {
-    return <h2>PageAです</h2>;
-  }
-}
-
 
 export default App;
