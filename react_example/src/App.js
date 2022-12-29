@@ -1,5 +1,7 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 
+import Checked from './Checked';
+
 function Hello() {
   return <h2>Hello</h2>;
 }
@@ -15,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/hello" element={<Hello />} />
+        <Route path="/checked" element={<Checked />} />
       </Routes>
     </BrowserRouter>
   );
