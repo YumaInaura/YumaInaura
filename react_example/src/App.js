@@ -1,30 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from "react";
+import { BrowserRouter, Route } from 'react-router-dom';
 
 function App() {
-  const [className, setClassName] = useState("");
-  const [className01, setClassName01] = useState("");
-
-//colorクラスを付与
-  const handleClick = () => {
-    setClassName("color");
-  };
-
-//font-weightクラスを付与
-  const handleClick02 = () => {
-    setClassName01("font-weight");
-  };
 
   return (
-    <div className="App">
-      <button onClick={handleClick}>color</button>
-      <button onClick={handleClick02}>font-weight</button>
-
-
-      <p className={`${className} ${className01}`}>This is a paragraph</p>
-    </div>
+    <BrowserRouter>
+      <h1>Hello React Router</h1>
+      <Route path="/">
+        <Home />
+      </Route>
+    </BrowserRouter>
   );
 }
+
+function Home() {
+  return <h2>Home</h2>;
+}
+
 
 export default App;
