@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import EnterIncrementModule from "../styles/EnterIncrement.module.css";
 
-const EnterIncrement = () => {
+export default function EnterIncrement()  {
   const [count, setCount] = useState(0);
 
   const handleKeyDown = (event: KeyboardEvent) => {
@@ -15,10 +14,8 @@ const EnterIncrement = () => {
     document.addEventListener('keydown', handleKeyDown, false)
   }, [count])
 
-  return <div className={EnterIncrementModule.body}>{count}</div>
+  return <div>{count}</div>
 }
-
-export default EnterIncrement
 
 // https://tech-broccoli.life/articles/engineer/key-down-with-use-effect/
 
