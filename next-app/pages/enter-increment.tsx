@@ -1,23 +1,24 @@
-// import '../../styles/globals.css'
-import type { AppProps } from 'next/app'
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import EnterIncrementModule from "../styles/EnterIncrement.module.css";
 
-export default function EnterIncrement({ Component, pageProps }: AppProps) {
-  const inputElement = useRef(null);
+const EnterIncrement = () => {
   const [count, setCount] = useState(0);
 
-  useEffect(() => {
-    if (inputElement.current) {
-      inputElement.current.focus();
+  const handleKeyDown = (event: KeyboardEvent) => {
+    if (event.key === 'Enter') {
+      setCount(count+1)
+      console.log('keydown Enter Key')
     }
-  }, []);
+  }
 
-  return (
-    <div>
-      <label>
-        <input type="text" defaultValue="Untitled" ref={inputElement} onKeyDown={() => setCount(count + 1)} size="1"/>
-      </label>
-      <p>You clicked {count} times</p>
-    </div>
-  );
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyDown, false)
+  }, [count])
+
+  return <div className={EnterIncrementModule.body}>{count}</div>
 }
+
+export default EnterIncrement
+
+// https://tech-broccoli.life/articles/engineer/key-down-with-use-effect/
+
