@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
@@ -8,7 +9,6 @@ from .models import Choice, Question
 from django.views.generic.edit import UpdateView
 
 from django.contrib.auth.decorators import login_required
-# @login_required
 class IndexView(generic.ListView):
     login_url = '/login/'
 
@@ -16,8 +16,11 @@ class IndexView(generic.ListView):
     context_object_name = 'latest_question_list'
 
     def get_queryset(self):
-        """Return the last five published questions."""
         return Question.objects.order_by('-pub_date')[:5]
+
+def detail(request, mainid ,secondid):
+    return HttpResponse("mainid %s  secondid %s." % (mainid, secondid))
+
 class DetailView(generic.DetailView):
     model = Question
     template_name = 'polls/detail.html'
