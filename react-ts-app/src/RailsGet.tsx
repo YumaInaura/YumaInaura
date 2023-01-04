@@ -4,13 +4,16 @@ import axios from "axios";
 import React from 'react'
 
 const AxiosGet = () => {
-  function sleep(time: any) {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        resolve(1);
-      }, time);
-    });
-  }
+  // function sleep(time: any) {
+  //   return new Promise((resolve, reject) => {
+  //     setTimeout(() => {
+  //       resolve(1);
+  //     }, time);
+  //   });
+  // }
+
+
+  // const sleep = msec => new Promise(resolve => setTimeout(resolve, msec));
 
   const numOfTime = 10;
   const delay = 1000;
