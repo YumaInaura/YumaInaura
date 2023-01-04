@@ -1,5 +1,3 @@
-<!-- https://zenn.dev/coedo/articles/86bc31acb4ea47 -->
-
 <script lang="ts">
 export default defineComponent({
   async setup() {
@@ -10,13 +8,6 @@ export default defineComponent({
   },
 })
 </script>
-
-<!--
-<script setup lang="ts">
-    const data = await fetch('https://jsonplaceholder.typicode.com/todos/')
-    const { data: items } = await data.json()
-    console.log(items)
-</script> -->
 
 <template>
   <ul>
