@@ -1,39 +1,27 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
-import axios from "axios";
 import FetchExample from "./FetchExample";
-import React from 'react'
-
-function AxiosGet() {
-  const baseURL = "https://jsonplaceholder.typicode.com/posts/1";
-  const [post, setPost] = React.useState(null);
-
-  React.useEffect(() => {
-    axios.get(baseURL).then((response) => {
-      setPost(response.data);
-    });
-  }, []);
-
-  if (!post) return null;
-
-  return (
-    <div>
-      <h1>{post['title']}</h1>
-      <p>{post['body']}</p>
-    </div>
-  );
-}
+import AxiosGet from "./AxiosGet";
+import RailsGet from "./RailsGet";
 
 function Hello() {
   return <h2>XXX</h2>;
 }
 
 function Home() {
-  return <h2>Home</h2>;
+  return(
+    <div>
+      <h2>Home</h2>
+      <ul>
+      <li><Link to="/axiosget">AxiosGet</Link></li>
+      <li><Link to="/hello">Hello</Link></li>
+      </ul>
+    </div>
+  );
 }
 
 function App() {
-
   return (
     <BrowserRouter>
       <h1>Hello React Router v6</h1>
@@ -42,6 +30,7 @@ function App() {
         <Route path="/hello" element={<Hello />} />
         <Route path="/axiosget" element={<AxiosGet />} />
         <Route path="/fetch" element={<FetchExample />} />
+        <Route path="/railsget" element={<RailsGet />} />
       </Routes>
     </BrowserRouter>
   );
