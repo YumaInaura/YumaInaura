@@ -1,8 +1,63 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import React, {useState, useEffect} from 'react'
 
+import axios from "axios";
+
+export const doFetch = async () => {
+  const res = await fetch('http://localhost:3000/')
+  const json = await res.json()
+  return json
+}
+
+const FetchExample = () => {
+
+  const [posts, setPosts] = useState([])
+
+  useEffect(() => {
+      fetch('https://jsonplaceholder.typicode.com/posts', {method: 'GET'})
+      .then(res => res.json())
+      .then(data => {
+          setPosts(data)
+      })
+  },[])
+
+  return (
+      <div>
+          <ul>
+              {
+                  posts.map(post =>
+                  <li key={post['id']}>{post['title']}</li>
+                  )
+              }
+          </ul>
+
+      </div>
+  )
+}
+
+
+function AxiosGet() {
+  const baseURL = "https://jsonplaceholder.typicode.com/posts/1";
+  const [post, setPost] = React.useState(null);
+
+  React.useEffect(() => {
+    axios.get(baseURL).then((response) => {
+      setPost(response.data);
+    });
+  }, []);
+
+  if (!post) return null;
+
+  return (
+    <div>
+      <h1>{post['title']}</h1>
+      <p>{post['body']}</p>
+    </div>
+  );
+}
 
 function Hello() {
-  return <h2>Hello</h2>;
+  return <h2>XXX</h2>;
 }
 
 function Home() {
@@ -10,12 +65,15 @@ function Home() {
 }
 
 function App() {
+
   return (
     <BrowserRouter>
       <h1>Hello React Router v6</h1>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/hello" element={<Hello />} />
+        <Route path="/axiosget" element={<AxiosGet />} />
+        <Route path="/fetch" element={<FetchExample />} />
       </Routes>
     </BrowserRouter>
   );
