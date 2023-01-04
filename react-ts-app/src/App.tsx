@@ -1,40 +1,8 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import React, {useState, useEffect} from 'react'
 
 import axios from "axios";
-
-export const doFetch = async () => {
-  const res = await fetch('http://localhost:3000/')
-  const json = await res.json()
-  return json
-}
-
-const FetchExample = () => {
-
-  const [posts, setPosts] = useState([])
-
-  useEffect(() => {
-      fetch('https://jsonplaceholder.typicode.com/posts', {method: 'GET'})
-      .then(res => res.json())
-      .then(data => {
-          setPosts(data)
-      })
-  },[])
-
-  return (
-      <div>
-          <ul>
-              {
-                  posts.map(post =>
-                  <li key={post['id']}>{post['title']}</li>
-                  )
-              }
-          </ul>
-
-      </div>
-  )
-}
-
+import FetchExample from "./FetchExample";
+import React from 'react'
 
 function AxiosGet() {
   const baseURL = "https://jsonplaceholder.typicode.com/posts/1";
