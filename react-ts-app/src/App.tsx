@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 
 import FetchExample from "./FetchExample";
 import AxiosGet from "./AxiosGet";
-import RailsGet from "./RailsGet";
+import ContinuousFetch from "./ContinuousFetch";
+import Sleep from "./Sleep";
 
 function Hello() {
   return <h2>XXX</h2>;
@@ -16,6 +17,8 @@ function Home() {
       <ul>
       <li><Link to="/axiosget">AxiosGet</Link></li>
       <li><Link to="/hello">Hello</Link></li>
+      <li><Link to="/continuousfetch">ContinuousFetch</Link></li>
+      <li><Link to="/sleep">Sleep</Link></li>
       </ul>
     </div>
   );
@@ -24,13 +27,14 @@ function Home() {
 function App() {
   return (
     <BrowserRouter>
-      <h1>Hello React Router v6</h1>
+      <h1>Hello React</h1>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/hello" element={<Hello />} />
         <Route path="/axiosget" element={<AxiosGet />} />
         <Route path="/fetch" element={<FetchExample />} />
-        <Route path="/railsget" element={<RailsGet />} />
+        <Route path="/continuousfetch" element={<ContinuousFetch />} />
+        <Route path="/sleep" element={<Sleep />} />
       </Routes>
     </BrowserRouter>
   );
