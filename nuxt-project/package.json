@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
+    "@vue/reactivity": "^3.2.45",
     "core-js": "^3.25.3",
     "loglevel": "^1.8.1",
     "nuxt": "^3.0.0",
