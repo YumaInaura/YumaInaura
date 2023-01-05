@@ -1,0 +1,51 @@
+[
+  {
+    "name": "child",
+    "path": "/child",
+    "component": "/Users/yumainaura/projects/YumaInaura/nuxt2-project/pages/child.vue",
+    "chunkName": "pages/child",
+    "_name": "_10dcd6fc"
+  },
+  {
+    "name": "closable",
+    "path": "/closable",
+    "component": "/Users/yumainaura/projects/YumaInaura/nuxt2-project/pages/closable.vue",
+    "chunkName": "pages/closable",
+    "_name": "_38c06092"
+  },
+  {
+    "name": "map",
+    "path": "/map",
+    "component": "/Users/yumainaura/projects/YumaInaura/nuxt2-project/pages/map.vue",
+    "chunkName": "pages/map",
+    "_name": "_2d41cd88"
+  },
+  {
+    "name": "parent",
+    "path": "/parent",
+    "component": "/Users/yumainaura/projects/YumaInaura/nuxt2-project/pages/parent.vue",
+    "chunkName": "pages/parent",
+    "_name": "_a3fa3c0c"
+  },
+  {
+    "name": "popup",
+    "path": "/popup",
+    "component": "/Users/yumainaura/projects/YumaInaura/nuxt2-project/pages/popup.vue",
+    "chunkName": "pages/popup",
+    "_name": "_1c61eae8"
+  },
+  {
+    "name": "trantision",
+    "path": "/trantision",
+    "component": "/Users/yumainaura/projects/YumaInaura/nuxt2-project/pages/trantision.vue",
+    "chunkName": "pages/trantision",
+    "_name": "_05f6a165"
+  },
+  {
+    "name": "index",
+    "path": "/",
+    "component": "/Users/yumainaura/projects/YumaInaura/nuxt2-project/pages/index.vue",
+    "chunkName": "pages/index",
+    "_name": "_3331809c"
+  }
+]

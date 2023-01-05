@@ -1,0 +1,46 @@
+{
+    "name": "@types/webpack-bundle-analyzer",
+    "version": "3.9.3",
+    "description": "TypeScript definitions for webpack-bundle-analyzer",
+    "license": "MIT",
+    "contributors": [
+        {
+            "name": "Michael Strobel",
+            "url": "https://github.com/kryops",
+            "githubUsername": "kryops"
+        },
+        {
+            "name": "Vladimir Grenaderov",
+            "url": "https://github.com/VladimirGrenaderov",
+            "githubUsername": "VladimirGrenaderov"
+        },
+        {
+            "name": "Max Boguslavskiy",
+            "url": "https://github.com/maxbogus",
+            "githubUsername": "maxbogus"
+        },
+        {
+            "name": "Piotr Błażejewicz",
+            "url": "https://github.com/peterblazejewicz",
+            "githubUsername": "peterblazejewicz"
+        },
+        {
+            "name": "Kyle Hensel",
+            "url": "https://github.com/k-yle",
+            "githubUsername": "k-yle"
+        }
+    ],
+    "main": "",
+    "types": "index.d.ts",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
+        "directory": "types/webpack-bundle-analyzer"
+    },
+    "scripts": {},
+    "dependencies": {
+        "@types/webpack": "^4"
+    },
+    "typesPublisherContentHash": "bfe7de83d03bd4b1b416a48bfc556938e13c58ee006413d06a3bff806ad85bd4",
+    "typeScriptVersion": "3.7"
+}
