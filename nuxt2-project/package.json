@@ -17,7 +17,6 @@
     "nuxt-browser-console": "^1.3.0",
     "nuxt-log": "^0.1.0",
     "vue": "^2.7.10",
-    "vue-closable": "^0.0.3",
     "vue-server-renderer": "^2.7.10",
     "vue-template-compiler": "^2.7.10"
   },
