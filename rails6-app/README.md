@@ -11,6 +11,14 @@ rails g devise User
 rails g devise:controllers users
 rails g devise:views
 ```
+
+# migrate
+
+```
+rails db:create
+rails db:migrate
+```
+
 # webpack
 
 Edit Gemfile
