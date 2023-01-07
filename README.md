@@ -60,13 +60,6 @@
 - Ruby on RailsでのバックエンドAPI開発
 - C# での IoT系 アプリ開発
 - コードレビュー・アプリテストに開発サポートとして参加
-- Tandems株式会社での1on1ミーティング
-
-## 開発に参加したことのあるプロジェクト
-
-- RECRUIT様
-- Hamee様
-- LIXIL様
 
 # Twitter
 
