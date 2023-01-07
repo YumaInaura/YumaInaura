@@ -1,17 +1,38 @@
-import {useState, useEffect} from 'react'
 
-const Sleep = () => {
-  const [data, setData] = useState("");
+import logo from './logo.svg';
+import './App.scss';
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setData(Date().toLocaleString());
-    }, 1000);
+import { useState } from "react"
 
-    return () => clearInterval(interval);
-  }, []);
+function Counter() {
+  const [count, setCount] = useState(0)
+  const countup = () => {
+    setCount(prevState => prevState + 1)
+  }
+  const countdown = () => {
+    setCount(prevState => prevState - 1)
+  }
 
-  return data ? <div>{data}</div> : <div>Loading...</div>;
+  return (
+    <>
+      <button type="button" onClick={countup}>+</button>
+      <button type="button" onClick={countdown}>-</button>
+      {count}
+    </>
+  )
 }
 
-export default Sleep;
+function App() {
+  return (
+    <div className="App">
+      <body>
+
+        {<Counter></Counter>}
+
+
+      </body>
+    </div>
+  );
+}
+
+export default App;

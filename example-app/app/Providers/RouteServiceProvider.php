@@ -7,32 +7,6 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
-
-Route::get('/greeting', function () {
-    return 'Hello World';
-});
-
-$languages = array("", "en");
-foreach ($languages as &$language) {
-    Route::get("{$language}/grand/top", 'Grand\TopController@index');
-}
-
-Route::get('/foo/{bar}', function ($bar) {
-    return 'Hello';
-})->where('bar', '(xxx|yyy)');
-# /foo/xxx
-# /foo/yyy
-
-Route::get('/authcheck_api', function () {
-    return 'You have permission';
-})->middleware(['auth:sanctum'],'all');
-
-Route::middleware('auth:sanctum')->get('authcheck_browser', function () {
-    return "You have permission";
-});
-
-Route::post('/tokens/create', [LoginController::class, 'login']);
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -43,7 +17,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/dashboard';
+    public const HOME = '/home';
 
     /**
      * Define your route model bindings, pattern filters, and other route configuration.
