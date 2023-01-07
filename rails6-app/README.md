@@ -11,9 +11,16 @@ rails g devise User
 rails g devise:controllers users
 rails g devise:views
 ```
+# webpack
+
+Edit Gemfile
+
+```
+gem 'webpacker', '~> 5.0'
+```
 
 ```
 rails webpacker:install
-rails webpacker:compile
+NODE_OPTIONS=--openssl-legacy-provider rails webpacker:compile
 ```
 
