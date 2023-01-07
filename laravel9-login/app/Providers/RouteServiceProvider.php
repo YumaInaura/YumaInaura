@@ -21,7 +21,7 @@ foreach ($languages as &$language) {
 Route::get('/foo/{bar}', function ($bar) {
     return 'Hello';
 })->where('bar', '(xxx|yyy)');
-# /foo/xxx
+# /foo/yyy
 # /foo/yyy
 
 Route::get('/authcheck_api', function () {
