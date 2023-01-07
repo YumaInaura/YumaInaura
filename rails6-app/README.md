@@ -19,6 +19,12 @@ rails db:create
 rails db:migrate
 ```
 
+# rspec
+
+```
+rails g rspec:install
+```
+
 # webpack
 
 Edit Gemfile
