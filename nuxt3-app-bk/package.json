@@ -8,6 +8,9 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "nuxt": "3.0.0"
+    "nuxt": "^3.0.0"
+  },
+  "dependencies": {
+    "vue-closable": "^0.0.3"
   }
 }
