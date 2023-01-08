@@ -5,6 +5,7 @@ import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
 const _10dcd6fc = () => interopDefault(import('../pages/child.vue' /* webpackChunkName: "pages/child" */))
+const _15d7773e = () => interopDefault(import('../pages/clickaxios.vue' /* webpackChunkName: "pages/clickaxios" */))
 const _38c06092 = () => interopDefault(import('../pages/closable.vue' /* webpackChunkName: "pages/closable" */))
 const _2d41cd88 = () => interopDefault(import('../pages/map.vue' /* webpackChunkName: "pages/map" */))
 const _a3fa3c0c = () => interopDefault(import('../pages/parent.vue' /* webpackChunkName: "pages/parent" */))
@@ -27,6 +28,10 @@ export const routerOptions = {
     path: "/child",
     component: _10dcd6fc,
     name: "child"
+  }, {
+    path: "/clickaxios",
+    component: _15d7773e,
+    name: "clickaxios"
   }, {
     path: "/closable",
     component: _38c06092,
