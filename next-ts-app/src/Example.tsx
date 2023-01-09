@@ -2,37 +2,46 @@
 import logo from './logo.svg';
 import './App.scss';
 
-import { useState } from "react"
+import { useState} from "react"
+import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
 
-function Counter() {
-  const [count, setCount] = useState(0)
-  const countup = () => {
-    setCount(prevState => prevState + 1)
-  }
-  const countdown = () => {
-    setCount(prevState => prevState - 1)
-  }
-
-  return (
-    <>
-      <button type="button" onClick={countup}>+</button>
-      <button type="button" onClick={countdown}>-</button>
-      {count}
-    </>
-  )
+interface LoginForm {
+  email: string;
+  password: string;
 }
 
-function App() {
-  return (
-    <div className="App">
-      <body>
+const Example = () => {
+  const { handleSubmit, control } = useForm();
 
-        {<Counter></Counter>}
+  //   const [count, setCount] = useState(0)
+//   const countup = () => {
+//     setCount(prevState => prevState + 1)
+//   }
+//   const countdown = () => {
+//     setCount(prevState => prevState - 1)
+//   }
+
+//   return (
+//     <>
+//       <button type="button" onClick={countup}>+</button>
+//       <button type="button" onClick={countdown}>-</button>
+//       {count}
+//     </>
+//   )
+// }
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <body>
+
+//         {<Counter></Counter>}
 
 
-      </body>
-    </div>
-  );
+//       </body>
+//     </div>
+//   );
+return(<div></div>)
 }
 
-export default App;
+export default Example;
