@@ -1,18 +1,19 @@
-.label:before {
+
+.item1 {
   content: "";
   display: inline-block;
   background-size: contain;
-  width: 140px;
-  height: 140px;
+  width: 80px;
+  height: 80px;
+  background-image: url(./images/checked.png);
 }
 
-
-.item-label{
+.item2 {
   content: "";
   display: inline-block;
   background-size: contain;
-  width: 140px;
-  height: 140px;
+  width: 80px;
+  height: 80px;
   background-image: url(./images/checked.png);
 }
 

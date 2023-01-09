@@ -5,7 +5,7 @@
 
 import './App.scss';
 import axios from "axios";
-import FormCssModule from "./Form.module.css";
+import ImageRadioCss from "./ImageRadio.module.css";
 
 import { useForm } from "react-hook-form";
 import { useState } from 'react'
@@ -13,24 +13,24 @@ import { useState } from 'react'
 const Form = () => {
   const { register, handleSubmit } = useForm();
 
-  const items = ["small", "large"]
-  const [val, setVal] = useState('item１');
+  const items = ["item1", "item2"]
+  const [selectedItem, setItem] = useState("");
 
   const requestURL = "https://httpbin.org/post";
   const [getData, setResponse] = useState({ form: { content: "", item: "" } });
 
   const onSubmit = (data: any) => {
-    axios.post(requestURL, new URLSearchParams({ content: data.content, item: val })).then((response) => {
+    axios.post(requestURL, new URLSearchParams({ content: data.content, item: selectedItem })).then((response) => {
       setResponse(response.data);
     });
   };
   const handleChange = (e: any) => {
-    setVal(e.target.value);
+    setItem(e.target.value);
   };
 
   return (
     <div className="App">
-      <h1>POST</h1>
+      <h1>Form ImageRadio</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label htmlFor="content">content</label>
@@ -42,19 +42,18 @@ const Form = () => {
           return (
             <div key={item}>
               <input
-                className={FormCssModule["item-input"]}
+                className={ImageRadioCss["item-input"]}
                 id={item}
                 type="radio"
                 {...register('item')}
                 value={item}
                 onChange={handleChange}
-                checked={item === val}
+                checked={item === selectedItem}
               />
               <label
                 htmlFor={item}
-                className={FormCssModule["item-label"]}
+                className={ImageRadioCss[item]}
               >
-                {item}
               </label>
             </div>
           );
