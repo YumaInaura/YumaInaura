@@ -2,23 +2,22 @@
 import './App.scss';
 import axios from "axios";
 
-import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
-import React from 'react'
+import { useForm } from "react-hook-form";
+import { useState } from 'react'
 
-const Example = () => {
+const Form = () => {
   const { register, handleSubmit } = useForm();
 
-  const items = ["アイテム１", "アイテム２", "アイテム３", "アイテム４"]
-  const [val, setVal] = React.useState('アイテム１');
+  const items = ["item１", "item２", "item３", "item４"]
+  const [val, setVal] = useState('item１');
 
-  const requestURL = "https://example.com";
-  // const [posted, setPost] = React.useState(null);
+  const requestURL = "https://httpbin.org/post";
+  const [getData, setResponse] = useState({ form: { content: "", item: "" }});
 
   const onSubmit = (data: any) => {
-    axios.post(requestURL, new URLSearchParams(data))
-      .then((response) => {
-        console.log(response.data)
-      });
+    axios.post(requestURL, new URLSearchParams(data)).then((response) => {
+      setResponse(response.data);
+    });
   };
   const handleChange = (e: any) => {
     setVal(e.target.value);
@@ -51,8 +50,15 @@ const Example = () => {
         })}
         <button type="submit">Submit</button>
       </form>
+      <div>
+        <h2>Content</h2>
+          <p>{getData['form']['content']}</p>
+        <h2>Item</h2>
+          <p>{getData['form']['item']}</p>
+      </div>
     </div>
+
   );
 }
 
-export default Example;
+export default Form;
