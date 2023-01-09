@@ -1,0 +1,66 @@
+.label:before {
+  content: "";
+  display: inline-block;
+  background-size: contain;
+  width: 140px;
+  height: 140px;
+}
+
+/* .xxx:before {
+  background-image: url("https://user-images.githubusercontent.com/13635059/211246718-7d0dd84d-c7a5-4011-9cb8-7b3b295ce02e.png");
+}
+
+.xxx:before {
+  background-image: url("https://user-images.githubusercontent.com/13635059/211246718-7d0dd84d-c7a5-4011-9cb8-7b3b295ce02e.png");
+}
+
+.xxx:before {
+  background-image: url("https://user-images.githubusercontent.com/13635059/211246718-7d0dd84d-c7a5-4011-9cb8-7b3b295ce02e.png");
+} */
+
+
+.bg{
+  background-image: url(https://www-creators.com/wp-content/uploads/2017/10/cat.jpg);
+
+    /* background-image: url("https://user-images.githubusercontent.com/13635059/211246718-7d0dd84d-c7a5-4011-9cb8-7b3b295ce02e.png"); */
+}
+
+.item-label{
+  background-image: url("https://user-images.githubusercontent.com/13635059/211246718-7d0dd84d-c7a5-4011-9cb8-7b3b295ce02e.png");
+  color:red;
+}
+.item-input:before {
+  display:none;
+  background-image: url("https://user-images.githubusercontent.com/13635059/211246718-7d0dd84d-c7a5-4011-9cb8-7b3b295ce02e.png");
+}
+
+.xxx{color:red}
+.xxx.input[type=radio] {
+  color:red;
+}
+
+.xxx.input[type=radio] {
+  color:red;
+}
+
+/*
+input[type=radio][value="small"]+label:before {
+  background-image: url("https://user-images.githubusercontent.com/13635059/211246718-7d0dd84d-c7a5-4011-9cb8-7b3b295ce02e.png");
+}
+
+input[type=radio][value="medium"]+label:before {
+  background-image: url("https://user-images.githubusercontent.com/13635059/211246718-7d0dd84d-c7a5-4011-9cb8-7b3b295ce02e.png");
+}
+
+input[type=radio][value="large"]+label:before {
+  background-image: url("https://user-images.githubusercontent.com/13635059/211246718-7d0dd84d-c7a5-4011-9cb8-7b3b295ce02e.png");
+}
+
+input[type=radio]:checked+label::before {
+  border: 3px solid #000;
+  box-sizing: border-box;
+}
+
+input[type=radio] {
+  display: none;
+} */
