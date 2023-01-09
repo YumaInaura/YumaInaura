@@ -1,4 +1,5 @@
 
+/* item1 / item2 のプロパティは共通化してない */
 .item1 {
   content: "";
   display: inline-block;

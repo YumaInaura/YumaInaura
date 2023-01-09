@@ -1,16 +1,16 @@
 // ラジオボタンの選択肢を画像にする【CSSのみでOK】
 // https://mgmgblog.com/post-1935/
 
+// [react-hook-form] ラジオボタンのフォームから受け取るdataの値がUndefinedになってしまう
 // https://teratail.com/questions/4mnejxlqd93kzu
 
-import './App.scss';
 import axios from "axios";
 import ImageRadioCss from "./ImageRadio.module.css";
 
 import { useForm } from "react-hook-form";
 import { useState } from 'react'
 
-const Form = () => {
+const ImageRadio = () => {
   const { register, handleSubmit } = useForm();
 
   const items = ["item1", "item2"]
@@ -66,4 +66,4 @@ const Form = () => {
   );
 }
 
-export default Form;
+export default ImageRadio;
