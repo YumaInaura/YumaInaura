@@ -1,47 +1,29 @@
 
-import logo from './logo.svg';
 import './App.scss';
 
-import { useState} from "react"
 import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
 
-interface LoginForm {
-  email: string;
-  password: string;
-}
-
 const Example = () => {
-  const { handleSubmit, control } = useForm();
+  const { register, handleSubmit } = useForm();
 
-  //   const [count, setCount] = useState(0)
-//   const countup = () => {
-//     setCount(prevState => prevState + 1)
-//   }
-//   const countdown = () => {
-//     setCount(prevState => prevState - 1)
-//   }
+  const onSubmit = (data: any) => console.log(data);
 
-//   return (
-//     <>
-//       <button type="button" onClick={countup}>+</button>
-//       <button type="button" onClick={countdown}>-</button>
-//       {count}
-//     </>
-//   )
-// }
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <body>
-
-//         {<Counter></Counter>}
-
-
-//       </body>
-//     </div>
-//   );
-return(<div></div>)
+  return (
+    <div className="App">
+      <h1>ログイン</h1>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div>
+          <label htmlFor="email">Email</label>
+          <input id="email" {...register('email')} />
+        </div>
+        <div>
+          <label htmlFor="password">Password</label>
+          <input id="password" {...register('password')} type="password" />
+        </div>
+        <button type="submit">ログイン</button>
+      </form>
+    </div>
+  );
 }
 
 export default Example;
