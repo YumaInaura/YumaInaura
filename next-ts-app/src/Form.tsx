@@ -1,5 +1,6 @@
 
 import './App.scss';
+import axios from "axios";
 
 import { SubmitErrorHandler, SubmitHandler, useForm } from "react-hook-form";
 import React from 'react'
@@ -10,7 +11,15 @@ const Example = () => {
   const items = ["アイテム１", "アイテム２", "アイテム３", "アイテム４"]
   const [val, setVal] = React.useState('アイテム１');
 
-  const onSubmit = (data: any) => console.log(data);
+  const requestURL = "https://example.com";
+  // const [posted, setPost] = React.useState(null);
+
+  const onSubmit = (data: any) => {
+    axios.post(requestURL, new URLSearchParams(data))
+      .then((response) => {
+        console.log(response.data)
+      });
+  };
   const handleChange = (e: any) => {
     setVal(e.target.value);
   };

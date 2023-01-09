@@ -6,6 +6,7 @@ import AxiosGet from "./AxiosGet";
 import ContinuousFetch from "./ContinuousFetch";
 import Sleep from "./Sleep";
 import Example from "./Example";
+import Form from "./Form";
 
 function Hello() {
   return <h2>XXX</h2>;
@@ -20,6 +21,7 @@ function Home() {
       <li><Link to="/hello">Hello</Link></li>
       <li><Link to="/continuousfetch">ContinuousFetch</Link></li>
       <li><Link to="/sleep">Sleep</Link></li>
+      <li><Link to="/form">Form</Link></li>
       <li><Link to="/example">Example</Link></li>
       </ul>
     </div>
@@ -37,6 +39,7 @@ function App() {
         <Route path="/fetch" element={<FetchExample />} />
         <Route path="/continuousfetch" element={<ContinuousFetch />} />
         <Route path="/sleep" element={<Sleep />} />
+        <Route path="/form" element={<Form />} />
         <Route path="/example" element={<Example />} />
       </Routes>
     </BrowserRouter>
