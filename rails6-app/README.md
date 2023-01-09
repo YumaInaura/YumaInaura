@@ -1,24 +1,40 @@
-# README
+# devise
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+```
+bundle install
+```
 
-Things you may want to cover:
+```
+rails g devise:install
 
-* Ruby version
+rails g devise User
+rails g devise:controllers users
+rails g devise:views
+```
 
-* System dependencies
+# migrate
 
-* Configuration
+```
+rails db:create
+rails db:migrate
+```
 
-* Database creation
+# rspec
 
-* Database initialization
+```
+rails g rspec:install
+```
 
-* How to run the test suite
+# webpack
 
-* Services (job queues, cache servers, search engines, etc.)
+Edit Gemfile
 
-* Deployment instructions
+```
+gem 'webpacker', '~> 5.0'
+```
 
-* ...
+```
+rails webpacker:install
+NODE_OPTIONS=--openssl-legacy-provider rails webpacker:compile
+```
+

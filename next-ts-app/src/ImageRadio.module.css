@@ -1,0 +1,28 @@
+
+.item1 {
+  content: "";
+  display: inline-block;
+  background-size: contain;
+  width: 100px;
+  height: 60px;
+  background-image: url(./images/1.png);
+}
+
+.item2 {
+  content: "";
+  display: inline-block;
+  background-size: contain;
+  width: 100px;
+  height: 60px;
+  background-image: url(./images/2.png);
+}
+
+.item-input:checked + label {
+  border: 5px solid red;
+  box-sizing: border-box;
+}
+.item-input {
+  display:none;
+}
+
+

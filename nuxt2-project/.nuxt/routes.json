@@ -7,6 +7,13 @@
     "_name": "_10dcd6fc"
   },
   {
+    "name": "clickaxios",
+    "path": "/clickaxios",
+    "component": "/Users/yumainaura/projects/YumaInaura/nuxt2-project/pages/clickaxios.vue",
+    "chunkName": "pages/clickaxios",
+    "_name": "_15d7773e"
+  },
+  {
     "name": "closable",
     "path": "/closable",
     "component": "/Users/yumainaura/projects/YumaInaura/nuxt2-project/pages/closable.vue",
