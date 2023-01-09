@@ -15,7 +15,6 @@ function Example() {
 
   return (
     <div>
-      <button onClick={handleClick}>Click</button>
       <Child handleClick={handleClick}/>
       <div>
         {task}

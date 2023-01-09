@@ -8,6 +8,7 @@ import Sleep from "./Sleep";
 import Example from "./Example";
 import Form from "./Form";
 import ImageRadio from "./ImageRadio";
+import Parent from "./Parent";
 
 function Hello() {
   return <h2>XXX</h2>;
@@ -41,6 +42,7 @@ function App() {
         <Route path="/sleep" element={<Sleep />} />
         <Route path="/form" element={<Form />} />
         <Route path="/imageradio" element={<ImageRadio />} />
+        <Route path="/parent" element={<Parent />} />
         <Route path="/example" element={<Example />} />
       </Routes>
     </BrowserRouter>
