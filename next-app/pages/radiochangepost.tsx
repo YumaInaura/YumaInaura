@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from 'react'
 
-const DiscoverOffice = () => {
+const RadioChangePost = () => {
   const [val, setVal] = useState('');
   const requestURL = "https://httpbin.org/post";
   const [gotResponse, setResponse] = useState({ "form": { item: "" }});
@@ -37,4 +37,4 @@ const DiscoverOffice = () => {
     </>
   );
 }
-export default DiscoverOffice;
+export default RadioChangePost;
