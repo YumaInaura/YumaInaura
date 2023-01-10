@@ -1,4 +1,3 @@
-export type SelectType = 'A' | 'B' | 'def';
 import React, { useState, useEffect } from 'react';
 
 export const UnionType = () => {
@@ -11,7 +10,7 @@ export const UnionType = () => {
   }
 
   const clickB = () => {
-    setValue("A")
+    setValue("B")
   }
 
   // Error
