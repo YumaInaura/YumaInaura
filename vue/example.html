@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Vue.js Example</title>
+
+  <style>
+    #message {
+      font-weight: bold;
+      color: #004a7f;
+      font-size: 20pt;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="app">
+    <span id="message">{{message}}</span>
+    <table border="1">
+      <tr v-for="ans in answers">
+        <td> {{ ans }} </td>
+      </tr>
+    </table>
+  </div>
+
+  <script src="https://unpkg.com/vue@next"></script>
+
+  <script>
+    Vue.createApp({
+      data: function () {
+        return {
+          answers: ["a","b","c"],
+          message: 'Hello world!'
+        }
+      }
+    }).mount('#app')
+  </script>
+
+</body>
+
+</html>

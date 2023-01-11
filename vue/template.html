@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Vue.js Example</title>
+
+  <style>
+    #message {
+      font-weight: bold;
+      color: #004a7f;
+      font-size: 20pt;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="app">
+    <span id="message">{{message}}</span>
+  </div>
+
+  <script src="https://unpkg.com/vue@next"></script>
+
+  <script>
+    Vue.createApp({
+      data: function () {
+        return {
+          message: 'Hello world!'
+        }
+      }
+    }).mount('#app')
+  </script>
+
+</body>
+
+</html>
