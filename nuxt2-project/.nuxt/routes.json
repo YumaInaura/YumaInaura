@@ -7,6 +7,13 @@
     "_name": "_10dcd6fc"
   },
   {
+    "name": "click",
+    "path": "/click",
+    "component": "/Users/yumainaura/projects/YumaInaura/nuxt2-project/pages/click.vue",
+    "chunkName": "pages/click",
+    "_name": "_bd2edd30"
+  },
+  {
     "name": "clickaxios",
     "path": "/clickaxios",
     "component": "/Users/yumainaura/projects/YumaInaura/nuxt2-project/pages/clickaxios.vue",
@@ -14,11 +21,11 @@
     "_name": "_15d7773e"
   },
   {
-    "name": "closable",
-    "path": "/closable",
-    "component": "/Users/yumainaura/projects/YumaInaura/nuxt2-project/pages/closable.vue",
-    "chunkName": "pages/closable",
-    "_name": "_38c06092"
+    "name": "inputprevent",
+    "path": "/inputprevent",
+    "component": "/Users/yumainaura/projects/YumaInaura/nuxt2-project/pages/inputprevent.vue",
+    "chunkName": "pages/inputprevent",
+    "_name": "_40a5841e"
   },
   {
     "name": "map",

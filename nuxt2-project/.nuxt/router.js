@@ -5,8 +5,9 @@ import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
 const _10dcd6fc = () => interopDefault(import('../pages/child.vue' /* webpackChunkName: "pages/child" */))
+const _bd2edd30 = () => interopDefault(import('../pages/click.vue' /* webpackChunkName: "pages/click" */))
 const _15d7773e = () => interopDefault(import('../pages/clickaxios.vue' /* webpackChunkName: "pages/clickaxios" */))
-const _38c06092 = () => interopDefault(import('../pages/closable.vue' /* webpackChunkName: "pages/closable" */))
+const _40a5841e = () => interopDefault(import('../pages/inputprevent.vue' /* webpackChunkName: "pages/inputprevent" */))
 const _2d41cd88 = () => interopDefault(import('../pages/map.vue' /* webpackChunkName: "pages/map" */))
 const _a3fa3c0c = () => interopDefault(import('../pages/parent.vue' /* webpackChunkName: "pages/parent" */))
 const _1c61eae8 = () => interopDefault(import('../pages/popup.vue' /* webpackChunkName: "pages/popup" */))
@@ -29,13 +30,17 @@ export const routerOptions = {
     component: _10dcd6fc,
     name: "child"
   }, {
+    path: "/click",
+    component: _bd2edd30,
+    name: "click"
+  }, {
     path: "/clickaxios",
     component: _15d7773e,
     name: "clickaxios"
   }, {
-    path: "/closable",
-    component: _38c06092,
-    name: "closable"
+    path: "/inputprevent",
+    component: _40a5841e,
+    name: "inputprevent"
   }, {
     path: "/map",
     component: _2d41cd88,
