@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @ex %>
+
+<div>
+  <%= link_to "Edit this ex", edit_ex_path(@ex) %> |
+  <%= link_to "Back to exes", exes_path %>
+
+  <%= button_to "Destroy this ex", @ex, method: :delete %>
+</div>

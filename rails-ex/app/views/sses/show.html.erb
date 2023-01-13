@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @ss %>
+
+<div>
+  <%= link_to "Edit this ss", edit_ss_path(@ss) %> |
+  <%= link_to "Back to sses", sses_path %>
+
+  <%= button_to "Destroy this ss", @ss, method: :delete %>
+</div>
