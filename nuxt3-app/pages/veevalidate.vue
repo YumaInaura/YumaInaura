@@ -6,19 +6,21 @@ import { useField } from "vee-validate";
 
 const { value: username, errorMessage: usernameError } = useField(
   "username",
-  "required|min:2", // バリデーションルールを文字列形式で指定
+  "required|min:2",
 );
 const { value: email, errorMessage: emailError } = useField(
   "email",
-  "required|email", // バリデーションルールを文字列形式で指定
+  "required|email",
 );
 
 const submit = () => {
   console.log(username.value, email.value);
 };
+
 </script>
 
 <template>
+  <form>
   <div class="form">
     <div class="field">
       <label for="username">username</label>
@@ -42,7 +44,7 @@ const submit = () => {
     <div class="field">
       <button type="button" @click="submit">登録</button>
     </div>
-  </div>
+  </div></form>
 </template>
 
 <style lang="scss" scoped>
