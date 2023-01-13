@@ -1,0 +1,7 @@
+@exes.map do |ex|
+  {
+    id: ex.id,
+    message: ex.message,
+    url: ex_url(ex, format: :json)
+  }
+end

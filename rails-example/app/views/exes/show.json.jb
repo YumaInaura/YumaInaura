@@ -1,0 +1,6 @@
+{
+  id: @ex.id,
+  message: @ex.message,
+  created_at: @ex.created_at,
+  updated_at: @ex.updated_at
+}

@@ -1,0 +1,6 @@
+@messages.map do |message|
+  {
+    id: message.id,
+    url: message_url(message, format: :json)
+  }
+end
