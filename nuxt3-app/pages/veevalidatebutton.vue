@@ -17,6 +17,7 @@ function submit(event) {
 
   if (!emailValidateMeta.valid) { return; }
 
+  console.log(emailValue.value)
   console.log("submit");
 }
 </script>

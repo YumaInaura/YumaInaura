@@ -1,5 +1,5 @@
 <!-- https://vee-validate.logaretm.com/v4/guide/components/validation -->
-<!-- https://levelup.gitconnected.com/veevalidate-4-how-to-disable-the-submit-button-2c893c437021 -->
+<!-- https://vee-validate.logaretm.com/v4/api/composition-helpers -->
 
 <template>
   <Form @submit="submit" :validation-schema="schema">
