@@ -122,6 +122,8 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.10-x86_64-darwin)
       racc (~> 1.4)
+    nokogiri (1.13.10-x86_64-linux)
+      racc (~> 1.4)
     orm_adapter (0.5.0)
     pry (0.14.1)
       coderay (~> 1.1)
@@ -132,7 +134,7 @@ GEM
     puma (4.3.12)
       nio4r (~> 2.0)
     racc (1.6.2)
-    rack (2.2.5)
+    rack (2.2.6.2)
     rack-proxy (0.7.4)
       rack
     rack-test (2.0.2)
@@ -217,6 +219,7 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     sqlite3 (1.5.4-x86_64-darwin)
+    sqlite3 (1.5.4-x86_64-linux)
     thor (1.2.1)
     thread_safe (0.3.6)
     tilt (2.0.11)
@@ -252,6 +255,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-21
+  x86_64-linux
 
 DEPENDENCIES
   bootsnap (>= 1.4.2)
