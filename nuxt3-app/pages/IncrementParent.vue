@@ -9,6 +9,8 @@
 </template>
 <script>
 import LikeHeader from '../components/LikeHeader.vue'
+import LikeNumber from '../components/LikeNumber.vue'
+
 export default {
   data(){
     return{
