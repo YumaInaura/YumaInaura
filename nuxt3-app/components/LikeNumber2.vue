@@ -20,7 +20,7 @@ export default {
   methods: {
     increment() {
       this.number += 1;
-      this.$parent.number1 = this.number;
+      this.$parent.number2 = this.number;
       this.$emit('incrementNumber1')
     }
   }
