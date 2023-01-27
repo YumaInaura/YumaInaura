@@ -2,34 +2,32 @@
 
 <template>
   <div>
-    <LikeNumber :numbering="0" @reset="reset"></LikeNumber>
-    <LikeNumber :numbering="1" @reset="reset"></LikeNumber>
-    <button @click="reset">Parent reset</button>
     <div>
-      number
+      Total Count
       {{ numbers[0] + numbers[1] }}
     </div>
+    <button @click="reset">Reset</button>
+    <CountupChild :numbering="0"></CountupChild>
+    <CountupChild :numbering="1"></CountupChild>
   </div>
 </template>
 
 <script>
-import LikeNumber from '../components/LikeNumber.vue'
+import CountupChild from '../components/CountupChild.vue'
 
 export default {
   data(){
     return{
       numbers: [0,0],
-      number1: 0,
-      number2: 0,
     }
   },
   methods:{
     reset(){
-      this.numbers = [0, 0]
+      this.numbers = [0,0]
     }
   },
   components:{
-    LikeNumber
+    CountupChild
   }
 }
 </script>
