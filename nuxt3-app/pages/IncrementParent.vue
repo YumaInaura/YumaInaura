@@ -4,29 +4,38 @@
   <div>
     <div>
       Total Count
-      {{ numbers[0] + numbers[1] }}
+      {{
+        numbers.reduce(function (sum, element) {
+          return sum + element;
+        }, 0)
+      }}
     </div>
     <button @click="reset">Reset</button>
-    <CountupChild :numbering="0"></CountupChild>
-    <CountupChild :numbering="1"></CountupChild>
+
+    <div v-for="item in items" v-bind:key="item">
+      <CountupChild :numbering="item"></CountupChild>
+    </div>
   </div>
 </template>
 
 <script>
 import CountupChild from '../components/CountupChild.vue'
 
+const countupLoop = 3;
+
 export default {
-  data(){
-    return{
-      numbers: [0,0],
+  data() {
+    return {
+      numbers: [...Array(countupLoop)].map((_, i) => 0),
+      items: [...Array(countupLoop)].map((_, i) => i)
     }
   },
-  methods:{
-    reset(){
-      this.numbers = [0,0]
+  methods: {
+    reset() {
+      this.numbers = [...Array(countupLoop)].map((_, i) => 0)
     }
   },
-  components:{
+  components: {
     CountupChild
   }
 }
