@@ -8,6 +8,7 @@ class ExesController < ApplicationController
 
   # GET /exes/1 or /exes/1.json
   def show
+    render "exes/show.jb"
   end
 
   # GET /exes/new

@@ -7,7 +7,7 @@ gem 'factory_bot_rails'
 gem 'rack-cors'
 gem 'devise'
 gem 'pry-rails'
-gem 'jb'
+gem 'active_interaction'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", ">= 7.0.4"

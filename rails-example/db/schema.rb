@@ -13,6 +13,7 @@
 ActiveRecord::Schema[7.0].define(version: 2023_01_13_135859) do
   create_table "examples", force: :cascade do |t|
     t.string "name"
+    t.integer "age"
     t.boolean "flag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

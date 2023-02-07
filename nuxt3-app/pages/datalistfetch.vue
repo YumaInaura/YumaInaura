@@ -4,13 +4,14 @@
     <div>
       <input v-model="text" list="item" @change="selectTodo(text)" />
       <datalist id="item">
-        <div v-for="(cityName, key) in todoList" :key="key">
-          <option>{{ cityName }}</option>
+        <div v-for="todo in todoList" :key="todo.value">
+          <option :value="todo.value">{{ todo.name }}</option>
         </div>
+
       </datalist>
     </div>
     <h2>Todo</h2>
-    {{todoItem.title}}
+    {{ todoItem.title }}
   </div>
 </template>
 <script>
@@ -18,7 +19,7 @@
 export default {
   data() {
     return {
-      todoList: [1,2,3],
+      todoList: [{ name: "TODO1", value: 1 }, { name: "TODO2", value: 2 }, { name: "TODO3", value: 3 }],
       queryTodo: '',
       todoItem: {}
     }

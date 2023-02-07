@@ -46,6 +46,9 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
+    active_interaction (5.2.0)
+      activemodel (>= 5.2, < 8)
+      activesupport (>= 5.2, < 8)
     activejob (7.0.4)
       activesupport (= 7.0.4)
       globalid (>= 0.3.6)
@@ -112,7 +115,6 @@ GEM
     io-console (0.6.0)
     irb (1.6.2)
       reline (>= 0.3.0)
-    jb (0.8.0)
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
@@ -257,6 +259,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_interaction
   bcrypt
   bootsnap
   capybara
@@ -264,7 +267,6 @@ DEPENDENCIES
   devise
   factory_bot_rails
   importmap-rails
-  jb
   jbuilder
   pry-rails
   puma (~> 5.0)
