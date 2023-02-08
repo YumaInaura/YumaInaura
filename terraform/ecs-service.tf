@@ -1,6 +1,7 @@
-resource "aws_ecs_service" "ex" {
-  name            = "ex-service"
-  cluster         = "ex"
+
+resource "aws_ecs_service" "tf-ex-service" {
+  name            = "tf-ex-service"
+  cluster         = "tf-ex-cluster"
   task_definition = "rails-task"
 
   launch_type = "FARGATE"
@@ -21,7 +22,7 @@ resource "aws_ecs_service" "ex" {
 
   load_balancer {
     target_group_arn = "arn:aws:elasticloadbalancing:ap-northeast-1:842696858454:targetgroup/tg3435/b61e6c63da5b6c4e"
-    container_name   = "mongo"
+    container_name   = "rails-task"
     container_port   = 80
   }
 

@@ -1,5 +1,5 @@
-resource "aws_ecs_cluster" "ex" {
-  name = "ex"
+resource "aws_ecs_cluster" "tf-ex-cluster" {
+  name = "tf-ex-cluster"
 
   setting {
     name  = "containerInsights"

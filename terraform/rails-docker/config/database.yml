@@ -12,3 +12,11 @@ development:
 test:
   <<: *default
   database: rails_example_test
+
+production:
+  <<: *default
+  host: database-2.cluster-cgklnrcdw5xr.ap-northeast-1.rds.amazonaws.com
+  username: admin
+  database: rails_example_production
+  password: D4y903jgkgdajx3rk3
+
