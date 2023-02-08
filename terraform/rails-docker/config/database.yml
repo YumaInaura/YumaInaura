@@ -15,8 +15,8 @@ test:
 
 production:
   <<: *default
-  host: database-5.cluster-cgklnrcdw5xr.ap-northeast-1.rds.amazonaws.com
+  host: database-2.cluster-cgklnrcdw5xr.ap-northeast-1.rds.amazonaws.com
   username: admin
-  database: database-5
+  database: rails_example_production
   password: D4y903jgkgdajx3rk3
 
