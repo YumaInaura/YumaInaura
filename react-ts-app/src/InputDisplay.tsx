@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Example() {
+function InputDisplay() {
   const [text, setText] = useState("");
 
   return (
@@ -15,4 +15,4 @@ function Example() {
   );
 }
 
-export default Example;
+export default InputDisplay;
