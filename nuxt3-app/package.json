@@ -13,7 +13,7 @@
     "@typescript-eslint/parser": "^5.48.1",
     "eslint": "^8.32.0",
     "eslint-plugin-vue": "^9.9.0",
-    "nuxt": "3.0.0"
+    "nuxt": "^3.2.0"
   },
   "dependencies": {
     "@vee-validate/i18n": "^4.7.3",
