@@ -11,6 +11,7 @@
 
 - Ruby / Ruby on Rails / Perl / Shell Script
 - SQL / BigQuery
+- Nuxt / Vue
 - Linux
 - DB設計 / アプリケーション設計 / アジャイル開発
 - 1on1ミーティング
@@ -58,7 +59,9 @@
 2022年8月 -
 
 - Ruby on RailsでのバックエンドAPI開発
-- C# での IoT系 アプリ開発
+- モンキーテスト・バグ洗い出し専任での開発サポート
+- C# での IoT系 アプリ開発 
+- Nuxt3 / Vue3 での フロントエンド開発
 - コードレビュー・アプリテストに開発サポートとして参加
 
 # Twitter
