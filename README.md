@@ -20,7 +20,7 @@
 ## 業務で利用したことがあるもの
 
 - Go lang / C# / PHP / Cake PHP / python (django)
-- GCP / AWS (SQSなど)
+- GCP / AWS (ECS/SQSなど) / Terraform
 - 簡単なCSS 
 - Vue / nuxt / React
 - Stripe (決済サービス)
