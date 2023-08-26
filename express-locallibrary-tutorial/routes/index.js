@@ -1,35 +1,32 @@
+const mongoose = require('mongoose')
+
+// https://mongoosejs.com/docs/index.html
+
+
+mongoose.connect('mongodb://127.0.0.1:27017/test')
+
+// スキーマの定義
+const kittySchema = new mongoose.Schema({
+  name: String
+})
+
+// モデルにスキーマをコンパイルする (らしい)
+const Kitten = mongoose.model('Kitten', kittySchema)
+
+// DBに保存する
+const fluffy = new Kitten({ name: 'fluffy' })
+fluffy.save()
+
+// 特定のnameのデータを取得する
+// DBへの保存なのでスクリプトを起動するたびにデータが増える
+const kittens = Kitten.find({ name: /^fluff/ });
+
 var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Expresssssss' });
+  res.render('index', { title: `Expresssssss` });
 });
 
 module.exports = router;
-
-//Import the mongoose module
-var mongoose = require("mongoose");
-
-//Set up default mongoose connection
-var mongoDB = "mongodb://127.0.0.1/my_database";
-mongoose.connect(mongoDB);
-// Get Mongoose to use the global promise library
-mongoose.Promise = global.Promise;
-//Get the default connection
-var db = mongoose.connection;
-
-//Bind connection to error event (to get notification of connection errors)
-db.on("error", console.error.bind(console, "MongoDB connection error:"));
-
-// Define schema
-var Schema = mongoose.Schema;
-
-var SomeModelSchema = new Schema({
-  a_string: String,
-  a_date: Date,
-});
-
-// Compile model from schema
-var SomeModel = mongoose.model("SomeModel", SomeModelSchema);
-
