@@ -58,7 +58,7 @@ round = 0
     published: true
     ---
 
-    #{item['body']}
+    #{item['body'].slice(0..79999)}
     EOM
 
     # puts filebody
