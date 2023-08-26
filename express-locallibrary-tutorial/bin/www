@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('express:server');
+var debug = require('debug')('express-locallibrary-tutorial:server');
 var http = require('http');
 
 /**
