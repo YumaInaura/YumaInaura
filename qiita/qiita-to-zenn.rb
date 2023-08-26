@@ -49,7 +49,7 @@ round = 0
 
     filebody = <<~EOM
     ---
-    title: #{omitted_title}
+    title: "#{omitted_title}"
     emoji: "🖥"
     type: "#{type}"
     topics: #{tag_names}
