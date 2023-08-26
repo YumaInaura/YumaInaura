@@ -27,18 +27,26 @@ round = 0
     puts "#{round} #{item['url']}"
     puts "#{item['title']}"
 
-    p item
+    slug = item['created_at'].gsub(':', '_').gsub('+', '-')
+    puts slug
 
-    sleep 1
+    filepath = "../articles/qiita-#{slug}.md"
+    puts filepath
 
-    filepath = "../articles/#{SecureRandom.uuid}.md"
+    tag_names = item['tags'].map { |tag| tag['name'] }
+
+    type = if tag_names.include?('ポエム')
+      'tech'
+    else
+      'idea'
+    end
 
     filebody = <<~EOM
     ---
     title: #{item['title']}
     emoji: "🖥"
     type: "tech"
-    topics: #{item['tags'].map { |tag| tag['name'] }}
+    topics: #{tag_names}
     published: true
     ---
 
@@ -50,6 +58,8 @@ round = 0
     # file = File.open(filepath, "w")
     # file.write(filebody)
     # file.close
+
+    sleep 1
 
     exit
   end
