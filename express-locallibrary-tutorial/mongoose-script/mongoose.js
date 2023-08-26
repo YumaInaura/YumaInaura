@@ -22,9 +22,8 @@ async function main() {
 
   console.log('SAVE')
 
-  // 特定のnameのデータを取得する
-  // DBへの保存なのでスクリプトを起動するたびにデータが増える
-  const kittens = await Kitten.find({ name: /^fluff/ });
+  // 特定の条件式でデータを取得する
+  // DBへの保存なのでこのスクリプトを起動するたびにデータが増える
 
   // 表示例
   // [
@@ -39,6 +38,10 @@ async function main() {
   //     __v: 0
   //   }
   // ]
+  const kittens = await Kitten.find({ name: /^fluff/ });
   console.log(kittens)
 
+  // レコード個数を表示
+  const count = await Kitten.count()
+  console.log(count)
 }

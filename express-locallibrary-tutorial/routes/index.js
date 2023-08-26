@@ -10,23 +10,22 @@ const kittySchema = new mongoose.Schema({
   name: String
 })
 
-// モデルにスキーマをコンパイルする (らしい)
 const Kitten = mongoose.model('Kitten', kittySchema)
 
-// DBに保存する
-const fluffy = new Kitten({ name: 'fluffy' })
-fluffy.save()
+var express = require('express')
+var router = express.Router()
 
-// 特定のnameのデータを取得する
-// DBへの保存なのでスクリプトを起動するたびにデータが増える
-const kittens = Kitten.find({ name: /^fluff/ });
 
-var express = require('express');
-var router = express.Router();
+const kittens = Kitten.find({ name: /^fluff/ })
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: `Expresssssss` });
-});
+  // DBに保存する
+  const fluffy = new Kitten({ name: 'fluffy' })
+  fluffy.save()
 
-module.exports = router;
+  console.log(kittens)
+
+ res.render('index', { title: `Expresssssss ${kittens}` })
+})
+
+module.exports = router
