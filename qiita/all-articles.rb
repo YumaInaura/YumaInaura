@@ -21,9 +21,6 @@ round = 0
   items = JSON.parse(get_response.response.body)
 
   items.each do |item|
-    patch_url = "https://qiita.com/api/v2/items/#{item['id']}"
-    patch_request = Net::HTTP::Patch.new(patch_url, request_header)
-
     round += 1
     puts "#{round} #{item['url']}"
     puts "#{item['title']}"

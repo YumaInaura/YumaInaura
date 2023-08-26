@@ -1,3 +1,4 @@
+require 'securerandom'
 require 'net/https'
 require 'uri'
 require 'json'
@@ -21,13 +22,35 @@ round = 0
   items = JSON.parse(get_response.response.body)
 
   items.each do |item|
-    patch_url = "https://qiita.com/api/v2/items/#{item['id']}"
-    patch_request = Net::HTTP::Patch.new(patch_url, request_header)
-
     round += 1
+
     puts "#{round} #{item['url']}"
     puts "#{item['title']}"
-  end
 
-  sleep 1
+    p item
+
+    sleep 1
+
+    filepath = "../articles/#{SecureRandom.uuid}.md"
+
+    filebody = <<~EOM
+    ---
+    title: #{item['title']}
+    emoji: "🖥"
+    type: "tech"
+    topics: #{item['tags'].map { |tag| tag['name'] }}
+    published: true
+    ---
+
+    #{item['body']}
+    EOM
+
+    puts filebody
+
+    # file = File.open(filepath, "w")
+    # file.write(filebody)
+    # file.close
+
+    exit
+  end
 end
