@@ -21,11 +21,15 @@ round = 0
 
   items = JSON.parse(get_response.response.body)
 
+  if items.empty?
+    break
+  end
+
   items.each do |item|
     round += 1
 
     puts "#{round} #{item['url']}"
-    puts "#{item['title']}"
+    puts "#{item['title']} (#{item['body'].length}文字)"
 
     omitted_title = item['title'].slice(0..69)
 
