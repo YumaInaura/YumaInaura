@@ -27,7 +27,9 @@ round = 0
     puts "#{round} #{item['url']}"
     puts "#{item['title']}"
 
-    slug = item['created_at'].gsub(':', '_').gsub('+', '-')
+    omitted_title = item['title'].slice(1..70)
+
+    slug = item['created_at'].gsub(':', '_').gsub('+', '-').gsub('T', 't')
     puts slug
 
     filepath = "../articles/qiita-#{slug}.md"
@@ -43,7 +45,7 @@ round = 0
 
     filebody = <<~EOM
     ---
-    title: #{item['title']}
+    title: #{omitted_title}
     emoji: "🖥"
     type: "tech"
     topics: #{tag_names}
