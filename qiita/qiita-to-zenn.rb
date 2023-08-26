@@ -10,6 +10,7 @@ request_header = {'Content-Type' =>'application/json', "Authorization" => "Beare
 
 round = 0
 
+
 # ページングしながらQiitaの全記事を取得
 (1..100).each do |i|
   get_url = "https://qiita.com/api/v2/users/#{ENV['USER_ID']}/items?page=#{i}&per_page=100"
@@ -32,8 +33,15 @@ round = 0
 
     omitted_title = item['title'].slice(0..69)
 
+    # item['created_At'] の値の例
+    # 2023-08-25T21:01:00+09:00
+
     # 複数回実行しても記事が重複しないようにQiitaの記事作成日時をslugとして利用する
-    slug = item['created_at'].gsub(':', '_').gsub('+', '-').gsub('T', 't')
+    slug = item['created_at'].gsub(/:[0-9+]+:[0-9]+.\Z/,'').gsub('T', ' ')
+
+    # Qiitaと同じ公開日時に揃える
+    # 例: 2023-08-25 21:01
+    published_at = item['created_at'].gsub(/T.+/)
 
     filepath = "../articles/qiita-#{slug}.md"
 
@@ -56,6 +64,7 @@ round = 0
     type: "#{type}"
     topics: #{tag_names}
     published: true
+    published_at: #{published_at}
     ---
 
     #{item['body'].slice(0..75000)}
