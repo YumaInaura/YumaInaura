@@ -31,17 +31,19 @@ round = 0
     puts "#{round} #{item['url']}"
     puts "#{item['title']} (#{item['body'].length}文字)"
 
-    omitted_title = item['title'].slice(0..69)
+    title = item['title'].slice(0..69)
 
     # item['created_At'] の値の例
     # 2023-08-25T21:01:00+09:00
 
     # 複数回実行しても記事が重複しないようにQiitaの記事作成日時をslugとして利用する
-    slug = item['created_at'].gsub(/:[0-9+]+:[0-9]+.\Z/,'').gsub('T', ' ')
+    slug = item['created_at'].gsub(':', '_').gsub('+', '-').gsub('T', 't')
 
     # Qiitaと同じ公開日時に揃える
     # 例: 2023-08-25 21:01
-    published_at = item['created_at'].gsub(/T.+/)
+    published_at = item['created_at'].gsub(/:[0-9+]+:[0-9]+.\Z/,'').gsub('T', 't')
+
+    original_created_at_date = item['created_at'].gsub(/T.+/, '')
 
     filepath = "../articles/qiita-#{slug}.md"
 
@@ -59,7 +61,7 @@ round = 0
 
     filebody = <<~EOM
     ---
-    title: #{omitted_title.to_json}
+    title: #{title.to_json}
     emoji: "🖥"
     type: "#{type}"
     topics: #{tag_names}
@@ -68,6 +70,10 @@ round = 0
     ---
 
     #{item['body'].slice(0..75000)}
+
+    # 公開日時
+
+    #{original_created_at_date}
     EOM
 
     # puts filebody
