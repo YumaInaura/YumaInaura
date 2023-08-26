@@ -55,9 +55,9 @@ round = 0
 
     puts filebody
 
-    # file = File.open(filepath, "w")
-    # file.write(filebody)
-    # file.close
+    file = File.open(filepath, "w")
+    file.write(filebody)
+    file.close
 
     sleep 1
 
