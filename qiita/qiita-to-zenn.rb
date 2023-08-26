@@ -27,12 +27,12 @@ round = 0
     puts "#{round} #{item['url']}"
     puts "#{item['title']}"
 
-    omitted_title = item['title'].slice(1..70)
+    omitted_title = item['title'].slice(0..69)
 
     slug = item['created_at'].gsub(':', '_').gsub('+', '-').gsub('T', 't')
-    puts slug
 
     filepath = "../articles/qiita-#{slug}.md"
+
     puts filepath
 
     tag_names = item['tags'].map { |tag| tag['name'] }
@@ -47,7 +47,7 @@ round = 0
     ---
     title: #{omitted_title}
     emoji: "🖥"
-    type: "tech"
+    type: "#{type}"
     topics: #{tag_names}
     published: true
     ---
@@ -55,14 +55,12 @@ round = 0
     #{item['body']}
     EOM
 
-    puts filebody
+    # puts filebody
 
     file = File.open(filepath, "w")
     file.write(filebody)
     file.close
-
-    sleep 1
-
-    exit
   end
+
+  sleep 1
 end
