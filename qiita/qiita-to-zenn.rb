@@ -2,14 +2,13 @@ require 'net/https'
 require 'uri'
 require 'json'
 
-uri = URI.parse("https://qiita.com/")
+uri = URI.parse('https://qiita.com/')
 http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
 
-request_header = {'Content-Type' =>'application/json', "Authorization" => "Bearer #{ENV['QIITA_TOKEN']}"}
+request_header = { 'Content-Type' => 'application/json', 'Authorization' => "Bearer #{ENV['QIITA_TOKEN']}" }
 
 round = 0
-
 
 # ページングしながらQiitaの全記事を取得
 (1..100).each do |i|
@@ -21,9 +20,7 @@ round = 0
 
   items = JSON.parse(get_response.response.body)
 
-  if items.empty?
-    break
-  end
+  break if items.empty?
 
   items.each do |item|
     round += 1
@@ -39,10 +36,6 @@ round = 0
     # 複数回実行しても記事が重複しないようにQiitaの記事作成日時をslugとして利用する
     slug = item['created_at'].gsub(':', '_').gsub('+', '-').gsub('T', 't')
 
-    # Qiitaと同じ公開日時に揃える
-    # 例: 2023-08-25 21:01
-    published_at = item['created_at'].gsub(/:[0-9+]+:[0-9]+.\Z/,'').gsub('T', 't')
-
     original_created_at_date = item['created_at'].gsub(/T.+/, '')
 
     filepath = "../articles/qiita-#{slug}.md"
@@ -54,31 +47,31 @@ round = 0
 
     # Qiitaでポエムタグがついている記事はideaに、そうでない記事はtechに分類する
     type = if tag_names.include?('ポエム') || tag_names.include?('Qiita')
-      'idea'
-    else
-      'tech'
-    end
+             'idea'
+           else
+             'tech'
+           end
 
     filebody = <<~EOM
-    ---
-    title: #{title.to_json}
-    emoji: "🖥"
-    type: "#{type}"
-    topics: #{tag_names}
-    published: true
-    published_at: #{published_at}
-    ---
+      ---
+      title: #{title.to_json}
+      emoji: "🖥"
+      type: "#{type}"
+      topics: #{tag_names}
+      published: true
+      published_at: #{original_created_at_date}
+      ---
 
-    #{item['body'].slice(0..75000)}
+      #{item['body'].slice(0..75_000)}
 
-    # 公開日時
+      # 公開日時
 
-    #{original_created_at_date}
+      #{original_created_at_date}
     EOM
 
     # puts filebody
 
-    file = File.open(filepath, "w")
+    file = File.open(filepath, 'w')
     file.write(filebody)
     file.close
   end
