@@ -66,7 +66,8 @@
 - モンキーテスト・バグ洗い出し専任での開発サポート
 - コードレビュー・アプリテストに開発サポートとして参加
 
-# Qiita
+# 技術系で書いているもの
 
-https://qiita.com/YumaInaura
-
+- Qiita https://qiita.com/YumaInaura
+- Qiita https://qiita.com/Yinaura
+- Gist https://gist.github.com/YumaInaura
