@@ -10,19 +10,18 @@
 ## メインのスキル、経験
 
 - Ruby / Ruby on Rails / Perl / Shell Script
-- SQL / BigQuery
 - Nuxt / Vue
-- Linux
+- AWS / Terraform / ansible / Apache
+- Linux / docker
+- SQL / BigQuery
 - DB設計 / アプリケーション設計 / アジャイル開発
-- 1on1ミーティング
-- ansible / Apache / HTML
+- HTML
 
 ## 業務で利用したことがあるもの
 
 - Go lang / C# / PHP / Cake PHP / python (django)
-- GCP / AWS (ECS/SQSなど) / Terraform
+- GCP
 - 簡単なCSS 
-- Vue / nuxt / React
 - Stripe (決済サービス)
 
 ## 自営業
