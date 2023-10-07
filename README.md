@@ -4,15 +4,16 @@
 
 ## 経歴要約
 
-- 自営業でWebサイトの開発運営を経てから本業プログラマになる。
-- 現在フリーランスで Ruby on Rails / Nuxt でのWebアプリケーション・API開発を中心におこなう ( 2023年現在 )
+- 自営業でWebサイトの開発/運営
+- Ruby on Rails / BigQuery / ansible などによる社内向けツール開発
+- フリーランスで Ruby on Rails / Nuxt / Terraform でのWebアプリケーション開発を中心におこなう ( 2023年現在 )
 
 ## メインのスキル、経験
 
-- Ruby / Ruby on Rails / Perl / Shell Script
+- Ruby / Ruby on Rails / Perl
 - Nuxt / Vue
 - AWS / Terraform / ansible / Apache
-- Linux / docker
+- Linux / docker / Shell script
 - SQL / BigQuery
 - DB設計 / アプリケーション設計 / アジャイル開発
 - HTML
