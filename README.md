@@ -49,25 +49,23 @@
 
 ##  株式会社 Tandems
 
-2019年6月 - 2022
+2019年6月 - 2022年
 
-- Ruby on Rails でのバックエンドAPI開発
-- APIの設計開発、DBのボトルネック負荷調査、クエリの速度チューニングなど
+- Ruby on Rails での JSON API開発 (フロント・バック構成)
+- Stripe/IIJなどの外部サービスと連携するAPIの設計開発、DBのボトルネック負荷調査、クエリの速度チューニングなど
 
 ## フリーランス / Tamdens サポーター
 
-
 2022年8月 -
 
-- Ruby on RailsでのバックエンドAPI開発
-- Nuxt3 / Vue3 での フロントエンド開発
-- AWS + Terraform での ECSデプロイなどの構築
-- C# での IoT系 アプリ開発 
-- モンキーテスト・バグ洗い出し専任での開発サポート
-- コードレビュー・アプリテストに開発サポートとして参加
+- モンキーテスト・バグ洗い出しの開発サポート
+- コードレビュー・アプリテストに開発サポート
+- C# での IoT系 アプリ開発
+- 小規模企業の会計生産システムリプレースの要件定義 
+- Ruby on Rails / Nuxt3 (Vue3) / AWS Terraform での開発 
 
-# 技術系で書いているもの
+
+# 技術系記事
 
 - Qiita https://qiita.com/YumaInaura
-- Qiita https://qiita.com/Yinaura
 - Gist https://gist.github.com/YumaInaura
