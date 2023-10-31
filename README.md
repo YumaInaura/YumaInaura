@@ -62,9 +62,7 @@
 - コードレビュー・アプリテストに開発サポート
 - C# での IoT系 アプリ開発 ( + ノーコードツール Adalo も少し )
 - 小規模企業の会計生産システムリプレースの要件定義 
-- Ruby on Rails / Nuxt3 (Vue3) / AWS Terraform での開発 / 開発チームのプランニング
-
-
+- Ruby on Rails / Nuxt3 (Vue3) / AWS / Terraform  / Github ActionsでのCI設定 / 開発チームのプランニング
 
 # 技術系記事
 
