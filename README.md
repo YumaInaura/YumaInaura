@@ -4,8 +4,8 @@
 
 ## 経歴要約
 
-- 自営業でWebサイトの開発/運営
-- Ruby on Rails / BigQuery / ansible などによる社内向けツール開発
+- 自営業でWebサイトの開発/運営 (10年程度)
+- Ruby on Rails / BigQuery / ansible などによる社内向けツール開発 (4年程度)
 - フリーランスで Ruby on Rails / Nuxt / Terraform でのWebアプリケーション開発を中心におこなう ( 2023年現在 )
 
 ## メインのスキル、経験
