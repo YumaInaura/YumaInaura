@@ -1,4 +1,0 @@
-# API
-
-01 * * * * COUNT=100 ROUND=1 python /api/YumaInaura/twitter/pagination-timeline.py  | jq --raw-output .id_str | sed 's/^/https:\/\/twitter.com\/YumaInaura\/status\//g' | python /api/YumaInaura/hatena/bookmark.py
-
