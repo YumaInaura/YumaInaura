@@ -5,8 +5,7 @@
 2024/02/07現在
 
 - フリーランス
-- Tandems株式会社サポーター
-https://tandems.co.jp/
+- Tandems株式会社パートナー ( https://tandems.co.jp/ )
 
 ## 経歴要約
 
