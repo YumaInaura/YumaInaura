@@ -1,23 +1,55 @@
-[user]
-  username = YumaInaura
-  name = YumaInaura
-  email = yuma.inaura@gmail.com
 
 [alias]
-  current-branch-name = ! git branch | grep -e '^\\* ' | sed -e 's/^\\* //g'
-  commit-by-current-branch-name = ! git commit --allow-empty -m "$(git current-branch-name)"
-  checkout-new-branch-and-commit-empty = "!f() { git checkout -b \"$1\" && git commit-by-current-branch-name; }; f"
-
-  current-branch = !git branch --contains=HEAD
-  branch-root = merge-base master HEAD
-
-  current = !git rev HEAD~0
-
+  # 普通のエイリアス
   ck = checkout
+  br = branch
   st = status -s
 
+  # fetchしてswitch
+  fetch-and-switch = "!f() { git fetch; git switch \"$1\"; }; f"
+  fs = fetch-and-switch
+
+  # 対象ブランチを削除してから再作成
+  delete-and-checkout = "!f() { git branch -D \"$1\"; git checkout -b \"$1\"; }; f"
+
+  # localのブランチをすべて削除
+  delete-branches = !git branch -D `git branch | xargs`
+
+  # 新規ブランチを作成して空コミットを作成
+  new-branch = "!f() { git checkout -b \"$1\"; git commit --allow-empty -m \"$1\"; }; f"
+
+  # 変更のない状態でコミットを作成
+  em = !git commit --allow-empty
+
+  # 最新状態のmainブランチにrebaseする
+  refresh-main = !git checkout main && git pull && git checkout -
+
+  # 最新状態のmainブランチにrebaseする
+  rebase-to-latest-main = !git checkout main && git pull && git checkout - && git rebase main
+
+  # 現在のブランチを表示
+  current = !git symbolic-ref --short HEAD
+
+  update = !git add . && git commit -m "update"
+
+  # originからpullする
+  pull-from-origin = !git pull origin $(git current)
+  po = pull-from-origin
+
+  # 現在チェックアウト中のブランチを除いてlocalのブランチをすべて削除
+  ; delete-all-branches = sh -c 'git branch -D `git branch --merged | grep -v \* | xargs`'
+
+  # なにも変更差分がない状態でコミットを作ってpushする
+  pr = "!sh -c 'git checkout -b $1 && git commit --allow-empty -m $1 && git push' -"
+
+  # 現在ブランチをリモート(origin)の最新の状態に書き換える
+  reset-current = !git fetch && git reset --hard origin/$(git current)
+
+
+  # 現在のコミットを壊してコミット未反映状態にする
   break = reset HEAD^
 
+  # 今の作業内容をammendする
   forget = !git add . && git commit --amend
   fg = !git forget
 
@@ -25,24 +57,15 @@
   cma = commit --amend
   amend = commit --amend
 
+  # 新規コミットを作る
   create = !git add . && git commit
   cr = !git create
 
-  br = branch
+  # rebaseでもmergeでもcherry-pickでもabortする
+  abort = !git rebase --abort || git merge --abort | git cherry-pick --abort
 
-  changes = !git diff --name-status $(git merge-base master HEAD)
-
-  abort = rebase --abort
-
-  continue = !git rbc
-
+  # rebaseの時の変更を反映する
   change = !git add . && git rebase --continue
+
+  # コミットされていないものはすべて消す
   vanish = !git reset . && git checkout . && git clean -fd
-
-[credential]
-  helper = osxkeychain
-[core]
-  excludesfile = /Users/yuma/.gitignore
-[push]
-  default = current
-
