@@ -22,7 +22,7 @@
 - Linux / docker / Shell script
 - SQL / BigQuery
 - DB設計 / アプリケーション設計 / アジャイル開発
-- HTML
+- HTML / CSS
 
 ## 業務で利用したことがあるもの
 
