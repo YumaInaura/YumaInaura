@@ -28,7 +28,6 @@
 
 - Go lang / C# / PHP / Cake PHP / python (django)
 - GCP
-- 簡単なCSS 
 - Stripe (決済サービス)
 
 ## 自営業
