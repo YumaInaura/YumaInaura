@@ -74,6 +74,8 @@
 - Ruby on Rails
 - Nuxt3 (Vue3)
 - AWS / Terraform
+- 要件定義、見積もり
+- 技術選定、実装設計
 - Github ActionsでのCI設定
 - 開発チームのプランニング、スクラムマスター
 - PlaywrghtによるフロントテストCIテスト、VRT、E2Eテスト
