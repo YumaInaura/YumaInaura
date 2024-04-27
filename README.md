@@ -96,3 +96,7 @@
 
 - Qiita https://qiita.com/YumaInaura
 - Gist https://gist.github.com/YumaInaura
+
+# プライベート ブログ
+
+- Note https://note.com/yumainaura
