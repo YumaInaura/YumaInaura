@@ -79,10 +79,10 @@
 - C# での IoT系 アプリ開発 ( + ノーコードツール Adalo も少し )
 - 小規模企業の会計生産システムリプレースの要件定義
 
-## 2023年 1月 -  BtoB Webサービスの新規開発・保守
+## 2023年 1月 -  BtoB向けWebサービスの新規開発・保守
 
 - Ruby on Rails ( API )
-- Nuxt3 ( Vue3 )
+- Nuxt3 ( Vue3 ) + Typescript
 - AWS / Terraform
 - 要件定義、見積もり
 - 技術選定、実装設計
