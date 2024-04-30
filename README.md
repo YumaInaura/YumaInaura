@@ -85,11 +85,12 @@
 - Nuxt3 ( Vue3 ) + Typescript
 - AWS / Terraform
 - 要件定義、見積もり
+- 機能改善提案
 - 技術選定、実装設計
 - 開発チームのプランニング、スクラムマスター
 - プレイングマネージャー(的な役割)
-- Playwrightによるフロントテスト、VRT(ビジュアルリグレッションテスト)
-- フロント操作+API通信も含めたE2Eテストの構築、Github Actions での CI設定
+- フロント操作+API通信も含めた E2Eテストの構築、Github Actions での CI設定
+- フロントのVRT(ビジュアルリグレッションテスト)
 - デザイン・UI発案、Tailwind CSS (多少)
 
 # 技術系記事
