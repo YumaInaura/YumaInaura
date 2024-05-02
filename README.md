@@ -94,7 +94,8 @@
 
 - Ruby on Rails ( API )
 - Nuxt3 ( Vue3 ) + Typescript
-- AWS / Terraform
+- docker 
+- AWS / Terraform ( ECS / SES / Synthetics / Lambda / R53 などによる構築 )
 - 要件定義、見積もり
 - 機能提案、機能改善提案
 - 技術選定、実装設計
