@@ -84,7 +84,7 @@ C# での IoT系 アプリ開発 ( + ノーコードツール Adalo も少し )
 - Ruby on Rails を中心に集計用SQLの作成、BigQuery / ansible / Golang なども扱う
 - アジャイル開発で要件定義、機能設計、実装まで含めて担当
 
-# 業務委託など
+## 業務委託など
 
 - 受託開発 ( PHP でのWebサイト作成、改修 )
 - 業務委託・常駐 ( PHP / Cake PHP / Java )
