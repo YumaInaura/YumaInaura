@@ -44,13 +44,11 @@
 - Nuxt3 ( Vue3 ) + Typescript
 - docker 
 - AWS / Terraform ( ECS / SES / ALB / WAF / Synthetics / Lambda / R53 などによる構築・保守 )
-- 要件定義、見積もり
-- 機能提案、機能改善提案
+- 要件定義、見積もり、機能提案
 - 技術選定、実装設計
-- アジャイル開発のスクラムマスター、開発チームのプランニング、プレイングマネージャー(的な役割)
+- アジャイル開発のスクラムマスター、開発チームのプランニング
 - クライアントとの直接の相談・対話
-- Playwright による E2Eテストの構築、Github Actions での CI設定
-- フロント実装に対するのVRT(ビジュアルリグレッションテスト)
+- Playwright による E2Eテスト、ビジュアルリグレッションテストの構築、Github Actions での CI設定
 - デザイン・UI発案、Tailwind CSS (多少)
 
 ### 2022年 要件定義
