@@ -13,7 +13,7 @@
 
 - 自営業でWebサイトの開発/運営 (10年程度)
 - Ruby on Rails / BigQuery / ansible などによる社内向けツール開発 (4年程度)
-- フリーランスで Ruby on Rails / Nuxt / Terraform でのWebアプリケーション開発を中心におこなう ( 2023年現在 )
+- フリーランスで Ruby on Rails / Nuxt / Terraform でのWebアプリケーション開発を中心におこなう ( 2024年現在 )
 - アジャイル開発でスクラムマスター、要件定義などを担当
 
 # メインのスキル、経験
