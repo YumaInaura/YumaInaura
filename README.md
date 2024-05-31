@@ -8,29 +8,12 @@
 - フルリモート
 - Tandems株式会社パートナー ( https://tandems.co.jp/ )
 
-
 # 経歴要約
 
 - 自営業でWebサイトの開発/運営 (10年程度)
 - Ruby on Rails / BigQuery / ansible などによる社内向けツール開発 (4年程度)
 - フリーランスで Ruby on Rails / Nuxt / Terraform でのWebアプリケーション開発を中心におこなう ( 2024年現在 )
 - アジャイル開発でスクラムマスター、要件定義などを担当
-
-# メインのスキル、経験
-
-- Ruby / Ruby on Rails / Perl
-- Nuxt / Vue
-- AWS / Terraform / ansible / Apache
-- Linux / docker / Shell script
-- SQL / BigQuery
-- DB設計 / アプリケーション設計 / アジャイル開発
-- HTML / CSS
-
-# 業務で利用したことがあるもの
-
-- Go lang / C# / PHP / Cake PHP / python (django)
-- GCP
-- Stripe (決済サービス)
 
 # 職務経歴
 
@@ -43,12 +26,12 @@
 - Ruby on Rails ( API )
 - Nuxt3 ( Vue3 ) + Typescript
 - docker 
-- AWS / Terraform ( ECS / SES / ALB / WAF / Synthetics / Lambda / R53 などによる構築・保守 )
+- AWS / Terraform ( ECS / SES / ALB / WAF / Synthetics / Lambda / Route 53 などによる構築・保守 )
 - 要件定義、見積もり、機能提案
-- 技術選定、実装設計
+- 技術選定、実装設計、データベース設計
 - アジャイル開発のスクラムマスター、開発チームのプランニング
-- クライアントとの直接の相談・対話
-- Playwright による E2Eテスト、ビジュアルリグレッションテストの構築、Github Actions での CI設定
+- クライアントとの直接の相談・対話、ミーティングのファシリテーション
+- E2Eテスト、VRT ( ビジュアルリグレッションテスト ) の構築、CI設定 ( Playwright + Github Actions )
 - デザイン・UI発案、Tailwind CSS (多少)
 
 ### 2022年 要件定義
@@ -105,6 +88,7 @@ C# での IoT開発・アプリ開発 ( + ノーコードツール Adalo も少�
 - ブログを書く
 - 座禅
 
+
 # 技術系記事
 
 - Qiita https://qiita.com/YumaInaura
@@ -113,3 +97,19 @@ C# での IoT開発・アプリ開発 ( + ノーコードツール Adalo も少�
 # プライベート ブログ
 
 - Note https://note.com/yumainaura
+
+# メインのスキル、経験
+
+- Ruby / Ruby on Rails / Perl
+- Nuxt / Vue
+- AWS / Terraform / ansible / Apache
+- Linux / docker / Shell script
+- SQL / BigQuery
+- DB設計 / アプリケーション設計 / アジャイル開発
+- HTML / CSS
+
+# 業務で利用したことがあるもの
+
+- Go lang / C# / PHP / Cake PHP / python (django)
+- GCP
+- Stripe (決済サービス)
