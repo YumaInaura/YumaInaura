@@ -24,7 +24,7 @@
 ### 2023年 1月 -  BtoB向けWebサービスの新規開発・追加開発・保守
 
 - Ruby on Rails ( API )
-- Nuxt3 ( Vue3 ) + Typescript
+- Nuxt3 ( Vue3 ) + Typescript ( + Javascript d3 ライブラリ など )
 - docker 
 - AWS / Terraform ( ECS / SES / ALB / WAF / Synthetics / Lambda / Route 53 などによる構築・保守 )
 - 要件定義、見積もり、機能提案
@@ -84,6 +84,7 @@ C# での IoT開発・アプリ開発 ( + ノーコードツール Adalo も少�
 # 趣味
 
 - 映画館通い
+- 散歩、ウォーキング
 - 読書
 - ブログを書く
 - 座禅
