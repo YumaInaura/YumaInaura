@@ -15,6 +15,44 @@
 - フリーランスで Ruby on Rails / Nuxt / Terraform でのWebアプリケーション開発を中心におこなう ( 2024年現在 )
 - アジャイル開発でスクラムマスター、要件定義などを担当
 
+# スキルセット
+
+## メインのスキル、経験
+
+- Ruby / Ruby on Rails / Perl
+- Nuxt / Vue
+- AWS / Terraform / ansible / Apache
+- Linux / docker / Shell script
+- SQL / BigQuery
+- DB設計 / アプリケーション設計 / アジャイル開発
+- HTML / CSS
+
+## 業務で利用したことがあるもの
+
+- Go lang / C# / PHP / Cake PHP / python (django)
+- GCP
+- Stripe (決済サービス)
+
+# パーソナリティ
+
+## 強み
+
+### 言語
+
+チーム開発にはコミュニケーション能力は必須だと思いますが、自分の場合は特に言語能力、文章能力は高いと思っています。
+クライアントとの対話、チームとのコミュニケーション、開発課題をテキストでまとめる時や、 Pull Request の概要を書く時など、人に分かりやすい言葉、文章を心がけています。
+
+昔から文章を書くことを趣味にしたり、読書量が多かったり、日頃から技術ブログを書いたりとしているため鍛えられている素養だと思います。
+
+## レスポンス
+
+## 明るく慣用
+
+## 前に進む
+
+ 
+
+
 # 職務経歴
 
 並び順は上が未来、下が過去
@@ -102,19 +140,3 @@ C# での IoT開発・アプリ開発 ( + ノーコードツール Adalo も少�
 # プライベート ブログ
 
 - Note https://note.com/yumainaura
-
-# メインのスキル、経験
-
-- Ruby / Ruby on Rails / Perl
-- Nuxt / Vue
-- AWS / Terraform / ansible / Apache
-- Linux / docker / Shell script
-- SQL / BigQuery
-- DB設計 / アプリケーション設計 / アジャイル開発
-- HTML / CSS
-
-# 業務で利用したことがあるもの
-
-- Go lang / C# / PHP / Cake PHP / python (django)
-- GCP
-- Stripe (決済サービス)
