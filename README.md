@@ -24,7 +24,8 @@
 - AWS / Terraform / ansible / Apache
 - Linux / docker / Shell script
 - SQL / BigQuery
-- DB設計 / アプリケーション設計 / アジャイル開発
+- 要件定義 / DB設計 / 技術選定 / アプリケーション設計
+- アジャイル開発 / スクラムリーダー / チームリード / プレイングマネージャー 
 - HTML / CSS
 
 ## 業務で利用したことがあるもの
