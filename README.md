@@ -4,7 +4,7 @@
 
 # ご連絡フォーム
 
-[何かあればGoogleFormよりご連絡ください](#https://docs.google.com/forms/d/1tjwtiBEbW-hmNickaNccX-XuHKuKaBZsAGouPOvs474)
+[何かあればGoogleFormよりご連絡ください](https://docs.google.com/forms/d/1tjwtiBEbW-hmNickaNccX-XuHKuKaBZsAGouPOvs474)
 
 # プロフィール
 
