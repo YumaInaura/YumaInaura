@@ -25,9 +25,11 @@
 
 ## メインのスキル、経験
 
-- Ruby / Ruby on Rails / Perl
-- Nuxt / Vue
-- AWS / Terraform / ansible / Apache
+- Ruby / Ruby on Rails - 7年程度
+- Perl
+- Nuxt / Vue - 2年程度
+- AWS / Terraform - 1年程度
+- ansible / Apache
 - Linux / docker / Shell script
 - SQL / BigQuery
 - 要件定義 / DB設計 / 技術選定 / アプリケーション設計
