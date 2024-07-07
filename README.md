@@ -25,10 +25,12 @@
 
 ## メインのスキル、経験
 
-- Ruby / Ruby on Rails - 7年程度
-- Perl
-- Nuxt / Vue - 2年程度
-- AWS / Terraform - 1年程度
+2024/07 現在
+
+- Ruby / Ruby on Rails - プロジェクトで7年程度
+- Nuxt / Vue - プロジェクトで2年程度
+- AWS / Terraform - プロジェクトで1年程度
+- Perl - 自営業時代にゆるく10年程度
 - ansible / Apache
 - Linux / docker / Shell script
 - SQL / BigQuery
