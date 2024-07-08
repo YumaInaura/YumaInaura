@@ -30,10 +30,10 @@
 - Ruby / Ruby on Rails - プロジェクトで7年程度
 - Nuxt / Vue - プロジェクトで2年程度
 - AWS / Terraform - プロジェクトで1年程度
+- SQL / BigQuery - プロジェクトで5年程度
 - Perl - 自営業時代に10年程度
 - Ansible / Apache
 - Linux / docker / Shell script
-- SQL / BigQuery
 - Stripe API / IIJ API / Google Vision API
 - 要件定義 / DB設計 / 技術選定 / アプリケーション設計
 
