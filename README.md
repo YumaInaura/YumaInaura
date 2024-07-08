@@ -33,10 +33,16 @@
 - SQL / BigQuery - プロジェクトで5年程度
 - Perl - 自営業時代に10年程度
 - Apache - 自営業時代に基本チューニング程度
-- Linux / docker / Shell script
+- Linux / docker / Shell script ( それぞれ、どのプロジェクトでも使うものなので、年数は割愛 )
 - Stripe API / IIJ API / Google Vision API
 - Ansible ( Provisioning ツール )
 - 要件定義 / DB設計 / 技術選定 / アプリケーション設計
+
+ツール類
+
+- Git / Github 
+- Pivotal Tracker /  Backlog ( Nu Labo )
+- VsCode / Cursor ( AI特化エディタ )
 
 ## 仕事で利用したことがあるもの
 
