@@ -32,16 +32,16 @@
 - AWS / Terraform - プロジェクトで1年程度
 - SQL / BigQuery - プロジェクトで5年程度
 - Perl - 自営業時代に10年程度
-- Ansible / Apache
+- Apache - 自営業時代に基本チューニング程度
 - Linux / docker / Shell script
 - Stripe API / IIJ API / Google Vision API
+- Ansible ( Provisioning ツール )
 - 要件定義 / DB設計 / 技術選定 / アプリケーション設計
 
-## 業務で利用したことがあるもの
+## 仕事で利用したことがあるもの
 
 - Go lang / C# / PHP / Cake PHP / python (django)
 - GCP ( Google Cloud Platform )
-- Stripe (決済サービス)
 
 # 人からの評価
 
