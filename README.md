@@ -30,16 +30,17 @@
 - Ruby / Ruby on Rails - プロジェクトで7年程度
 - Nuxt / Vue - プロジェクトで2年程度
 - AWS / Terraform - プロジェクトで1年程度
-- Perl - 自営業時代にゆるく10年程度
-- ansible / Apache
+- Perl - 自営業時代に10年程度
+- Ansible / Apache
 - Linux / docker / Shell script
 - SQL / BigQuery
+- Stripe API / IIJ API / Google Vision API
 - 要件定義 / DB設計 / 技術選定 / アプリケーション設計
 
 ## 業務で利用したことがあるもの
 
 - Go lang / C# / PHP / Cake PHP / python (django)
-- GCP
+- GCP ( Google Cloud Platform )
 - Stripe (決済サービス)
 
 # どんなエンジニアか
@@ -48,7 +49,6 @@
 - プロダクト志向で、ビジネス視点も理解しながら開発を進めます。
 - オーナーシップを持って物事を前に進めます。
 - 開発全体や自分個人のパフォーマンスの向上を測り、常にコスト対パフォーマンスを考えています。
-
 
 ## 言語・コミュニケーション
 
