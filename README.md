@@ -30,7 +30,7 @@
 - Ruby / Ruby on Rails - プロジェクトで7年程度
 - Nuxt / Vue - プロジェクトで2年程度
 - AWS / Terraform - プロジェクトで1年程度
-- SQL / BigQuery - プロジェクトで5年程度
+- SQL (ORMを使わずの直接記述) / BigQuery - プロジェクトで5年程度
 - Perl - 自営業時代に10年程度
 - Apache - 自営業時代に基本チューニング程度
 - Linux / docker / Shell script ( それぞれ、どのプロジェクトでも使うものなので、年数は割愛 )
