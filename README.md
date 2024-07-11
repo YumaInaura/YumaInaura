@@ -2,6 +2,10 @@
 
 このレポジトリには稲浦悠馬(いなうらゆうま)のITエンジニアとしての職務経歴を書いています
 
+# 近影
+
+<img width="1237" alt="image" src="https://github.com/user-attachments/assets/8a8ea698-9702-451f-97f0-3687a4f39366">
+
 # 目次
 
 [プロフィール](#プロフィール) / [経歴要約](#経歴要約) / [リーダー・マネージメント経験](#リーダーマネージメント経験) / [スキルセット・経験](#スキルセット経験) / [人からの評価](#人からの評価) / [どんなエンジニアか](#どんなエンジニアか-自己申告) / [パーソナリティ](#パーソナリティ) /  [職務経歴](#職務経歴) / [Q&A](#Q&A) / [趣味](#趣味) / [ブログ](#ブログ) / [ご連絡フォーム](#ご連絡フォーム) 
@@ -308,7 +312,7 @@
 
 ちなみにこんなサイトでした
 
-<img width="932" alt="image" src="https://github.com/YumaInaura/YumaInaura/assets/13635059/bdedaded-7540-4ae5-8b41-e6441aa5b332">
+<img width="854" alt="image" src="https://github.com/user-attachments/assets/efc60a0a-4847-4691-8f38-d669ea69bfd7">
 
 
 # Q&A
