@@ -308,7 +308,7 @@
 
 ちなみにこんなサイトでした
 
-<img width="1102" alt="image" src="https://github.com/YumaInaura/YumaInaura/assets/13635059/a2ac734f-288b-49d0-9734-a675f06f771d">
+<img width="932" alt="image" src="https://github.com/YumaInaura/YumaInaura/assets/13635059/bdedaded-7540-4ae5-8b41-e6441aa5b332">
 
 
 # Q&A
