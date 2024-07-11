@@ -310,7 +310,6 @@
 
 <img width="1102" alt="image" src="https://github.com/YumaInaura/YumaInaura/assets/13635059/a2ac734f-288b-49d0-9734-a675f06f771d">
 
-<img width="1443" alt="image" src="https://github.com/YumaInaura/YumaInaura/assets/13635059/d1b7c75f-f8b1-433e-ac44-0816e445ef88">
 
 # Q&A
 
