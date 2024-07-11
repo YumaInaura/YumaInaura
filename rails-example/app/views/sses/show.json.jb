@@ -1,5 +1,0 @@
-{
-  id: @ss.id,
-  created_at: @ss.created_at,
-  updated_at: @ss.updated_at
-}

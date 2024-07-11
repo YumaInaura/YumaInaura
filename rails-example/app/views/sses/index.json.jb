@@ -1,6 +1,0 @@
-@sses.map do |ss|
-  {
-    id: ss.id,
-    url: ss_url(ss, format: :json)
-  }
-end

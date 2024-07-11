@@ -1,5 +1,0 @@
-{
-  id: @message.id,
-  created_at: @message.created_at,
-  updated_at: @message.updated_at
-}
