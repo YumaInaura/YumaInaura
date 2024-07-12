@@ -4,7 +4,7 @@
 
 # 近影
 
-<img width="1207" alt="image" src="https://github.com/user-attachments/assets/a5e8b68c-5a39-422e-8f19-254910b83719">
+<img width="677" alt="image" src="https://github.com/user-attachments/assets/24bc1f57-5e2a-40f1-8959-a95818b1806a">
 
 # 目次
 
