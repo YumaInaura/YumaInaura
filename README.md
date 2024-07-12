@@ -9,7 +9,8 @@
 
 # 近影とアイコン
 
-![CleanShot 2024-07-12 at 16 19 02@2x](https://github.com/user-attachments/assets/759e6a2c-b8be-4db7-b66c-897026fcbc55)
+![CleanShot 2024-07-12 at 16 20 16@2x](https://github.com/user-attachments/assets/d8608738-dbea-4bd7-9460-3c79dce52f0e)
+
 
 # プロフィール
 
