@@ -9,7 +9,7 @@
 
 # 近影
 
-![CleanShot 2024-07-12 at 16 08 35@2x](https://github.com/user-attachments/assets/4bcb2661-90f9-4786-a300-e71baf0055db)
+![CleanShot 2024-07-12 at 16 10 44@2x](https://github.com/user-attachments/assets/ef24eda1-672b-4432-a7fa-c901fac552af)
 
 # プロフィール
 
