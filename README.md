@@ -310,10 +310,6 @@
 - 最初はレンタルサーバーを契約していましたが、ユーザー数増加に伴いroot権限のある専用サーバー契約に移行しました。
 - 専用サーバー契約に伴い Linux / Apache / ドメイン設定 など各種インフラも経験するようになりました。
 
-ちなみにこんなサイトでした
-
-<img width="854" alt="image" src="https://github.com/user-attachments/assets/efc60a0a-4847-4691-8f38-d669ea69bfd7">
-
 
 # Q&A
 
