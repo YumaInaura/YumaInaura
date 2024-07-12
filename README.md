@@ -2,6 +2,9 @@
 
 このレポジトリには稲浦悠馬(いなうらゆうま)のITエンジニアとしての職務経歴を書いています
 
+# 近影
+
+<img width="1207" alt="image" src="https://github.com/user-attachments/assets/a5e8b68c-5a39-422e-8f19-254910b83719">
 
 # 目次
 
