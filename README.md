@@ -2,6 +2,9 @@
 
 このレポジトリには稲浦悠馬(いなうらゆうま)のITエンジニアとしての職務経歴を書いています
 
+# 近影
+
+<img width="677" alt="image" src="https://github.com/user-attachments/assets/24bc1f57-5e2a-40f1-8959-a95818b1806a">
 
 # 目次
 
@@ -346,9 +349,6 @@
 - 映画館通い : 半年ほどマイブームでした。
 - 音楽制作 : 自分で作詞作曲した曲を、歌、ギター、ベース、ドラムの打ち込みをMTR(マルチトラックレコーダー)で組み合わせて録音したりしていました。
 
-# 近影
-
-<img width="677" alt="image" src="https://github.com/user-attachments/assets/24bc1f57-5e2a-40f1-8959-a95818b1806a">
 
 # ブログ
 
