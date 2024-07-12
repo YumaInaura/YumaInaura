@@ -9,7 +9,7 @@
 
 # 近影
 
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/b38061b5-da91-4178-ab10-2f4b75e2582a)
 
 # プロフィール
 
