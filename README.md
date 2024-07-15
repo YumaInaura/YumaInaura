@@ -11,6 +11,12 @@
 
 ![CleanShot 2024-07-12 at 16 20 16@2x](https://github.com/user-attachments/assets/d8608738-dbea-4bd7-9460-3c79dce52f0e)
 
+# 本棚
+
+本棚を見ればどんな人か分かると言いますが、最近読んでいた本はこちらです。
+
+<img width="1115" alt="image" src="https://github.com/user-attachments/assets/8f45e014-76ab-428a-bce1-aa2460241c86">
+
 
 # プロフィール
 
