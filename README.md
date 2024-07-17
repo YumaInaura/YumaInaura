@@ -13,7 +13,7 @@
 
 # 本棚
 
-本棚を見ればどんな人か分かると言いますが、最近読んでいた本はこちらです。
+「本棚を見ればその人が分かる」と言いますが、最近読んでいた本はこちらです。
 
 <img width="1115" alt="image" src="https://github.com/user-attachments/assets/8f45e014-76ab-428a-bce1-aa2460241c86">
 
