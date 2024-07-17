@@ -11,12 +11,6 @@
 
 ![CleanShot 2024-07-12 at 16 20 16@2x](https://github.com/user-attachments/assets/d8608738-dbea-4bd7-9460-3c79dce52f0e)
 
-# 本棚
-
-「本棚を見ればその人が分かる」と言いますが、最近読んでいた本はこちらです。
-
-<img width="1115" alt="image" src="https://github.com/user-attachments/assets/8f45e014-76ab-428a-bce1-aa2460241c86">
-
 
 # プロフィール
 
@@ -36,6 +30,13 @@
 - Ruby on Rails / BigQuery / ansible などによる社内向けツール開発 (4年程度)
 - フリーランスで Ruby on Rails / Nuxt / Terraform でのWebアプリケーション開発を中心におこなう ( 2024年現在 )
 - アジャイル開発を多く経験し、スクラムマスター、要件定義、クライアントとの直接対話などを担当
+
+# 本棚
+
+「本棚を見ればその人が分かる」と言いますが、最近読んでいた本はこちらです。
+
+<img width="1115" alt="image" src="https://github.com/user-attachments/assets/8f45e014-76ab-428a-bce1-aa2460241c86">
+
 
 # スキルセット・経験
 
