@@ -12,6 +12,8 @@
 
 <img width="774" alt="image" src="https://github.com/user-attachments/assets/676287d3-080e-4d31-9da5-58206d311201">
 
+<img width="1352" alt="image" src="https://github.com/user-attachments/assets/98c360a7-1e23-4d1c-87ad-b919f5a18530">
+
 <!--
 ![CleanShot 2024-07-12 at 16 20 16@2x](https://github.com/user-attachments/assets/d8608738-dbea-4bd7-9460-3c79dce52f0e)
 -->
