@@ -1,14 +1,8 @@
-# プロフィール・職務経歴
-
-このレポジトリには稲浦悠馬(いなうらゆうま)のITエンジニアとしての職務経歴を書いています
-
-
 # 目次
 
 [プロフィール](#プロフィール) / [経歴要約](#経歴要約) / [リーダー・マネージメント経験](#リーダーマネージメント経験) / [スキルセット・経験](#スキルセット経験) / [人からの評価](#人からの評価) / [どんなエンジニアか](#どんなエンジニアか-自己申告) / [パーソナリティ](#パーソナリティ) /  [職務経歴](#職務経歴) / [Q&A](#Q&A) / [趣味](#趣味) / [ブログ](#ブログ) / [ご連絡フォーム](#ご連絡フォーム) 
 
 # 近影とアイコン
-
 
 <img width="774" alt="image" src="https://github.com/user-attachments/assets/676287d3-080e-4d31-9da5-58206d311201">
 
@@ -331,13 +325,4 @@
 - [Qiita](https://qiita.com/YumaInaura)
 - [Gist](https://gist.github.com/YumaInaura)
 
-
-## プライベート ブログ
-
-- [Note](https://note.com/yumainaura)
-
-
-# 連絡フォーム
-
-何かあれば [https://x.com/yumainaura|Xのアカウント] か [GoogleForm](https://docs.google.com/forms/d/1tjwtiBEbW-hmNickaNccX-XuHKuKaBZsAGouPOvs474) よりご連絡ください
 
