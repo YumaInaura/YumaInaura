@@ -31,12 +31,6 @@
 - Ruby on Rails / BigQuery / ansible などによる社内向けツール開発 (4年程度)
 - 自営業でWebサイトの開発/運営 (10年程度)
 
-# 本棚
-
-「本棚を見ればその人が分かる」と言いますが、最近読んでいた本はこちらです。
-
-<img width="1115" alt="image" src="https://github.com/user-attachments/assets/8f45e014-76ab-428a-bce1-aa2460241c86">
-
 
 # スキルセット・経験
 
@@ -343,11 +337,13 @@
 
 - [Note](https://note.com/yumainaura)
 
-# 職務経歴書のススメ
 
-- [ITエンジニア・プログラマの職務経歴書は Github スペシャルレポジトリのREADMEに記録せよ。そして VsCodeでMarkdownをPDF変換するべし。](https://qiita.com/YumaInaura/items/01cfa1026a8a007eb0e6)
+# 連絡フォーム
 
+何かあれば [https://x.com/yumainaura|Xのアカウント] か [GoogleForm](https://docs.google.com/forms/d/1tjwtiBEbW-hmNickaNccX-XuHKuKaBZsAGouPOvs474) よりご連絡ください
 
-# ご連絡フォーム
+# 本棚
 
-[何かあればGoogleFormよりご連絡ください](https://docs.google.com/forms/d/1tjwtiBEbW-hmNickaNccX-XuHKuKaBZsAGouPOvs474)
+「本棚を見ればその人が分かる」と言いますが、最近読んでいた本はこちらです。
+
+<img width="1115" alt="image" src="https://github.com/user-attachments/assets/8f45e014-76ab-428a-bce1-aa2460241c86">
