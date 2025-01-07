@@ -12,7 +12,6 @@
 - プロジェクトリーダー / プレイングマネージャー
 - 1984年生まれ
 - 大阪府在住
-- [Tandems株式会社パートナー](https://tandems.co.jp/) ( 以前の社員としての勤め先で、今もフリーランスとして関わっています )
 
 # 近影とアイコン
 
@@ -323,4 +322,7 @@
 - [Qiita](https://qiita.com/YumaInaura)
 - [Gist](https://gist.github.com/YumaInaura)
 
+## 関係会社
+
+- [Tandems株式会社パートナー](https://tandems.co.jp/) ( 以前の社員としての勤め先で、今もフリーランスとして関わっています )
 
