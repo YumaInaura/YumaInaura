@@ -341,8 +341,3 @@
 
 何かあれば [https://x.com/yumainaura|Xのアカウント] か [GoogleForm](https://docs.google.com/forms/d/1tjwtiBEbW-hmNickaNccX-XuHKuKaBZsAGouPOvs474) よりご連絡ください
 
-# 本棚
-
-「本棚を見ればその人が分かる」と言いますが、最近読んでいた本はこちらです。
-
-<img width="1115" alt="image" src="https://github.com/user-attachments/assets/8f45e014-76ab-428a-bce1-aa2460241c86">
