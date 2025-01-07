@@ -328,4 +328,4 @@
 
 # ご連絡フォーム
 
-何かあれば [GoogleForm|(https://docs.google.com/forms/d/1tjwtiBEbW-hmNickaNccX-XuHKuKaBZsAGouPOvs474) または [Xアカウント|https://x.com/yumainaura] よりご連絡ください
+何かあれば [GoogleForm](https://docs.google.com/forms/d/1tjwtiBEbW-hmNickaNccX-XuHKuKaBZsAGouPOvs474) または [Xアカウント](https://x.com/yumainaura) よりご連絡ください
