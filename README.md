@@ -310,18 +310,9 @@
 - 映画館通い : 半年ほどマイブームでした。
 - 音楽制作 : 自分で作詞作曲した曲を、歌、ギター、ベース、ドラムの打ち込みをMTR(マルチトラックレコーダー)で組み合わせて録音したりしていました。
 
-
 # ブログ
 
 ## 技術系記事
 
 - [Qiita](https://qiita.com/YumaInaura)
 - [Gist](https://gist.github.com/YumaInaura)
-
-## 関係会社
-
-- [Tandems株式会社パートナー](https://tandems.co.jp/) ( 以前の社員としての勤め先で、今もフリーランスとして関わっています )
-
-# ご連絡フォーム
-
-何かあれば [GoogleForm](https://docs.google.com/forms/d/1tjwtiBEbW-hmNickaNccX-XuHKuKaBZsAGouPOvs474) または [Xアカウント](https://x.com/yumainaura) よりご連絡ください
