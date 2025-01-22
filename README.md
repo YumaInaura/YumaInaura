@@ -17,12 +17,11 @@
 
 - アジャイル開発を経験し、スクラムマスター、プレイングマネージャー、要件定義、設計、コーディング、クライアントとの直接のコミュニケーション、連携開発先とのコミュニケーションなどを担当
 - フリーランスで Ruby on Rails ( API ) / Nuxt 3 / Terraform + AWS でのWebアプリケーション開発を中心におこなう ( 2025年現在 )
-- Ruby on Rails / BigQuery / Ansible などによる社内向けツール開発 ( 4年程度 )
-- 自営業でWebサイトの開発/運営 ( 10年程度 )
+- Ruby on Rails / BigQuery / Ansible などによる社内向けツール開発 
 
 # スキルセット・経験
 
-## メインのスキル、経験
+## スキル、経験
 
 2025年1月 現在
 
@@ -30,17 +29,16 @@
 - Nuxt / Vue - プロジェクトで2年程度
 - AWS / Terraform - プロジェクトで2年程度
 - SQL (ORMを使わずの直接記述) / BigQuery - プロジェクトで5年程度
+- 要件定義 / DB設計 / 技術選定 / アプリケーション設計
 - Perl - 自営業時代に10年程度
-- Apache - 自営業時代に基本チューニング程度
 - Linux / docker / Shell script ( それぞれ、どのプロジェクトでも使うものなので、年数は割愛 )
 - Stripe API / IIJ API / Google Vision API
 - Ansible ( Provisioning ツール )
-- 要件定義 / DB設計 / 技術選定 / アプリケーション設計
 
 ツール類
 
 - Git / Github 
-- Pivotal Tracker /  Backlog ( Nu Labo )
+- Pivotal Tracker / Backlog ( Nu Labo )
 - VsCode / Cursor ( AI特化エディタ )
 
 ## 仕事で利用したことがあるもの
@@ -282,7 +280,7 @@
 
 ## 業務委託など
 
-2014年-2025年ごろ
+2014年-2015年ごろ
 
 - 受託開発 ( PHP でのWebサイト作成、改修 ) ( 1年程度 )
 - 常駐での業務委託 ( PHP / Cake PHP / Java )
@@ -309,10 +307,3 @@
 - ブログを書く : 昔からの趣味です。プライベートのブログも技術ブログも書きます。
 - 映画館通い : 半年ほどマイブームでした。
 - 音楽制作 : 自分で作詞作曲した曲を、歌、ギター、ベース、ドラムの打ち込みをMTR(マルチトラックレコーダー)で組み合わせて録音したりしていました。
-
-# ブログ
-
-## 技術系記事
-
-- [Qiita](https://qiita.com/YumaInaura)
-- [Gist](https://gist.github.com/YumaInaura)
